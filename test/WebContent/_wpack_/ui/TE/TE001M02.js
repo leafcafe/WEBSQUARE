@@ -1,0 +1,15 @@
+/*amd /ui/TE/TE001M02.xml 3030 8fe5571e3ac068cba2b3c60d909793e99197210dbefe6b91dc80f19b52b48fdd */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_searchCond'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'DATA_SEQ',name:'DATA_SEQ',dataType:'number'}},{T:1,N:'w2:key',A:{id:'IS_DELETE',name:'IS_DELETE',dataType:'text',defaultValue:'N'}}]}]}]},{T:1,N:'w2:workflowCollection'}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){
+scwin.onpageload = function() {
+	 
+};
+
+scwin.btn_uploadListSearch_onclick = function(e) {
+    udc_fileMultiUpload.searchUploadList(dma_searchCond.get("DATA_SEQ"));
+};
+
+scwin.udc_fileMultiUpload_onFileUploadDone = function(dataSeq) {
+    com.win.alert("dataSeq  ==> " + dataSeq);
+};
+
+}}}]},{T:1,N:'w2:require',A:{as:'udc_fileMultiUploadTE',type:'page',variableClone:'true',src:'/cm/udc/fileMultiUploadTE.xml'}}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'sub_contents flex_gvw'},E:[{T:1,N:'xf:group',A:{class:'shbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{class:'shbox_inner',id:'',style:''},E:[{T:1,N:'xf:group',A:{adaptive:'layout',adaptiveThreshold:'768',class:'w2tb tb ',id:'',style:'',tagname:'table'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:summary'}]},{T:1,N:'xf:group',A:{tagname:'colgroup'},E:[{T:1,N:'xf:group',A:{style:'width:100px;',tagname:'col'}},{T:1,N:'xf:group',A:{style:'',tagname:'col'}}]},{T:1,N:'xf:group',A:{class:'',id:'',style:'',tagname:'tr'},E:[{T:1,N:'xf:group',A:{class:'w2tb_th',style:'',tagname:'th'},E:[{T:1,N:'w2:textbox',A:{class:'req',id:'',label:'DATA_SEQ',style:''}}]},{T:1,N:'xf:group',A:{class:'w2tb_td',style:'',tagname:'td'},E:[{T:1,N:'w2:attributes',E:[{T:1,N:'w2:colspan',E:[{T:3,text:'3'}]},{T:1,N:'w2:rowspan',E:[{T:3,text:'1'}]}]},{T:1,N:'xf:input',A:{class:'',dataType:'number',id:'ibx_dataSeqS',placeholder:'',ref:'data:dma_searchCond.DATA_SEQ',style:'width:148px;'}}]}]}]}]},{T:1,N:'xf:group',A:{class:'btn_shbox',id:'',style:''},E:[{T:1,N:'xf:trigger',A:{class:'btn_cm sch',disabled:'',escape:'false','ev:onclick':'scwin.btn_uploadListSearch_onclick',id:'btn_uploadListSearch',style:'',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'조회'}]}]}]}]},{T:1,N:'xf:group',A:{style:'',id:'',class:'section'},E:[{T:1,N:'w2:udc_fileMultiUploadTE',A:{style:';width:800px;height:600px;',id:'udc_fileMultiUpload',maxFileCount:'15',maxFileSize:'636870912',totalFileSize:'636870912',filter:'gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf, html',subDir:'TE','ev:onFileUploadDone':'scwin.udc_fileMultiUpload_onFileUploadDone'}}]}]}]}]}]})

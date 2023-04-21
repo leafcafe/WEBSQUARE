@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<WebSquare>
+                
+
+    
+
+    
+
+    <components>
+                                
+        
+        
+        <component category="/cm/udc" company="" componentType="pageComponent" description="" developer="choi.jh" disableIcon="" display="udc_fileMultiUploadTE" displaySrc="/cm/udc/fileMultiUploadTE.xml" height="200px" htmlRender="" icon="" id="udc_fileMultiUploadTE" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="" project="test" realType="udc_fileMultiUploadTE" ternId="_cm_udc_fileMultiUploadTE" udc2Component="true" variableClone="true" version="1.0" visible="true" width="100%">
+                                                
+            
+            
+            <properties>
+                                                                
+                
+                
+                <property bindparent="" default="" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="style" necessary="no" type="string"/>
+                                                                
+                
+                
+                <property bindparent="" default="" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="class" necessary="no" type="string"/>
+                                                                
+                
+                
+                <property bindparent="" default="" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="id" necessary="no" type="string"/>
+                                                                
+                
+                
+                <property bindparent="" default="10" description="최대 업로드 파일 개수" maincategory="Basic &amp; ETC" maincategoryorder="01" name="maxFileCount" necessary="no" type="number"/>
+                                                                
+                
+                
+                <property bindparent="" default="536870912" description="업로드할 개별 파일 사이즈 (websquare.xml 환경설정 파일의 maxUploadSize 값보다 커서는 안됨)" maincategory="Basic &amp; ETC" maincategoryorder="01" name="maxFileSize" necessary="no" type="number"/>
+                                                                
+                
+                
+                <property bindparent="" default="2009715200" description="업로드할 전체 파일 사이즈" maincategory="Basic &amp; ETC" maincategoryorder="01" name="totalFileSize" necessary="no" type="number"/>
+                                                                
+                
+                
+                <property bindparent="" default="" description="파일의 저장할 subDir 디렉터리 경로 설정(설정하지 않은 경우 websquare.xml 환경설정 파일의 baseDir 경로에 파일이 저장됨)" maincategory="Basic &amp; ETC" maincategoryorder="01" name="subDir" necessary="no" type="string"/>
+                                                                
+                
+                
+                <property bindparent="" default="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" description="공백(&quot;&quot;)으로 설정하면 모든 파일(*.*)로 설정됨" maincategory="Basic &amp; ETC" maincategoryorder="01" name="filter" necessary="no" type="string"/>
+                                                            
+            
+            
+            </properties>
+                                                
+            
+            
+            <events>
+                                                                
+                
+                
+                <property description="업로드완료 후 발생" name="onFileUploadDone(dataSeq)" type=""/>
+                                                            
+            
+            
+            </events>
+                                            
+        
+        
+        </component>
+                            
+        
+        
+        <component category="/cm/udc" company="" componentType="pageComponent" description="" developer="ucanon" disableIcon="" display="udc_fileMultiUpload" displaySrc="/cm/udc/fileMultiUpload.xml" height="191px" htmlRender="" icon="" id="udc_fileMultiUpload" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="" project="test" realType="udc_fileMultiUpload" ternId="_cm_udc_fileMultiUpload" udc2Component="true" variableClone="true" version="1.0" visible="true" width="100%">
+                                    
+            
+            <properties>
+                                                
+                
+                <property bindparent="" default="width:100%; height:191px" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="style" necessary="no" type="string"/>
+                                                
+                
+                <property bindparent="" default="" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="class" necessary="no" type="string"/>
+                                                
+                
+                <property bindparent="" default="" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="id" necessary="no" type="string"/>
+                                                
+                
+                <property bindparent="" default="10" description="최대 업로드 파일 개수" maincategory="Basic &amp; ETC" maincategoryorder="01" name="maxFileCount" necessary="no" type="number"/>
+                                                
+                
+                <property bindparent="" default="536870912" description="업로드할 개별 파일 사이즈 (websquare.xml 환경설정 파일의 maxUploadSize 값보다 커서는 안됨)" maincategory="Basic &amp; ETC" maincategoryorder="01" name="maxFileSize" necessary="no" type="number"/>
+                                                
+                
+                <property bindparent="" default="2009715200" description="업로드할 전체 파일 사이즈" maincategory="Basic &amp; ETC" maincategoryorder="01" name="totalFileSize" necessary="no" type="number"/>
+                                                
+                
+                <property bindparent="" default="" description="파일의 저장할 subDir 디렉터리 경로 설정(설정하지 않은 경우 websquare.xml 환경설정 파일의 baseDir 경로에 파일이 저장됨)" maincategory="Basic &amp; ETC" maincategoryorder="01" name="subDir" necessary="no" type="string"/>
+                                                
+                
+                <property bindparent="" default="gif, jpg, bmp, png, zip, txt, ppt, pptx, xls, xlsx, doc, docx, xml, csv, pdf" description="공백(&quot;&quot;)으로 설정하면 모든 파일(*.*)로 설정됨" maincategory="Basic &amp; ETC" maincategoryorder="01" name="filter" necessary="no" type="string"/>
+                                                
+                
+                <property bindparent="" default="" description="파일 그룹 관리에서 등록한 파일 그룹 순번" maincategory="Basic &amp; ETC" maincategoryorder="01" name="fileGrpSeq" necessary="yes" type="number"/>
+                                            
+            
+            </properties>
+                                    
+            
+            <events>
+                                                
+                
+                <property description="파일 업로드 완료 시 발생하는 이벤트 함수" name="onFileUploadDone(isSuccess)" type=""/>
+                                            
+            
+            </events>
+                                
+        
+        </component>
+                    
+        
+        <component category="/cm/udc" company="" componentType="pageComponent" description="" developer="user" disableIcon="" display="udc_codeSelectBoxBasic" displaySrc="/cm/udc/codeSelectBoxBasic.xml" height="26px" htmlRender="" icon="" id="udc_codeSelectBoxBasic" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="" project="test" realType="udc_codeSelectBoxBasic" ternId="_cm_udc_codeSelectBoxBasic" udc2Component="true" variableClone="true" version="" visible="true" width="100%">
+                        
+            <properties>
+                                
+                <property bindparent="" default="" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="id" necessary="no" type="string"/>
+                                
+                <property bindparent="" default="" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="class" necessary="no" type="string"/>
+                                
+                <property bindparent="" default="" description="desc" maincategory="Basic &amp; ETC" maincategoryorder="01" name="style" necessary="no" type="string"/>
+                            
+            </properties>
+                    
+        </component>
+            
+        <component category="/cm/udc" company="" componentType="pageComponent" description="" developer="user" disableIcon="" display="udc_fromToCalendar" displaySrc="/cm/udc/fromToCalendar.xml" height="26px" htmlRender="" icon="" id="udc_fromToCalendar" namespaceURI="http://www.inswave.com/websquare" notSupportBrowser="" project="test" realType="udc_fromToCalendar" ternId="_cm_udc_fromToCalendar" udc2Component="true" variableClone="true" version="" visible="true" width="100%">
+            <properties>
+                <property bindparent="" default="udc_fromToCal" description="메인화면에서 사용할 UDC ID" maincategory="Basic &amp; ETC" maincategoryorder="01" name="id" necessary="yes" type="string"/>
+                <property bindparent="" default="" description="Class ID" maincategory="Basic &amp; ETC" maincategoryorder="01" name="class" necessary="no" type="string"/>
+                <property bindparent="" default="" description="메안화면의 style" maincategory="Basic &amp; ETC" maincategoryorder="01" name="style" necessary="no" type="string"/>
+                <property bindparent="" default="" description="bind 할 메인화면의  dataMap 컬럼 ID ( 시작날짜 )" maincategory="Data" maincategoryorder="03" name="refStDt" necessary="yes" type="string"/>
+                <property bindparent="" default="" description="bind 할 메인화면의  dataMap 컬럼 ID ( 종료날짜 )" maincategory="Data" maincategoryorder="03" name="refEdDt" necessary="yes" type="string"/>
+                <property bindparent="" default="" description="bind 할 메인화면의 dataMap  ID (메인화면의 데이타 맵인 경우   예: ../dataMapid )" maincategory="Data" maincategoryorder="03" name="refDataMap" necessary="yes" type="string"/>
+            </properties>
+        </component>
+    </components>
+</WebSquare>
