@@ -1,33 +1,33 @@
-<?xml version="1.0" encoding="EUC-KR"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <websquare>
 	<upload support="true">
 
-		<baseDir value="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\EXAMPLE\WebContent\fileUpload"></baseDir>
+		<baseDir value="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WEBSQUARE\EXAMPLE\WebContent\fileUpload"></baseDir>
 		<!-- 
-			¾÷·ÎµåÇÏ´Â ÆÄÀÏÀÇ ÆÄÀÏÀÌ¸§ ÀÎÄÚµù
+			ì—…ë¡œë“œí•˜ëŠ” íŒŒì¼ì˜ íŒŒì¼ì´ë¦„ ì¸ì½”ë”©
 		-->
 		<encoding value="UTF-8" />
 
 		<!-- 
-			upload size ±âº» 1M
+			upload size ê¸°ë³¸ 1M
 		-->
 		<maxUploadSize value="50000000" />
 
 		<!-- 
-			¾÷·Îµå Å° ¼³Á¤
+			ì—…ë¡œë“œ í‚¤ ì„¤ì •
 			session|random
 			default => session
 			
 			session
-		ÀÏ¶§´Â ¿­¸° ¼¼¼Ç´ç ÇÏ³ªÀÇ Æú´õ°¡ ÇÒ´çµÊ..
+		ì¼ë•ŒëŠ” ì—´ë¦° ì„¸ì…˜ë‹¹ í•˜ë‚˜ì˜ í´ë”ê°€ í• ë‹¹ë¨..
 		-->
 		<uploadMode value="session" />
 
 		<duplicatedFilePostFix value="yyyy-MM-dd(HH mm ss)"></duplicatedFilePostFix>
 		<!-- 
-			Çã¿ëµÇ´Â ¾÷·Îµå ÆÄÀÏ
-			´ë¼Ò¹®ÀÚ ±¸ºÐ ¾ÈÇÔ
-			, ·Î ±¸ºÐÇØ ÁÜ
+			í—ˆìš©ë˜ëŠ” ì—…ë¡œë“œ íŒŒì¼
+			ëŒ€ì†Œë¬¸ìž êµ¬ë¶„ ì•ˆí•¨
+			, ë¡œ êµ¬ë¶„í•´ ì¤Œ
 		-->
 		<allowedExtension>gif, jpg, doc, xls, ppt, pdf, txt</allowedExtension>
 		<deniedExtension>exe</deniedExtension>
@@ -38,8 +38,8 @@
 	<dispatcher>
 		<post>
 			<!-- 
-				1. formÀ» ÅëÇØ¼­ post ¹æ½ÄÀ¸·Î Àü´Þ µÇ´Â ÆÄ¶ó¸ÞÅÍÀÇ ÀÎÄÚµù
-				2. ±âº»°ª :
+				1. formì„ í†µí•´ì„œ post ë°©ì‹ìœ¼ë¡œ ì „ë‹¬ ë˜ëŠ” íŒŒë¼ë©”í„°ì˜ ì¸ì½”ë”©
+				2. ê¸°ë³¸ê°’ :
 			ISO-8859-1
 			 -->
 			<encoding value="ISO8859-1"></encoding>
@@ -54,69 +54,69 @@
 		</download>
 	</excel>
 	<!--
-		¶óÀÌ¼¾½º Á¤º¸¸¦ º¼ ¼ö ÀÖ´Â IP ´ë¿ª ¼³Á¤
+		ë¼ì´ì„¼ìŠ¤ ì •ë³´ë¥¼ ë³¼ ìˆ˜ ìžˆëŠ” IP ëŒ€ì—­ ì„¤ì •
 	-->
 	<licenseInfoView>
 		<allowedIP value="192.168.* *" />
 	</licenseInfoView>
 	<!--
-	1 : ±âÁ¸ ¿£Áø - ±âº»°ª
-	2 : ±âÁ¸ ¿£Áø(debugÁ¤º¸ Á¦°Å)
-	3 : ½Å±Ô ¿£Áø
-	4 : ½Å±Ô
-	¿£Áø(debugÁ¤º¸ Á¦°Å)
-	Á÷Á¢ ÁöÁ¤ÇÏ´Â °æ¿ì : w2xType
+	1 : ê¸°ì¡´ ì—”ì§„ - ê¸°ë³¸ê°’
+	2 : ê¸°ì¡´ ì—”ì§„(debugì •ë³´ ì œê±°)
+	3 : ì‹ ê·œ ì—”ì§„
+	4 : ì‹ ê·œ
+	ì—”ì§„(debugì •ë³´ ì œê±°)
+	ì§ì ‘ ì§€ì •í•˜ëŠ” ê²½ìš° : w2xType
 
   etag
-    support : etag°ªÀ» ºñ±³ÇÏ¿©
-	ÀÏÄ¡ÇÏ¸é »óÅÂÄÚµå¸¦ 304·Î ¹ÝÈ¯ (±âº»°ª)
-    notsupport : etag°ª ºñ±³ Áö¿ø ¾ÈÇÔ
+    support : etagê°’ì„ ë¹„êµí•˜ì—¬
+	ì¼ì¹˜í•˜ë©´ ìƒíƒœì½”ë“œë¥¼ 304ë¡œ ë°˜í™˜ (ê¸°ë³¸ê°’)
+    notsupport : etagê°’ ë¹„êµ ì§€ì› ì•ˆí•¨
 	deprecated
-		1ÀÌ»óÀÇ
-	Á¤¼ö, ALL, NONE¸¦ ÀÔ·ÂÇÒ ¼ö ÀÖ´Ù.
-		ALLÀÌ ÀÔ·ÂµÈ °æ¿ì deprecated°¡ ¼³Á¤µÈ ¸ðµç ÇÔ¼ö¸¦ »ç¿ëÇÒ ¼ö ¾ø´Ù.
-		Á¤¼ö°¡
-	ÀÔ·ÂµÈ °æ¿ì Á¤¼öº¸´Ù ÀÛ°Å³ª °°Àº ¹öÀüÀ¸·Î deprecatedµÈ ÇÔ¼ö´Â »ç¿ëÇÒ ¼ö ¾ø´Ù.
-		¼Ò½º¿¡ ÀÖ´Â deprecated ¹öÀüº¸´Ù
-	Å« °ªÀÌ ÀÔ·ÂµÇ¾îµµ ¿À·ù°¡ ¹ß»ýÇÏÁö´Â ¾Ê´Â´Ù.
-		NONE°¡ ÀÔ·ÂµÈ °æ¿ì deprecatedµÈ ÇÔ¼ö¸¦ Æ÷ÇÔÇÑ ¸ðµç ÇÔ¼ö¸¦ »ç¿ëÇÒ ¼ö
-	ÀÖ´Ù.
-		¼³Á¤ÀÌ ¾ø´Â °æ¿ì NONE¿Í µ¿ÀÏÇÏ´Ù.
-		¼³Á¤¿¡ ´Ù¸¥ °ªÀÌ µé¾î°£ °æ¿ì NONE¿Í µ¿ÀÏÇÏ´Ù.
+		1ì´ìƒì˜
+	ì •ìˆ˜, ALL, NONEë¥¼ ìž…ë ¥í•  ìˆ˜ ìžˆë‹¤.
+		ALLì´ ìž…ë ¥ëœ ê²½ìš° deprecatedê°€ ì„¤ì •ëœ ëª¨ë“  í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤.
+		ì •ìˆ˜ê°€
+	ìž…ë ¥ëœ ê²½ìš° ì •ìˆ˜ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì€ ë²„ì „ìœ¼ë¡œ deprecatedëœ í•¨ìˆ˜ëŠ” ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤.
+		ì†ŒìŠ¤ì— ìžˆëŠ” deprecated ë²„ì „ë³´ë‹¤
+	í° ê°’ì´ ìž…ë ¥ë˜ì–´ë„ ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì§€ëŠ” ì•ŠëŠ”ë‹¤.
+		NONEê°€ ìž…ë ¥ëœ ê²½ìš° deprecatedëœ í•¨ìˆ˜ë¥¼ í¬í•¨í•œ ëª¨ë“  í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•  ìˆ˜
+	ìžˆë‹¤.
+		ì„¤ì •ì´ ì—†ëŠ” ê²½ìš° NONEì™€ ë™ì¼í•˜ë‹¤.
+		ì„¤ì •ì— ë‹¤ë¥¸ ê°’ì´ ë“¤ì–´ê°„ ê²½ìš° NONEì™€ ë™ì¼í•˜ë‹¤.
 	coverage :
-	function coverage¸¦ ÃøÁ¤ÇÏ±â À§ÇÑ ±â´É. engineTypeÀÌ 1,3,5ÀÎ °æ¿ì¸¸ Á¤»ó µ¿ÀÛÇÑ´Ù. ±âº»°ªÀº
-	notsupportÀÌ´Ù. ¿î¿µÈ¯°æ¿¡¼­´Â ¼³Á¤ÇÏ¸é ¾ÈµÈ´Ù. 
+	function coverageë¥¼ ì¸¡ì •í•˜ê¸° ìœ„í•œ ê¸°ëŠ¥. engineTypeì´ 1,3,5ì¸ ê²½ìš°ë§Œ ì •ìƒ ë™ìž‘í•œë‹¤. ê¸°ë³¸ê°’ì€
+	notsupportì´ë‹¤. ìš´ì˜í™˜ê²½ì—ì„œëŠ” ì„¤ì •í•˜ë©´ ì•ˆëœë‹¤. 
 		support | notsupport (*)
 	 -->
 	<engineType value="6" etag="support" coverage="notsupport" deprecated="NONE" />
 	<i18n>
 		<!-- 
-			´Ù±¹¾î ¸®¼Ò½º ¹øµé ÆÄÀÏÀÌ Á¸ÀçÇÏ´Â Æú´õ. ¼³Á¤ÀÌ ¾ø´Â °æ¿ì $WEBSQUARE_HOME/locale¸¦
-		»ç¿ëÇÑ´Ù. 
-			* ÇÑ±¹¾îÀÇ °æ¿ì baseDir/ko/ ¾Æ·¡ ÆÄÀÏÀÌ Á¸ÀçÇÔ
-			* ¿µ¾îÀÇ °æ¿ì baseDir/en/ ¾Æ·¡
-		ÆÄÀÏÀÌ Á¸ÀçÇÔ
+			ë‹¤êµ­ì–´ ë¦¬ì†ŒìŠ¤ ë²ˆë“¤ íŒŒì¼ì´ ì¡´ìž¬í•˜ëŠ” í´ë”. ì„¤ì •ì´ ì—†ëŠ” ê²½ìš° $WEBSQUARE_HOME/localeë¥¼
+		ì‚¬ìš©í•œë‹¤. 
+			* í•œêµ­ì–´ì˜ ê²½ìš° baseDir/ko/ ì•„ëž˜ íŒŒì¼ì´ ì¡´ìž¬í•¨
+			* ì˜ì–´ì˜ ê²½ìš° baseDir/en/ ì•„ëž˜
+		íŒŒì¼ì´ ì¡´ìž¬í•¨
 			 -->
 		<!--
-			±âº» locale¸¦ ¼³Á¤ÇÑ´Ù. ¼³Á¤ÀÌ ¾ø´Â °æ¿ì enÀ» »ç¿ëÇÑ´Ù. 
+			ê¸°ë³¸ localeë¥¼ ì„¤ì •í•œë‹¤. ì„¤ì •ì´ ì—†ëŠ” ê²½ìš° enì„ ì‚¬ìš©í•œë‹¤. 
 			-->
 		<defaultLocale value="ko">
 			<domain name="localhost" locale="en" />
 		</defaultLocale>
 		<!-- 
-			º¯È¯¿¡ »ç¿ëÇÒ ´Ù±¹¾î¸¦ ¼­¹ö¿¡ ³Ñ°ÜÁÖ±â À§ÇØ »ç¿ëÇÒ ÆÄ¶ó¹ÌÅÍ. ¼³Á¤ÀÌ ¾ø´Â °æ¿ì locale¸¦ »ç¿ëÇÑ´Ù.
+			ë³€í™˜ì— ì‚¬ìš©í•  ë‹¤êµ­ì–´ë¥¼ ì„œë²„ì— ë„˜ê²¨ì£¼ê¸° ìœ„í•´ ì‚¬ìš©í•  íŒŒë¼ë¯¸í„°. ì„¤ì •ì´ ì—†ëŠ” ê²½ìš° localeë¥¼ ì‚¬ìš©í•œë‹¤.
 			
-			´Ù±¹¾î
-		ÆÇ´Ü ¿ì¼±¼øÀ§ 
+			ë‹¤êµ­ì–´
+		íŒë‹¨ ìš°ì„ ìˆœìœ„ 
 			  1.url
 			  2.cookie 
-			  3.defaultLocale¼³Á¤(domainº°
-		default localeÂüÁ¶ ÈÄ ÀüÃ¼ default locale ÂüÁ¶)
+			  3.defaultLocaleì„¤ì •(domainë³„
+		default localeì°¸ì¡° í›„ ì „ì²´ default locale ì°¸ì¡°)
 			-->
 		<localeParam value="locale" />
 		<!-- 
-			baseDir : À¥½ºÄù¾î XMLÆÄÀÏÀÌ Á¸ÀçÇÏ´Â Æú´õ¸¦ ÁöÁ¤ÇÑ´Ù. ¼³Á¤ÀÌ ¾ø´Â °æ¿ì Á¤»ó µ¿ÀÛÇÏÁö ¾Ê´Â´Ù.
-		cache : true | false º¯È¯µÈ ÆÄÀÏÀ» Ä³½ÌÇÒÁö ¼³Á¤ÇÑ´Ù. ±âº»°ªÀº falseÀÌ´Ù.
+			baseDir : ì›¹ìŠ¤í€˜ì–´ XMLíŒŒì¼ì´ ì¡´ìž¬í•˜ëŠ” í´ë”ë¥¼ ì§€ì •í•œë‹¤. ì„¤ì •ì´ ì—†ëŠ” ê²½ìš° ì •ìƒ ë™ìž‘í•˜ì§€ ì•ŠëŠ”ë‹¤.
+		cache : true | false ë³€í™˜ëœ íŒŒì¼ì„ ìºì‹±í• ì§€ ì„¤ì •í•œë‹¤. ê¸°ë³¸ê°’ì€ falseì´ë‹¤.
 			-->
 		<xmlInfo baseDir="" cache="false" />
 	</i18n>

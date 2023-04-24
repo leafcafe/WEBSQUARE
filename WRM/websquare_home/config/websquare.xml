@@ -5,7 +5,7 @@
 		<useBOM value="true" />
 	</csv>
 	<upload>
-		<baseDir value="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WRM\WebContent\fileUpload">
+		<baseDir value="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WEBSQUARE\WRM\WebContent\fileUpload">
 		</baseDir>
 		<encoding value="UTF-8" />
 		<maxUploadSize value="536870912" />
@@ -23,7 +23,7 @@
 			<removeKeyPath value="true" />
 		</callback>
 		<imgUpload>
-			<baseDir value="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WRM\WebContent\imagesUpload" />
+			<baseDir value="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WEBSQUARE\WRM\WebContent\imagesUpload" />
 			<subDir value="" />
 			<allowedExtension>
 				png,jpg,gif,jpeg,tiff,bmp
@@ -123,10 +123,10 @@
 	--> 
 	<log>
 		<target console="true" description="basic log"
-			dir="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WRM\websquare_home\log\websquare" filename="websquare" level="INFO"
+			dir="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WEBSQUARE\WRM\websquare_home\log\websquare" filename="websquare" level="INFO"
 			lineNumber="true" name="websquare" retentionPeriod="10" thread="true" />
 		<target console="true" description="error log"
-			dir="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WRM\websquare_home\log\exception" filename="exception" level="INFO"
+			dir="C:\WEBSQUARE_DEV_PACK_SP5_TEST\workspace\WEBSQUARE\WRM\websquare_home\log\exception" filename="exception" level="INFO"
 			lineNumber="true" name="exception" retentionPeriod="10" thread="true" />
 	</log>
 </websquare>
