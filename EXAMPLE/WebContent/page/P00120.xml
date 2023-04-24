@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220930]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_exam_code"
+					saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="code" name="code" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_exam_1" repeatNode="map"
+					style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="select" name="select"></w2:column>
+						<w2:column dataType="text" id="checkcombobox"
+							name="checkcombobox"></w2:column>
+						<w2:column id="autoComplete" name="autoComplete"
+							dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_exam_2" repeatNode="map"
+					style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="select" name="select"></w2:column>
+						<w2:column dataType="text" id="checkcombobox"
+							name="checkcombobox"></w2:column>
+						<w2:column id="autoComplete" name="autoComplete"
+							dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    scwin.setInitData();
+};
+
+scwin.setInitData = function () {
+    var arrCodeData = [
+        { "label": "Peach", "code": "01" },
+        { "label": "Lime", "code": "02" },
+        { "label": "Apple", "code": "03" },
+        { "label": "Grapes", "code": "04" }
+    ];
+
+    var arrData = [
+        { "select": "03", "checkcombobox": "03", "autoComplete": "03" },
+        { "select": "02", "checkcombobox": "02", "autoComplete": "02" },
+        { "select": "01", "checkcombobox": "01", "autoComplete": "01" },
+        { "select": "04", "checkcombobox": "04", "autoComplete": "04" }
+    ];
+
+    //DataList dlt_exam_code에 데이터 할당
+    dlt_exam_code.setJSON(arrCodeData);
+
+    dlt_exam_1.setJSON(arrData);
+    dlt_exam_2.setJSON(arrData);
+};]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='GridView의 바디 컬럼의 inputType이 목록(콤보)형인 경우 정렬할 데이터의 출처를 설정하는 예제입니다.&lt;br/&gt;정렬할 데이터의 출처의 기본 설정값은 value입니다. 설정을 통해 label로 지정할 수 있습니다.&lt;br/&gt;적용 가능한 inputType은 select, checkcombobox, autoComplete입니다.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="기본 설정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label="목록에 연결된 value 데이터를 기반으로 정렬됩니다." style="">
+						</w2:textbox>
+						<w2:gridView autoFit="allColumn" autoFitMinWidth="240"
+							class="wq_gvw" dataList="data:dlt_exam_1"
+							defaultCellHeight="24"
+							id="" style="height:80px;" visibleRowNum="4"
+							visibleRowNumFix="true" sortEvent="onclick"
+							sortable="true" showSortableImage="true">
+							<w2:caption id="caption1" style=""
+								value="this is a grid caption."></w2:caption>
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column displayMode="label" id="column3"
+										inputType="text" value="select"
+										width="68"></w2:column>
+									<w2:column displayMode="label" id="column2"
+										inputType="text" value="checkcombobox"
+										width="100"></w2:column>
+									<w2:column displayMode="label" id="column1"
+										inputType="text" value="autoComplete"
+										width="90"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column displayMode="label" id="select"
+										inputType="select" viewType="icon"
+										width="68">
+										<w2:choices>
+											<w2:itemset
+												nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+									<w2:column displayMode="label"
+										id="checkcombobox"
+										inputType="checkcombobox"
+										viewType="icon" width="100">
+										<w2:choices>
+											<w2:itemset
+												nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+									<w2:column displayMode="label"
+										id="autoComplete"
+										inputType="autoComplete" viewType="icon"
+										width="90">
+										<w2:choices>
+											<w2:itemset
+												nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="정렬 데이터의 출처를 목록의 label로 지정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label="목록에 연결된 label 데이터를 기반으로 정렬됩니다." style="">
+						</w2:textbox>
+						<w2:gridView autoFit="allColumn" autoFitMinWidth="240"
+							class="wq_gvw" dataList="data:dlt_exam_2"
+							defaultCellHeight="24"
+							id="" style="height:80px;" visibleRowNum="4"
+							visibleRowNumFix="true" showSortableImage="true"
+							sortEvent="onclick" sortable="true">
+							<w2:caption id="caption1" style=""
+								value="this is a grid caption."></w2:caption>
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column displayMode="label" id="column3"
+										inputType="text" value="select"
+										width="68"></w2:column>
+									<w2:column displayMode="label" id="column2"
+										inputType="text" value="checkcombobox"
+										width="100"></w2:column>
+									<w2:column displayMode="label" id="column1"
+										inputType="text" value="autoComplete"
+										width="90"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column displayMode="label" id="select"
+										inputType="select" viewType="icon"
+										width="68" sortLabel="true">
+										<w2:choices>
+											<w2:itemset
+												nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+									<w2:column displayMode="label"
+										id="checkcombobox"
+										inputType="checkcombobox"
+										viewType="icon" width="100"
+										sortLabel="true">
+										<w2:choices>
+											<w2:itemset
+												nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+									<w2:column displayMode="label"
+										id="autoComplete"
+										inputType="autoComplete" viewType="icon"
+										width="90" sortLabel="true">
+										<w2:choices>
+											<w2:itemset
+												nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="[참고 정보] 목록 데이터" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='GridView에 연결된 목록형 inputType에 연결된 DataList "dlt_exam_code"의 데이터입니다.'
+							style=""></w2:textbox>
+						<w2:gridView autoFit="allColumn" autoFitMinWidth="240"
+							class="wq_gvw" dataList="data:dlt_exam_code"
+							defaultCellHeight="24"
+							id="" style="height:80px;" visibleRowNum="all"
+							visibleRowNumFix="true" readOnly="true">
+							<w2:caption style="" id="caption1"
+								value="this is a grid caption."></w2:caption>
+							<w2:header style="" id="header1">
+								<w2:row style="" id="row1">
+									<w2:column width="80" inputType="text"
+										id="column2" value="label"
+										displayMode="label"></w2:column>
+									<w2:column width="80" inputType="text"
+										id="column1" value="code"
+										displayMode="label"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody style="" id="gBody1">
+								<w2:row style="" id="row2">
+									<w2:column width="80" inputType="text"
+										id="label" displayMode="label"></w2:column>
+									<w2:column width="80" inputType="text"
+										id="code" displayMode="label"></w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

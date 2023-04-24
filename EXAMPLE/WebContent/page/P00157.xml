@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221104]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    scwin.initPage();
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.initPage = function () {
+    var jsnTabOpt = {
+        "label": "P00157S01",
+        "openAction": "select"
+    };
+    var jsnContOpt = {
+        "src": "/page/P00157S01.xml",
+        "wframe": true
+
+    };
+
+    tac_exam1.addTab("P00157S01", jsnTabOpt, jsnContOpt);
+    tac_exam2.addTab("P00157S01", jsnTabOpt, jsnContOpt);
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='TabControl의 속성 frameModal을 활성화하였을 때 팝업의 동작을 비교하는 예제입니다.&lt;br/&gt;frameModal을 활성화하면 팝업이 Window 내부에서만 이동이 가능하게 되며,&lt;br/&gt;팝업에서 팝업을 호출한 경우 상위 팝업을 닫으면 하위 팝업이 함께 닫힙니다.&lt;br/&gt;이 기능은 TabControl의 속성 frameMode가 "wframe" 또는 "wframePreload"로 설정된 경우만 동작합니다.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="" class=""></xf:group>
+			<xf:group class="example_div_tb_style_wrap mw600" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="(기본 설정) frameModal 비활성화" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:group class="tabbox" id="" style="">
+							<w2:tabControl alwaysDraw="false" class=""
+								confirmFalseAction="new"
+								confirmTrueAction="exist" id="tac_exam1"
+								style="position: relative;height: 300px;"
+								tabScroll="" useConfirmMessage="false"
+								useMoveNextTabFocus="false" useTabKeyOnly="true">
+							</w2:tabControl>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='frameModal 활성화' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:group class="tabbox" id="" style="">
+							<w2:textbox class="ws5_example_txt_normal"
+								escape="false" id=""
+								label="팝업이 탭 영역에서만 이동됩니다. 상위 팝업을 닫으면 하위 팝업이 닫힙니다."
+								style="">
+							</w2:textbox>
+							<w2:tabControl alwaysDraw="false" class=""
+								confirmFalseAction="new"
+								confirmTrueAction="exist" id="tac_exam2"
+								style="position: relative;height: 300px;"
+								tabScroll="" useConfirmMessage="false"
+								useMoveNextTabFocus="false" useTabKeyOnly="true"
+								frameModal="true">
+							</w2:tabControl>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

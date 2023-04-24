@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20230130]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	var i, j;
+        for (i=0; i<4; i++) {
+	        var num1 = JSON.stringify(i+1);  
+	        var title = "windowTitle_" + num1;
+	        var windowId = num1;
+	        var windowName = "window_" + num1;
+	        windowContainer1.createWindow( title , "" , "" , windowName , windowId ,"newWindow");
+			windowContainer1.setArrangeWindows("vertical");
+	    }
+
+        for (j=0; j<4; j++) {
+	        var num2 = JSON.stringify(j+1);  
+	        var title = "windowTitle_" + num2;
+	        var windowId = num2;
+	        var windowName = "window_" + num2;
+	        windowContainer2.createWindow( title , "" , "" , windowName , windowId ,"newWindow");
+			windowContainer2.setArrangeWindows("vertical");
+	    }
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox escape="false" id=""
+    				label='WindowContainer의 네임 레이어 상의 윈도우 순서 변경에 관한 예제입니다.'
+    				style="margin-bottom: 10px;">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="(기본 설정) nameLayerMove - false" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+    						label="네임 레이어 상에서 윈도우간에 이동이 불가능하다." style="">
+    					</w2:textbox>
+    					<w2:windowContainer controlIconPosition="left" fixArrangeFullScreen="false"
+    						hideTitleOnMaximize="false" horizontalArrangeNum="2" id="windowContainer1" nameLayerRearrange="false" sequentialArrangeColNum="2"
+    						sequentialArrangeRowNum="2" spaInitCount="0" stopMinimizeOnNameLayer="false" stopToggleOnLast="false"
+    						style="position: relative;height: 300px;width: 480px;border: gray solid 1px;" toolbarPosition="bottom" tooltipDisplay="true"
+    						tooltipGroupClass="false" useCloseButton="false" useControlIconTitle="false" useCustomMsg="false" useFixButton="false"
+    						useNameContainer="false" useStatusMsg="true" verticalArrangeNum="2" windowAutoResize="false" windowMaxNum="10"
+    						windowMaximizeAll="false" windowTooltipDisplay="true">
+    						<w2:windowToolbar>
+    							<w2:controlIconLayer>
+    								<w2:controlIcon></w2:controlIcon>
+    								<w2:controlIcon></w2:controlIcon>
+    								<w2:controlIcon></w2:controlIcon>
+    								<w2:controlIcon></w2:controlIcon>
+    								<w2:controlIcon></w2:controlIcon>
+    							</w2:controlIconLayer>
+    							<w2:nameLayer></w2:nameLayer>
+    							<w2:selectedNameLayer></w2:selectedNameLayer>
+    						</w2:windowToolbar>
+    					</w2:windowContainer>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="(설정 변경) nameLayerMove - true 적용" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+    						label="네임 레이어 상에서 윈도우간에 이동이 가능하다." style="">
+    					</w2:textbox>
+    					<w2:windowContainer controlIconPosition="left" fixArrangeFullScreen="false"
+    						hideTitleOnMaximize="false" horizontalArrangeNum="2" id="windowContainer2" nameLayerRearrange="false" sequentialArrangeColNum="2"
+    						sequentialArrangeRowNum="2" spaInitCount="0" stopMinimizeOnNameLayer="false" stopToggleOnLast="false"
+    						style="position: relative;height: 300px;width: 480px;border: gray solid 1px;" toolbarPosition="bottom" tooltipDisplay="true"
+    						tooltipGroupClass="false" useCloseButton="false" useControlIconTitle="false" useCustomMsg="false" useFixButton="false"
+    						useNameContainer="false" useStatusMsg="true" verticalArrangeNum="2" windowAutoResize="false" windowMaxNum="10"
+    						windowMaximizeAll="false" windowTooltipDisplay="true" nameLayerMove="true">
+    						<w2:windowToolbar>
+    							<w2:controlIconLayer>
+    								<w2:controlIcon></w2:controlIcon>
+    								<w2:controlIcon></w2:controlIcon>
+    								<w2:controlIcon></w2:controlIcon>
+    								<w2:controlIcon></w2:controlIcon>
+    								<w2:controlIcon></w2:controlIcon>
+    							</w2:controlIconLayer>
+    							<w2:nameLayer></w2:nameLayer>
+    							<w2:selectedNameLayer></w2:selectedNameLayer>
+    						</w2:windowToolbar>
+    					</w2:windowContainer>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

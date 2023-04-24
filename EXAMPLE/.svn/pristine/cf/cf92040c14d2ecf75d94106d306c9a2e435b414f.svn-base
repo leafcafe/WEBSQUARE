@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220824]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_exam_code" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="code" name="code" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    //DataList dlt_exam_code에 데이터 할당
+    dlt_exam_code.setJSON([
+        { "label": "A01", "code": "01" },
+        { "label": "A02", "code": "02" },
+        { "label": "A03", "code": "03" },
+        { "label": "A04", "code": "04" },
+        { "label": "A05", "code": "05" },
+        { "label": "A06", "code": "06" },
+        { "label": "A07", "code": "07" },
+        { "label": "A08", "code": "08" },
+        { "label": "A09", "code": "09" },
+        { "label": "A10", "code": "10" },
+        { "label": "A11", "code": "11" },
+        { "label": "A12", "code": "12" },
+        { "label": "A13", "code": "13" },
+        { "label": "A14", "code": "14" },
+        { "label": "A15", "code": "15" },
+        { "label": "A16", "code": "16" },
+        { "label": "A17", "code": "17" },
+        { "label": "A18", "code": "18" },
+        { "label": "A19", "code": "19" },
+        { "label": "A20", "code": "20" }
+    ]);
+};
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id="" label="컴포넌트 목록의 행의 개수와 최대 열의 개수에 따는 출력 비교 예제입니다." style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id=""
+						label='CheckCombobox&lt;br/&gt;visibleColMax="10" visibleRowNum="5"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:checkcombobox appearance="minimal" direction="auto" disabled="false" displayMode="label" id=""
+							style="width: 150px;min-height:24px;" submenuSize="auto" visibleColMax="10" visibleRowNum="5">
+							<xf:choices>
+								<xf:itemset nodeset="data:dlt_exam_code">
+									<xf:label ref="label"></xf:label>
+									<xf:value ref="code"></xf:value>
+								</xf:itemset>
+							</xf:choices>
+						</xf:checkcombobox>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id=""
+						label='CheckCombobox&lt;br/&gt;visibleColMax="10" visibleRowNum="8"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:checkcombobox appearance="minimal" direction="auto" disabled="false" displayMode="label" id=""
+							style="width: 150px;min-height:24px;" submenuSize="auto" visibleColMax="10" visibleRowNum="8">
+							<xf:choices>
+								<xf:itemset nodeset="data:dlt_exam_code">
+									<xf:label ref="label"></xf:label>
+									<xf:value ref="code"></xf:value>
+								</xf:itemset>
+							</xf:choices>
+						</xf:checkcombobox>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

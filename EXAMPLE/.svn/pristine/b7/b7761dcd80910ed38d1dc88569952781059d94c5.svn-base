@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map" >
+    			<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20220522]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+
+/**
+ * [실행1] 클릭 시
+ */
+scwin.btn_ex1_onclick = function(e) {
+    var jsonStr;
+    var jsonObj;
+
+    //로그 출력
+    $c.frame.printExampleLog("** [실행1] scwin.btn_ex1_onclick 실행 **", txa_log, false);
+
+    jsonStr = '{"no":"1", "name":"WebSquare"}'; //json 문자열
+    jsonObj = JSON.parse( jsonStr );    //json 객체 생성
+
+    //로그 출력
+    $c.frame.printExampleLog("no : "+ jsonObj.no, txa_log, false);
+    $c.frame.printExampleLog("name : "+ jsonObj.name, txa_log, false);
+
+    //json 객체 console 출력
+    console.log(jsonObj);
+
+    alert(jsonObj.name); //테스트
+};
+
+/**
+ * [실행2] 클릭 시
+ */
+scwin.btn_ex2_onclick = function(e) {
+    var jsonObj;
+    var jsonStr;
+
+    //로그 출력
+    $c.frame.printExampleLog("** [실행2] scwin.btn_ex2_onclick 실행 **", txa_log, false);
+
+    jsonObj = {
+        "no":"2", 
+        "name":"WebSquare5"
+    };
+
+    jsonStr = JSON.stringify( jsonObj );
+
+    //로그 출력
+    $c.frame.printExampleLog("JSON 문자열 : "+ jsonStr, txa_log, false);
+
+    alert(jsonStr); //테스트
+};
+
+/**
+ * textarea의 로그 삭제
+ */
+scwin.btn_clearLog_onclick = function(e) {
+    txa_log.setValue("");
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox class="mb_def" escape="false" id=""
+    				label="JSON 문자열을 JSON 객체로 생성, JSON 객체를 문자열로 반환받는 예제입니다."
+    				style="">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="com_example_dl" id="" style="" tagname="dl">
+    			<xf:group id="" tagname="dt" class="com_example_heading_btn">
+    				<w2:textbox style="" id="" label="String to JSON - JSON.parse" class="com_example_heading"></w2:textbox>
+    				<xf:trigger class="btn_exam_exec" disabled="" escape="false" ev:onclick="scwin.btn_ex1_onclick" id="btn_ex1" style=""
+    					type="button">
+    					<xf:label><![CDATA[실행1]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<xf:group id="" style="" tagname="dd">
+    				<w2:textbox class="com_example_block_code" escape="false" id=""
+    					label="var jsonStr = '{&quot;No&quot;:&quot;1&quot;, &quot;name&quot;:&quot;WebSquare&quot;}';&lt;br/&gt;var jsonObj = &lt;span class='ws5_example_txt_blue'&gt;JSON.parse&lt;/span&gt;( jsonStr );&lt;br/&gt;&lt;br/&gt;alert(jsonObj.name); //테스트"
+    					style="" tagname="code">
+    				</w2:textbox>
+    			</xf:group>
+    			<xf:group class="com_example_heading_btn" id="" tagname="dt" style="">
+    				<w2:textbox class="com_example_heading" id="" label="JSON to String - JSON.stringify" style=""></w2:textbox>
+    				<xf:trigger class="btn_exam_exec" disabled="" escape="false" ev:onclick="scwin.btn_ex2_onclick" id="btn_ex2" style=""
+    					type="button">
+    					<xf:label><![CDATA[실행2]]></xf:label>
+    				</xf:trigger>
+    			</xf:group>
+    			<xf:group class="" id="" style="" tagname="dd">
+    				<xf:group id="" class="mb_def"></xf:group>
+    				<w2:textbox class="com_example_block_code" escape="false" id=""
+    					label="var jsonObj = {&quot;no&quot;:&quot;2&quot;, &quot;name&quot;:&quot;WebSquare5&quot;};&lt;br/&gt;var jsonStr = &lt;span class='ws5_example_txt_blue'&gt;JSON.stringify&lt;/span&gt;( jsonObj );&lt;br/&gt;&lt;br/&gt;alert(jsonStr); //테스트"
+    					style="" tagname="code">
+    				</w2:textbox>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="" style="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<xf:group class="example_div_th_style" id="">
+    					<w2:span class="mr_def txt_blue" id="" label="로그 확인" style=""></w2:span>
+    					<xf:trigger class="com_example_btn_log_clear" ev:onclick="scwin.btn_clearLog_onclick" id="btn_clearLog" style=""
+    						title="로그 삭제" type="button">
+    						<xf:label><![CDATA[검색 취소]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<xf:textarea class="com_example_txa_log" id="txa_log" spellcheck="false" style="width: 100%;height: 140px;"></xf:textarea>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

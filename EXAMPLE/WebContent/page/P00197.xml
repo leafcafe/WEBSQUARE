@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230315]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+};]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label="AutoComplete의 선택 목록의 값과 일치하는 값이 입력될 경우, nextTabID에 입력된 컴포넌트로 포커스를 자동으로 이동하도록 설정할 수 있습니다."
+					style="margin-bottom: 10px;">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mb_def" id="" style="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="AutoComplete" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='AutoComplete에 선택 목록의 값과 일치하는 값을 입력하면 AutoComplete의 nextTabId에 설정된 컴포넌트로 컴포넌트가 이동합니다.&lt;br/&gt;입력 값 예시 : red, green, blue ...&lt;br/&gt;설정된 nextTabId="ibx_1"'
+							style="">
+						</w2:textbox>
+
+						<xf:group class="gvwbox" id="" style=""></xf:group>
+						<xf:group id="" style="margin-bottom: 15px;">
+							<w2:autoComplete submenuSize="auto" search="start"
+								editType="select" useKeywordHighlight="false"
+								style="width: 150px;" id="acb_1"
+								useLocale="false" class="" allOption=""
+								chooseOption="true" ref="" nextTabID="ibx_2"
+								autoFocus="true" chooseOptionLabel="- 선택 -">
+								<w2:choices>
+									<w2:item>
+										<w2:label><![CDATA[red]]></w2:label>
+										<w2:value><![CDATA[]]></w2:value>
+									</w2:item>
+									<w2:item>
+										<w2:label><![CDATA[green]]></w2:label>
+										<w2:value><![CDATA[]]></w2:value>
+									</w2:item>
+									<w2:item>
+										<w2:label><![CDATA[blue]]></w2:label>
+										<w2:value><![CDATA[]]></w2:value>
+									</w2:item>
+									<w2:item>
+										<w2:label><![CDATA[yellow]]></w2:label>
+										<w2:value><![CDATA[]]></w2:value>
+									</w2:item>
+									<w2:item>
+										<w2:label><![CDATA[white]]></w2:label>
+										<w2:value><![CDATA[]]></w2:value>
+									</w2:item>
+									<w2:item>
+										<w2:label><![CDATA[black]]></w2:label>
+										<w2:value><![CDATA[]]></w2:value>
+									</w2:item>
+								</w2:choices>
+							</w2:autoComplete>
+						</xf:group>
+						<xf:group id="" style="margin-bottom: 15px;">
+							<xf:input adjustMaxLength="false"
+								style="width: 150px;" id="ibx_1"
+								placeholder="ibx_1"></xf:input>
+						</xf:group>
+						<xf:group id="">
+							<xf:input adjustMaxLength="false"
+								style="width: 150px;" id="ibx_2"
+								placeholder="ibx_2"></xf:input>
+						</xf:group>
+					</xf:group>
+
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

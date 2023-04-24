@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220930]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    scwin.initPage();
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.initPage = function () {
+    var strDefaultWidth;
+
+    //예제 테스트를 위해 default width 변경
+    if (window.innerWidth < 450) {
+        strDefaultWidth = "230px";
+    } else {
+        strDefaultWidth = "300px";
+    }
+
+    //윈도우 생성
+    wdc_exam1.createWindow("P00113S01", null, "/page/P00113S01.xml", null, "w_P00113S01", "selectWindow", null, null, null, { "defaultWidth": strDefaultWidth }, "wframe");
+    wdc_exam1.createWindow("P00113S02", null, "/page/P00113S02.xml", null, "w_P00113S02", "selectWindow", null, null, null, { "defaultWidth": strDefaultWidth }, "wframe");
+
+    //시작 - 예제 테스트를 위한 설정
+    wdc_exam1.setArrangeWindows("vertical", ["w_P00113S01", "w_P00113S02"]); //윈도우 분할
+    wdc_exam1.setFocus(0);  //윈도우 focus
+    //종료 - 예제 테스트를 위한 설정
+};
+
+/**
+ * 버튼 [선택된 창의 Index 반환 받기] 클릭 시
+ */
+scwin.btn_ex1_onclick = function (e) {
+    var numIndex;
+
+    //선택된 윈도우의 index 반환 받기
+    numIndex = wdc_exam1.getSelectedIndex();
+
+    alert(numIndex);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id="" label='선택된 창(window)의 Index 값을 반환받는 예제입니다.' style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="" class=""></xf:group>
+			<xf:group class="example_div_tb_style_wrap mw600" id="">
+				<xf:group class="mb_def_box nobottom" id="" style="">
+					<xf:trigger class="btn_exam_exec btn_txt_of" ev:onclick="scwin.btn_ex1_onclick" id="btn_ex1" localeRef=""
+						style="min-width: 30px; height: 26px;" type="" useDefaultLabel="true">
+						<xf:label><![CDATA[선택된 창의 Index 반환 받기]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<w2:windowContainer controlIconPosition="left" fixArrangeFullScreen="false" hideTitleOnMaximize="false"
+					horizontalArrangeNum="2" id="wdc_exam1" nameLayerRearrange="false" sequentialArrangeColNum="2" sequentialArrangeRowNum="2"
+					spaInitCount="0" stopMinimizeOnNameLayer="false" stopToggleOnLast="false" style="position: relative;height: 340px;"
+					toolbarPosition="bottom" tooltipDisplay="true" tooltipGroupClass="false" useCloseButton="false" useControlIconTitle="false"
+					useCustomMsg="false" useFixButton="false" useNameContainer="false" verticalArrangeNum="2" windowAutoResize="false" windowMaxNum="5"
+					windowMaximizeAll="false" windowTooltipDisplay="true" useStatusMsg="false">
+					<w2:windowToolbar>
+						<w2:controlIconLayer>
+							<w2:controlIcon></w2:controlIcon>
+							<w2:controlIcon></w2:controlIcon>
+							<w2:controlIcon></w2:controlIcon>
+							<w2:controlIcon></w2:controlIcon>
+							<w2:controlIcon></w2:controlIcon>
+						</w2:controlIconLayer>
+						<w2:nameLayer></w2:nameLayer>
+						<w2:selectedNameLayer></w2:selectedNameLayer>
+					</w2:windowToolbar>
+				</w2:windowContainer>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

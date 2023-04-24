@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230320]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_list" repeatNode="map"
+					saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="City" name="Label"></w2:column>
+						<w2:column dataType="text" id="Code" name="Code"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<City><![CDATA[Seoul]]></City>
+							<Code><![CDATA[SE]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Paris]]></City>
+							<Code><![CDATA[PA]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[London]]></City>
+							<Code><![CDATA[LN]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Beijing]]></City>
+							<Code><![CDATA[BJ]]></Code>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+};
+
+/**
+ * textarea의 로그 삭제
+ */
+scwin.btn_clearLog_onclick = function (e) {
+    txa_log.setValue("");
+};
+
+scwin.btn_set_chooseoption_onclick = function(e) {
+    let chooseOptionLabel = ibx_chooseOptionLabel.getValue();
+    let chooseOptionValue = ibx_chooseOptionValue.getValue();
+    //로그 출력
+    var strLog = "[onclick]";
+    if (chooseOptionValue == "" || chooseOptionLabel == ""){
+        strLog += "Label과 Value를 입력해주세요.";
+        $c.frame.printExampleLog(strLog, txa_log, false);
+        console.log(strLog);
+        return;
+    }
+    strLog += "Label: "+chooseOptionLabel +", Value: "+chooseOptionValue;
+    acb1.changeChooseOption(chooseOptionValue, chooseOptionLabel);
+    $c.frame.printExampleLog(strLog, txa_log, false);
+    console.log(strLog);
+};
+
+scwin.btn_hide_chooseoption_onclick = function(e) {
+    acb1.showChooseOption(false);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label="AutoComplete의 chooseOptionLabel 속성으로 정의한 값을 선택 목록에 표시하기, 숨기기, 변경하는 예제입니다."
+					style="margin-bottom: 10px;">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mb_def" id="" style="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="AutoComplete" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='AutoComplete에서 값을 선택하면 우측에 Code 값이 표시됩니다.&lt;br/&gt;DataList 영역에서 Label이나 코드를 수정하게 되면 연동된 DataCollection의 값이 변경되어 AutoComplete의 선택 목록이 갱신되는 것을 확인할 수 있습니다.'
+							style="">
+						</w2:textbox>
+						<xf:group class="mb_def_box nobottom" id="" style="">
+							<xf:input adjustMaxLength="false"
+								id="ibx_chooseOptionLabel"
+								style="width: 150px;margin-right: 5px;"
+								class="w2input" placeholder="Label">
+							</xf:input>
+							<xf:input adjustMaxLength="false" class="w2input"
+								id="ibx_chooseOptionValue"
+								style="width: 150px;margin-right: 10px;"
+								placeholder="Value">
+							</xf:input>
+						</xf:group>
+						<xf:group id="" class="mb_def_box nobottom">
+							<xf:trigger
+								ev:onclick="scwin.btn_set_chooseoption_onclick"
+								disabled="" style="width: 150px;"
+								id="btn_set_chooseoption" type="button"
+								class="btn_exam_exec btn_txt_of" escape="false">
+								<xf:label><![CDATA[chooseOption 설정하기]]></xf:label>
+							</xf:trigger>
+							<xf:trigger disabled="" style="width: 150px;"
+								id="btn_hide_chooseoption" type="button"
+								class="btn_exam_exec btn_txt_of" escape="false"
+								ev:onclick="scwin.btn_hide_chooseoption_onclick">
+								<xf:label><![CDATA[chooseOptions 숨기기]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<xf:group id="" style="" class="mb_def_box nobottom">
+							<w2:autoComplete submenuSize="auto" search="start"
+								editType="select" useKeywordHighlight="false"
+								style="width: 150px;" id="acb1"
+								useLocale="false" class="" allOption=""
+								chooseOption="true" ref="" autoFocus="true"
+								chooseOptionLabel="- 선택 -">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_list">
+										<w2:label ref="City"></w2:label>
+										<w2:value ref="Code"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:autoComplete>
+							<w2:span label=""
+								style="color: red;font-weight: bold;margin-left: 15px"
+								id="spn_value"></w2:span>
+						</xf:group>
+
+					</xf:group>
+
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<xf:group class="example_div_th_style" id="">
+						<w2:span class="mr_def txt_blue" id="" label="로그 확인"
+							style=""></w2:span>
+						<xf:trigger class="com_example_btn_log_clear"
+							ev:onclick="scwin.btn_clearLog_onclick"
+							id="btn_clearLog" style=""
+							title="로그 삭제" type="button">
+							<xf:label><![CDATA[검색 취소]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:textarea class="com_example_txa_log" id="txa_log"
+							spellcheck="false"
+							style="width: 100%;height: 140px;"></xf:textarea>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

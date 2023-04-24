@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
+	<title>WebSquare5 SP5 Example Link</title>
+	<script type="text/javascript" src="/frame/js/check_index.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			fn_parseParam();
+		};
+
+		/**
+		 * querystring의 param 분석
+		 */
+		var fn_parseParam = function () {
+			var strAllParam;
+			var arrParam;
+			var jsnParam;
+
+			strAllParam = (location.search).replace("?", "");
+			arrParam = strAllParam.split("&");
+
+			jsnParam = {};
+
+			arrParam.forEach((argItem, argIndex) => {
+				let arrItem = (argItem || "").trim().split("=");;
+				jsnParam[arrItem[0]] = arrItem[1];
+			});
+
+			if (jsnParam.p) {
+				location.href = MAIN_URL + "&p=" + jsnParam.p;
+			}
+		};
+	</script>
+</head>
+
+<body>
+</body>
+
+</html>

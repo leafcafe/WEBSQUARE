@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20220907]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="dlt_books" repeatNode="map" style="" valueAttribute="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="book_name" name="도서명"></w2:column>
+    					<w2:column dataType="text" id="price" name="정가"></w2:column>
+    					<w2:column id="published_date" name="출간일" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    
+    //DataList 할당
+    dlt_books.setJSON([
+		{"book_name": "1. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "1. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "1. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "2. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "2. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "2. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "3. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "3. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "3. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "4. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "4. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "4. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "5. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "5. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "5. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "6. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "6. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "6. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "7. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "7. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "7. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "8. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "8. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "8. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "9. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "9. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "9. 사람일까 상황일까", "price": "28000", "published_date": "20190826"},
+        {"book_name": "10. 정글만리", "price": "16500", "published_date": "20130701"},
+        {"book_name": "10. 내가 틀릴 수도 있습니다", "price": "16000", "published_date": "20220418"},
+        {"book_name": "10. 사람일까 상황일까", "price": "28000", "published_date": "20190826"}
+    ]);
+};
+
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox escape="false" id="" label='GridView를 브라우저에 표현(Rendering)하는 방식의 설정 예제입니다.' style=""></w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="[기본 설정] WebSquare 방식(화면에 노출되는 영역만 table로 출력)" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:gridView autoFit="allColumn" autoFitMinWidth="240" class="wq_gvw" dataList="data:dlt_books"
+    						defaultCellHeight="24" id="" style="height:120px;" visibleRowNum="4" visibleRowNumFix="true" rowNumVisible="true" rowNumWidth="26">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header1" style="">
+    							<w2:row id="row1" style="">
+    								<w2:column displayMode="label" id="column3" inputType="text" value="도서명" width="178"></w2:column>
+    								<w2:column displayMode="label" id="column2" inputType="text" value="정가" width="63"></w2:column>
+    								<w2:column displayMode="label" id="column1" inputType="text" value="출간일" width="83"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody1" style="">
+    							<w2:row id="row2" style="">
+    								<w2:column displayMode="label" id="book_name" inputType="text" textAlign="left" width="178"></w2:column>
+    								<w2:column dataType="number" displayFormat="#,###" displayMode="label" id="price" inputType="text"
+    									textAlign="right" width="63">
+    								</w2:column>
+    								<w2:column dataType="date" displayFormat="yyyy-MM-dd" displayMode="label" id="published_date"
+    									inputType="text" width="83">
+    								</w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="Native 방식 (데이터를 table로 모두 출력)" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:gridView autoFit="allColumn" autoFitMinWidth="240" class="wq_gvw" dataList="data:dlt_books"
+    						defaultCellHeight="24" id="" rowNumVisible="true" style="height:120px;" drawType="native" rowNumWidth="26">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header1" style="">
+    							<w2:row id="row1" style="">
+    								<w2:column displayMode="label" id="column3" inputType="text" value="도서명" width="178"></w2:column>
+    								<w2:column displayMode="label" id="column2" inputType="text" value="정가" width="63"></w2:column>
+    								<w2:column displayMode="label" id="column1" inputType="text" value="출간일" width="83"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody1" style="">
+    							<w2:row id="row2" style="">
+    								<w2:column displayMode="label" id="book_name" inputType="text" textAlign="left" width="178"></w2:column>
+    								<w2:column dataType="number" displayFormat="#,###" displayMode="label" id="price" inputType="text"
+    									textAlign="right" width="63">
+    								</w2:column>
+    								<w2:column dataType="date" displayFormat="yyyy-MM-dd" displayMode="label" id="published_date"
+    									inputType="text" width="83">
+    								</w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

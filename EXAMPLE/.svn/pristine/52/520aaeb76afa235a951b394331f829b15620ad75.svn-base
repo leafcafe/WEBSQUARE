@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+            			<w2:column dataType="text" id="version" name="버전"></w2:column>
+            			<w2:column dataType="text" id="description" name="설명"></w2:column>
+            			<w2:column dataType="text" id="author" name="작성인"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<updated_date><![CDATA[20230127]]></updated_date>
+            				<version><![CDATA[01]]></version>
+            				<description><![CDATA[최초작성]]></description>
+            				<author><![CDATA[InswaveSystems]]></author>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+
+scwin.ui_ipt1_onviewchange = function(info) {
+    var str_len = scwin.getByteLength(scwin.trim(this.getValue())); 
+    if ( str_len == 0 ){
+        alert("해당 항목은 필수입력 항목입니다.");
+        this.focus();
+    } 
+
+}; 
+scwin.ui_ipt2_onviewchange = function(info) {
+    var flag = scwin.isDate(this.getValue());  
+    if ( !flag ){
+        alert("날짜입력 오류입니다.");
+        this.setValue(""); 
+        this.focus();
+    } 
+};
+scwin.setPhoneNoFormat = function(str) {
+    var phoneNum = scwin.formatPhone(str);
+     
+	var isDash = (phoneNum.indexOf("-")>1);
+    if ( !isDash ){
+        alert("전화번호 형식 오류입니다.");  
+    } else {
+
+    }
+    return phoneNum;
+}; 
+ 
+
+
+scwin.ui_ipt3_onviewchange = function(info) { 
+    var flag = scwin.isSSN(this.getValue()); 
+    if ( !flag ){
+        alert("주민번호를 확인하세요");
+        this.setValue(""); 
+        this.focus();
+    } 
+};
+
+scwin.ui_ipt4_onviewchange = function(info) {
+    var flag = scwin.isBizID(this.getValue()); 
+
+    if ( !flag ){
+        alert("사업자번호를 확인하세요");
+        this.setValue(""); 
+        this.focus();
+    } 
+};
+
+
+scwin.ui_ipt8_onviewchange = function(info) {
+    var flag = scwin.isEmail(this.getValue());  
+    if ( !flag ){
+        alert("email 형식 오류입니다.");
+        this.setValue(""); 
+        this.focus();
+    } 
+};
+
+scwin.ui_ipt5_onviewchange = function(info) {
+    
+		var selData = ui_sel1.getValue();
+		
+		var data = this.getValue();
+		if ( data == "" ){
+			return;
+		}
+		data = parseInt( data );
+		
+		if ( selData == "1" ){
+			if ( data > 1000 || data < 1 ){
+				alert("1~1000 사이의 값을 입력하세요");	
+				this.setValue("");			
+			}
+		} else if ( selData == "2" ){
+			if ( data > 2000 || data < 1001 ){
+				alert("1001~2000 사이의 값을 입력하세요");		
+				this.setValue("");		
+			}
+		} else if ( selData == "3" ){
+			if ( data > 3000 || data < 2001 ){
+				alert("2001~3000 사이의 값을 입력하세요");				
+				this.setValue("");
+			}
+		} else if ( selData == "4" ){
+			if ( data < 3001 ){
+				alert("3001 이상의 값을 입력하세요");	
+				this.setValue("");			
+			}
+		}
+};
+
+scwin.ui_sel1_onviewchange = function(info) {
+    ui_ipt5.setValue("");	
+    ui_ipt5.focus();
+};
+
+
+scwin.ui_ipt1_oneditenter = function() {
+
+    var str_len = scwin.getByteLength(scwin.trim(this.getValue())); 
+    if ( str_len == 0 ){
+        alert("해당 항목은 필수입력 항목입니다.");
+        this.focus();
+    } 
+};
+
+
+scwin.ui_ipt11_oneditenter = function() {
+
+    ui_ipt12.setValue(this.getValue()); 
+    ui_ipt13.setValue(this.getValue()); 
+    ui_ipt14.setValue(this.getValue()); 
+};
+
+/**
+ * 사업자번호 유효성을 검사한다.
+ */
+scwin.isBizID = function (str) {
+	var sum = 0;
+	var aBizID = new Array(10);
+	var checkID = new Array("1", "3", "7", "1", "3", "7", "1", "3", "5");
+
+	for (var i = 0; i < 10; i++) {
+		aBizID[i] = str.substring(i, i + 1);
+	}
+	
+	for (var i = 0; i < 9; i++) {
+		sum += aBizID[i] * checkID[i];
+	}
+	
+	sum = sum + parseInt((aBizID[8] * 5) / 10);
+	temp = sum % 10;
+	temp1 = 0;
+
+	if (temp != 0) {
+		temp1 = 10 - temp;
+	} else {
+		temp1 = 0;
+	}
+	
+	if (temp1 != aBizID[9]) {
+		return false;
+	}
+	
+	return true;
+};
+
+/**
+ * 입력된 값이 Date 형식의 값인지 확인한다.
+ */
+scwin.isDate = function(sDate, timeChk) {
+	var flag = true;
+	try {
+		if (sDate.length == 8) {
+			sDate = sDate + "000000";
+		}
+		
+		var y1 = parseInt(sDate.substring(0, 4), 10);
+		var m1 = parseInt(sDate.substring(4, 6), 10);
+		var d1 = parseInt(sDate.substring(6, 8), 10);
+		var h1 = parseInt(sDate.substring(8, 10), 10);
+		var t1 = parseInt(sDate.substring(10, 12), 10);
+		var s1 = parseInt(sDate.substring(12), 10);
+		if (isNaN(y1) || isNaN(m1) || isNaN(d1) || isNaN(h1) || isNaN(t1) || isNaN(s1))
+			flag = false;
+
+		if (m1 < 1 || m1 > 12)
+			flag = false;
+
+		var maxDay = 31;
+		if (m1 == 2) {
+			maxDay = ((y1 % 400 == 0) || ((y1 % 4 == 0) && (y1 % 100 != 0))) ? 29
+					: 28;
+		} else if (m1 == 4 || m1 == 6 || m1 == 9 || m1 == 11) {
+			maxDay = 30;
+		}
+		
+		if (d1 < 1 || d1 > maxDay) {
+			flag = false;
+		}
+		
+		if (h1 + t1 + s1 != "") {
+			if (h1 < 0 || h1 > 24) {
+				flag = false;
+			} else if (h1 == 24) {
+				if(typeof timeChk == "boolean" && !timeChk)
+					flag = false;
+				if (t1 > 0)
+					flag = false;
+				if (s1 > 0)
+					flag = false;
+			}
+			if (t1 < 0 || t1 > 59)
+				flag = false;
+			if (s1 < 0 || s1 > 59)
+				flag = false;
+		}
+	} catch (ex) {
+		console.error(ex);
+		flag = false;
+	}
+	return flag;
+};
+
+
+
+/**
+ * 이메일 주소의 유효성을 검사한다.
+ */
+scwin.isEmail = function (str) {
+	if (typeof str != "undefined" && str != "") {
+		var format = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		if (format.test(str)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	return true;
+};
+
+
+
+/**
+ * 문자열에 전화번호 형식 Formatter를 적용하여 반환한다.
+ */
+scwin.formatPhone = function (str) {
+	  try {
+		  str = str.replace(/\s+/g,"");
+		  var commCdList = ["0505"]; // 4자리 국번 ,예외가 되는 국번 확인
+		  var commCdNum = str.substr(0,4); // 국번 4자리 확인
+		  if (commCdList.indexOf(commCdNum) >-1) { //국번이 0505 인경우
+			  return str.replace(/^(01[0136789]{1}|02|0[3-9]{1}[0-9]{1}[0-9]{1})-?([*0-9]{3,4})-?([0-9]{4})$/,"$1-$2-$3");
+		  } else if(str.length <=11) {
+			  return str.replace(/^(01[0136789]{1}|02|0[3-9]{1}[0-9]{1})-?([*0-9]{3,4})-?([0-9]{4})$/,"$1-$2-$3");
+		  } else {
+			  return str;
+		  }
+	  } catch (ex) {
+		  console.error(ex);
+	  }
+};
+
+
+/**
+ * 입력된 문자열의 좌우측 공백을 제거한 문자열을 구한다.
+ */
+scwin.trim = function(str) {
+	try {
+		if (typeof str == "undefined" || str == null) {
+			str ="";
+		}
+		if (typeof str !== "string") {
+			str = str + "";
+		}
+		return str.trim();
+	} catch (ex) {
+		console.error(ex);
+	}
+};
+
+
+/**
+ * 문자열의 바이트 기준 문자열 길이를 반환한다.
+ */
+scwin.getByteLength = function(str, ignoreChar) {
+	return WebSquare.util.getStringByteSize(str, ignoreChar);
+};
+
+
+
+/**
+ * 내외국인 주민등록번호 유효성을 검사한다.
+ */
+scwin.isSSN = function (str) {
+	var checkID = new Array(2, 3, 4, 5, 6, 7, 8, 9, 2, 3, 4, 5);
+	var i = 0, sum = 0;
+	var temp = 0;
+	var yy = "";
+
+	if (str.length != 13) {
+		return false;
+	}
+	
+	for (i = 0; i < 13; i++) {
+		if (str.charAt(i) < '0' || str.charAt(i) > '9') {
+			return false;
+		}
+	}
+
+	// foreigner PersonID Pass
+	if (str.substring(6, 13) == "5000000" || str.substring(6, 13) == "6000000" || str.substring(6, 13) == "7000000"
+		|| str.substring(6, 13) == "8000000") {
+		return true;
+	}
+	
+	for (i = 0; i < 12; i++) {
+		sum += str.charAt(i) * checkID[i];
+	}
+	
+	temp = sum - Math.floor(sum / 11) * 11;
+	temp = 11 - temp;
+	temp = temp - Math.floor(temp / 10) * 10;
+
+	// 나이 (-) 체크
+	if (str.charAt(6) == '1' || str.charAt(6) == '2' || str.charAt(6) == '5' || str.charAt(6) == '6') {
+		yy = "19";
+	} else {
+		yy = "20";
+	} 
+	if (parseInt(WebSquare.date.getCurrentServerDate("yyyy")) - parseInt(yy + str.substring(0, 2)) < 0) {
+		return false;
+	}
+
+	// 외국인 주민번호 체크로직 추가
+	if (str.charAt(6) != '5' && str.charAt(6) != '6' && str.charAt(6) != '7' && str.charAt(6) != '8') {
+		if (temp == parseInt(str.charAt(12))) {
+			return true;
+		} else {
+			return false;
+		}
+	} else {
+		if ((temp + 2) % 10 == parseInt(str.charAt(12))) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}; 
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group id="" class="ws_example_grp_desc"><w2:textbox style="" id="" label="Input 컴포넌트의 입력 항목을 검증하는 예제입니다.&lt;br/&gt;onviewchange 이벤트 함수를 활용한 예제로 입력된 값이 변경되면 검증을 하는 예제입니다." escape="false">
+    		</w2:textbox><w2:textbox style="" id="" label="이 예제는 시연용 예제로 예제 가이드 문서가 포함되어 있지 않습니다." class="ws_example_txt_desc_info" escape="false"></w2:textbox></xf:group><xf:group class="gwbox" id="" style="">
+    			<xf:group adaptive="layout" adaptiveThreshold="600" class="w2tb tb" id="" style="" tagname="table">
+    				<w2:attributes>
+    					<w2:summary></w2:summary>
+    				</w2:attributes>
+    				<xf:group tagname="colgroup">
+    					<xf:group style="width:150px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    					<xf:group style="width:150px;" tagname="col"></xf:group>
+    					<xf:group style="" tagname="col"></xf:group>
+    				</xf:group>
+    				<xf:group style="" tagname="tr">
+    					<xf:group class="w2tb_th req" style="" tagname="th">
+    						<w2:textbox class="req" id="" label="필수입력항목" style=""></w2:textbox>
+    					</xf:group>
+    					<xf:group class="w2tb_td" style="" tagname="td">
+    						<xf:input class="" id="ui_ipt1" placeholder="해당 항목은 필수입력입니다." style="width:161px;" dataType="text"
+    							editType="select" mandatory="true" ev:onblur="scwin.ui_ipt1_onblur" maxlength="13" ev:onviewchange="scwin.ui_ipt1_onviewchange"
+    							nextTabID="ui_ipt2" ev:oneditenter="scwin.ui_ipt1_oneditenter">
+    						</xf:input>
+    					</xf:group>
+    					<xf:group class="w2tb_th " tagname="th">
+    						날짜입력
+    						<w2:attributes></w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ui_ipt2" placeholder="YYYY/MM/dd" style="width:161px;" dataType="date"
+    							displayFormat="yyyy/MM/dd" autoFocus="true" allowChar="0-9" maxlength="8" ev:onviewchange="scwin.ui_ipt2_onviewchange"
+    							nextTabID="ui_ipt3">
+    						</xf:input>
+
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group class="w2tb_th " tagname="th">
+    						주민번호(13자리)
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" style="" tagname="td">
+    						<w2:attributes>
+    							<w2:colspan>1</w2:colspan>
+    							<w2:rowspan>1</w2:rowspan>
+    						</w2:attributes>
+    						<xf:input class="" id="ui_ipt3" placeholder="주민번호" style="width:161px;"
+    							ev:onviewchange="scwin.ui_ipt3_onviewchange" displayFormat="######-#######" autoFocus="true" editType="select" allowChar="0-9"
+    							maxlength="13" nextTabID="ui_ipt4">
+    						</xf:input>
+
+    					</xf:group>
+    					<xf:group class="w2tb_th " tagname="th">
+    						사업자번호(10자리)
+    						<br></br>
+    						ex)&amp;nbsp;1078616054
+    						<w2:attributes></w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ui_ipt4" placeholder="사업자번호" style="width:161px;"
+    							ev:onviewchange="scwin.ui_ipt4_onviewchange" displayFormat="###-##-#####" autoFocus="true" editType="select" allowChar="0-9"
+    							maxlength="10" nextTabID="">
+    						</xf:input>
+
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group class="w2tb_th " tagname="th">
+    						전화번호
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" style="" tagname="td">
+    						<w2:attributes></w2:attributes>
+    						<xf:input class="" id="ui_ipt6" placeholder="전화번호" style="width:150px;" editType="select" allowChar="0-9"
+    							displayFormatter="scwin.setPhoneNoFormat">
+    						</xf:input>
+
+    					</xf:group>
+    					<xf:group class="w2tb_th " tagname="th">
+    						email&amp;nbsp;주소
+    						<w2:attributes></w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" tagname="td">
+    						<w2:attributes></w2:attributes>
+
+    						<xf:input class="" id="ui_ipt8" placeholder="ex) woori@woori.com " style="width:195px;"
+    							ev:onviewchange="scwin.ui_ipt8_onviewchange" nextTabID="ui_sel1">
+    						</xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group class="w2tb_th " tagname="th">
+    						값범위체크
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group class="w2tb_td" tagname="td">
+    						<w2:attributes>
+    							<w2:colspan>3</w2:colspan>
+    							<w2:rowspan>1</w2:rowspan>
+    						</w2:attributes>
+
+    						<xf:select1 allOption="" appearance="minimal" chooseOption="true" class="" direction="auto" disabled="false"
+    							disabledClass="w2selectbox_disabled" id="ui_sel1" ref="" renderType="native" style="width:149px;" submenuSize="auto"
+    							chooseOptionLabel="" ev:onviewchange="scwin.ui_sel1_onviewchange">
+    							<xf:choices>
+    								<xf:item>
+    									<xf:label><![CDATA[1~1000]]></xf:label>
+    									<xf:value><![CDATA[1]]></xf:value>
+    								</xf:item>
+    								<xf:item>
+    									<xf:label><![CDATA[1001~2000]]></xf:label>
+    									<xf:value><![CDATA[2]]></xf:value>
+    								</xf:item>
+    								<xf:item>
+    									<xf:label><![CDATA[2001~3000]]></xf:label>
+    									<xf:value><![CDATA[3]]></xf:value>
+    								</xf:item>
+    								<xf:item>
+    									<xf:label><![CDATA[3001~]]></xf:label>
+    									<xf:value><![CDATA[4]]></xf:value>
+    								</xf:item>
+    							</xf:choices>
+    						</xf:select1>
+    						<xf:input class="" id="ui_ipt5" placeholder="" style="width:164px;text-align: right;" dataType="number"
+    							displayFormat="###,##0" ev:onblur="scwin.ui_ipt5_onblur" ev:onviewchange="scwin.ui_ipt5_onviewchange" allowChar="0-9">
+    						</xf:input>
+    					</xf:group>
+    				</xf:group>
+    				<xf:group tagname="tr" style="">
+    					<xf:group tagname="th" class="w2tb_th ">
+    						소수점&amp;nbsp;다양한&amp;nbsp;처리
+    						<w2:attributes>
+    							<w2:scope>row</w2:scope>
+    						</w2:attributes>
+    					</xf:group>
+    					<xf:group tagname="td" class="w2tb_td">
+    						<w2:attributes>
+    							<w2:colspan>3</w2:colspan>
+    							<w2:rowspan>1</w2:rowspan>
+    						</w2:attributes>
+    						<w2:textbox class="txt_warning" dataType="" id="" label="소수점값 입력" style=""></w2:textbox>
+    						<xf:input adjustMaxLength="false" id="ui_ipt11" style="width:94px;height:26px;" dataType="number"
+    							ev:onviewchange="scwin.ui_ipt11_onviewchange" placeholder="ex) 23.789" ev:onfocus="scwin.ui_ipt11_onfocus"
+    							ev:onblur="scwin.ui_ipt11_onblur" ev:onchange="scwin.ui_ipt11_onchange" ev:oneditenter="scwin.ui_ipt11_oneditenter">
+    						</xf:input>
+    						<w2:textbox class="txt_help" dataType="" id="" label="반올림표현" style=""></w2:textbox>
+    						<xf:input adjustMaxLength="false" id="ui_ipt12" style="width:94px;height:26px;" placeholder="반올림"
+    							dataType="number" displayFormat="#.##" allowChar="0-9" disabled="true">
+    						</xf:input>
+    						<w2:textbox class="txt_help" dataType="" id="" label="내림" style=""></w2:textbox>
+    						<xf:input adjustMaxLength="false" id="ui_ipt13" style="width:94px;height:26px;" placeholder="내림"
+    							displayFormat="#.##[floor]" dataType="number" allowChar="0-9" disabled="true">
+    						</xf:input>
+    						<w2:textbox class="txt_help" dataType="" id="" label="올림" style=""></w2:textbox>
+    						<xf:input adjustMaxLength="false" id="ui_ipt14" style="width:94px;height:26px;" placeholder="올림"
+    							dataType="number" displayFormat="#.##[ceil]" allowChar="0-9" disabled="true">
+    						</xf:input>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    	
+    </body>
+</html>

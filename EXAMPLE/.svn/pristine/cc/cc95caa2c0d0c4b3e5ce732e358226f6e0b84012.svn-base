@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+            			<w2:column dataType="text" id="version" name="버전"></w2:column>
+            			<w2:column dataType="text" id="description" name="설명"></w2:column>
+            			<w2:column dataType="text" id="author" name="작성인"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<updated_date><![CDATA[20220428]]></updated_date>
+            				<version><![CDATA[01]]></version>
+            				<description><![CDATA[최초작성]]></description>
+            				<author><![CDATA[InswaveSystems]]></author>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" repeatNode="map" id="dlt_ex1" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="col1" name="col1" dataType="text"></w2:column>
+            			<w2:column id="col2" name="col2" dataType="text"></w2:column>
+            			<w2:column id="col3" name="col3" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<col1><![CDATA[ROW 1 : COLUMN 1]]></col1>
+            				<col2><![CDATA[ROW 1 : COLUMN 2]]></col2>
+            				<col3><![CDATA[ROW 1 : COLUMN 3]]></col3>
+            			</w2:row>
+            			<w2:row>
+            				<col1><![CDATA[ROW 2 : COLUMN 1]]></col1>
+            				<col2><![CDATA[ROW 2 : COLUMN 2]]></col2>
+            				<col3><![CDATA[ROW 2 : COLUMN 3]]></col3>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+
+/**
+ * [실행] 클릭 시
+ * [Group 컴포넌트 ID].invoke("assert", 사용자 정의 함수);
+ */
+scwin.btn_ex1_onclick = function(e) {
+    //textarea에 log 출력
+    $c.frame.printExampleLog("** scwin.btn_ex1_onclick 실행 **", txa_log, false);
+
+    //실행 함수 로그 출력
+    $c.frame.printExampleLog('grp_form.invoke("assert", scwin.example_function1);', txa_log, false);
+
+    //grp_form 컴포넌트의 자식 컴포넌트를 scwin.example_function1 함수의 인수값으로 할당하여 호출한다.
+    //자식 컴포넌트가 getValue method가 있는 경우만 대상이 됩니다.
+    grp_form.invoke("assert", scwin.example_function1);
+
+    //textarea에 log 출력
+    $c.frame.printExampleLog("** grp_form 컴포넌트의 invoke 실행 완료 **", txa_log, false);
+};
+
+
+/**
+ * 사용자 정의 함수 예시
+ * grp_form.invoke("assert", scwin.example_function1);
+ * @param {object} argCmp 웹스퀘어 컴포넌트
+ */
+scwin.example_function1 = function (argCmp) {
+    var strLog = "";
+
+    //컴포넌트에 getOriginalID method가 있는 경우 진행
+    if (argCmp.getOriginalID) {
+        //컴포넌트 ID 추출. (사용자가 지정한 ID)
+        strLog += "ID : " + argCmp.getOriginalID() + "\n";
+    }
+
+    //컴포넌트에 getPluginName method가 있는 경우 진행
+    if (argCmp.getPluginName) {
+        //컴포넌트명(plugin name) 추출
+        strLog += "PluginName : " + argCmp.getPluginName() + "\n";
+    }
+
+    //컴포넌트에 getValue method가 있는 경우 진행
+    if (argCmp.getValue) {
+        //컴포넌트에 할당된 값 추출
+        strLog += "Value : " + argCmp.getValue();
+    }
+
+    //textarea에 log 출력
+    if (strLog) {
+        strLog += "\n----------------------------------------";
+        $c.frame.printExampleLog(strLog, txa_log, false);
+    }
+};
+
+
+/**
+ * textarea의 로그 삭제
+ */
+scwin.btn_clearLog_onclick = function(e) {
+    txa_log.setValue("");
+};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="mb_def com_example_sampbox" id="" style="">
+    			<w2:textbox class="mr_def" id=""
+    				label='[Group 컴포넌트 ID].invoke("assert", 사용자 정의 함수); ex) grp_form.invoke("assert", scwin.example_function1);' style="" tagname="samp"
+    				escape="false">
+    			</w2:textbox>
+    			<xf:trigger class="btn_cm" disabled="" escape="false" ev:onclick="scwin.btn_ex1_onclick" id="btn_ex1" style=""
+    				type="button">
+    				<xf:label><![CDATA[실행]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<xf:group class="w2tb mb_def" id="grp_form" style="width:100%;" tagname="table">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    				<w2:spellcheck>false</w2:spellcheck>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group style="width:130px;" tagname="col"></xf:group>
+    				<xf:group style="" tagname="col"></xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					InputBox
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:input class="" id="ibx_input" placeholder="" style="width:140px;" initValue="WebSquare"></xf:input>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					CheckBox
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:select appearance="full" cols="" disabled="" id="cbx_checkbox" ref="" renderType="checkboxgroup" rows=""
+    						selectedindex="1" style="min-width:140px;">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label><![CDATA[Type1]]></xf:label>
+    								<xf:value><![CDATA[1]]></xf:value>
+    							</xf:item>
+    							<xf:item>
+    								<xf:label><![CDATA[Type2]]></xf:label>
+    								<xf:value><![CDATA[2]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					InputCalendar
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<w2:inputCalendar footerDiv="false" id="ica_inputCalendar" style="width:140px;" renderDiv="true"
+    						focusOnDateSelect="false" calendarValueType="yearMonthDate" rightAlign="false" renderType="component" setCurrentDate="true">
+    					</w2:inputCalendar>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" class="w2tb_th">
+    					TextBox
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" class="w2tb_td">
+    					<w2:attributes></w2:attributes>
+    					<w2:textbox id="tbx_textbox" label="Textbox 컴포넌트입니다." style=""></w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" class="w2tb_th">
+    					GridView
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" class="w2tb_td">
+    					<w2:attributes></w2:attributes>
+    					<w2:span label="//invoke의 assert 옵션 대상에서 제외(컴포넌트의 getValue method가 있는 경우만 대상에 포함됩니다.)" style="" id="" class="mb_def"></w2:span><w2:gridView id="" style="width: 400px;height: 70px;" checkAllType="false" scrollByColumn="false"
+    						defaultCellHeight="20" scrollByColumnAdaptive="false" dataList="data:dlt_ex1" class="wq_gvw" autoFit="allColumn"
+    						visibleRowNum="all">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="120" inputType="text" id="column3" value="col1" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="column2" value="col2" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="column1" value="col3" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="120" inputType="text" id="col1" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="col2" displayMode="label"></w2:column>
+    								<w2:column width="120" inputType="text" id="col3" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    					
+    				</xf:group>
+    			</xf:group>
+    			<xf:group tagname="tr" style="">
+    				<xf:group tagname="th" class="w2tb_th">
+    					TabControl
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    				</xf:group>
+    				<xf:group tagname="td" class="w2tb_td">
+    					<w2:attributes></w2:attributes>
+    					<w2:span class="mb_def" id="" label="//invoke의 assert 옵션 대상에서 제외(컴포넌트의 getValue method가 있는 경우만 대상에 포함됩니다.)"
+    						style="">
+    					</w2:span>
+    					<w2:tabControl alwaysDraw="false" confirmFalseAction="new" confirmTrueAction="exist" id="tac_tabControl"
+    						style="width: 400px;height: 100px;" useConfirmMessage="false" useMoveNextTabFocus="false" useTabKeyOnly="true">
+    						<w2:tabs disabled="false" id="tabs1" label="TAB1" style="width:70px;height:30px;"></w2:tabs>
+    						<w2:content alwaysDraw="false" id="content1" style="padding:10px;">
+    							<xf:input adjustMaxLength="false" id="ibx_tabcontrol_input" initValue="WebSquare TabControl"
+    								style="width: 200px;">
+    							</xf:input>
+    						</w2:content>
+    					</w2:tabControl>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="w2tb mb_def" id="" style="width:100%;" tagname="table">
+    			<w2:attributes>
+    				<w2:summary></w2:summary>
+    				<w2:spellcheck>false</w2:spellcheck>
+    			</w2:attributes>
+    			<xf:group tagname="caption"></xf:group>
+    			<xf:group tagname="colgroup">
+    				<xf:group style="width:130px;" tagname="col"></xf:group>
+    				<xf:group style="" tagname="col"></xf:group>
+    			</xf:group>
+    			<xf:group style="" tagname="tr">
+    				<xf:group class="w2tb_th" style="" tagname="th">
+    					로그&amp;nbsp;출력
+    					<w2:attributes>
+    						<w2:scope>row</w2:scope>
+    					</w2:attributes>
+    					<xf:trigger class="btn_cm" disabled="" escape="false" ev:onclick="scwin.btn_clearLog_onclick" id="btn_clearLog"
+    						style="" type="button">
+    						<xf:label><![CDATA[로그 삭제]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:group class="w2tb_td" style="" tagname="td">
+    					<xf:textarea class="com_example_txa_log" id="txa_log" spellcheck="false" style="width: 100%;height: 200px;"></xf:textarea>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

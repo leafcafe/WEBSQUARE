@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_programId="Common_GridViewDynamicCode" meta_programName="샘플화면-GridView 동적 코드"
+		meta_programDesc="본 화면은 GridView의 마스터 컬럼 코드가 변경되면 서브 컬럼의 아이템이 동적으로 변경되도록 하는 예제이다." meta_author="Inswave Systems" meta_date="2022.12.14">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList id="dlt_commonGrp" baseNode="list" saveRemovedData="true" repeatNode="map"
+					ev:onbeforerowpositionchange="scwin.dlt_commonGrp_onbeforerowpositionchange">
+					<w2:columnInfo>
+						<w2:column id="chk" name="선택" dataType="text" ignoreStatus="true"></w2:column>
+						<w2:column id="GRP_CD" name="그룹코드" dataType="text"></w2:column>
+						<w2:column id="GRP_NM" name="그룹명" dataType="text"></w2:column>
+						<w2:column id="SORT_ORDER" name="코드순서" dataType="text"></w2:column>
+						<w2:column id="IS_USE" name="사용여부" dataType="text"></w2:column>
+						<w2:column id="NOTE" name="비고" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList id="dlt_commonCode" baseNode="list" saveRemovedData="true" repeatNode="map">
+					<w2:columnInfo>
+						<w2:column id="chk" name="선택" dataType="text" ignoreStatus="true"></w2:column>
+						<w2:column id="GRP_CD" name="그룹코드" dataType="text"></w2:column>
+						<w2:column id="COM_CD" name="공통코드" dataType="text"></w2:column>
+						<w2:column id="CODE_NM" name="코드명" dataType="text"></w2:column>
+						<w2:column id="SORT_ORDER" name="코드순서" dataType="text"></w2:column>
+						<w2:column id="IS_USE" name="사용여부" dataType="text"></w2:column>
+						<w2:column id="ATTR_VALUE1" name="속성값1" dataType="text"></w2:column>
+						<w2:column id="ATTR_VALUE2" name="속성값2" dataType="text"></w2:column>
+						<w2:column id="ATTR_VALUE3" name="속성값3" dataType="text"></w2:column>
+						<w2:column id="NOTE" name="비고" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataList id="dlt_mainCodeList" baseNode="list" saveRemovedData="true" repeatNode="map"
+					ev:oncelldatachange="scwin.dlt_mainCodeList_oncelldatachange">
+					<w2:columnInfo>
+						<w2:column id="EMP_NM" name="사용자" dataType="text"></w2:column>
+						<w2:column id="GRP_CD" name="그룹코드" dataType="text"></w2:column>
+						<w2:column id="COM_CD" name="코드" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_fileDesc">
+					<w2:keyInfo>
+						<w2:key id="desc" name="파일 설명" dataType="text"></w2:key>
+						<w2:key id="test" name="파일 테스트 방법" dataType="text"></w2:key>
+					</w2:keyInfo>
+					<w2:data use="true">
+						<desc><![CDATA[
+<pre class="textNor" style="">
+<div class="etcbox">본 화면은 GridView의 마스터 컬럼 코드가 변경되면 서브 컬럼의 아이템이 동적으로 변경되도록 하는 예제이다.
+</div>
+<div class="etc_tit">동작 방식</div>
+1. 코드 그룹 셀의 실렉트 박스의 값이 바뀌면 onchange 이벤트를 사용하여 선택된 셀의 colID, oldvalue, newvalue를 파라미터로 받아온다.
+2. 데이터리스트의 값이 바뀐 셀의 컬럼아이디를 확인, info.colID === "GRP_CD" 로 코드그룹 셀인지 확인
+3. info.colID === "GRP_CD" true면 colID, newvalue와 맞는 JSON데이터를 배열에 담고 배열에 담긴 데이터가 있으면 상세코드를 배열에 담겨있는 값으로 다시 랜더링 해준다
+2. 배열에 담긴 데이터가 없으면 newValue에 해당하는 데이터를 com.sbm.execute(sbm_commonCode, param) 함수를 통해 서버에서 데이터를 받아와서 상세코드에 랜더링해준다.
+</pre>
+						]]></desc>
+						<test><![CDATA[
+<pre class="textNor">
+<div class="etc_tit">과정</div>
+-추가 버튼을 눌러 코드그룹 그리드 뷰에 데이터를 생성한다.
+ com.data.insertRow(grd_commCodeSample);
+-생성된 그리드뷰의 코드 그룹 실렉트박스의 값을 변경한다.
+
+</div>
+<div class="etc_tit">결과</div>
+- 상세 코드 실렉트 박스의 데이터리스트가 코드 그룹의 값에 따라 바뀐다.
+</pre>
+						]]></test>
+					</w2:data>
+				</w2:dataMap>
+				<w2:linkedDataList bind="dlt_commonCode" id="ldt_commonCode">
+					<w2:condition type="filter"><![CDATA[GRP_CD ==  ref('data:dlt_mainCodeList.GRP_CD')]]></w2:condition>
+					<w2:condition type="sort"><![CDATA[]]></w2:condition>
+				</w2:linkedDataList>
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+			<xf:submission id="sbm_commonSearchItem" ref="" target='data:json,{"action":"append","id":"dlt_commonGrp","key":"dlt_commonSearchItem"}'
+				action="/common/selectCommonSearchItem" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+				errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+			<xf:submission id="sbm_commonCode" ref='' target='data:json,{"action":"append","id":"dlt_commonCode"}' action="/common/selectCommonCodeList" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
+				ev:submitdone="scwin.sbm_commonCode_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo></w2:layoutInfo>
+		<w2:publicInfo method=""></w2:publicInfo>
+
+		<script type="text/javascript" lazy="false"><![CDATA[
+scwin.onpageload = function () {
+	com.sbm.execute(sbm_commonSearchItem);
+};
+
+/**
+ * 화면 초기화 데이터가 모두 로딩되면 발생하는 이벤트
+ */
+scwin.ondataload = function () {
+
+};
+
+scwin.btn_addGrpCell_onclick = function (e) {
+	var idx = com.data.insertRow(grd_commCodeSample);
+	grd_commCodeSample.setFocusedCell(idx, "GRP_CD", true);
+};
+
+scwin.btn_cancelGrp_onclick = function(e) {
+	com.data.undoGridView(grd_commCodeSample);
+};
+
+scwin.btn_excelGrp_onclick = function(e) {
+	com.data.downloadGridViewExcel(grd_commCodeSample);
+};
+
+scwin.dlt_mainCodeList_oncelldatachange = function(info) {
+	if (info.colID === "GRP_CD") {
+		var rowData = dlt_commonCode.getMatchedJSON(info.colID, info.newValue);
+		if (rowData.length === 0) {
+			var grpCd = info.newValue;
+			if (grpCd) {
+				var param = { dma_commonGrp: { GRP_CD: grpCd } };
+				com.sbm.execute(sbm_commonCode, param);
+			}
+		} else {
+			grd_commCodeSample.refreshCell(grd_commCodeSample.getFocusedRowIndex(), 2);
+		}
+	}
+};
+
+scwin.sbm_commonCode_submitdone = function(e) {	
+	grd_commCodeSample.refreshCell(grd_commCodeSample.getFocusedRowIndex(), 2);
+};
+]]></script>
+		<style type="text/css"><![CDATA[
+			.shbox .w2tb.w2tb_adaptive_layout .w2tb_td:before {width:110px}
+		 ]]></style>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents flex_gvw" id="" style="">
+			<w2:wframe id="" style="" src="../../cm/xml/contentHeader.xml" scope=""></w2:wframe>
+			<w2:wframe id="" src="../../cm/xml/contentDesc.xml" scope=""></w2:wframe>
+			<xf:group adaptiveThreshold="" class="gvwbox" id="" style="">
+				<xf:group style="" id="" class="dfbox">
+					<w2:textbox label="코드그룹" style="" id="" class="" tagname="h3"></w2:textbox>
+					<xf:group style="" id="" class="fr">
+						<w2:textbox class="sum" id="spn_grpCnt" label="" style=""></w2:textbox>
+						<xf:trigger type="button" style="" id="btn_addGrpCell" class="btn_cm row_add" ev:onclick="scwin.btn_addGrpCell_onclick">
+							<xf:label><![CDATA[추가]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn_cm " ev:onclick="scwin.btn_delProgram_onclick" id="btn_delProgram" style="display: none;"
+							type="button">
+							<xf:label><![CDATA[삭제]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn_cm" id="btn_cancelGrp" style="" type="button" ev:onclick="scwin.btn_cancelGrp_onclick">
+							<xf:label><![CDATA[취소]]></xf:label>
+						</xf:trigger>
+						<xf:trigger class="btn_cm download" id="btn_excelGrp" style="" type="button" ev:onclick="scwin.btn_excelGrp_onclick">
+							<xf:label><![CDATA[엑셀다운로드]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+				<w2:gridView autoFit="allColumn" autoFitMinWidth="800" class="wq_gvw" dataList="data:dlt_mainCodeList"
+					editModeEvent="onclick" ev:oncellclick="" fixedColumnWithHidden="true" id="grd_commCodeSample" keyMoveEditMode="true"
+					rowNumVisible="ss" rowStatusVisible="" scrollByColumn="false" style="height:150px;" useShiftKey="true" defaultCellHeight="26"
+					focusMode="row">
+					<w2:header id="header1" style="">
+						<w2:row id="row1" style="">
+							<w2:column blockSelect="false" displayMode="label" id="column1" inputType="text" style="" value="사용자" width="200">
+							</w2:column>
+							<w2:column blockSelect="false" displayMode="label" id="column3" inputType="text" style="" value="코드 그룹" width="150">
+							</w2:column>
+							<w2:column blockSelect="false" displayMode="label" id="column4" inputType="text" style="" value="상세 코드" width="150">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody1" style="">
+						<w2:row id="row2" style="">
+							<w2:column blockSelect="false" displayMode="label" id="EMP_NM" inputType="text" style="" width="195">
+							</w2:column>
+							<w2:column blockSelect="false" displayMode="label" id="GRP_CD" inputType="select" style="" viewType="icon"
+								width="150" allOption="" chooseOption="" ref="">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_commonGrp">
+										<w2:label ref="GRP_NM"></w2:label>
+										<w2:value ref="GRP_CD"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:column>
+							<w2:column blockSelect="false" displayMode="label" id="COM_CD" inputType="select" style="" textAlign="left"
+								viewType="icon" width="150" allOption="" chooseOption="" ref="">
+								<w2:choices>
+									<w2:itemset nodeset="data:ldt_commonCode">
+										<w2:label ref="CODE_NM"></w2:label>
+										<w2:value ref="COM_CD"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

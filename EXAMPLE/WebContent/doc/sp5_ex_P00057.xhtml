@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko"><head><title>모달(Modal) 팝업과 모달리스(Modeless) 팝업 비교하기</title><link rel="stylesheet" href="css/book.css" type="text/css" /><meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" /><meta name="EPB-UUID" content="26ad9595a3708c5f" /></head><body><div id="content"><h1 id="r_ade5ccdfbed61901" class="chapter_title">모달(Modal) 팝업과 모달리스(Modeless) 팝업 비교하기</h1><h1 id="r_494f9d0904171ce8" class="element heading1"><span class="heading1_n">1</span>개요</h1><pre id="r_679c514aca384462" class="element pre">웹스퀘어의 모달(Modal) 팝업과 모달리스(Modeless) 팝업을 비교할 수 있는 예제입니다.
+$p.openPopup API의 옵션 중 "modal" 속성을 지정하여 모달 기능의 사용 여부를 결정합니다.
+모달 기능은 팝업을 호출한 페이지(창)에 레이어가 생성되며 제어할 수 없습니다.</pre><p id="r_4cc792a036d3593c" class="element r_example_link_p"><a class="link" href="http://example.websquare.kr/exampleLink.html?p=P00057">P00057</a></p><h1 id="r_0c31a1d1f34c9c85" class="element heading1"><span class="heading1_n">2</span>구현된 기능</h1><ul id="r_f500ce8fd31b3b81" class="element unordered_list"><li><p>모달 browserPopup 호출하기</p></li><li><p>모달리스 browserPopup 호출하기</p></li><li><p>모달 wframePopup 호출하기</p></li><li><p>모달리스 wframePopup 호출하기</p></li><li><p>모달 iframePopup 호출하기</p></li><li><p>모달리스 iframePopup 호출하기</p></li></ul><h1 id="r_ec8f0cb786f1c60c" class="element heading1"><span class="heading1_n">3</span>예제 테스트 방법</h1><p id="r_ba6450ae9e6d1c79" class="element normal">화면에 버튼을 클릭하여 팝업의 형태를 비교합니다.</p><ul id="r_8939bc7b0642d4d4" class="element unordered_list"><li><p>버튼 <span class="r_exec_btn_style_span">browserPopup - modal</span> : 모달 형식의 browser 팝업</p></li><li><p>버튼 <span class="r_exec_btn_style_span">browserPopup - modeless</span> : 모달리스 형식의 browser 팝업</p></li><li><p>버튼 <span class="r_exec_btn_style_span">wframePopup - modal</span> : 모달 형식의 wframe 팝업</p></li><li><p>버튼 <span class="r_exec_btn_style_span">wframePopup - modeless</span> : 모달리스 형식의 wframe 팝업</p></li><li><p>버튼 <span class="r_exec_btn_style_span">iframePopup - modal</span> : 모달 형식의 iframe 팝업 (wframe 팝업과 출력된 모양은 동일하지만 컨텐츠가 iframe에서 실행됩니다.)</p></li><li><p>버튼 <span class="r_exec_btn_style_span">iframePopup - modeless</span> 모달리스 형식의 iframe 팝업 (wframe 팝업과 출력된 모양은 동일하지만 컨텐츠가 iframe에서 실행됩니다.)</p></li></ul><h1 id="r_d0a118167bb314a8" class="element heading1"><span class="heading1_n">4</span>구현 예시</h1><div id="r_7821d3408d89cdd7" class="element caution">아래의 두가지 속성값이 따라 팝업의 형태가 변경됩니다.<br/><br/><span class="r_blue001_span">type</span> : [default : "browserPopup", "iframePopup", "wframePopup"] 팝업의 종류.<br/><span class="r_blue001_span">modal</span> : [default : "false", "true"] 모달 기능 사용 여부.</div><div id="r_724ba4076296ccc8" class="element note">아래는 type 속성의 설정 값에 따른 설명입니다.<br/><br/><span class="r_blue001_span">browserPopup</span> : 독립된 별도의 창으로 생성되는 팝업입니다. 내부적으로 window.open을 통해 생성되는 팝업입니다. 프로세스가 분리되어 완전히 독립적으로 실행됩니다. 부모에 영향 받지 않고 팝업 위치를 자유롭게 움직일 수 있습니다.<br/><br/><span class="r_blue001_span">iframePopup</span> : iframe으로 생성되는 팝업입니다. 부모 화면에 종속적으로 생성됩니다. wframe 팝업과 출력된 모양은 동일하지만 컨텐츠가 iframe에서 실행됩니다.<br/><br/><span class="r_blue001_span">wframePopup</span> : wframe으로 생성되는 팝업입니다. 부모 화면에 종속적으로 생성됩니다.</div><h2 id="r_ff805351861db9e8" class="element heading2"><span class="heading2_n">4.1</span>Modal Browser 팝업 생성하기</h2><div id="r_cee0551b49649cb0" class="element code support_code_numbering"><pre><span class="digits_10 code_line"></span><span class="keyword">var</span> jsnOptions = { 
+<span class="digits_10 code_line"></span>    id : <span class="string">"popup_exam1_1"</span>, 
+<span class="digits_10 code_line"></span>    type : <span class="string">"browserPopup"</span>, <span class="comment">//필수 고정</span>
+<span class="digits_10 code_line"></span>    width: <span class="string">"300px"</span>, 
+<span class="digits_10 code_line"></span>    height: <span class="string">"180px"</span>, 
+<span class="digits_10 code_line"></span>    popupName : <span class="string">"Modal browserPopup"</span>, 
+<span class="digits_10 code_line"></span>    modal : <span class="string">"true"</span> <span class="comment">//필수 고정</span>
+<span class="digits_10 code_line"></span>};
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span>$p.openPopup(<span class="string">"/page/P00057P01.xml"</span>,  jsnOptions );</pre></div><h2 id="r_8e3060b496934b94" class="element heading2"><span class="heading2_n">4.2</span>Modeless Browser 팝업 생성하기</h2><div id="r_49f716500310d26d" class="element code support_code_numbering"><pre><span class="digits_1 code_line"></span><span class="keyword">var</span> jsnOptions = { 
+<span class="digits_1 code_line"></span>    id : <span class="string">"popup_exam1_2"</span>, 
+<span class="digits_1 code_line"></span>    type : <span class="string">"browserPopup"</span>, <span class="comment">//필수 고정</span>
+<span class="digits_1 code_line"></span>    width: <span class="string">"300px"</span>, 
+<span class="digits_1 code_line"></span>    height: <span class="string">"180px"</span>, 
+<span class="digits_1 code_line"></span>    popupName : <span class="string">"Modeless browserPopup"</span>
+<span class="digits_1 code_line"></span>};
+<span class="digits_1 code_line"></span>
+<span class="digits_1 code_line"></span>$p.openPopup(<span class="string">"/page/P00057P01.xml"</span>,  jsnOptions );</pre></div><h2 id="r_f411ed8b97dc0b08" class="element heading2"><span class="heading2_n">4.3</span>Modal WFrame 팝업 생성하기</h2><div id="r_18b6357fa517f630" class="element code support_code_numbering"><pre><span class="digits_10 code_line"></span><span class="keyword">var</span> jsnOptions = { 
+<span class="digits_10 code_line"></span>    id : <span class="string">"popup_exam2_1"</span>, 
+<span class="digits_10 code_line"></span>    type : <span class="string">"wframePopup"</span>, <span class="comment">//필수 고정</span>
+<span class="digits_10 code_line"></span>    width: <span class="string">"300px"</span>, 
+<span class="digits_10 code_line"></span>    height: <span class="string">"180px"</span>, 
+<span class="digits_10 code_line"></span>    popupName : <span class="string">"Modal wframePopup"</span>, 
+<span class="digits_10 code_line"></span>    modal : <span class="string">"true"</span> <span class="comment">//필수 고정</span>
+<span class="digits_10 code_line"></span>};
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span>$p.openPopup(<span class="string">"/page/P00057P01.xml"</span>,  jsnOptions );</pre></div><h2 id="r_55f6e9056aaacda1" class="element heading2"><span class="heading2_n">4.4</span>Modeless WFrame 팝업 생성하기</h2><div id="r_ed0bb3056326c382" class="element code support_code_numbering"><pre><span class="digits_1 code_line"></span><span class="keyword">var</span> jsnOptions = { 
+<span class="digits_1 code_line"></span>    id : <span class="string">"popup_exam2_2"</span>, 
+<span class="digits_1 code_line"></span>    type : <span class="string">"wframePopup"</span>, <span class="comment">//필수 고정</span>
+<span class="digits_1 code_line"></span>    width: <span class="string">"300px"</span>, 
+<span class="digits_1 code_line"></span>    height: <span class="string">"180px"</span>, 
+<span class="digits_1 code_line"></span>    popupName : <span class="string">"Modeless wframePopup"</span>
+<span class="digits_1 code_line"></span>};
+<span class="digits_1 code_line"></span>
+<span class="digits_1 code_line"></span>$p.openPopup(<span class="string">"/page/P00057P01.xml"</span>,  jsnOptions );</pre></div><h2 id="r_0f7452b38417487a" class="element heading2"><span class="heading2_n">4.5</span>Modal IFrame 팝업 생성하기</h2><div id="r_18ddc2da8154bb7b" class="element code support_code_numbering"><pre><span class="digits_10 code_line"></span><span class="keyword">var</span> jsnOptions = { 
+<span class="digits_10 code_line"></span>    id : <span class="string">"popup_exam3_1"</span>, 
+<span class="digits_10 code_line"></span>    type : <span class="string">"iframePopup"</span>, <span class="comment">//필수 고정</span>
+<span class="digits_10 code_line"></span>    width: <span class="string">"300px"</span>, 
+<span class="digits_10 code_line"></span>    height: <span class="string">"180px"</span>, 
+<span class="digits_10 code_line"></span>    popupName : <span class="string">"Modal iframePopup"</span>, 
+<span class="digits_10 code_line"></span>    modal : <span class="string">"true"</span> <span class="comment">//필수 고정</span>
+<span class="digits_10 code_line"></span>};
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span>$p.openPopup(<span class="string">"/page/P00057P01.xml"</span>,  jsnOptions );</pre></div><h2 id="r_f05994210983b546" class="element heading2"><span class="heading2_n">4.6</span>Modeless IFrame 팝업 생성하기</h2><div id="r_34b51aff904135f3" class="element code support_code_numbering"><pre><span class="digits_1 code_line"></span><span class="keyword">var</span> jsnOptions = { 
+<span class="digits_1 code_line"></span>    id : <span class="string">"popup_exam3_2"</span>, 
+<span class="digits_1 code_line"></span>    type : <span class="string">"iframePopup"</span>, <span class="comment">//필수 고정</span>
+<span class="digits_1 code_line"></span>    width: <span class="string">"300px"</span>,
+<span class="digits_1 code_line"></span>    height: <span class="string">"180px"</span>, 
+<span class="digits_1 code_line"></span>    popupName : <span class="string">"Modeless iframePopup"</span>
+<span class="digits_1 code_line"></span>};
+<span class="digits_1 code_line"></span>
+<span class="digits_1 code_line"></span>$p.openPopup(<span class="string">"/page/P00057P01.xml"</span>,  jsnOptions );</pre></div><h1 id="r_77737bd82af3535d" class="element heading1"><span class="heading1_n">5</span>주요 API</h1><ul id="r_3c8b450858627d8f" class="element unordered_list"><li><p><span class="r_ex_api_method_span">$p.openPopup( url , options , params , target )</span></p></li></ul><h1 id="r_4aef1777a589c0bd" class="element heading1"><span class="heading1_n">6</span>참고 문서</h1><ul id="r_092edfa7c8357f05" class="element unordered_list"><li><p><strong>[SP5 개발 가이드] 팝업 프레임 종류</strong> </p><p>링크 : <a class="link" href="https://docs1.inswave.com/sp5_user_guide#fdde0753dd228c67">https://docs1.inswave.com/sp5_user_guide#fdde0753dd228c67</a></p><p>분류 : 파트 IV. 컴포넌트 / 팝업</p></li><li><p><strong>[SP5 개발 가이드] 모달 팝업</strong> </p><p>링크 : <a class="link" href="https://docs1.inswave.com/sp5_user_guide#06c100aa7a4bc783">https://docs1.inswave.com/sp5_user_guide#06c100aa7a4bc783</a></p><p>분류 : 파트 IV. 컴포넌트 / 팝업</p></li></ul><h1 id="r_14483fd3ed75f8b6" class="element heading1"><span class="heading1_n">7</span>참고 동영상</h1><ul id="r_654a564193aaf66a" class="element unordered_list"><li><p><strong>팝업 프레임 종류</strong> </p><p>링크 : https://youtu.be/fHg53aOuMgM</p><p><img alt="" src="images/image027.png" width="593" height="419" /></p></li><li><p><strong>프레임 모달 팝업</strong> </p><p>링크 : <a class="link" href="https://youtu.be/R2pEQDkH6Yw">https://youtu.be/R2pEQDkH6Yw</a></p><p><img alt="" src="images/image026.png" width="587" height="416" /></p></li></ul></div></body></html>

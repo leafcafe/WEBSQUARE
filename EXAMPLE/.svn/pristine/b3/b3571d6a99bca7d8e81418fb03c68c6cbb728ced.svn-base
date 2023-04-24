@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20231011]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+
+};
+
+/**
+ * 영역 [onblur 이벤트 적용]의
+ * 입력 [ibx1]의 onblur 이벤트 함수
+ */
+scwin.ibx1_onblur = function(e) {
+    //입력 값 가져오기
+    var value = this.getValue();
+    var strLog;
+    //SPAN에 텍스트 표시하기
+    spn1.setValue(value);
+
+    //로그 출력
+    strLog = "[Input] validator를 이용한 입력 검증 - 함수 scwin.ibx1_onblur";
+    $c.frame.printExampleLog(strLog, txa_log, false);
+    console.log(strLog);
+};
+
+
+/**
+ * 영역 [validator 추가 적용]의
+ * 입력 [ibx2]의 onblur 이벤트 함수
+ */
+scwin.ibx2_onblur = function(e) {
+    //입력 값 가져오기
+    var value = this.getValue();
+    var strLog;
+
+    //SPAN에 텍스트 표시하기
+    spn2.setValue(value);
+
+    //로그 출력
+    strLog = "[Input] validator를 이용한 입력 검증 - 함수 scwin.ibx2_onblur";
+    $c.frame.printExampleLog(strLog, txa_log, false);
+    console.log(strLog);
+};
+
+/**
+ * 영역 [validator 추가 적용]의
+ * 입력 [ibx2]의 validator 함수
+ */
+scwin.ibx_validator = function(value){
+    /**
+     * 검증 로직 및 데이터 처리가 이루어지는 영역
+     */
+    var strLog;
+
+    //로그 출력
+    strLog = "[Input] validator를 이용한 입력 검증 - 함수 scwin.ibx_validator";
+    $c.frame.printExampleLog(strLog, txa_log, false);
+    console.log(strLog);
+    return value;
+}
+
+/**
+ * textarea의 로그 삭제
+ */
+scwin.btn_clearLog_onclick = function(e) {
+    txa_log.setValue("");
+};
+
+
+
+
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="sp5_example_grp_desc mb_def_box" id="" style="">
+    			<w2:textbox escape="false" id=""
+    				label="Input의 속성을 이용한 유효성 체크 함수 선언 예제입니다.&lt;br/&gt;컴포넌트에서 blur가 발생하는 시점에 본 속성에 정의한 함수가 실행됩니다.&lt;br/&gt;즉, onblur 이벤트 이전에 실행되며, blur가 발생하는 시점에 유효성을 확인하고 반환 값을 변경할 수 있습니다.&lt;br/&gt;&lt;br/&gt;해당 예제는 onblur와 validator의 실행 우선 순위를 확인하기 위한 예제입니다.&lt;br/&gt;실행은 validator &gt; onblur 순으로 실행되며 onblur, validator 각각 단독으로도 사용 가능합니다."
+    				style="margin-bottom: 10px;">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap mb_def" id="" style="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="onblur 이벤트 적용" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+    						label="Input에 텍스트를 입력하고 포커스가 벗어나면 onblur 이벤트가 발생합니다. &lt;br/&gt;onblur 내에서는 input 우측의 span에 텍스트를 표시합니다." style="">
+    					</w2:textbox>
+    					<xf:input class="" dataType="text" id="ibx1" style="min-width:120px;" ev:onblur="scwin.ibx1_onblur"></xf:input>
+    					<w2:span id="spn1" label="" style="margin-left: 20px;"></w2:span>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="validator 추가 적용" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+    						label="Input에 텍스트를 입력하고 포커스가 벗어나면 validator가 실행되고 onblur 이벤트가 발생합니다.&lt;br/&gt;validator에서는 입력된 텍스트가 숫자 여부에 따른 동작을 수행한다"
+    						style="">
+    					</w2:textbox>
+    					<xf:input class="" dataType="text" id="ibx2" style="min-width:120px;"
+    						validator="scwin.ibx_validator" ev:onblur="scwin.ibx2_onblur">
+    					</xf:input>
+    					<w2:span id="spn2" label="" style="margin-left: 20px;"></w2:span>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="" style="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<xf:group class="example_div_th_style" id="">
+    					<w2:span class="mr_def txt_blue" id="" label="로그 확인" style=""></w2:span>
+    					<xf:trigger class="com_example_btn_log_clear" ev:onclick="scwin.btn_clearLog_onclick" id="btn_clearLog" style=""
+    						title="로그 삭제" type="button">
+    						<xf:label><![CDATA[검색 취소]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<xf:textarea class="com_example_txa_log" id="txa_log" spellcheck="false" style="width: 100%;height: 140px;"></xf:textarea>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

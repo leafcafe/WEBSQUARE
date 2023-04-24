@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230206]]></updated_date>
+							<version><![CDATA[02]]></version>
+							<description><![CDATA[설명 추가 및 버튼 명 수정]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+						<w2:row>
+							<updated_date><![CDATA[20230120]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_books" repeatNode="map" style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="price" name="정가"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<price><![CDATA[2547869000]]></price>
+						</w2:row>
+						<w2:row>
+							<price><![CDATA[8740500]]></price>
+						</w2:row>
+						<w2:row>
+							<price><![CDATA[543900]]></price>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+
+
+/**
+ * 버튼 [컬럼 '정가'의 속성 dataType의 설정 값 반환받기] 클릭 시
+ */
+scwin.btn_ex1_1_onclick = function (e) {
+    var returnValue;
+
+    //GridView 'grd_exam1'의 컬럼 '정가'의 속성 dataType의 값을 반환 받습니다.
+    returnValue = grd_exam1.getDataType("price");
+
+    //로그 출력
+    $c.frame.printExampleLog("** 함수 scwin.btn_ex1_1_onclick **", txa_log, false);
+    $c.frame.printExampleLog('grd_exam1.getDataType("price"); 반환 값 : ' + returnValue, txa_log, false);
+
+    console.log("** 함수 scwin.btn_ex1_1_onclick **");
+    console.log('grd_exam1.getDataType("price"); 반환 값 : ' + returnValue);
+
+    txa_log.focus();
+
+};
+
+/**
+ * 버튼 [컬럼 '정가'의 속성 dataType을 'number'로 지정하고 속성 dispalyFormat을 '#,###'으로 지정하기] 클릭 시
+ */
+scwin.btn_ex1_2_onclick = function (e) {
+    //GridView 'grd_exam1'의 컬럼 '정가'의 속성 dataType의 값을 'number'로 지정합니다.
+    grd_exam1.setDataType("price", "number");
+    //GridView 'grd_exam1'의 컬럼 '정가'의 속성 displayFormat의 값을 '#,###'으로 지정합니다.
+    grd_exam1.setColumnDisplayFormat("price", "#,###");
+};
+
+/**
+ * 버튼 [컬럼 '정가'의 속성 dataType을 'float'로 지정하고 속성 dispalyFormat을 '#,###.00'으로 지정하기] 클릭 시
+ */
+scwin.btn_ex1_3_onclick = function (e) {
+    //GridView 'grd_exam1'의 컬럼 '정가'의 속성 dataType을 'float'로 지정합니다.
+    grd_exam1.setDataType("price", "float");
+    //GridView 'grd_exam1'의 컬럼 '정가'의 속성 dispalyFormat을 '#,###.00'으로 지정합니다.
+    grd_exam1.setColumnDisplayFormat("price", "#,###.00");
+};
+
+/**
+ * textarea의 로그 삭제
+ */
+scwin.btn_clearLog_onclick = function (e) {
+    txa_log.setValue("");
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='GridView 컬럼의 속성 dataType과 속성 displayFormat의 값을 지정하고 속성 dataType의 값을 반환받는 예제입니다.&lt;br/&gt;지정 가능한 dataType 값은 아래와 같습니다.&lt;br/&gt;- text, number, float'
+					style="">
+				</w2:textbox>
+				<w2:textbox escape="false" id=""
+					label="이 예제에서 사용한 함수는 다음과 같습니다.&lt;br/&gt;- getDataType : 컬럼의 속성 dataType의 값을 반환.&lt;br/&gt;- setDataType : 컬럼의 속성 dataType의 값을 지정.&lt;br/&gt;- setColumnDisplayFormat : 컬럼의 속성 displayFormat의 값을 지정."
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="컬럼의 속성 dataType과 속성 dispalyFormat 지정하기" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal txt_info_important" id="" label="반환 된 설정 값은 [로그 확인]의 textarea에 로그가 출력됩니다."
+							style=""></w2:textbox>
+						<xf:group class="mb_def_box nobottom" id="" style="">
+							<xf:trigger class="btn_exam_exec btn_txt_of" disabled="" escape="false" ev:onclick="scwin.btn_ex1_1_onclick"
+								id="btn_ex1_1" style="" type="button">
+								<xf:label><![CDATA[컬럼 '정가'의 속성 dataType의 설정 값 반환받기 - 로그 출력]]></xf:label>
+							</xf:trigger>
+							<xf:trigger class="btn_exam_exec btn_txt_of" disabled="" escape="false" ev:onclick="scwin.btn_ex1_2_onclick"
+								id="btn_ex1_2" style="" type="button">
+								<xf:label><![CDATA[컬럼 '정가'의 속성 dataType을 'number'로 지정하고 속성 dispalyFormat을 '#,###'으로 지정하기]]></xf:label>
+							</xf:trigger>
+							<xf:trigger class="btn_exam_exec btn_txt_of" disabled="" escape="false" ev:onclick="scwin.btn_ex1_3_onclick"
+								id="btn_ex1_3" style="" type="button">
+								<xf:label><![CDATA[컬럼 '정가'의 속성 dataType을 'float'로 지정하고 속성 dispalyFormat을 '#,###.00'으로 지정하기]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<w2:gridView autoFit="allColumn" autoFitMinWidth="160" class="wq_gvw" dataList="data:dlt_books" defaultCellHeight="24"
+							disabledBackgroundColor="#eee" disabledFontColor="#bbb" id="grd_exam1" rowNumVisible="true" rowNumWidth="10" style="height:100px;"
+							visibleRowNum="3" visibleRowNumFix="true">
+							<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column displayMode="label" id="column2" inputType="text" value="정가" width="70"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column displayMode="label" id="price" inputType="text" textAlign="right" width="70"></w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="" style="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<xf:group class="example_div_th_style" id="">
+						<w2:span class="mr_def txt_blue" id="" label="로그 확인" style=""></w2:span>
+						<xf:trigger class="com_example_btn_log_clear" ev:onclick="scwin.btn_clearLog_onclick" id="btn_clearLog" style=""
+							title="로그 삭제" type="button">
+							<xf:label><![CDATA[검색 취소]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:textarea class="com_example_txa_log" id="txa_log" spellcheck="false" style="width: 100%;height: 140px;"></xf:textarea>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

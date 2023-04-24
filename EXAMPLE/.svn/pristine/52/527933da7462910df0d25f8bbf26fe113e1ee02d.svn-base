@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220907]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_exam" repeatNode="map" style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="select" name="select"></w2:column>
+						<w2:column dataType="text" id="checkcombobox" name="checkcombobox"></w2:column>
+						<w2:column id="autoComplete" name="autoComplete" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="false">
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_exam_code" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="label" name="label" dataType="text"></w2:column>
+						<w2:column id="code" name="code" dataType="text"></w2:column>
+						<w2:column id="useYN" name="useYN" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    //GridView의 선택형 inputType의 목록과 연결된 DataList "dlt_exam_code"에 데이터 할당
+    dlt_exam_code.setJSON([
+        { "label": "Apple", "code": "01", "useYN": "Y" },
+        { "label": "Pear", "code": "02", "useYN": "N" },
+        { "label": "Grapes", "code": "03", "useYN": "Y" },
+        { "label": "Melon", "code": "04", "useYN": "N" },
+        { "label": "Peach", "code": "05", "useYN": "Y" }
+    ]);
+
+    //GridView와 연결된 DataList에 빈 행 추가
+    dlt_exam.insertRow();
+    dlt_exam.insertRow();
+
+    //GridView의 컬럼 select에 비활성화 항목 지정하기
+    //목록과 연결된 DataList의 "useYN" 컬럼의 값이 "N"이면 비활성화 지정
+    grd_exam2.setColumnEnableColumn("select", "useYN", "N");
+
+    //GridView의 컬럼 checkcombobox에 비활성화 항목 지정하기
+    //목록과 연결된 DataList의 "useYN" 컬럼의 값이 "N"이면 비활성화 지정
+    grd_exam2.setColumnEnableColumn("checkcombobox", "useYN", "N");
+
+    //GridView의 컬럼 autoComplete에 비활성화 항목 지정하기
+    //목록과 연결된 DataList의 "useYN" 컬럼의 값이 "N"이면 비활성화 지정
+    grd_exam2.setColumnEnableColumn("autoComplete", "useYN", "N");
+};
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='GridView의 inputType이 목록 선택형(DropDown) 타입인 경우,&lt;br/&gt;목록의 특정 항목을 비활성화하는 예제입니다.&lt;br/&gt;적용 가능한 inputType은 select, checkcombobox, autoComplete입니다.'
+					style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="[기본 설정] 모든 항목 활성화" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:gridView autoFit="allColumn" autoFitMinWidth="240" class="wq_gvw" dataList="data:dlt_exam" defaultCellHeight="24"
+							id="" style="height:80px;" visibleRowNum="2" visibleRowNumFix="true">
+							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+							<w2:header style="" id="header1">
+								<w2:row style="" id="row1">
+									<w2:column width="80" inputType="text" id="column3" value="select" displayMode="label"></w2:column>
+									<w2:column width="96" inputType="text" id="column2" value="checkcombobox" displayMode="label">
+									</w2:column>
+									<w2:column width="96" inputType="text" id="column1" value="autoComplete" displayMode="label"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody style="" id="gBody1">
+								<w2:row style="" id="row2">
+									<w2:column width="80" inputType="select" id="select" displayMode="label" chooseOption="true" viewType="icon"
+										chooseOptionLabel="- 선택 -">
+										<w2:choices>
+											<w2:itemset nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+									<w2:column width="96" inputType="checkcombobox" id="checkcombobox" displayMode="label" chooseOption="true"
+										viewType="icon" chooseOptionLabel="- 선택 -">
+										<w2:choices>
+											<w2:itemset nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+									<w2:column width="96" inputType="autoComplete" id="autoComplete" displayMode="label" chooseOption="true" viewType="icon"
+										chooseOptionLabel="- 선택 -">
+										<w2:choices>
+											<w2:itemset nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="비활성화 항목 지정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:gridView autoFit="allColumn" autoFitMinWidth="240" class="wq_gvw" dataList="data:dlt_exam" defaultCellHeight="24"
+							id="grd_exam2" style="height:80px;" visibleRowNum="2" visibleRowNumFix="true">
+							<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column displayMode="label" id="column3" inputType="text" value="select" width="80"></w2:column>
+									<w2:column displayMode="label" id="column2" inputType="text" value="checkcombobox" width="96"></w2:column>
+									<w2:column displayMode="label" id="column1" inputType="text" value="autoComplete" width="96"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column chooseOption="true" chooseOptionLabel="- 선택 -" displayMode="label" id="select" inputType="select"
+										viewType="icon" width="80">
+										<w2:choices>
+											<w2:itemset nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+									<w2:column chooseOption="true" chooseOptionLabel="- 선택 -" displayMode="label" id="checkcombobox"
+										inputType="checkcombobox" viewType="icon" width="96">
+										<w2:choices>
+											<w2:itemset nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+									<w2:column chooseOption="true" chooseOptionLabel="- 선택 -" displayMode="label" id="autoComplete" inputType="autoComplete"
+										viewType="icon" width="96">
+										<w2:choices>
+											<w2:itemset nodeset="data:dlt_exam_code">
+												<w2:label ref="label"></w2:label>
+												<w2:value ref="code"></w2:value>
+											</w2:itemset>
+										</w2:choices>
+									</w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

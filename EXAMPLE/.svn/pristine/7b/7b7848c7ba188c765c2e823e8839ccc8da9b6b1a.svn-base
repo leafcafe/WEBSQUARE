@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko"><head><title>컴포넌트의 Plugin Name</title><link rel="stylesheet" href="css/book.css" type="text/css" /><meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" /><meta name="EPB-UUID" content="26ad9595a3708c5f" /></head><body><div id="content"><h1 id="r_a0b1fb65aa89a461" class="chapter_title"><span class="appendix_title_n">부록 A.</span>컴포넌트의 Plugin Name</h1><pre id="r_f31c74c92890b5a4" class="element pre">컴포넌트명(Plugin Name)입니다.
+주로 공통 스크립트에서 불특정 컴포넌트를 받아 타입별로 분기하여 로직을 구성할 때 사용되거나, 
+동적으로 컴포넌트를 생성($p.dynamicCreate)할 때 사용됩니다.</pre><ul id="r_4a3ff3780d9aa099" class="element unordered_list"><li><p>Accordion : "accordion"</p></li><li><p>AliasDataList : "aliasDataList"</p></li><li><p>AliasDataMap : "aliasDataMap"</p></li><li><p>AliasLinkedDataList : "aliasLinkedDataList"</p></li><li><p>Anchor : "anchor"</p></li><li><p>AutoComplete : "autoComplete"</p></li><li><p>Calendar : "calendar"</p></li><li><p>Checkbox : "checkbox"</p></li><li><p>Checkcombobox : "checkcombobox"</p></li><li><p>DataList : "dataList"</p></li><li><p>DataMap : "dataMap"</p></li><li><p>DatePicker : "datePicker"</p></li><li><p>Editor : "editor"</p></li><li><p>Fliptoggle : "fliptoggle"</p></li><li><p>FloatingLayer : "floatingLayer"</p></li><li><p>Fusionchart : "fusionchart"</p></li><li><p>FwBulletChart : "fwBulletChart"</p></li><li><p>FwFunnelChart : "fwFunnelChart"</p></li><li><p>FwGanttChart : "fwGanttChart"</p></li><li><p>FwGaugeChart : "fwGaugeChart"</p></li><li><p>FwPyramidChart : "fwPyramidChart"</p></li><li><p>FwRealtimeChart : "fwRealtimeChart"</p></li><li><p>FwSparkChart : "fwSparkChart"</p></li><li><p>Generator : "generator"</p></li><li><p>GridView : "gridView"</p></li><li><p>Group : "group"</p></li><li><p>Iframe : "iframe"</p></li><li><p>Image : "image"</p></li><li><p>Input : "input"</p></li><li><p>InputCalendar : "inputCalendar"</p></li><li><p>LinkedDataList : "linkedDataList"</p></li><li><p>Mapchart : "mapchart"</p></li><li><p>Multiselect : "multiselect"</p></li><li><p>Multiupload : "multiupload"</p></li><li><p>Output : "output"</p></li><li><p>PageControl : "pageControl"</p></li><li><p>PageInherit : "pageInherit"</p></li><li><p>PageList : "pageList"</p></li><li><p>Pivot : "pivot"</p></li><li><p>Progressbar : "progressbar"</p></li><li><p>Radio : "radio"</p></li><li><p>Repeat : "repeat"</p></li><li><p>RoundRectangle : "roundRectangle"</p></li><li><p>ScheduleCalendar : "scheduleCalendar"</p></li><li><p>ScrollView : "scrollView"</p></li><li><p>Searchbox : "searchbox"</p></li><li><p>Selectbox : "selectbox"</p></li><li><p>SlideHide : "slideHide"</p></li><li><p>Slider : "slider"</p></li><li><p>Span : "span"</p></li><li><p>Spinner : "spinner"</p></li><li><p>Switch : "Switch"</p></li><li><p>TabControl : "tabControl"</p></li><li><p>Textarea : "textarea"</p></li><li><p>Textbox : "textbox"</p></li><li><p>Treeview : "treeview"</p></li><li><p>Trigger : "trigger"</p></li><li><p>Upload : "upload"</p></li><li><p>Wframe : "wframe"</p></li><li><p>WidgetContainer : "widgetContainer"</p></li><li><p>WindowContainer : "windowContainer"</p></li></ul><p id="r_3d5db6bb452d43ac" class="element normal">스크립트 switch 예시</p><div id="r_c68048261152f094" class="element code support_code_numbering"><pre><span class="digits_100 code_line"></span><span class="keyword">var</span> strCmpType = _cmpObject.getPluginName();&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//_cmpObject &gt;&gt;&gt; 컴포넌트 객체</span>
+<span class="digits_100 code_line"></span>
+<span class="digits_100 code_line"></span><span class="keyword">switch</span> (strCmpType) {
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"accordion"</span> : <span class="comment">//Accordion</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"aliasDataList"</span> : <span class="comment">//AliasDataList</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"aliasDataMap"</span> : <span class="comment">//AliasDataMap</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"aliasLinkedDataList"</span> : <span class="comment">//AliasLinkedDataList</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"anchor"</span> : <span class="comment">//Anchor</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"autoComplete"</span> : <span class="comment">//AutoComplete</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"calendar"</span> : <span class="comment">//Calendar</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"checkbox"</span> : <span class="comment">//Checkbox</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"checkcombobox"</span> : <span class="comment">//Checkcombobox</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"dataList"</span> : <span class="comment">//DataList</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"dataMap"</span> : <span class="comment">//DataMap</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"datePicker"</span> : <span class="comment">//DatePicker</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"editor"</span> : <span class="comment">//Editor</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fliptoggle"</span> : <span class="comment">//Fliptoggle</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"floatingLayer"</span> : <span class="comment">//FloatingLayer</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fusionchart"</span> : <span class="comment">//Fusionchart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fwBulletChart"</span> : <span class="comment">//FwBulletChart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fwFunnelChart"</span> : <span class="comment">//FwFunnelChart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fwGanttChart"</span> : <span class="comment">//FwGanttChart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fwGaugeChart"</span> : <span class="comment">//FwGaugeChart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fwPyramidChart"</span> : <span class="comment">//FwPyramidChart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fwRealtimeChart"</span> : <span class="comment">//FwRealtimeChart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"fwSparkChart"</span> : <span class="comment">//FwSparkChart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"generator"</span> : <span class="comment">//Generator</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"gridView"</span> : <span class="comment">//GridView</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"group"</span> : <span class="comment">//Group</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"iframe"</span> : <span class="comment">//Iframe</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"image"</span> : <span class="comment">//Image</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"input"</span> : <span class="comment">//Input</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"inputCalendar"</span> : <span class="comment">//InputCalendar</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"linkedDataList"</span> : <span class="comment">//LinkedDataList</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"mapchart"</span> : <span class="comment">//Mapchart</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"multiselect"</span> : <span class="comment">//Multiselect</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"multiupload"</span> : <span class="comment">//Multiupload</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"output"</span> : <span class="comment">//Output</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"pageControl"</span> : <span class="comment">//PageControl</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"pageInherit"</span> : <span class="comment">//PageInherit</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"pageList"</span> : <span class="comment">//PageList</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"pivot"</span> : <span class="comment">//Pivot</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"progressbar"</span> : <span class="comment">//Progressbar</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"radio"</span> : <span class="comment">//Radio</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"repeat"</span> : <span class="comment">//Repeat</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"roundRectangle"</span> : <span class="comment">//RoundRectangle</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"scheduleCalendar"</span> : <span class="comment">//ScheduleCalendar</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"scrollView"</span> : <span class="comment">//ScrollView</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"searchbox"</span> : <span class="comment">//Searchbox</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"selectbox"</span> : <span class="comment">//Selectbox</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"slideHide"</span> : <span class="comment">//SlideHide</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"slider"</span> : <span class="comment">//Slider</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"span"</span> : <span class="comment">//Span</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"spinner"</span> : <span class="comment">//Spinner</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"Switch"</span> : <span class="comment">//Switch</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"tabControl"</span> : <span class="comment">//TabControl</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"textarea"</span> : <span class="comment">//Textarea</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"textbox"</span> : <span class="comment">//Textbox</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"treeview"</span> : <span class="comment">//Treeview</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"trigger"</span> : <span class="comment">//Trigger</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"upload"</span> : <span class="comment">//Upload</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"wframe"</span> : <span class="comment">//Wframe</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"widgetContainer"</span> : <span class="comment">//WidgetContainer</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span><span class="keyword">case</span> <span class="string">"windowContainer"</span> : <span class="comment">//WindowContainer</span>
+<span class="digits_100 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;break;
+<span class="digits_100 code_line"></span>default:
+<span class="digits_100 code_line"></span>    break;
+<span class="digits_100 code_line"></span>}</pre></div></div></body></html>

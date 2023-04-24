@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20230201]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    
+};
+
+// trigger1 버튼의 onClick 함수
+scwin.trigger1_onclick = function(e) {
+    var date = ica_exam_1.getDefaultDate();
+    alert(date);
+};
+
+// trigger2 버튼의 onClick 함수
+scwin.trigger2_onclick = function(e) {
+    ica_exam_1.setDefaultDate("19930531");
+};
+
+// trigger3 버튼의 onClick 함수
+scwin.trigger3_onclick = function(e) {
+    var date = ica_exam_2.getDefaultDate();
+    alert(date);
+};
+
+// trigger4 버튼의 onClick 함수
+scwin.trigger4_onclick = function(e) {
+    ica_exam_2.setDefaultDate("20300531");
+};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox escape="false" id="" label='달력 아이콘 클릭 시 표시되는 날짜를 설정하거나 확인할 수 있습니다.' style="margin-bottom: 10px;"></w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label='[기본 설정] defaultDate = ""' style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+    						label="getDefaultDate - defaultDate에 설정된 값을 불러옵니다.&lt;br/&gt;setDefaultDate - defaultDate에 날짜를 설정합니다. 설정한 날짜는 InputCalendar를 눌렀을 때 확인할 수 있습니다."
+    						style="">
+    					</w2:textbox>
+    					<w2:inputCalendar calendarValueType="yearMonthDate" class="mr_def" focusOnDateSelect="false" id="ica_exam_1"
+    						renderDiv="true" rightAlign="false" style="width:100px;min-height: 24px;">
+    					</w2:inputCalendar>
+    					<xf:trigger class="btn_exam_exec" ev:onclick="scwin.trigger1_onclick" id="trigger1" localeRef=""
+    						style="min-width: 30px;height: 26px;" type="" useDefaultLabel="true">
+    						<xf:label><![CDATA[getDefaultDate]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn_exam_exec" ev:onclick="scwin.trigger2_onclick" id="trigger2" localeRef=""
+    						style="min-width: 30px;height: 26px;" type="" useDefaultLabel="true">
+    						<xf:label><![CDATA[setDefaultDate]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label='[설정 값 변경] defaultDate = "20230101"' style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:inputCalendar calendarValueType="yearMonthDate" class="mr_def" focusOnDateSelect="false" id="ica_exam_2"
+    						renderDiv="true" rightAlign="false" style="width:100px;min-height: 24px;" defaultDate="20230101">
+    					</w2:inputCalendar>
+    					<xf:trigger class="btn_exam_exec" ev:onclick="scwin.trigger3_onclick" id="trigger3" localeRef=""
+    						style="min-width: 30px;height: 26px;" type="" useDefaultLabel="true">
+    						<xf:label><![CDATA[getDefaultDate]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn_exam_exec" ev:onclick="scwin.trigger4_onclick" id="trigger4" localeRef=""
+    						style="min-width: 30px;height: 26px;" type="" useDefaultLabel="true">
+    						<xf:label><![CDATA[setDefaultDate]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

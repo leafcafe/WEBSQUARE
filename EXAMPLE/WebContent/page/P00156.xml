@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221104]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='컴포넌트의 속성 useAlert 설정 예제입니다.&lt;br/&gt;속성 useAlert은 속성 dataType이 "date"로 지정되고, 사용자가 입력 영역(input)에 직접 값을 입력했을 때 동작하는 기능입니다.&lt;br/&gt;사용자가 입력한 값이 유효한 날짜가 아닌 경우 경고 포커스가 벗어난는 시점에 메시지(alert)가 출력됩니다.'
+					style="" class="mb10">
+				</w2:textbox>
+				<w2:textbox escape="false" id=""
+					label='입력 영역(Input)에 "20999999"를 입력하고 컴포넌트에서 포커스 제거했을 때 설정별 동작을 비교합니다.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='(기본) 경고창 사용' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:spinner skin="type1" buttonSize="30"
+							inputReadOnly="false" id="spi_exam1"
+							style="position: relative;width:130px;min-height:24px;"
+							dataType="date">
+						</w2:spinner>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='경고창 사용 안함' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:spinner buttonSize="30" id="spi_exam2"
+							inputReadOnly="false" skin="type1"
+							style="position: relative;width:130px;min-height:24px;"
+							dataType="date" useAlert="false">
+						</w2:spinner>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

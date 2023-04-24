@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" repeatNode="map" id="dlt_cssFileList" saveRemovedData="true">
+    				<w2:columnInfo>
+    					<w2:column id="label" name="name1" dataType="text"></w2:column>
+    					<w2:column id="path" name="name2" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+        					<path><![CDATA[style]]></path>
+        					<label><![CDATA[내부 internalStyle]]></label>
+        				</w2:row>
+        				<w2:row>
+        					<path><![CDATA[/css/example.css]]></path>
+        					<label><![CDATA[[예제별 예시] /css/example.css]]></label>
+        				</w2:row>
+        				<w2:row>
+        					<path><![CDATA[/cm/css/base.css]]></path>
+        					<label><![CDATA[[공통]/cm/css/base.css]]></label>
+        				</w2:row>
+        				<w2:row>
+        					<path><![CDATA[/cm/css/contents.css]]></path>
+        					<label><![CDATA[[공통]/cm/css/contents.css]]></label>
+        				</w2:row>
+        				<w2:row>
+        					<path><![CDATA[/frame/css/ws5_example.css]]></path>
+        					<label><![CDATA[[공통]/frame/css/ws5_example.css]]></label>
+        				</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script type="text/javascript" src="/frame/js/mainScript.js" scopeExternal="true"></script>
+    	<script lazy="false" type="text/javascript"><![CDATA[scwin.gVar = {
+    "EXA_MAIN_TYPE" : "M",  //화면 타입
+    "jsnParam" : null,
+    "jsnLeftMenuLink" : {},
+    "jsnContParam" : null,
+    "layoutComponentID" : "wfm_mainContent"
+};
+
+scwin.onpageload = async function() {
+    $p.js($c.frame.getSrc("/frame/highlight/highlight.min.js"), () => { });
+
+    await scwin.menu.init();
+
+    //querystring param 분석
+    scwin.parseParam();
+
+    //좌측 메뉴 구성
+    await wfm_leftContainer.setSrc($c.frame.getSrc("frame/page/leftContainer.xml"));
+
+    inquires("externalJS/editor4.17.1/ckeditor.js").then(function(argDone){
+        CKEDITOR.disableAutoInline=false;
+        // CKEDITOR.config.autoUpdateElement = false;
+        // CKEDITOR.scayt_autoStartupSince = false;
+        
+        scwin.setInitPage();
+    }, function(arsError){
+        console.log("[ERROR]externalJS/editor4.17.1/ckeditor.js", argError);
+        scwin.setInitPage();
+    });
+};
+
+scwin.setInitPage = function () {
+    if (scwin.dispPageByParam() === false) {
+        scwin.dispDashboard();
+    }
+};
+
+/**
+ * querystring의 param 분석
+ */
+scwin.parseParam = function () {
+    var strAllParam;
+    var arrParam;
+    var jsnParam;
+
+    strAllParam = (location.search).replace("?","");
+    arrParam = strAllParam.split("&");
+
+    jsnParam = {};
+
+    arrParam.forEach((argItem,argIndex)=>{
+        let arrItem = (argItem || "").trim().split("=");;
+        jsnParam[arrItem[0]] = arrItem[1];
+    });
+
+    //전역 변수에 할당.
+    scwin.gVar.jsnParam = JSON.parse(JSON.stringify(jsnParam));
+};
+
+scwin.dispPageByParam = function() {
+    var strPage;
+    var jsnMenu;
+    strPage = scwin.gVar.jsnParam.p;
+    if (!strPage) { return false; }
+
+    jsnMenu = scwin.menu.getMenuByPage(strPage);
+
+    if (jsnMenu && jsnMenu.ID) {
+        scwin.dispPage(jsnMenu);
+        return true;
+    }
+    return false;
+};
+
+scwin.dispPage = function(argMenuID) {
+    var jsnMenuData;
+    var strMenuID;
+    var strMenuTitle;
+    var isValid = false;
+
+    grp_main_wrap.removeClass("show_menu");
+
+    switch (typeof argMenuID) {
+    case "string":
+        jsnMenuData = scwin.menu.getMenuByID(argMenuID);
+        isValid = true;
+        break;
+    case "object":
+        if ($.isPlainObject(argMenuID) && argMenuID.ID) {
+            jsnMenuData = argMenuID;
+            isValid = true;
+        }
+        break;
+    default:
+        break;
+    }
+
+    if (!isValid) {
+        console.error("메뉴를 찾을 수 없습니다. >> " + argMenuID);
+        return false;
+    }
+
+    strMenuID = jsnMenuData["ID"];
+    strMenuTitle = jsnMenuData["TITLE"];
+
+    wfm_mainContent.setUserData("exam_menuID", strMenuID);
+    wfm_mainContent.setSrc($c.frame.getSrc("/frame/page/pageContainer_mobile.xml"));
+
+    scwin.gVar.jsnContParam = { "menuData" : jsnMenuData };
+
+    //강조 class 적용
+    let strSelectedMenuID;
+    let strkey = "ex_selectedMenuID";
+
+    //기 선택된 요소 class 제거
+    strSelectedMenuID = wfm_mainContent.getUserData(strkey);
+
+    if (strSelectedMenuID) {
+        scwin.setEmpClass_leftMenu(strSelectedMenuID, false);
+    }
+    
+    //선택된 요소 class 추가 >>> 확장 처리까지.
+    scwin.setEmpClass_leftMenu(strMenuID, true);
+    wfm_mainContent.setUserData(strkey, strMenuID);
+
+};
+
+/**
+ * tab 전체 닫기 click 시
+ */
+scwin.btn_tab_allclose_onclick = function() {
+    var lenLen = tac_main.getTabCount();
+    for( let i = lenLen ; i > 0 ; i-- ){
+        tac_main.deleteTab(i);	
+    }
+};
+
+//dashboard 추가
+scwin.dispDashboard = function() {
+    //wfm_mainContent.setSrc($c.frame.getSrc("/frame/page/home_dashboard.xml"));
+    wfm_mainContent.setSrc($c.frame.getSrc("/frame/page/intro_dashboard.xml"));
+
+    scwin.removeEmpClass_leftMenu();
+};
+
+//project history 추가
+scwin.dispProjectHistory = function() {
+    wfm_mainContent.setSrc($c.frame.getSrc("/frame/page/history.xml"));
+    scwin.removeEmpClass_leftMenu();
+};
+
+scwin.btn_sitemap_onclick = function(e) {
+    var objRect;
+    var numMaxHeight, numMaxWidth;
+
+    objRect = document.body.getBoundingClientRect();
+
+    numMaxHeight = objRect.height;
+    numMaxWidth = objRect.width;
+    
+    $p.openPopup(
+        $c.frame.getSrc("/frame/page/sitemap.xml"), 
+        {
+            id : "pop_sitemap",
+            type : "browserPopup",
+            resizable : "true",
+            width : (numMaxWidth > 1300 ? 1300 : numMaxWidth) + "px",
+            height : (numMaxHeight > 600 ? 600 : numMaxHeight) + "px",
+            dataObject : {
+                "type" : "json",
+                "name" : "popupParam",
+                "data" : scwin.menu.getAllMenuDataString()
+            }
+        });
+};
+
+scwin.btn_online_doc_onclick = function(e) {
+    window.open("https://docs1.inswave.com/ws5_sp5_example", "_blank");
+};
+
+//header 메뉴 확장/축소
+scwin.btn_toggle_menu_onclick = function() {
+    grp_main_wrap.toggleClass("show_menu");
+};
+
+/**
+ * 상단의 logo 클릭 시
+ */
+scwin.btn_logo_onclick = function() {
+    location.reload();
+};
+
+/**
+ * 좌측 메뉴 강조 class 적용
+ */
+scwin.setEmpClass_leftMenu = function(argCurMenuID, argIsRemove) {
+    var strMenuComp;
+    var arrMenuComp;
+    var numLenArrMenuComp;
+    
+    strMenuComp = scwin.gVar.jsnLeftMenuLink[argCurMenuID];
+
+    if (!strMenuComp) { $c.frame.log("scwin.setEmpClass_leftMenu", "메뉴 정보가 없습니다 : " + argCurMenuID, "debug"); return; }
+
+    arrMenuComp = strMenuComp.split("|");
+
+    numLenArrMenuComp = arrMenuComp.length;
+
+    arrMenuComp.forEach((item, index) => {
+        //menu
+        let cmpMenu = $p.getComponentById(item);
+        
+        if (!cmpMenu) { $c.frame.log("scwin.setEmpClass_leftMenu", "컴포넌트를 찾을 수 없습니다. : " + item, "debug"); return; }
+
+        if (argIsRemove === false) {
+            cmpMenu.removeClass("on");
+        } else {
+            cmpMenu.addClass("on");
+
+            if (numLenArrMenuComp-1 == index) {
+                cmpMenu.getParent().removeClass("isCollapsed");
+            } else if (index == 1) {
+                cmpMenu.removeClass("isCollapsed");
+            }
+        }
+    });
+
+    $p.getComponentById(arrMenuComp[0]).focus();
+    
+};
+
+/**
+ * 좌측 메뉴 강조 class 제거
+ */
+scwin.removeEmpClass_leftMenu = function() {
+    //강조 class 적용
+    var strSelectedMenuID;
+    var strkey = "ex_selectedMenuID";
+    
+    //기 선택된 요소 class 제거
+    strSelectedMenuID = wfm_mainContent.getUserData(strkey);
+
+    if (strSelectedMenuID) {
+        scwin.setEmpClass_leftMenu(strSelectedMenuID, false);
+
+        wfm_mainContent.setUserData(strkey, "");
+    }
+};
+/**
+ * PC 모드 이동
+ */
+scwin.btn_pc_onclick = function(e) {
+    location.href = EXA_URL_PC; 
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="wrap mobile" id="grp_main_wrap" style="">
+    		<xf:group style="" id="" class="header">
+    			<w2:anchor class="btn_toggle_menu" id="btn_toggle_menu" name="" outerDiv="false" style=""
+    				ev:onclick="scwin.btn_toggle_menu_onclick" title="메뉴 확장/축소">
+    				<xf:label><![CDATA[tootleMenu]]></xf:label>
+    			</w2:anchor>
+    			<xf:group class="" id="" style="" tagname="h1">
+    				<w2:anchor class="logo" id="btn_logo" outerDiv="false" ev:onclick="scwin.btn_logo_onclick" title="브라우저 새로고침">
+    					<xf:label><![CDATA[inswave systems]]></xf:label>
+    				</w2:anchor>
+					<w2:textbox id="" label="ver." class="ws_ver" style="" tagname="span"></w2:textbox>
+    				<w2:textbox id="" label="SP5" class="ws_ver" style="" tagname="strong"></w2:textbox>
+    			</xf:group>
+    			<xf:group style="" id="" class="grp_r_link">
+    				<xf:group id="" class="">
+    					<xf:trigger ev:onclick="scwin.btn_sitemap_onclick" style="display: none;" id="btn_sitemap" type="button" class="btn_exam_tran">
+    						<xf:label><![CDATA[사이트맵]]></xf:label>
+    					</xf:trigger>
+    					<xf:trigger class="btn_pc_mode" id="btn_pc" style="" type="button" ev:onclick="scwin.btn_pc_onclick">
+    						<xf:label><![CDATA[PC 버전]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    			<!-- <xf:group class="ofh p10" id="" style="display: none">
+    				<xf:group id="" class="fl">
+    				<xf:trigger class="btn_cm" id="btn_leftMenu" style="" type="button" ev:onclick="scwin.btn_leftMenu_onclick">
+    				<xf:label><![CDATA[좌측 메뉴 열기/닫기]]></xf:label>
+    				</xf:trigger>
+    				</xf:group>
+    				<xf:group style="" id="" class="fr">
+    				<xf:trigger class="btn_cm" ev:onclick="scwin.btn_sitemap_onclick" id="btn_sitemap" style="" type="button">
+    				<xf:label><![CDATA[예제 목록 전체 보기]]></xf:label>
+    				</xf:trigger>
+    				</xf:group>
+    				</xf:group> -->
+    		</xf:group>
+    		<xf:group id="grp_container" class="container">
+    			<xf:group style="" id="" class="contents">
+    				<w2:wframe style="min- height: 300px;" id="wfm_mainContent"></w2:wframe>
+    			</xf:group>
+    		</xf:group>
+    		<w2:wframe class="side" id="wfm_leftContainer" style=""></w2:wframe>
+    	</xf:group>
+    	<xf:group style="display: none;" id="grp_hidden">
+    		<a id="hidden_download_anchor"></a>
+    	</xf:group>
+    	<input id="hidden_clipboard_input" style="position:absolute;left:-1000px;top:-1000px;border:0px solid #fff;"></input>
+    </body>
+</html>

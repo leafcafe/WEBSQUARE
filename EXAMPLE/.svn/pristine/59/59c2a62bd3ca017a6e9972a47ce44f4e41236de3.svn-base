@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList id="dlt_userInfo" baseNode="map/list" style="" repeatNode="map" valueAttribute="">
+            		<w2:columnInfo>
+            			<w2:column id="name" name="name" dataType="text"></w2:column>
+            			<w2:column id="gender" name="gender" dataType="text"></w2:column>
+            			<w2:column id="info" name="info" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<name><![CDATA[아이유]]></name>
+            				<gender><![CDATA[F]]></gender>
+            				<info><![CDATA[아이유는 로엔 엔터테인먼트 소속의 대한민국 여성 솔로 가수, 배우이다. 아이유(IU)라는 이름은 ‘I’와 ‘You’를 합친 합성어로 ‘너와 내가 음악으로 하나가 된다’는 의미이다.]]></info>
+            			</w2:row>
+            			<w2:row>
+            				<name><![CDATA[정형돈]]></name>
+            				<gender><![CDATA[M]]></gender>
+            				<info><![CDATA[정형돈은 대한민국의 개그맨이다.]]></info>
+            			</w2:row>
+            			<w2:row>
+            				<name><![CDATA[유승호]]></name>
+            				<gender><![CDATA[M]]></gender>
+            				<info><![CDATA[유승호는 대한민국의 배우이다. 1999년 n016 CF로 연예계에 데뷔하였다. 2000년 특집극 《가시고기》로 연기를 시작하였다.]]></info>
+            			</w2:row>
+            			<w2:row>
+            				<name><![CDATA[김민희]]></name>
+            				<gender><![CDATA[F]]></gender>
+            				<info><![CDATA[김민희는 대한민국의 탤런트이자 영화배우 모델이다.]]></info>
+            			</w2:row>
+            			<w2:row>
+            				<name><![CDATA[권지용]]></name>
+            				<gender><![CDATA[M]]></gender>
+            				<info><![CDATA[지드래곤은 대한민국의 싱어송라이터이자 프로듀서로, 음악 그룹 빅뱅의 리더이다.]]></info>
+            			</w2:row>
+            			<w2:row>
+            				<name><![CDATA[김현아]]></name>
+            				<birthday><![CDATA[19920606]]></birthday>
+            				<gender><![CDATA[F]]></gender>
+            				<work><![CDATA[1]]></work>
+            				<info><![CDATA[김현아는 대한민국의 댄스 팝 가수로, 현재는 포미닛의 멤버이다.]]></info>
+            			</w2:row>
+            			<w2:row>
+            				<name><![CDATA[김준현]]></name>
+            				<birthday><![CDATA[19801116]]></birthday>
+            				<gender><![CDATA[M]]></gender>
+            				<work><![CDATA[3]]></work>
+            				<info><![CDATA[김준현은 대한민국의 개그맨이다. 본관은 김녕이다. 부친은 前 KBS 교양 PD인 김상근이다.]]></info>
+            			</w2:row>
+            			<w2:row>
+            				<name><![CDATA[송중기]]></name>
+            				<birthday><![CDATA[19850919]]></birthday>
+            				<gender><![CDATA[M]]></gender>
+            				<work><![CDATA[4,5]]></work>
+            				<info><![CDATA[송중기는 대한민국의 배우이다. 2남 1녀 중 차남으로 대전광역시에서 태어났다. 성균관대학교 경영학과를 졸업하였다. 2008년 영화 《쌍화점》으로 데뷔하였다.]]></info>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_userInfo2" baseNode="map/list" style="" repeatNode="map" valueAttribute="">
+            		<w2:columnInfo>
+            			<w2:column id="name" name="name" dataType="text"></w2:column>
+            			<w2:column id="gender" name="gender" dataType="text"></w2:column>
+            			<w2:column id="info" name="info" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_code_gender" baseNode="list" style="" repeatNode="map" valueAttribute="">
+            		<w2:columnInfo>
+            			<w2:column id="label" name="label" dataType="text"></w2:column>
+            			<w2:column id="value" name="value" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<label><![CDATA[남자]]></label>
+            				<value><![CDATA[M]]></value>
+            			</w2:row>
+            			<w2:row>
+            				<label><![CDATA[여자]]></label>
+            				<value><![CDATA[F]]></value>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+            			<w2:column dataType="text" id="version" name="버전"></w2:column>
+            			<w2:column dataType="text" id="description" name="설명"></w2:column>
+            			<w2:column dataType="text" id="author" name="작성인"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<updated_date><![CDATA[20220428]]></updated_date>
+            				<version><![CDATA[01]]></version>
+            				<description><![CDATA[최초작성]]></description>
+            				<author><![CDATA[InswaveSystems]]></author>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox escape="false" id=""
+    				label="GridView에서 제공하는 Drag &amp; Drop 기능 예시입니다. 왼쪽 GridView의 행를 드래그하여 오른쪽 GridView위에서 드롭합니다." style="">
+    			</w2:textbox>
+    			<w2:textbox escape="false" id="" label=" Drag&amp;Drop을 통한 데이터 이동 기능은 PC에서만 지원됩니다. 모바일에서는 지원되지 않습니다." style=""
+    				class="ws5_example_txt_red">
+    			</w2:textbox>
+    			<w2:textbox class="ws_example_txt_desc_info" escape="false" id="" label="이 예제는 시연용 예제로 예제 가이드 문서가 포함되어 있지 않습니다."
+    				style="">
+    			</w2:textbox>
+    		</xf:group>
+
+    		<xf:group style="overflow:hidden;" class="gvwbox"><w2:gridView adaptive="" autoFit="lastColumn" class="wq_gvw" columnMove="" dataDragDrop="true"
+    				dataList="dlt_userInfo" dragDisplayColumn="name" dragEndFunction="" dragStartFunction="" enterKeyMove="" fastScroll=""
+    				filterFocusMode="infocus" fixedColumnWithHidden="true" id="" scrollByColumn="false" sortEvent="onclick"
+    				sortable="true" style="height: 350px;width:130px;float:left;margin-right:10px;;box-sizing:border-content;" useShiftKey="false"
+    				visibleRowNum="all" defaultCellHeight="26" autoFitMinWidth="200">
+    				<w2:header id="header1" style="">
+    					<w2:row id="row1" style="">
+    						<w2:column blockSelect="false" id="column3" inputType="text" style="" value="이름" width="60"></w2:column>
+    						<w2:column blockSelect="false" id="column5" inputType="text" style="" value="성별" width="60"></w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody id="gBody1" style="">
+    					<w2:row id="row2" style="">
+    						<w2:column blockSelect="false" id="name" inputType="text" style="" value="" width="60"></w2:column>
+    						<w2:column allOption="" blockSelect="false" chooseOption="" depthColumn="" depthType="" id="gender"
+    							inputType="select" style="" value="" width="60">
+    							<w2:choices>
+    								<w2:itemset nodeset="data:dlt_code_gender">
+    									<w2:label ref="label"></w2:label>
+    									<w2:value ref="value"></w2:value>
+    								</w2:itemset>
+    							</w2:choices>
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    			<w2:gridView adaptive="" autoFit="lastColumn" autoFitMinWidth="500" class="wq_gvw" columnMove="" dataDragDrop="true"
+    				dataList="dlt_userInfo2" dragDisplayColumn="name,gender" dragEndFunction="" dragStartFunction="" fixedColumnWithHidden="true" id=""
+    				keepDefaultColumnWidth="" scrollByColumn="false" style="height: 350px;width:calc(100% - 140px);float:left;box-sizing:border-content;"
+    				useShiftKey="false" visibleRowNum="all" defaultCellHeight="26">
+    				<w2:header id="header2" style="">
+    					<w2:row id="row3" style="">
+    						<w2:column blockSelect="false" id="column9" inputType="text" style="" value="이름" width="87"></w2:column>
+    						<w2:column blockSelect="false" id="column7" inputType="text" style="" value="성별" width="98"></w2:column>
+    						<w2:column blockSelect="false" id="column5" inputType="text" style="" value="비고" width="70"></w2:column>
+    					</w2:row>
+    				</w2:header>
+    				<w2:gBody id="gBody2" style="">
+    					<w2:row id="row4" style="">
+    						<w2:column blockSelect="false" id="name" inputType="text" style="" width="87"></w2:column>
+    						<w2:column allOption="" blockSelect="false" chooseOption="" id="gender" inputType="select" style=""
+    							width="98">
+    							<w2:choices>
+    								<w2:itemset nodeset="data:dlt_code_gender">
+    									<w2:label ref="label"></w2:label>
+    									<w2:value ref="value"></w2:value>
+    								</w2:itemset>
+    							</w2:choices>
+    						</w2:column>
+    						<w2:column blockSelect="false" id="info" inputType="text" readOnly="" style="" textAlign="left"
+    							width="70">
+    						</w2:column>
+    					</w2:row>
+    				</w2:gBody>
+    			</w2:gridView>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

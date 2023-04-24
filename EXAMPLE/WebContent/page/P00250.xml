@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230315]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_list" repeatNode="map"
+					saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="City" name="Label"></w2:column>
+						<w2:column dataType="text" id="Code" name="Code"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<City><![CDATA[Seoul]]></City>
+							<Code><![CDATA[SE]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Paris]]></City>
+							<Code><![CDATA[PA]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[London]]></City>
+							<Code><![CDATA[LN]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Beijing]]></City>
+							<Code><![CDATA[BJ]]></Code>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='AutoComplete의 선택 목록을 "Label Delimiter Value" 형식으로 표시하는 예제입니다.&lt;br/&gt;displayModeSync는 편집 모드에서 displayMode에서 설정한 형식으로 표현하기 위한 설정 값 입니다.&lt;br/&gt;단, searchTarget이 "both" 일 때만 적용됩니다.'
+					style="margin-bottom: 10px;">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mb_def" id="" style="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='delimiter="label delimiter value"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='AutoComplete의 선택 목록을 확인하면 "Label - Value" 형태로 표시됨을 확인할 수 있습니다.'
+							style="">
+						</w2:textbox>
+						<xf:group id="" style="margin-bottom: 15px;">
+							<w2:autoComplete submenuSize="auto" search="start"
+								editType="select" useKeywordHighlight="false"
+								style="width: 150px;" id="acb1"
+								useLocale="false" class="" allOption=""
+								chooseOption="true" ref="" autoFocus="true"
+								chooseOptionLabel="- 선택 -"
+								displayMode="label delim value" delimiter=" - ">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_list">
+										<w2:label ref="City"></w2:label>
+										<w2:value ref="Code"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:autoComplete>
+						</xf:group>
+					</xf:group>
+
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='displayModeSync="true"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='AutoComplete에서 선택 목록을 중 하나를 선택합니다.&lt;br/&gt;이 후 다시 선택해 편집 모드에 들어 갔을 때 "Label Delimiter Value"로 표시됨을 확인할 수 있습니다.'
+							style="">
+						</w2:textbox>
+						<xf:group class="gvwbox" id="" style=""></xf:group>
+						<xf:group id="" style="margin-bottom: 15px;">
+							<w2:autoComplete allOption="" autoFocus="true"
+								chooseOption="true" chooseOptionLabel="- 선택 -"
+								class=""
+								delimiter=" - " displayMode="label delim value"
+								editType="select" id="acb_2" ref=""
+								search="start"
+								style="width: 150px;" submenuSize="auto"
+								useKeywordHighlight="false" useLocale="false"
+								displayModeSync="true" searchTarget="both">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_list">
+										<w2:label ref="City"></w2:label>
+										<w2:value ref="Code"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:autoComplete>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="DataList" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label="AutoComplete에 연동되어 있는 DataCollection을 보여주는 GridView입니다.&lt;br/&gt;Cell을 더블클릭해서 수정하면 AutoComplete의 표시 되는 값이 변경됩니다."
+							style="">
+						</w2:textbox>
+						<xf:group class="gvwbox" id="" style="">
+							<w2:gridView autoFit="allColumn"
+								autoFitMinWidth="240" class="wq_gvw"
+								dataList="data:dlt_list"
+								defaultCellHeight="24" editModeEvent="onclick"
+								id="grd_exam1" readOnly="false"
+								rowNumVisible="true" rowNumWidth="26"
+								style="height:100px;" visibleRowNum="3"
+								visibleRowNumFix="true">
+								<w2:caption id="caption1" style=""
+									value="this is a grid caption."></w2:caption>
+								<w2:header id="header1" style="">
+									<w2:row id="row1" style="">
+										<w2:column displayMode="label"
+											id="column2" inputType="text"
+											style="" value="Label" width="70"></w2:column>
+										<w2:column displayMode="label"
+											id="column1" inputType="text"
+											style="" value="Value" width="70"></w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody1" style="">
+									<w2:row id="row2" style="">
+										<w2:column displayMode="label"
+											editModeEvent="ondblclick" id="City"
+											inputType="text" style=""
+											value="" width="70">
+										</w2:column>
+										<w2:column displayMode="label" id="Code"
+											inputType="text" style="" value=""
+											width="70"></w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

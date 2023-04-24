@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230315]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_list" repeatNode="map"
+					saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="City" name="Label"></w2:column>
+						<w2:column dataType="text" id="Code" name="Code"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<City><![CDATA[Seoul]]></City>
+							<Code><![CDATA[SE]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Paris]]></City>
+							<Code><![CDATA[PA]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[London]]></City>
+							<Code><![CDATA[LN]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Beijing]]></City>
+							<Code><![CDATA[BJ]]></Code>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+};
+
+
+/**
+ * 영역 [AutoComplete]의
+ * 입력 [acb1]의 onchange 이벤트
+ */
+scwin.acb1_onchange = function(info) {
+    let value = info.newValue;
+
+    spn_value.setValue(value);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label="AutoComplete의 선택 목록을 DataList와 연동하는 예제입니다.&lt;br/&gt;선택 항목에 표시할 Label로 사용할 coulmn과 선택 했을 때 값으로 사용할 column을 가진 DataList를 설정하면 선택 목록에 표시됩니다."
+					style="margin-bottom: 10px;">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mb_def" id="" style="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="AutoComplete" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='AutoComplete에서 값을 선택하면 우측에 Code 값이 표시됩니다.&lt;br/&gt;DataList 영역에서 Label이나 코드를 수정하게 되면 연동된 DataCollection의 값이 변경되어 AutoComplete의 선택 목록이 갱신되는 것을 확인할 수 있습니다.'
+							style="">
+						</w2:textbox>
+						<xf:group id="" style="margin-bottom: 15px;">
+							<w2:autoComplete submenuSize="auto" search="start"
+								editType="select" useKeywordHighlight="false"
+								style="width: 150px;" id="acb1"
+								useLocale="false" class="" allOption=""
+								chooseOption="true" ref="" autoFocus="true"
+								chooseOptionLabel="- 선택 -"
+								ev:onchange="scwin.acb1_onchange">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_list">
+										<w2:label ref="City"></w2:label>
+										<w2:value ref="Code"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:autoComplete>
+							<w2:span label=""
+								style="color: red;font-weight: bold;margin-left: 15px"
+								id="spn_value"></w2:span>
+						</xf:group>
+					</xf:group>
+
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="DataList" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='AutoComplete에 연동되어 있는 DataCollection을 보여주는 GridView입니다.&lt;br/&gt;Cell을 더블클릭해서 수정하면 AutoComplete의 값도 변경됩니다.'
+							style="">
+						</w2:textbox>
+						<xf:group class="gvwbox" id="" style="">
+							<w2:gridView autoFit="allColumn"
+								autoFitMinWidth="240" class="wq_gvw"
+								dataList="data:dlt_list"
+								defaultCellHeight="24" id="grd_exam1"
+								readOnly="false" rowNumVisible="true"
+								rowNumWidth="26" style="height:100px;"
+								visibleRowNum="3" visibleRowNumFix="true"
+								editModeEvent="onclick">
+								<w2:caption style="" id="caption1"
+									value="this is a grid caption."></w2:caption>
+								<w2:header style="" id="header1">
+									<w2:row style="" id="row1">
+										<w2:column width="70" inputType="text"
+											style="" id="column2" value="Label"
+											displayMode="label"></w2:column>
+										<w2:column width="70" inputType="text"
+											style="" id="column1" value="Value"
+											displayMode="label"></w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody style="" id="gBody1">
+									<w2:row style="" id="row2">
+										<w2:column width="70" inputType="text"
+											style="" id="City" value=""
+											displayMode="label"
+											editModeEvent="ondblclick"></w2:column>
+										<w2:column width="70" inputType="text"
+											style="" id="Code" value=""
+											displayMode="label"></w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

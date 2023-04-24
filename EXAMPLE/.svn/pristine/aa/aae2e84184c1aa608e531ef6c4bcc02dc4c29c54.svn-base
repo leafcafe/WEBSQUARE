@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20220916]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    			<w2:dataList baseNode="list" id="dlt_books_1" repeatNode="map" style="" valueAttribute="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="isbn" name="상품코드"></w2:column>
+    					<w2:column dataType="text" id="label" name="상품명"></w2:column>
+    					<w2:column id="categoryLabel" name="분야" dataType="text"></w2:column>
+    					<w2:column id="price" name="정가" dataType="text"></w2:column>
+    					<w2:column id="author" name="작가" dataType="text"></w2:column>
+    					<w2:column id="publisher" name="출판사" dataType="text"></w2:column>
+    					<w2:column id="published_date" name="출간일" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<isbn><![CDATA[9791190538510]]></isbn>
+    						<label><![CDATA[만일 내가 인생을 다시 산다면(20만 부 기념 양장본 에디션)]]></label>
+    						<categoryLabel><![CDATA[인문]]></categoryLabel>
+    						<price><![CDATA[17,200]]></price>
+    						<author><![CDATA[김혜남]]></author>
+    						<publisher><![CDATA[메이븐]]></publisher>
+    						<published_date><![CDATA[20221111]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788997575169]]></isbn>
+    						<label><![CDATA[원씽(The One Thing)(리커버 특별판)]]></label>
+    						<categoryLabel><![CDATA[자기계발]]></categoryLabel>
+    						<price><![CDATA[14,000]]></price>
+    						<author><![CDATA[게리 켈러 외]]></author>
+    						<publisher><![CDATA[비즈니스북스]]></publisher>
+    						<published_date><![CDATA[20130830]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791190382915]]></isbn>
+    						<label><![CDATA[생에 감사해]]></label>
+    						<categoryLabel><![CDATA[시/에세이]]></categoryLabel>
+    						<price><![CDATA[17,000]]></price>
+    						<author><![CDATA[김혜자]]></author>
+    						<publisher><![CDATA[수오서재]]></publisher>
+    						<published_date><![CDATA[20221222]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791161571188]]></isbn>
+    						<label><![CDATA[불편한 편의점(40만부 기념 벚꽃 에디션)]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[14,000]]></price>
+    						<author><![CDATA[김호연]]></author>
+    						<publisher><![CDATA[나무옆의자]]></publisher>
+    						<published_date><![CDATA[20210420]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791157062805]]></isbn>
+    						<label><![CDATA[미스터 프레지던트]]></label>
+    						<categoryLabel><![CDATA[정치/사회]]></categoryLabel>
+    						<price><![CDATA[22,000]]></price>
+    						<author><![CDATA[탁현민]]></author>
+    						<publisher><![CDATA[메디치미디어]]></publisher>
+    						<published_date><![CDATA[20230118]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791191043297]]></isbn>
+    						<label><![CDATA[오늘 밤, 세계에서 이 사랑이 사라진다 해도]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[14,000]]></price>
+    						<author><![CDATA[이치조 미사키]]></author>
+    						<publisher><![CDATA[모모]]></publisher>
+    						<published_date><![CDATA[20210628]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791161571379]]></isbn>
+    						<label><![CDATA[불편한 편의점 2(단풍 에디션)]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[14,000]]></price>
+    						<author><![CDATA[김호연]]></author>
+    						<publisher><![CDATA[나무옆의자]]></publisher>
+    						<published_date><![CDATA[20220810]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788936438838]]></isbn>
+    						<label><![CDATA[아버지의 해방일지]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[15,000]]></price>
+    						<author><![CDATA[정지아]]></author>
+    						<publisher><![CDATA[창비]]></publisher>
+    						<published_date><![CDATA[20220902]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788901260716]]></isbn>
+    						<label><![CDATA[역행자]]></label>
+    						<categoryLabel><![CDATA[자기계발]]></categoryLabel>
+    						<price><![CDATA[17,500]]></price>
+    						<author><![CDATA[자청]]></author>
+    						<publisher><![CDATA[웅진지식하우스]]></publisher>
+    						<published_date><![CDATA[20220603]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791197647666]]></isbn>
+    						<label><![CDATA[기분이 태도가 되지 말자]]></label>
+    						<categoryLabel><![CDATA[시/에세이]]></categoryLabel>
+    						<price><![CDATA[16,000]]></price>
+    						<author><![CDATA[김수현]]></author>
+    						<publisher><![CDATA[하이스트]]></publisher>
+    						<published_date><![CDATA[20221125]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788954680004]]></isbn>
+    						<label><![CDATA[이토록 평범한 미래]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[14,000]]></price>
+    						<author><![CDATA[김연수]]></author>
+    						<publisher><![CDATA[문학동네]]></publisher>
+    						<published_date><![CDATA[20221007]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791189327156]]></isbn>
+    						<label><![CDATA[물고기는 존재하지 않는다]]></label>
+    						<categoryLabel><![CDATA[과학]]></categoryLabel>
+    						<price><![CDATA[17,000]]></price>
+    						<author><![CDATA[룰루 밀러]]></author>
+    						<publisher><![CDATA[곰출판]]></publisher>
+    						<published_date><![CDATA[20211217]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791187142560]]></isbn>
+    						<label><![CDATA[데일 카네기 인간관계론]]></label>
+    						<categoryLabel><![CDATA[자기계발]]></categoryLabel>
+    						<price><![CDATA[11,500]]></price>
+    						<author><![CDATA[데일 카네기]]></author>
+    						<publisher><![CDATA[현대지성]]></publisher>
+    						<published_date><![CDATA[20191007]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791130689890]]></isbn>
+    						<label><![CDATA[내가 틀릴 수도 있습니다(화이트 에디션)]]></label>
+    						<categoryLabel><![CDATA[인문]]></categoryLabel>
+    						<price><![CDATA[16,000]]></price>
+    						<author><![CDATA[비욘 나티코 린데블라드]]></author>
+    						<publisher><![CDATA[다산초당]]></publisher>
+    						<published_date><![CDATA[20220418]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791158883591]]></isbn>
+    						<label><![CDATA[부자 아빠 가난한 아빠 1(20주년 특별 기념판)]]></label>
+    						<categoryLabel><![CDATA[경제/경영]]></categoryLabel>
+    						<price><![CDATA[17,000]]></price>
+    						<author><![CDATA[로버트 기요사키]]></author>
+    						<publisher><![CDATA[민음인]]></publisher>
+    						<published_date><![CDATA[20221028]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788984374546]]></isbn>
+    						<label><![CDATA[안젤리크]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[16,800]]></price>
+    						<author><![CDATA[기욤 뮈소]]></author>
+    						<publisher><![CDATA[밝은세상]]></publisher>
+    						<published_date><![CDATA[20221221]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791130621678]]></isbn>
+    						<label><![CDATA[레버리지]]></label>
+    						<categoryLabel><![CDATA[경제/경영]]></categoryLabel>
+    						<price><![CDATA[16,000]]></price>
+    						<author><![CDATA[롭 무어]]></author>
+    						<publisher><![CDATA[다산북스]]></publisher>
+    						<published_date><![CDATA[20190603]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788954699914]]></isbn>
+    						<label><![CDATA[하얼빈]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[16,000]]></price>
+    						<author><![CDATA[김훈]]></author>
+    						<publisher><![CDATA[문학동네]]></publisher>
+    						<published_date><![CDATA[20220803]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791162540633]]></isbn>
+    						<label><![CDATA[그릿(50만부 판매 기념 리커버 골드에디션)(양장본 Hardcover)]]></label>
+    						<categoryLabel><![CDATA[자기계발]]></categoryLabel>
+    						<price><![CDATA[18,000]]></price>
+    						<author><![CDATA[앤절라 더크워스]]></author>
+    						<publisher><![CDATA[비즈니스북스]]></publisher>
+    						<published_date><![CDATA[20221219]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791191043976]]></isbn>
+    						<label><![CDATA[오늘 밤, 세계에서 이 눈물이 사라진다 해도]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[14,000]]></price>
+    						<author><![CDATA[이치조 미사키]]></author>
+    						<publisher><![CDATA[모모]]></publisher>
+    						<published_date><![CDATA[20220728]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791130696065]]></isbn>
+    						<label><![CDATA[나의 해방일지 세트]]></label>
+    						<categoryLabel><![CDATA[예술/대중문화]]></categoryLabel>
+    						<price><![CDATA[64,000]]></price>
+    						<author><![CDATA[박해영]]></author>
+    						<publisher><![CDATA[오브제]]></publisher>
+    						<published_date><![CDATA[20230130]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791191114225]]></isbn>
+    						<label><![CDATA[작별인사]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[14,000]]></price>
+    						<author><![CDATA[김영하]]></author>
+    						<publisher><![CDATA[복복서가]]></publisher>
+    						<published_date><![CDATA[20220502]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791192300245]]></isbn>
+    						<label><![CDATA[마흔에 읽는 니체]]></label>
+    						<categoryLabel><![CDATA[인문]]></categoryLabel>
+    						<price><![CDATA[16,000]]></price>
+    						<author><![CDATA[장재형]]></author>
+    						<publisher><![CDATA[유노북스]]></publisher>
+    						<published_date><![CDATA[20220901]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788937437564]]></isbn>
+    						<label><![CDATA[참을 수 없는 존재의 가벼움]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[15,000]]></price>
+    						<author><![CDATA[밀란 쿤데라]]></author>
+    						<publisher><![CDATA[민음사]]></publisher>
+    						<published_date><![CDATA[20180620]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791169475808]]></isbn>
+    						<label><![CDATA[체인소 맨 12]]></label>
+    						<categoryLabel><![CDATA[만화]]></categoryLabel>
+    						<price><![CDATA[6,000]]></price>
+    						<author><![CDATA[Tatsuki Fujimoto]]></author>
+    						<publisher><![CDATA[학산문화사]]></publisher>
+    						<published_date><![CDATA[20230125]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791130696393]]></isbn>
+    						<label><![CDATA[스카이 버스]]></label>
+    						<categoryLabel><![CDATA[가정/육아]]></categoryLabel>
+    						<price><![CDATA[18,000]]></price>
+    						<author><![CDATA[분당강쌤]]></author>
+    						<publisher><![CDATA[다산에듀]]></publisher>
+    						<published_date><![CDATA[20230103]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788937439933]]></isbn>
+    						<label><![CDATA[사랑의 이해]]></label>
+    						<categoryLabel><![CDATA[소설]]></categoryLabel>
+    						<price><![CDATA[15,000]]></price>
+    						<author><![CDATA[이혁진]]></author>
+    						<publisher><![CDATA[민음사]]></publisher>
+    						<published_date><![CDATA[20190419]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791140702589]]></isbn>
+    						<label><![CDATA[당신도 느리게 나이 들 수 있습니다]]></label>
+    						<categoryLabel><![CDATA[인문]]></categoryLabel>
+    						<price><![CDATA[17,800]]></price>
+    						<author><![CDATA[정희원]]></author>
+    						<publisher><![CDATA[더퀘스트]]></publisher>
+    						<published_date><![CDATA[20230117]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9788972773702]]></isbn>
+    						<label><![CDATA[심리학이 제갈량에게 말하다 1]]></label>
+    						<categoryLabel><![CDATA[자기계발]]></categoryLabel>
+    						<price><![CDATA[17,800]]></price>
+    						<author><![CDATA[천위안]]></author>
+    						<publisher><![CDATA[리드리드출판]]></publisher>
+    						<published_date><![CDATA[20230210]]></published_date>
+    					</w2:row>
+    					<w2:row>
+    						<isbn><![CDATA[9791196617141]]></isbn>
+    						<label><![CDATA[열 번 잘해도 한 번 실수로 무너지는 게 관계다]]></label>
+    						<categoryLabel><![CDATA[시/에세이]]></categoryLabel>
+    						<price><![CDATA[19,600]]></price>
+    						<author><![CDATA[김다슬]]></author>
+    						<publisher><![CDATA[클라우디아]]></publisher>
+    						<published_date><![CDATA[20230120]]></published_date>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    scwin.setDataList();    
+};
+
+/**
+ * DataList에 데이터 할당
+ */
+scwin.setDataList = function() {
+    var arrData = [
+        {"isbn":"9791190538510","label":"만일 내가 인생을 다시 산다면(20만 부 기념 양장본 에디션)","categoryLabel":"인문","price":"17200","author":"김혜남","publisher":"메이븐","published_date":"20221111"},
+        {"isbn":"9788997575169","label":"원씽(The One Thing)(리커버 특별판)","categoryLabel":"자기계발","price":"14000","author":"게리 켈러 외","publisher":"비즈니스북스","published_date":"20130830"},
+        {"isbn":"9791190382915","label":"생에 감사해","categoryLabel":"시/에세이","price":"17000","author":"김혜자","publisher":"수오서재","published_date":"20221222"},
+        {"isbn":"9791161571188","label":"불편한 편의점(40만부 기념 벚꽃 에디션)","categoryLabel":"소설","price":"14000","author":"김호연","publisher":"나무옆의자","published_date":"20210420"},
+        {"isbn":"9791157062805","label":"미스터 프레지던트","categoryLabel":"정치/사회","price":"22000","author":"탁현민","publisher":"메디치미디어","published_date":"20230118"},
+        {"isbn":"9791191043297","label":"오늘 밤, 세계에서 이 사랑이 사라진다 해도","categoryLabel":"소설","price":"14000","author":"이치조 미사키","publisher":"모모","published_date":"20210628"},
+        {"isbn":"9791161571379","label":"불편한 편의점 2(단풍 에디션)","categoryLabel":"소설","price":"14000","author":"김호연","publisher":"나무옆의자","published_date":"20220810"},
+        {"isbn":"9788936438838","label":"아버지의 해방일지","categoryLabel":"소설","price":"15000","author":"정지아","publisher":"창비","published_date":"20220902"},
+        {"isbn":"9788901260716","label":"역행자","categoryLabel":"자기계발","price":"17500","author":"자청","publisher":"웅진지식하우스","published_date":"20220603"},
+        {"isbn":"9791197647666","label":"기분이 태도가 되지 말자","categoryLabel":"시/에세이","price":"16000","author":"김수현","publisher":"하이스트","published_date":"20221125"},
+        {"isbn":"9788954680004","label":"이토록 평범한 미래","categoryLabel":"소설","price":"14000","author":"김연수","publisher":"문학동네","published_date":"20221007"},
+        {"isbn":"9791189327156","label":"물고기는 존재하지 않는다","categoryLabel":"과학","price":"17000","author":"룰루 밀러","publisher":"곰출판","published_date":"20211217"},
+        {"isbn":"9791187142560","label":"데일 카네기 인간관계론","categoryLabel":"자기계발","price":"11500","author":"데일 카네기","publisher":"현대지성","published_date":"20191007"},
+        {"isbn":"9791130689890","label":"내가 틀릴 수도 있습니다(화이트 에디션)","categoryLabel":"인문","price":"16000","author":"비욘 나티코 린데블라드","publisher":"다산초당","published_date":"20220418"},
+        {"isbn":"9791158883591","label":"부자 아빠 가난한 아빠 1(20주년 특별 기념판)","categoryLabel":"경제/경영","price":"17000","author":"로버트 기요사키","publisher":"민음인","published_date":"20221028"},
+        {"isbn":"9788984374546","label":"안젤리크","categoryLabel":"소설","price":"16800","author":"기욤 뮈소","publisher":"밝은세상","published_date":"20221221"},
+        {"isbn":"9791130621678","label":"레버리지","categoryLabel":"경제/경영","price":"16000","author":"롭 무어","publisher":"다산북스","published_date":"20190603"},
+        {"isbn":"9788954699914","label":"하얼빈","categoryLabel":"소설","price":"16000","author":"김훈","publisher":"문학동네","published_date":"20220803"},
+        {"isbn":"9791162540633","label":"그릿(50만부 판매 기념 리커버 골드에디션)(양장본 Hardcover)","categoryLabel":"자기계발","price":"18000","author":"앤절라 더크워스","publisher":"비즈니스북스","published_date":"20221219"},
+        {"isbn":"9791191043976","label":"오늘 밤, 세계에서 이 눈물이 사라진다 해도","categoryLabel":"소설","price":"14000","author":"이치조 미사키","publisher":"모모","published_date":"20220728"},
+        {"isbn":"9791191114225","label":"작별인사","categoryLabel":"소설","price":"14000","author":"김영하","publisher":"복복서가","published_date":"20220502"},
+        {"isbn":"9791192300245","label":"마흔에 읽는 니체","categoryLabel":"인문","price":"16000","author":"장재형","publisher":"유노북스","published_date":"20220901"},
+        {"isbn":"9788937437564","label":"참을 수 없는 존재의 가벼움","categoryLabel":"소설","price":"15000","author":"밀란 쿤데라","publisher":"민음사","published_date":"20180620"},
+        {"isbn":"9791169475808","label":"체인소 맨 12","categoryLabel":"만화","price":"6000","author":"Tatsuki Fujimoto","publisher":"학산문화사","published_date":"20230125"},
+        {"isbn":"9791130696393","label":"스카이 버스","categoryLabel":"가정/육아","price":"18000","author":"분당강쌤","publisher":"다산에듀","published_date":"20230103"},
+        {"isbn":"9788937439933","label":"사랑의 이해","categoryLabel":"소설","price":"15000","author":"이혁진","publisher":"민음사","published_date":"20190419"},
+        {"isbn":"9791140702589","label":"당신도 느리게 나이 들 수 있습니다","categoryLabel":"인문","price":"17800","author":"정희원","publisher":"더퀘스트","published_date":"20230117"},
+        {"isbn":"9788972773702","label":"심리학이 제갈량에게 말하다 1","categoryLabel":"자기계발","price":"17800","author":"천위안","publisher":"리드리드출판","published_date":"20230210"},
+        {"isbn":"9791196617141","label":"열 번 잘해도 한 번 실수로 무너지는 게 관계다","categoryLabel":"시/에세이","price":"19600","author":"김다슬","publisher":"클라우디아","published_date":"20230120"},
+        {"isbn":"9791198161734","label":"런던에서 온 평양 여자","categoryLabel":"시/에세이","price":"18000","author":"오혜선","publisher":"더미라클","published_date":"20230126"}
+    ];
+
+    dlt_books_1.setJSON(arrData);
+};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox escape="false" id=""
+    				label="GridView의 속성 'dataDragSelectAutoScroll'의 예제입니다.&lt;br/&gt;속성 'dataDragSelectAutoScroll'의 기능은 GridView에 세로 또는 가로 스크롤 있는 경우 사용합니다.(데이터가 화면에 보이는 영역보다 많은 경우)&lt;br/&gt;GridView 영역 안에서 Drag를 통해 셀의 범위를 선택하고 이어서 마우스를 GridView 영역 밖으로 이동(상하좌우) 시켰을 때,&lt;br/&gt;마우스의 방향에 따라 셀의 선택을 연장하는 기능을 제공합니다.&lt;br/&gt;이때 마우스 방향에 맞춰 스크롤이 자동으로 이동합니다.&lt;br/&gt;"
+    				style="">
+    			</w2:textbox>
+    			<w2:textbox class="ws_example_txt_desc_info" escape="false" id=""
+    				label="이 예제는 마우스 사용이 가능한 환경에서 정상 동작합니다." style="">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="속성 'dataDragSelectAutoScroll' 사용" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="GridView 내 Drag를 통해 셀의 범위 선택을 할 수 있습니다.&lt;br/&gt;드래깅 시 마우스를 GridView 영역의 아래로 이동 시키면 세로 스크롤이 이동되면서 셀의 범위가 선택됩니다."
+    						style="">
+    					</w2:textbox>
+    					<w2:gridView class="wq_gvw" dataList="data:dlt_books_1" defaultCellHeight="24" id="" rowNumVisible="true"
+    						rowNumWidth="26" style="height:100px;" visibleRowNum="5" visibleRowNumFix="true" dataDragSelect="true" useShiftKey="true"
+    						dataDragSelectAutoScroll="true" dataDragSelectAutoScrollLevel="1000" dataDragSelectAutoScrollPeriod="50" autoFit="none" readOnly="true" tooltipDisplay="true" rowMouseOver="false">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="76" inputType="text" id="column5" value="분야" displayMode="label"></w2:column>
+    								<w2:column width="230" inputType="text" id="column6" value="상품명" displayMode="label"></w2:column>
+    								<w2:column width="60" inputType="text" id="column4" value="정가" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" id="column1" value="출간일" displayMode="label"></w2:column>
+    								<w2:column width="80" inputType="text" id="column3" value="작가" displayMode="label"></w2:column>
+    								<w2:column width="80" inputType="text" id="column2" value="출판사" displayMode="label"></w2:column>
+    								<w2:column width="90" inputType="text" id="column7" value="상품코드" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="76" inputType="text" id="categoryLabel" displayMode="label"></w2:column>
+    								<w2:column width="230" inputType="text" id="label" displayMode="label" textAlign="left" value=""></w2:column>
+    								<w2:column width="60" inputType="text" id="price" displayMode="label" dataType="number" displayFormat="#,###"></w2:column>
+    								<w2:column width="70" inputType="text" id="published_date" displayMode="label" dataType="date"></w2:column>
+    								<w2:column width="80" inputType="text" id="author" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="80" inputType="text" id="publisher" displayMode="label" textAlign="left"></w2:column>
+    								<w2:column width="90" inputType="text" id="isbn" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="속성 'dataDragSelectAutoScroll' 미사용" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="GridView 내 Drag를 통해 셀의 범위 선택을 할 수 있습니다."
+    						style="">
+    					</w2:textbox>
+    					<w2:gridView autoFit="none" class="wq_gvw" dataDragSelect="true" dataDragSelectAutoScroll="false"
+    						dataList="data:dlt_books_1" defaultCellHeight="24" id=""
+    						readOnly="true" rowNumVisible="true" rowNumWidth="26" style="height:100px;" tooltipDisplay="true" useShiftKey="true"
+    						visibleRowNum="5" visibleRowNumFix="true" rowMouseOver="false">
+    						<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+    						<w2:header id="header1" style="">
+    							<w2:row id="row1" style="">
+    								<w2:column displayMode="label" id="column5" inputType="text" value="분야" width="76"></w2:column>
+    								<w2:column displayMode="label" id="column6" inputType="text" value="상품명" width="230"></w2:column>
+    								<w2:column displayMode="label" id="column4" inputType="text" value="정가" width="60"></w2:column>
+    								<w2:column displayMode="label" id="column1" inputType="text" value="출간일" width="70"></w2:column>
+    								<w2:column displayMode="label" id="column3" inputType="text" value="작가" width="80"></w2:column>
+    								<w2:column displayMode="label" id="column2" inputType="text" value="출판사" width="80"></w2:column>
+    								<w2:column displayMode="label" id="column7" inputType="text" value="상품코드" width="90"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody id="gBody1" style="">
+    							<w2:row id="row2" style="">
+    								<w2:column displayMode="label" id="categoryLabel" inputType="text" width="76"></w2:column>
+    								<w2:column displayMode="label" id="label" inputType="text" textAlign="left" value="" width="230"></w2:column>
+    								<w2:column dataType="number" displayFormat="#,###" displayMode="label" id="price" inputType="text"
+    									width="60">
+    								</w2:column>
+    								<w2:column dataType="date" displayMode="label" id="published_date" inputType="text" width="70"></w2:column>
+    								<w2:column displayMode="label" id="author" inputType="text" textAlign="left" width="80"></w2:column>
+    								<w2:column displayMode="label" id="publisher" inputType="text" textAlign="left" width="80"></w2:column>
+    								<w2:column displayMode="label" id="isbn" inputType="text" width="90"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

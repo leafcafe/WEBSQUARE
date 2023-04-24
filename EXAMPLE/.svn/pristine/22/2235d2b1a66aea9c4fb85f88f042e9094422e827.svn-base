@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220907]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_books" repeatNode="map" style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="book_name" name="도서명"></w2:column>
+						<w2:column dataType="text" id="author" name="지은이"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true" xmlns="">
+						<w2:row>
+							<book_name><![CDATA[기분이 태도가 되지 않게]]></book_name>
+							<author><![CDATA[레몬심리]]></author>
+
+						</w2:row>
+						<w2:row>
+							<book_name><![CDATA[어떻게 인생을 살 것인가]]></book_name>
+							<author><![CDATA[쑤린]]></author>
+
+						</w2:row>
+						<w2:row>
+							<book_name><![CDATA[좋은 사람에게만 좋은 사람이면 돼]]></book_name>
+							<author><![CDATA[김재식]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_exam1" repeatNode="map" style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="book_name" name="도서명"></w2:column>
+						<w2:column dataType="text" id="price" name="정가"></w2:column>
+						<w2:column dataType="text" id="published_date" name="출간일"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_exam2" repeatNode="map" style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="book_name" name="도서명"></w2:column>
+						<w2:column dataType="text" id="price" name="정가"></w2:column>
+						<w2:column dataType="text" id="published_date" name="출간일"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+						<w2:row></w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='GridView의 Cell 데이터 중 일부 문자열만 복사(Ctrl+C)를 하는 예제입니다.&lt;br/&gt;문자열 선택은 마우스 드래그(Drag)를 통해 사용합니다.&lt;br/&gt;기본 설정은 데이터가 Cell단위로 복사되며, 설정을 통해 문자 단위로 복사할 수 있습니다.'
+					style="">
+				</w2:textbox>
+				<w2:textbox class="ws_example_txt_desc_info" escape="false" id="" label="이 예제는 마우스 사용이 가능한 환경에서 정상 동작합니다." style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="[기본설정] 데이터 복사(Ctrl+C)를 Cell 단위로 설정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:gridView autoFit="allColumn" class="wq_gvw" dataList="data:dlt_books" id="" style="height: 100px;" visibleRowNum="3"
+							visibleRowNumFix="true" autoFitMinWidth="240" defaultCellHeight="24" rowMouseOver="false" readOnly="true"
+							selectedCellColor="transparent">
+							<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+							<w2:header style="" id="header1">
+								<w2:row style="" id="row1">
+									<w2:column width="305" inputType="text" style="" id="column3" value="도서명" displayMode="label"></w2:column>
+									<w2:column width="77" inputType="text" style="" id="column2" value="지은이" displayMode="label"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody style="" id="gBody1">
+								<w2:row style="" id="row2">
+									<w2:column width="305" inputType="text" style="" id="book_name" value="" displayMode="label" textAlign="left">
+									</w2:column>
+									<w2:column width="77" inputType="text" style="" id="author" value="" displayMode="label" class="" textAlign="left">
+									</w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="데이터 복사(Ctrl+C)를 문자 단위로 설정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:gridView autoFit="allColumn" autoFitMinWidth="240" class="wq_gvw" dataList="data:dlt_books" defaultCellHeight="24"
+							id="" rowMouseOver="false" style="height: 100px;" visibleRowNum="3" visibleRowNumFix="true" readOnly="true" copyType="native"
+							selectedCellColor="transparent">
+							<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+							<w2:header id="header1" style="">
+								<w2:row id="row1" style="">
+									<w2:column displayMode="label" id="column3" inputType="text" style="" value="도서명" width="305"></w2:column>
+									<w2:column displayMode="label" id="column2" inputType="text" style="" value="지은이" width="77"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column displayMode="label" id="book_name" inputType="text" style="" textAlign="left" value="" width="305">
+									</w2:column>
+									<w2:column class="" displayMode="label" id="author" inputType="text" style="" textAlign="left" value="" width="77">
+									</w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="테스트 결과 확인을 위한 Textarea" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:textarea id="txa_exam1" style="width: 100%;height: 60px;" placeholder="이곳에 데이터를 붙여넣으세요."></xf:textarea>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

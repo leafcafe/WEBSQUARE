@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221104]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    scwin.initPage();
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.initPage = function () {
+    tac_exam1.addTab(
+        "P00158S01",
+        {
+            "label": "P00158S01",
+            "openAction": "select"
+        },
+        {
+            "src": "/page/P00158S01.xml",
+            "wframe": true
+        }
+    );
+
+    tac_exam2.addTab(
+        "P00158S02",
+        {
+            "label": "P00158S02",
+            "openAction": "select"
+        },
+        {
+            "src": "/page/P00158S02.xml",
+            "wframe": true
+        }
+    );
+
+};
+
+/**
+ * 영역 [(기본 동작) keepDisabledTab 미사용]의
+ * 버튼 [비활성화 하기] 클릭 시
+ */
+scwin.btn_ex1_onclick = function (e) {
+    //TabControl [tac_exam1] 비활성화 설정
+    tac_exam1.setDisabled(true);
+};
+
+/**
+ * 영역 [(기본 동작) keepDisabledTab 미사용]의
+ * 버튼 [활성화 하기] 클릭 시
+ */
+scwin.btn_ex1_1_onclick = function (e) {
+    //TabControl [tac_exam1] 활성화 설정
+    tac_exam1.setDisabled(false);
+};
+
+/**
+ * 영역 [keepDisabledTab 사용]의
+ * 버튼 [비활성화 하기] 클릭 시
+ */
+scwin.btn_ex2_onclick = function (e) {
+    //TabControl [tac_exam2] 비활성화 설정
+    tac_exam2.setDisabled(true);
+};
+
+/**
+ * 영역 [keepDisabledTab 사용]의
+ * 버튼 [활성화 하기] 클릭 시
+ */
+scwin.btn_ex2_1_onclick = function (e) {
+    //TabControl [tac_exam2] 활성화 설정
+    tac_exam2.setDisabled(false);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='TabControl의 비활성화 유지 속성인 keepDisabledTab 설정 예제입니다.&lt;br/&gt;속성 keepDisabledTab은 &lt;br/&gt;API setDisabeld로 TabControl을 활성화할 때,&lt;br/&gt;API disableTab으로 비활성화된 탭은 비활성화 상태를 유지하는 속성입니다.&lt;br/&gt;이 기능은 상위 TabControl에 API setDisabeld를 호출할 때도 동작됩니다.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="" class=""></xf:group>
+			<xf:group class="example_div_tb_style_wrap mw600" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="(기본 동작) keepDisabledTab 미사용" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+							label="상위 TabControl이 비활성화 되었다가 활성화되면 하위 TabControl의 비활성화된 Tab도 활성화됩니다." style="">
+						</w2:textbox>
+						<xf:group class="mb10" id="" style="">
+							<xf:trigger class="btn_exam_exec" ev:onclick="scwin.btn_ex1_onclick" id="btn_ex1" style="" type="button">
+								<xf:label><![CDATA[비활성화 하기]]></xf:label>
+							</xf:trigger>
+							<xf:trigger class="btn_exam_exec" id="btn_ex1_1" style="" type="button" ev:onclick="scwin.btn_ex1_1_onclick">
+								<xf:label><![CDATA[활성화 하기]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<w2:tabControl alwaysDraw="false" class="" confirmFalseAction="new" confirmTrueAction="exist" id="tac_exam1"
+							style="position: relative;height: 300px;" tabScroll="" useConfirmMessage="false" useMoveNextTabFocus="false" useTabKeyOnly="true">
+						</w2:tabControl>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='keepDisabledTab 사용' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+							label="상위 TabControl이 비활성화 되었다가 활성화되면 하위 TabControl의 비활성화된 Tab은 비활성화 상태가 유지됩니다." style="">
+						</w2:textbox>
+						<xf:group class="mb10" id="" style="">
+							<xf:trigger class="btn_exam_exec" id="btn_ex2" style="" type="button" ev:onclick="scwin.btn_ex2_onclick">
+								<xf:label><![CDATA[비활성화 하기]]></xf:label>
+							</xf:trigger>
+							<xf:trigger class="btn_exam_exec" id="btn_ex2_1" style="" type="button" ev:onclick="scwin.btn_ex2_1_onclick">
+								<xf:label><![CDATA[활성화 하기]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<w2:tabControl alwaysDraw="false" class="" confirmFalseAction="new" confirmTrueAction="exist" id="tac_exam2"
+							style="position: relative;height: 290px;" tabScroll="" useConfirmMessage="false" useMoveNextTabFocus="false" useTabKeyOnly="true"
+							frameModal="true">
+						</w2:tabControl>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

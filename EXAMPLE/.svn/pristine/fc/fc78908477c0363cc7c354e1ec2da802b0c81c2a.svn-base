@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20220930]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+
+/**
+ * textarea의 로그 삭제
+ */
+scwin.btn_clearLog_onclick = function(e) {
+    txa_log.setValue("");
+};
+
+/**
+ * Group "grp_exam1"의 onmouseleave 핸들러
+ * 마우스 포인터가 영역 밖으로 나갈 때 발생
+ */
+scwin.grp_exam1_onmouseleave = function(e) {
+    var strLog;
+    
+    //로그 출력
+    $c.frame.printExampleLog("**** onmouseleave 발생 ****", txa_log);
+
+    //이벤트 정보 출력
+    console.log(e);
+
+    $c.frame.printExampleLog("브라우저의 개발자 도구 콘솔을 확인하세요.", txa_log, false);
+
+    strLog = "이벤트 발생 컴포넌트 ID : " + this.getOriginalID() + " | ";
+    strLog += "이벤트 타입 : " + e.type;
+    
+    //로그 출력
+    $c.frame.printExampleLog(strLog, txa_log, false);
+
+};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox escape="false" id="" label="Group의 이벤트 onmouseleave 예제입니다.&lt;br/&gt;이벤트 발생 조건은 아래와 같습니다.&lt;br/&gt;onmouseleave : 마우스 포인터가 영역 밖으로 나갈 때 발생." style=""></w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="Group" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="아래의 Group 영역으로 마우스를 이동했다가 영역 밖으로 마우스를 이동합니다.&lt;br/&gt;이벤트 로그가 [로그 확인] 영역과 개발자 도구 콘솔에 출력됩니다."
+    						style="">
+    					</w2:textbox>
+    					<xf:group id="grp_exam1" style="height: 120px;background-color: LemonChiffon;"
+    						ev:onmouseleave="scwin.grp_exam1_onmouseleave">
+    						<w2:textbox id="" label="Group 영역" style="text-align: center;font-size: 2em;padding-top: 30px;"></w2:textbox>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<xf:group class="example_div_th_style" id="" style="">
+    					<w2:span class="mr_def txt_blue" id="" label="로그 확인" style=""></w2:span>
+    					<xf:trigger class="com_example_btn_log_clear" ev:onclick="scwin.btn_clearLog_onclick" id="btn_clearLog" style=""
+    						title="로그 삭제" type="button">
+    						<xf:label><![CDATA[검색 취소]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<xf:textarea class="com_example_txa_log" id="txa_log" spellcheck="false" style="width: 100%;height: 140px;"></xf:textarea>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

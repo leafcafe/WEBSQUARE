@@ -1,0 +1,46 @@
+/*amd /ui/SP/Experiment/Common_GridViewDynamicCode.xml 9716 3da80f8eacc61848448a1daf9a834efca4494a1baa423ccd401e01e2b5e6de93 */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',A:{},E:[{T:1,N:'w2:type',E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{id:'dlt_commonGrp',baseNode:'list',saveRemovedData:'true',repeatNode:'map','ev:onbeforerowpositionchange':'scwin.dlt_commonGrp_onbeforerowpositionchange'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'선택',dataType:'text',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'GRP_CD',name:'그룹코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'GRP_NM',name:'그룹명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'SORT_ORDER',name:'코드순서',dataType:'text'}},{T:1,N:'w2:column',A:{id:'IS_USE',name:'사용여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'NOTE',name:'비고',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{id:'dlt_commonCode',baseNode:'list',saveRemovedData:'true',repeatNode:'map'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'선택',dataType:'text',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'GRP_CD',name:'그룹코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'COM_CD',name:'공통코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'CODE_NM',name:'코드명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'SORT_ORDER',name:'코드순서',dataType:'text'}},{T:1,N:'w2:column',A:{id:'IS_USE',name:'사용여부',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ATTR_VALUE1',name:'속성값1',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ATTR_VALUE2',name:'속성값2',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ATTR_VALUE3',name:'속성값3',dataType:'text'}},{T:1,N:'w2:column',A:{id:'NOTE',name:'비고',dataType:'text'}}]}]},{T:1,N:'w2:dataList',A:{id:'dlt_mainCodeList',baseNode:'list',saveRemovedData:'true',repeatNode:'map','ev:oncelldatachange':'scwin.dlt_mainCodeList_oncelldatachange'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'EMP_NM',name:'사용자',dataType:'text'}},{T:1,N:'w2:column',A:{id:'GRP_CD',name:'그룹코드',dataType:'text'}},{T:1,N:'w2:column',A:{id:'COM_CD',name:'코드',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_fileDesc'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'desc',name:'파일 설명',dataType:'text'}},{T:1,N:'w2:key',A:{id:'test',name:'파일 테스트 방법',dataType:'text'}}]},{T:1,N:'w2:data',A:{use:'true'},E:[{T:1,N:'desc',E:[{T:4,cdata:'\n<pre class="textNor" style="">\n<div class="etcbox">본 화면은 GridView의 마스터 컬럼 코드가 변경되면 서브 컬럼의 아이템이 동적으로 변경되도록 하는 예제이다.\n</div>\n<div class="etc_tit">동작 방식</div>\n1. 코드 그룹 셀의 실렉트 박스의 값이 바뀌면 onchange 이벤트를 사용하여 선택된 셀의 colID, oldvalue, newvalue를 파라미터로 받아온다.\n2. 데이터리스트의 값이 바뀐 셀의 컬럼아이디를 확인, info.colID === "GRP_CD" 로 코드그룹 셀인지 확인\n3. info.colID === "GRP_CD" true면 colID, newvalue와 맞는 JSON데이터를 배열에 담고 배열에 담긴 데이터가 있으면 상세코드를 배열에 담겨있는 값으로 다시 랜더링 해준다\n2. 배열에 담긴 데이터가 없으면 newValue에 해당하는 데이터를 com.sbm.execute(sbm_commonCode, param) 함수를 통해 서버에서 데이터를 받아와서 상세코드에 랜더링해준다.\n</pre>\n						'}]},{T:1,N:'test',E:[{T:4,cdata:'\n<pre class="textNor">\n<div class="etc_tit">과정</div>\n-추가 버튼을 눌러 코드그룹 그리드 뷰에 데이터를 생성한다.\n com.data.insertRow(grd_commCodeSample);\n-생성된 그리드뷰의 코드 그룹 실렉트박스의 값을 변경한다.\n\n</div>\n<div class="etc_tit">결과</div>\n- 상세 코드 실렉트 박스의 데이터리스트가 코드 그룹의 값에 따라 바뀐다.\n</pre>\n						'}]}]}]},{T:1,N:'w2:linkedDataList',A:{bind:'dlt_commonCode',id:'ldt_commonCode'},E:[{T:1,N:'w2:condition',A:{type:'filter'},E:[{T:4,cdata:'GRP_CD ==  ref(\'data:dlt_mainCodeList.GRP_CD\')'}]},{T:1,N:'w2:condition',A:{type:'sort'}}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_commonSearchItem',ref:'',target:'data:json,{"action":"append","id":"dlt_commonGrp","key":"dlt_commonSearchItem"}',action:'/common/selectCommonSearchItem',method:'post',mediatype:'application/json',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_commonCode',ref:'',target:'data:json,{"action":"append","id":"dlt_commonCode"}',action:'/common/selectCommonCodeList',method:'post',mediatype:'application/json',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_commonCode_submitdone','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:''}},{T:1,N:'script',A:{type:'text/javascript',lazy:'false'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){
+scwin.onpageload = function () {
+	com.sbm.execute(sbm_commonSearchItem);
+};
+
+/**
+ * 화면 초기화 데이터가 모두 로딩되면 발생하는 이벤트
+ */
+scwin.ondataload = function () {
+
+};
+
+scwin.btn_addGrpCell_onclick = function (e) {
+	var idx = com.data.insertRow(grd_commCodeSample);
+	grd_commCodeSample.setFocusedCell(idx, "GRP_CD", true);
+};
+
+scwin.btn_cancelGrp_onclick = function(e) {
+	com.data.undoGridView(grd_commCodeSample);
+};
+
+scwin.btn_excelGrp_onclick = function(e) {
+	com.data.downloadGridViewExcel(grd_commCodeSample);
+};
+
+scwin.dlt_mainCodeList_oncelldatachange = function(info) {
+	if (info.colID === "GRP_CD") {
+		var rowData = dlt_commonCode.getMatchedJSON(info.colID, info.newValue);
+		if (rowData.length === 0) {
+			var grpCd = info.newValue;
+			if (grpCd) {
+				var param = { dma_commonGrp: { GRP_CD: grpCd } };
+				com.sbm.execute(sbm_commonCode, param);
+			}
+		} else {
+			grd_commCodeSample.refreshCell(grd_commCodeSample.getFocusedRowIndex(), 2);
+		}
+	}
+};
+
+scwin.sbm_commonCode_submitdone = function(e) {	
+	grd_commCodeSample.refreshCell(grd_commCodeSample.getFocusedRowIndex(), 2);
+};
+
+}}}]},{T:1,N:'style',A:{type:'text/css'},E:[{T:4,cdata:'.shbox .w2tb.w2tb_adaptive_layout .w2tb_td:before{width:110px}'}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{class:'sub_contents flex_gvw',id:'',style:''},E:[{T:1,N:'w2:wframe',A:{id:'',style:'',src:'../../cm/xml/contentHeader.xml',scope:''}},{T:1,N:'w2:wframe',A:{id:'',src:'../../cm/xml/contentDesc.xml',scope:''}},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{style:'',id:'',class:'dfbox'},E:[{T:1,N:'w2:textbox',A:{label:'코드그룹',style:'',id:'',class:'',tagname:'h3'}},{T:1,N:'xf:group',A:{style:'',id:'',class:'fr'},E:[{T:1,N:'w2:textbox',A:{class:'sum',id:'spn_grpCnt',label:'',style:''}},{T:1,N:'xf:trigger',A:{type:'button',style:'',id:'btn_addGrpCell',class:'btn_cm row_add','ev:onclick':'scwin.btn_addGrpCell_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'추가'}]}]},{T:1,N:'xf:trigger',A:{class:'btn_cm ','ev:onclick':'scwin.btn_delProgram_onclick',id:'btn_delProgram',style:'display: none;',type:'button'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'삭제'}]}]},{T:1,N:'xf:trigger',A:{class:'btn_cm',id:'btn_cancelGrp',style:'',type:'button','ev:onclick':'scwin.btn_cancelGrp_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'취소'}]}]},{T:1,N:'xf:trigger',A:{class:'btn_cm download',id:'btn_excelGrp',style:'',type:'button','ev:onclick':'scwin.btn_excelGrp_onclick'},E:[{T:1,N:'xf:label',E:[{T:4,cdata:'엑셀다운로드'}]}]}]}]},{T:1,N:'w2:gridView',A:{autoFit:'allColumn',autoFitMinWidth:'800',class:'wq_gvw',dataList:'data:dlt_mainCodeList',editModeEvent:'onclick','ev:oncellclick':'',fixedColumnWithHidden:'true',id:'grd_commCodeSample',keyMoveEditMode:'true',rowNumVisible:'ss',rowStatusVisible:'',scrollByColumn:'false',style:'height:150px;',useShiftKey:'true',defaultCellHeight:'26',focusMode:'row'},E:[{T:1,N:'w2:header',A:{id:'header1',style:''},E:[{T:1,N:'w2:row',A:{id:'row1',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column1',inputType:'text',style:'',value:'사용자',width:'200'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column3',inputType:'text',style:'',value:'코드 그룹',width:'150'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column4',inputType:'text',style:'',value:'상세 코드',width:'150'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody1',style:''},E:[{T:1,N:'w2:row',A:{id:'row2',style:''},E:[{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'EMP_NM',inputType:'text',style:'',width:'195'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'GRP_CD',inputType:'select',style:'',viewType:'icon',width:'150',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:dlt_commonGrp'},E:[{T:1,N:'w2:label',A:{ref:'GRP_NM'}},{T:1,N:'w2:value',A:{ref:'GRP_CD'}}]}]}]},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'COM_CD',inputType:'select',style:'',textAlign:'left',viewType:'icon',width:'150',allOption:'',chooseOption:'',ref:''},E:[{T:1,N:'w2:choices',E:[{T:1,N:'w2:itemset',A:{nodeset:'data:ldt_commonCode'},E:[{T:1,N:'w2:label',A:{ref:'CODE_NM'}},{T:1,N:'w2:value',A:{ref:'COM_CD'}}]}]}]}]}]}]}]}]}]}]}]})

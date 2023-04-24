@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" >
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20220803]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+
+};
+
+
+/**
+ * acb_exam 컴포넌트의 이벤트 onselected 핸들러
+ */
+scwin.acb_exam_onselected = function(info) {
+    var strLog;
+
+    var _newSelectedIndex = info.newSelectedIndex;  //선택된 항목의 index
+    var _newValue = info.newValue;  //선택된 값
+    var _oldSelectedIndex = info.oldSelectedIndex;  //이전에 선택된 항목의 index
+    var _oldValue = info.oldValue;  //이전 값
+
+    //이벤트 확인용 로그 출력
+    console.log("scwin.acb_exam_onselected >> ", info);
+
+    $c.frame.printExampleLog("scwin.acb_exam_onselected", txa_log);
+    $c.frame.printExampleLog("info : \n" + JSON.stringify(info, null, "\t"), txa_log, false);
+    strLog = "info.newSelectedIndex : " + _newSelectedIndex + "\n";
+    strLog += "info.newValue : " + _newValue + "\n";
+    strLog += "info.oldSelectedIndex : " + _oldSelectedIndex + "\n";
+    strLog += "info.oldValue : " + _oldValue;
+    $c.frame.printExampleLog(strLog, txa_log, false);
+
+    //로직 구성
+};
+
+/**
+ * acb_exam 컴포넌트의 이벤트 onitemclick 핸들러
+ */
+scwin.acb_exam_onitemclick = function(index) {
+    //이벤트 확인용 로그 출력
+    console.log("scwin.acb_exam_onitemclick >> ", index);
+
+    $c.frame.printExampleLog("scwin.acb_exam_onitemclick", txa_log);
+    $c.frame.printExampleLog("index : " + index, txa_log, false);
+
+    //로직 구성
+};
+
+/**
+ * 로그 출력용 함수
+ */
+scwin.printLog = function(argStr) {
+    var strLog;
+    strLog = txa_log.getValue();
+    txa_log.setValue(strLog + "\n" + argStr);
+    
+};
+
+
+/**
+ * textarea의 로그 삭제
+ */
+scwin.btn_clearLog_onclick = function(e) {
+    //textarea value를 빈문자열로 할당.
+    txa_log.setValue("");
+};
+
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id="" label='검색어 "b"를 입력 후 목록에서 항목을 클릭하거나 방향키를 이용하여 항목을 선택합니다.&lt;br/&gt;로그 확인 영역에 로그가 출력됩니다.' style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mb_def" id="" >
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='AutoComplete' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:autoComplete editType="select" style="width: 150px;min-height:24px;" submenuSize="auto" id="acb_exam"
+							nextTabByEnter="true" ev:onselected="scwin.acb_exam_onselected" ev:onitemclick="scwin.acb_exam_onitemclick">
+							<w2:choices>
+								<w2:item>
+									<w2:label><![CDATA[]]></w2:label>
+									<w2:value><![CDATA[]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[apple]]></w2:label>
+									<w2:value><![CDATA[01]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[grapes]]></w2:label>
+									<w2:value><![CDATA[02]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[strawberry]]></w2:label>
+									<w2:value><![CDATA[03]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[blueberry]]></w2:label>
+									<w2:value><![CDATA[04]]></w2:value>
+								</w2:item>
+							</w2:choices>
+						</w2:autoComplete>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="" >
+				<xf:group class="example_div_tr_style" id="" style="">
+					<xf:group id="" class="example_div_th_style">
+						<w2:span label="로그 확인" style="" id="" class="mr_def txt_blue"></w2:span><xf:trigger class="com_example_btn_log_clear" ev:onclick="scwin.btn_clearLog_onclick" id="btn_clearLog"
+							style="" title="로그 삭제" type="button">
+							<xf:label><![CDATA[검색 취소]]></xf:label>
+						</xf:trigger>
+						
+					</xf:group>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:textarea class="com_example_txa_log" id="txa_log" spellcheck="false" style="width: 100%;height: 140px;"></xf:textarea>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

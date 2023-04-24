@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_menu" repeatNode="data" style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="depth" name="depth"></w2:column>
+						<w2:column dataType="text" id="label" name="label"></w2:column>
+						<w2:column dataType="text" id="value" name="value"></w2:column>
+						<w2:column dataType="text" id="path" name="path"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true" xmlns="">
+						<w2:row>
+							<depth><![CDATA[1]]></depth>
+							<label><![CDATA[메뉴1]]></label>
+							<value><![CDATA[menu1]]></value>
+							<path><![CDATA[xml/client/menu1.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[2]]></depth>
+							<label><![CDATA[메뉴1-1]]></label>
+							<value><![CDATA[menu1-1]]></value>
+							<path><![CDATA[xml/client/menu1-1.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[2]]></depth>
+							<label><![CDATA[메뉴1-2]]></label>
+							<value><![CDATA[menu1-2]]></value>
+							<path><![CDATA[xml/client/menu1-2.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[3]]></depth>
+							<label><![CDATA[메뉴1-2-1]]></label>
+							<value><![CDATA[menu1-2-1]]></value>
+							<path><![CDATA[xml/client/menu1-2-1.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[2]]></depth>
+							<label><![CDATA[메뉴1-3]]></label>
+							<value><![CDATA[menu1-3]]></value>
+							<path><![CDATA[xml/client/menu1-3.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[1]]></depth>
+							<label><![CDATA[메뉴2]]></label>
+							<value><![CDATA[menu2]]></value>
+							<path><![CDATA[xml/client/menu2.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[2]]></depth>
+							<label><![CDATA[메뉴2-1]]></label>
+							<value><![CDATA[menu2-1]]></value>
+							<path><![CDATA[xml/client/menu2-1.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[1]]></depth>
+							<label><![CDATA[메뉴3]]></label>
+							<value><![CDATA[menu3]]></value>
+							<path><![CDATA[xml/client/menu3.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[2]]></depth>
+							<label><![CDATA[메뉴3-1]]></label>
+							<value><![CDATA[menu3-1]]></value>
+							<path><![CDATA[xml/client/menu3-1.xml]]></path>
+						</w2:row>
+						<w2:row>
+							<depth><![CDATA[2]]></depth>
+							<label><![CDATA[메뉴3-2]]></label>
+							<value><![CDATA[menu3-2]]></value>
+							<path><![CDATA[xml/client/menu3-2.xml]]></path>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220428]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id="" label="GridView의 DrillDown 기능을 구현한 예시입니다.&lt;br/&gt;행간 데이터를 확장/축소할 수 있습니다." style="">
+				</w2:textbox>
+				<w2:textbox class="ws_example_txt_desc_info" escape="false" id="" label="이 예제는 시연용 예제로 예제 가이드 문서가 포함되어 있지 않습니다." style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" class="gvwbox">
+				<w2:gridView scrollByColumnAdaptive="false" summaryAuto="false" useShiftKey="true" readOnly="true" scrollByColumn="false"
+					summaryOnlyAuto="false" focusMode="row" fixedColumnWithHidden="true" dataList="dlt_menu" ignoreCellClick="false" style="height: 150px;"
+					autoFit="lastColumn" id="" useFilterList="false" visibleRowNum="all" class="wq_gvw" ignoreToggleOnDisabled="false"
+					defaultCellHeight="26" tooltipDisplay="true">
+					<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+					<w2:header style="" id="header1">
+						<w2:row style="" id="row1">
+							<w2:column width="59" inputType="text" style="" id="column5" value="depth" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="136" inputType="text" style="" id="column7" value="label" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="89" inputType="text" style="" id="column1" value="value" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="109" inputType="text" style="" id="column9" value="path" blockSelect="false" displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody style="" id="gBody1">
+						<w2:row style="" id="row2">
+							<w2:column width="59" inputType="text" style="" id="depth" blockSelect="false" displayMode="label"></w2:column>
+							<w2:column textAlign="left" width="136" inputType="drilldown" style="" id="label" showDepth="2" depthColumn="depth"
+								blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column textAlign="left" width="89" inputType="text" style="" id="value" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column textAlign="left" width="109" inputType="text" style="" id="path" blockSelect="false" displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

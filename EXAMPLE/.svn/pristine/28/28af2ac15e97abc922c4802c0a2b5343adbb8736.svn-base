@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList id="dlt_site" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="disp" name="타이틀"></w2:column>
+    					<w2:column dataType="text" id="url" name="이동 경로"></w2:column>
+    					<w2:column dataType="text" id="desc" name="설명"></w2:column>
+    					<w2:column dataType="text" id="li_class" name="li class"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    			<w2:dataList id="dlt_site_webDev" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="disp" name="타이틀"></w2:column>
+    					<w2:column dataType="text" id="url" name="이동 경로"></w2:column>
+    					<w2:column dataType="text" id="desc" name="설명"></w2:column>
+    					<w2:column dataType="text" id="li_class" name="li class"></w2:column>
+    				</w2:columnInfo>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm_init" ref="" target='data:json,["dlt_site","dlt_site_webDev"]'
+    			action="/frame/data/intro_data.json" method="post" mediatype="application/json" encoding="UTF-8" instance="" replace=""
+    			errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone="scwin.sbm_init_submitdone"
+    			ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    $p.executeSubmission( "sbm_init" );
+    scwin.initPage();
+};
+
+scwin.initPage = function() {
+    //엔진 버전 셋팅
+    tbx_engineVersion.setValue(WebSquare.text.BASE64Decode(WebSquare.ver));
+
+    //프로젝트 버전
+    tbx_projectVersion.setValue(EXA_PROJECT_VERSION || "-");
+
+    //프로젝트의 웹스퀘어 엔진 권장 버전
+    tbx_recVersion.setValue(EXA_RECOMMENDED_ENGINE_VERSION || "5.0_5.4666B.20220705.144534_1.8");
+
+};
+
+scwin.sbm_init_submitdone = function(e) {
+    scwin.init_refList("ref_site");
+    scwin.init_refList("ref_site_web");
+};
+
+scwin.init_refList = function(argStrType){
+	var arrList, arrListLen, i, curObj, curRowData;
+    var _cmpGen;
+    var strID_dt, strID_dd, strID_li;
+	
+    switch (argStrType) {
+    case "ref_site":
+        _cmpGen = gen_ref_site;
+        strID_dt = "btn_gen_ref_site_dt";
+        strID_dd = "tbx_gen_ref_site_dd";
+        strID_li = "grp_gen_ref_site_li";
+
+        arrList = dlt_site.getAllJSON();
+        break;
+    case "ref_site_web":
+        _cmpGen = gen_ref_site_web;
+        strID_dt = "btn_gen_ref_site_web_dt";
+        strID_dd = "tbx_gen_ref_site_web_dd";
+        strID_li = "grp_gen_ref_site_web_li";
+
+        arrList = dlt_site_webDev.getAllJSON();
+        break;
+    default:
+        return;
+        break;
+    }
+
+    arrListLen = arrList.length;
+	
+	for(i=0;i<arrListLen;i++){
+		curRowData = arrList[i];
+		_cmpGen.insertChild( i );
+
+        curObj = _cmpGen.getChild(i, strID_li);
+        if (curRowData.li_class) {
+            curObj.addClass(curRowData.li_class);
+        } else {
+            curObj.addClass("type05");
+        }
+        
+		curObj = _cmpGen.getChild( i , strID_dt );
+		curObj.setValue( curRowData.disp );
+		if((curRowData.url).indexOf("http") > -1){
+			curObj.setHref( curRowData.url );
+		}else{
+			curObj.setHref( "?w2xPath="+curRowData.url );
+		}
+		
+		curObj = _cmpGen.getChild( i , strID_dd );
+		curObj.setValue( curRowData.desc );
+	}
+	
+};
+
+/**
+ * 프로젝트 릴리즈 노트 새창 열기 버튼 클릭
+ */
+scwin.btn_more_project_history_onclick = function() {
+    $p.main().scwin.dispProjectHistory();
+};
+
+scwin.openRefSite = function() {
+    var strLink;
+    
+    strLink = this.getUserData("userData1");
+    
+    if (strLink) {
+        window.open(strLink, "_blank");
+    } else {
+        alert("준비중 입니다.");
+    }
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload"><xf:group style="" id="" class="intro"><xf:group style="" id="" class="int_top"><xf:group id="" class="bg_wrap"><w2:textbox style="" id="" label="Welcome to Websquare5 ServicePack5 Examples" class="txt_big" escape="false"></w2:textbox><w2:textbox style="" id="" label="네트워크의 사용이 불가능한 환경에서도 지원" class="txt_small wifi" escape="false"></w2:textbox><w2:textbox style="" id="" label="서버의 구성 없이 스튜디오에서 실행 가능" class="txt_small server" escape="false"></w2:textbox><xf:group id="" class="t_luminous">
+			<w2:textbox tagname="strong" style="" id="" label="프로젝트 정보" escape="false"></w2:textbox>
+			<w2:textbox tagname="span" style="" id="tbx_projectVersion" label="_" escape="false"></w2:textbox>
+		</xf:group><xf:group id="" class="t_luminous">
+			<w2:textbox tagname="strong" style="" id="" label="실행된 웹스퀘어 엔진 버전" escape="false"></w2:textbox>
+			<w2:textbox tagname="span" style="" id="tbx_engineVersion" label="_" escape="false"></w2:textbox>
+		</xf:group><xf:group style="" id="" class="ban_box">
+			<xf:group tagname="a" style="" id="" class="anc_banner ico1">
+				<w2:attributes>
+					<w2:href>http://wtech.inswave.com</w2:href>
+					<w2:target>_blank</w2:target>
+				</w2:attributes>
+				<w2:textbox tagname="p" style="" id="" label="W-Tech&lt;br/&gt;Center" escape="false"></w2:textbox>
+				<w2:textbox tagname="span" style="" id="" label="바로가기" escape="false" userData1="http://wtech.inswave.com">
+				</w2:textbox>
+			</xf:group>
+			<xf:group tagname="a" style="" id="" class="anc_banner ico2">
+				<w2:attributes>
+					<w2:href>https://docs1.inswave.com/sp5_user_guide</w2:href>
+					<w2:target>_blank</w2:target>
+				</w2:attributes>
+				<w2:textbox tagname="p" style="" id="" label="WebSquare5 SP5&lt;br/&gt;개발가이드" escape="false"></w2:textbox>
+				<w2:textbox tagname="span" style="" id="" label="바로가기" escape="false" userData1="https://docs1.inswave.com/sp5_user_guide"></w2:textbox>
+			</xf:group>
+			<xf:group tagname="a" style="" id="" class="anc_banner ico3">
+				<w2:attributes>
+					<w2:href>https://docs.inswave.com/websquare/websquare.html?w2xPath=/support/api/ws5_sp5/api.xml</w2:href>
+					<w2:target>_blank</w2:target>
+				</w2:attributes>
+				<w2:textbox tagname="p" style="" id="" label="WebSquare5 SP5&lt;br/&gt;API" escape="false"></w2:textbox>
+				<w2:textbox tagname="span" style="" id="" label="바로가기" escape="false" userData1="https://docs.inswave.com/websquare/websquare.html?w2xPath=/support/api/ws5_sp5/api.xml"></w2:textbox>
+			</xf:group>
+			<xf:group tagname="a" style="" id="" class="anc_banner ico2">
+				<w2:attributes>
+					<w2:href>https://docs1.inswave.com/design_guide</w2:href>
+					<w2:target>_blank</w2:target>
+				</w2:attributes>
+				<w2:textbox tagname="p" style="" id="" label="WebSquare5&lt;br/&gt;디자인가이드" escape="false"></w2:textbox>
+				<w2:textbox tagname="span" style="" id="" label="바로가기" escape="false" userData1="https://docs1.inswave.com/design_guide"></w2:textbox>
+			</xf:group>
+		</xf:group></xf:group></xf:group>
+    		<xf:group style="" id="" class="int_mid">
+    			<xf:group style="" id="" class="ins_box">
+    				<w2:textbox style="" id="" label="주의사항" class="txt_ins_big tac"></w2:textbox>
+    			</xf:group>
+    			<xf:group tagname="ol" style="" id="" class="prj_list">
+    				<xf:group id="" style="" tagname="li">
+    					<w2:textbox class="txt_prj_big" id="" label="이 프로젝트는 웹스퀘어 서비스팩5(SP5) 엔진 버전부터 지원됩니다." style=""></w2:textbox>
+    					<w2:textbox class="txt_prj_small" id="tbx_recVersion" label="-" style=""></w2:textbox>
+    				</xf:group>
+    				<xf:group tagname="li" style="" id="">
+    					<w2:textbox style="" id="" label="프로젝트 리소스는 예제 파일에 한해서만 기술 지원이 가능합니다." class="txt_prj_big"></w2:textbox>
+    					<w2:textbox style="" id="" label="(프로젝트의 예제 파일 경로 : WebContent/page)" class="txt_prj_small"></w2:textbox>
+    				</xf:group>
+    				<xf:group tagname="li" style="" id="">
+    					<w2:textbox style="" id="" label="예제 사이트를 구성하기 위해 작성된 공통 모듈은 기술 지원이 되지 않습니다." class="txt_prj_big"></w2:textbox>
+    					<w2:textbox style="" id="" label="(제공된 리소스의 사용으로 인해 발생하는 직접적, 간접적, 특수 또는 결과적 손해에 대한 책임을 지지 않습니다.)"
+    						class="txt_prj_small">
+    					</w2:textbox>
+    				</xf:group>
+    				<xf:group id="" style="" tagname="li">
+    					<w2:textbox class="txt_prj_big" id="" label="오탈자 및 예제 오류는 아래의 이메일로 보내주시면 검토 후 빠르게 반영하겠습니다." style=""></w2:textbox>
+    					<w2:textbox class="txt_prj_small" id="" label="이메일 주소 : g_edu@inswave.com"
+    						style="">
+    					</w2:textbox>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group style="" id="" class="int_bot">
+    			<xf:group class="lybox site_grp" id="" style="">
+    				<xf:group adaptiveThreshold="" class="ly_column col_5" id="" style="">
+    					<xf:group class="ins_wget  sitebox" id="" style="">
+    				<w2:textbox id="" label="웹스퀘어 개발 참고 사이트" style="" escape="false" class="intro_ref_title"></w2:textbox>
+    				<w2:generator class="" id="gen_ref_site" style="" tagname="ul">
+    					<xf:group class="" id="grp_gen_ref_site_li" style="" tagname="li">
+    					<xf:group id=""><w2:anchor outerDiv="false" toolTip="" style="min-height:12px;" id="btn_gen_ref_site_dt" title="" class="" target="_blank">
+    							<xf:label></xf:label>
+    						</w2:anchor><w2:textbox style="" id="tbx_gen_ref_site_dd" label="" class=""></w2:textbox></xf:group></xf:group>
+    				</w2:generator>
+    			</xf:group>
+    				</xf:group>
+    				<xf:group class="ly_column col_5" id="" style="">
+    					<xf:group class="ins_wget  sitebox" id="" style="">
+    				<w2:textbox id="" label="웹 개발 참고 사이트 링크" style="" escape="false" class="intro_ref_title"></w2:textbox>
+    				<w2:generator class="" id="gen_ref_site_web" style="" tagname="ul">
+    					<xf:group class="" id="grp_gen_ref_site_web_li" style="" tagname="li">
+    						<w2:anchor class="" id="btn_gen_ref_site_web_dt" outerDiv="false" style="min-height:12px;" target="_blank" title="" toolTip="">
+    							<xf:label></xf:label>
+    						</w2:anchor>
+    						<w2:textbox class="" id="tbx_gen_ref_site_web_dd" label="" style="min-height: 12px;"></w2:textbox>
+    					</xf:group>
+    				</w2:generator>
+    			</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			
+    			
+    			<xf:group id="" class="releasebox">
+    				<xf:group id="">
+    					<w2:textbox style="display: inline-block;" id="" label="최근 프로젝트 릴리즈 노트" escape="false" class="intro_ref_title"></w2:textbox>
+    					<w2:anchor outerDiv="false" id="btn_more_project_history" style=""
+    						class="btn_releasebox btn_cm" ev:onclick="scwin.btn_more_project_history_onclick" title="릴리즈 노트 더보기">
+    						<xf:label><![CDATA[더보기]]></xf:label>
+    					</w2:anchor>
+    				</xf:group>
+    				<w2:wframe style="" id="" src="/frame/page/history_w.xml"
+    					class="scrollbar intro_history_wframe" userData1="HOME">
+    				</w2:wframe>
+    			</xf:group>
+    		</xf:group></xf:group></body>
+</html>

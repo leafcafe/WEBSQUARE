@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230310]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_books" repeatNode="map" style="" valueAttribute="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="book_name" name="도서명"></w2:column>
+						<w2:column dataType="number" id="price" name="정가"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<book_name><![CDATA[   사람일까 상황일까   ]]></book_name>
+							<price><![CDATA[28000]]></price>
+						</w2:row>
+						<w2:row>
+							<book_name><![CDATA[      내가 틀릴 수도 있습니다]]></book_name>
+							<price><![CDATA[16000]]></price>
+						</w2:row>
+						<w2:row>
+							<book_name><![CDATA[  공정하다는 착각  ]]></book_name>
+							<price><![CDATA[18000]]></price>
+						</w2:row>
+						<w2:row>
+							<book_name><![CDATA[불편한 편의점]]></book_name>
+							<price><![CDATA[14000]]></price>
+						</w2:row>
+						<w2:row>
+							<book_name><![CDATA[인간 실격]]></book_name>
+							<price><![CDATA[9000]]></price>
+						</w2:row>
+						<w2:row>
+							<book_name><![CDATA[어린왕자]]></book_name>
+							<price><![CDATA[2000]]></price>
+						</w2:row>
+						<w2:row>
+							<book_name><![CDATA[JavaScript Patterns]]></book_name>
+							<price><![CDATA[22000]]></price>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+
+/**
+ * 버튼 [엑셀 다운로드 - 기본] 클릭 시
+ */
+scwin.btn_ex1_onclick = function (e) {
+    var jsnOptions;
+
+    jsnOptions = {
+        fileName: "SP5_EXAMPLE_P00232_TYPE1.xlsx"
+    };
+
+    grd_exam1.advancedExcelDownload(jsnOptions);
+};
+
+/**
+ * 버튼 [엑셀 다운로드 - 데이터 좌우 공백 제거] 클릭 시
+ */
+scwin.btn_ex2_onclick = function (e) {
+    var jsnOptions;
+
+    jsnOptions = {
+        fileName: "SP5_EXAMPLE_P00232_TYPE2.xlsx", //엑셀의 파일명
+        trim: "true" //데이터 좌우 공백 제거
+    };
+    //options.trim <String:N> [default: false] gridView 데이터를 좌우 공백 적용 유무 (true 설정시 공백 제거 후 적용)
+
+    //GridView "grd_exam1"의 엑셀 다운로드 실행
+    grd_exam1.advancedExcelDownload(jsnOptions);
+};]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox class="" escape="false" id=""
+					label="GridView의 엑셀 다운로드(함수 'advancedExcelDownload') 옵션 중 'trim' 설정의 예제입니다.&lt;br/&gt;옵션 'trim'은 데이터의 좌우 공백 제거의 여부를 지정할 수 있습니다.&lt;br/&gt;false : (기본 값) 좌우 공백 제거하지 않음&lt;br/&gt;true : 좌우 공백 제거"
+					style="">
+				</w2:textbox>
+				<w2:textbox class="" escape="false" id="" label="다운로드된 엑셀 파일의 컬럼 '도서명'의 데이터의 좌우 공백을 비교합니다." style=""></w2:textbox>
+				<w2:textbox class="" escape="false" id="" label="이 예제는 데이터의 좌우 공백을 표현하기 위해 컬럼 '도서명'에 class 'P00000_preColumn'이 적용되어 있습니다."
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="mb_def_box nobottom" id="" style="">
+					<xf:trigger class="btn_exam_exec btn_txt_of" ev:onclick="scwin.btn_ex1_onclick" id="btn_ex1" localeRef=""
+						style="min-width: 30px; height: 26px;" type="" useDefaultLabel="true">
+						<xf:label><![CDATA[엑셀 다운로드 - 기본]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn_exam_exec btn_txt_of" ev:onclick="scwin.btn_ex2_onclick" id="btn_ex2" localeRef=""
+						style="min-width: 30px; height: 26px;" type="" useDefaultLabel="true">
+						<xf:label><![CDATA[엑셀 다운로드 - 데이터 좌우 공백 제거]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<w2:gridView autoFit="allColumn" autoFitMinWidth="250" class="wq_gvw" dataList="data:dlt_books" defaultCellHeight="24"
+					id="grd_exam1" rowNumVisible="true" rowNumWidth="26" style="height:100px;" visibleRowNum="4" visibleRowNumFix="true">
+					<w2:caption id="caption1" style="" value="this is a grid caption."></w2:caption>
+					<w2:header id="header1" style="">
+						<w2:row id="row1" style="">
+							<w2:column displayMode="label" id="column3" inputType="text" value="도서명" width="170"></w2:column>
+							<w2:column displayMode="label" id="column2" inputType="text" value="정가" width="80"></w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody id="gBody1" style="">
+						<w2:row id="row2" style="">
+							<w2:column displayMode="label" id="book_name" inputType="text" textAlign="left" width="170" class="P00000_preColumn"></w2:column>
+							<w2:column dataType="number" displayFormat="#,###" displayMode="label" id="price" inputType="text" textAlign="right"
+								width="80">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

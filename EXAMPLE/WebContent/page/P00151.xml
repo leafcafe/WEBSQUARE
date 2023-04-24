@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221021]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='컴포넌트에 포커스 되어있고 키보드 키가 입력되었을 때&lt;br/&gt;컴포넌트에서 제공하는 기본 기능을 사용하지 않는 예제입니다.&lt;br/&gt;이 기능은 키를 이용한 기능을 직접 구현할 때 사용되는 설정입니다.'
+					style="" class="mb_def">
+				</w2:textbox>
+				<w2:textbox id=""
+					label="Input 컴포넌트에서 Tab 키로 Selectbox에 포커스를 이동한 뒤 Enter 키를 입력하여 동작을 비교합니다."
+					style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mb_def" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='(기본) 키 기능 사용' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label="Selectbox에 포커스가 된 상태에서 Enter 키 입력 시 목록이 확장됩니다."
+							style="">
+						</w2:textbox>
+						<xf:input adjustMaxLength="false" id=""
+							style="width:80px;min-height:24px;margin-right: 10px;"
+							nextTabByEnter="true"
+							nextTabID="sbx_exam1">
+						</xf:input>
+						<xf:select1 allOption="" appearance="minimal"
+							chooseOption="" direction="auto" disabled="false"
+							disabledClass="w2selectbox_disabled" id="sbx_exam1"
+							ref="" style="width:130px;min-height:24px;"
+							submenuSize="auto">
+							<xf:choices>
+								<xf:item>
+									<xf:label><![CDATA[apple]]></xf:label>
+									<xf:value><![CDATA[01]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[banana]]></xf:label>
+									<xf:value><![CDATA[02]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[blueberry]]></xf:label>
+									<xf:value><![CDATA[03]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[grapes]]></xf:label>
+									<xf:value><![CDATA[04]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[strawberry]]></xf:label>
+									<xf:value><![CDATA[05]]></xf:value>
+								</xf:item>
+							</xf:choices>
+						</xf:select1>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="엔터(Enter)키 기능 사용 안함" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label="Selectbox에 포커스가 된 상태에서 Enter 키 입력 시 목록이 확장되지 않습니다."
+							style=""></w2:textbox>
+						<xf:input adjustMaxLength="false" id=""
+							style="width:80px;min-height:24px;margin-right: 10px;"
+							nextTabByEnter="true"
+							nextTabID="sbx_exam2">
+						</xf:input>
+						<xf:select1 allOption="" appearance="minimal"
+							chooseOption="" direction="auto" disabled="false"
+							disabledClass="w2selectbox_disabled" id="sbx_exam2"
+							ref="" style="width:130px;min-height:24px;"
+							submenuSize="auto"
+							preventKeyList="13">
+							<xf:choices>
+								<xf:item>
+									<xf:label><![CDATA[apple]]></xf:label>
+									<xf:value><![CDATA[01]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[banana]]></xf:label>
+									<xf:value><![CDATA[02]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[blueberry]]></xf:label>
+									<xf:value><![CDATA[03]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[grapes]]></xf:label>
+									<xf:value><![CDATA[04]]></xf:value>
+								</xf:item>
+								<xf:item>
+									<xf:label><![CDATA[strawberry]]></xf:label>
+									<xf:value><![CDATA[05]]></xf:value>
+								</xf:item>
+							</xf:choices>
+						</xf:select1>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221223]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_exam1"
+					saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="A" name="A" dataType="text"></w2:column>
+						<w2:column id="B" name="B" dataType="text"></w2:column>
+						<w2:column id="C" name="C" dataType="text"></w2:column>
+						<w2:column id="D" name="D" dataType="text"></w2:column>
+						<w2:column id="E" name="E" dataType="text"></w2:column>
+						<w2:column id="F" name="F" dataType="text"></w2:column>
+						<w2:column id="G" name="G" dataType="text"></w2:column>
+						<w2:column id="H" name="H" dataType="text"></w2:column>
+						<w2:column id="I" name="I" dataType="text"></w2:column>
+						<w2:column id="J" name="J" dataType="text"></w2:column>
+						<w2:column id="K" name="K" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<A><![CDATA[A]]></A>
+							<B><![CDATA[B]]></B>
+							<C><![CDATA[C]]></C>
+							<D><![CDATA[D]]></D>
+							<E><![CDATA[E]]></E>
+							<F><![CDATA[F]]></F>
+							<G><![CDATA[G]]></G>
+							<H><![CDATA[H]]></H>
+							<I><![CDATA[I]]></I>
+							<J><![CDATA[J]]></J>
+							<K><![CDATA[K]]></K>
+						</w2:row>
+						<w2:row>
+							<A><![CDATA[A]]></A>
+							<B><![CDATA[B]]></B>
+							<C><![CDATA[C]]></C>
+							<D><![CDATA[D]]></D>
+							<E><![CDATA[E]]></E>
+							<F><![CDATA[F]]></F>
+							<G><![CDATA[G]]></G>
+							<H><![CDATA[H]]></H>
+							<I><![CDATA[I]]></I>
+							<J><![CDATA[J]]></J>
+							<K><![CDATA[K]]></K>
+						</w2:row>
+						<w2:row>
+							<K><![CDATA[K]]></K>
+							<A><![CDATA[A]]></A>
+							<B><![CDATA[B]]></B>
+							<C><![CDATA[C]]></C>
+							<D><![CDATA[D]]></D>
+							<E><![CDATA[E]]></E>
+							<F><![CDATA[F]]></F>
+							<G><![CDATA[G]]></G>
+							<H><![CDATA[H]]></H>
+							<I><![CDATA[I]]></I>
+							<J><![CDATA[J]]></J>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='GridView의 컬럼 이동 기능 예제입니다.&lt;br/&gt;마우스로 헤더 컬럼을 DragDrop하여 위치를 이동 시킬 수 있습니다.'
+					style="">
+				</w2:textbox>
+				<w2:textbox class="ws_example_txt_desc_info" escape="false"
+					id="" label="이 예제는 마우스 사용이 가능한 환경에서 정상 동작합니다." style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="컬럼 이동 기능 설정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label="GridView의 헤더를 DragDrop하여 컬럼의 위치를 이동시킬 수 있습니다."
+							style=""></w2:textbox>
+						<w2:gridView class="wq_gvw" dataList="data:dlt_exam1"
+							id="" style="height: 120px;" defaultCellHeight="24"
+							visibleRowNum="all" resize="true" columnMove="true"
+							columnMoveWithFooter="true">
+							<w2:caption style="" id="caption1"
+								value="this is a grid caption."></w2:caption>
+							<w2:header style="" id="header1">
+								<w2:row style="" id="row3">
+									<w2:column width="44" inputType="text"
+										id="column33" value="A"
+										displayMode="label"></w2:column>
+									<w2:column width="88" inputType="text"
+										id="column32" value="B + C"
+										displayMode="label" colSpan="2">
+									</w2:column>
+									<w2:column width="44" inputType="text"
+										id="column30" value="D"
+										displayMode="label"></w2:column>
+									<w2:column width="132" inputType="text"
+										id="column29" value="E + F + G"
+										displayMode="label" colSpan="3">
+									</w2:column>
+									<w2:column width="176" inputType="text"
+										id="column26" value="H + I + J + K"
+										displayMode="label" colSpan="4">
+									</w2:column>
+								</w2:row>
+								<w2:row style="" id="row1">
+									<w2:column width="44" inputType="text"
+										id="column11" value="A"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column10" value="B"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column9" value="C"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column8" value="D"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column7" value="E"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column6" value="F"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column5" value="G"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column4" value="H"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column3" value="I"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column2" value="J"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column1" value="K"
+										displayMode="label"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody style="" id="gBody1">
+								<w2:row style="" id="row2">
+									<w2:column width="44" inputType="text"
+										id="A" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="B" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="C" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="D" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="E" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="F" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="G" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="H" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="I" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="J" displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="K" displayMode="label"></w2:column>
+								</w2:row>
+							</w2:gBody>
+							<w2:footer style="" id="footer1">
+								<w2:row style="" id="row4">
+									<w2:column width="44" inputType="text"
+										id="column44" value="A"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column43" value="B"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column42" value="C"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column41" value="D"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column40" value="E"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column39" value="F"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column38" value="G"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column37" value="H"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column36" value="I"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column35" value="J"
+										displayMode="label"></w2:column>
+									<w2:column width="44" inputType="text"
+										id="column34" value="K"
+										displayMode="label"></w2:column>
+								</w2:row>
+							</w2:footer>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="컬럼 이동 기능 미설정(기본)" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id="" label="컬럼 이동 기능이 설정되어 있지 않습니다."
+							style="">
+						</w2:textbox>
+						<w2:gridView class="wq_gvw" dataList="data:dlt_exam1"
+							defaultCellHeight="24" id="" resize="true"
+							style="height: 120px;"
+							visibleRowNum="all">
+							<w2:caption id="caption1" style=""
+								value="this is a grid caption."></w2:caption>
+							<w2:header id="header1" style="">
+								<w2:row id="row3" style="">
+									<w2:column displayMode="label" id="column33"
+										inputType="text" value="A" width="44"></w2:column>
+									<w2:column colSpan="2" displayMode="label"
+										id="column32" inputType="text"
+										value="B + C" width="88"></w2:column>
+									<w2:column displayMode="label" id="column30"
+										inputType="text" value="D" width="44"></w2:column>
+									<w2:column colSpan="3" displayMode="label"
+										id="column29" inputType="text"
+										value="E + F + G" width="132"></w2:column>
+									<w2:column colSpan="4" displayMode="label"
+										id="column26" inputType="text"
+										value="H + I + J + K" width="176"></w2:column>
+								</w2:row>
+								<w2:row id="row1" style="">
+									<w2:column displayMode="label" id="column11"
+										inputType="text" value="A" width="44"></w2:column>
+									<w2:column displayMode="label" id="column10"
+										inputType="text" value="B" width="44"></w2:column>
+									<w2:column displayMode="label" id="column9"
+										inputType="text" value="C" width="44"></w2:column>
+									<w2:column displayMode="label" id="column8"
+										inputType="text" value="D" width="44"></w2:column>
+									<w2:column displayMode="label" id="column7"
+										inputType="text" value="E" width="44"></w2:column>
+									<w2:column displayMode="label" id="column6"
+										inputType="text" value="F" width="44"></w2:column>
+									<w2:column displayMode="label" id="column5"
+										inputType="text" value="G" width="44"></w2:column>
+									<w2:column displayMode="label" id="column4"
+										inputType="text" value="H" width="44"></w2:column>
+									<w2:column displayMode="label" id="column3"
+										inputType="text" value="I" width="44"></w2:column>
+									<w2:column displayMode="label" id="column2"
+										inputType="text" value="J" width="44"></w2:column>
+									<w2:column displayMode="label" id="column1"
+										inputType="text" value="K" width="44"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody1" style="">
+								<w2:row id="row2" style="">
+									<w2:column displayMode="label" id="A"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="B"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="C"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="D"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="E"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="F"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="G"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="H"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="I"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="J"
+										inputType="text" width="44"></w2:column>
+									<w2:column displayMode="label" id="K"
+										inputType="text" width="44"></w2:column>
+								</w2:row>
+							</w2:gBody>
+							<w2:footer id="footer1" style="">
+								<w2:row id="row4" style="">
+									<w2:column displayMode="label" id="column44"
+										inputType="text" value="A" width="44"></w2:column>
+									<w2:column displayMode="label" id="column43"
+										inputType="text" value="B" width="44"></w2:column>
+									<w2:column displayMode="label" id="column42"
+										inputType="text" value="C" width="44"></w2:column>
+									<w2:column displayMode="label" id="column41"
+										inputType="text" value="D" width="44"></w2:column>
+									<w2:column displayMode="label" id="column40"
+										inputType="text" value="E" width="44"></w2:column>
+									<w2:column displayMode="label" id="column39"
+										inputType="text" value="F" width="44"></w2:column>
+									<w2:column displayMode="label" id="column38"
+										inputType="text" value="G" width="44"></w2:column>
+									<w2:column displayMode="label" id="column37"
+										inputType="text" value="H" width="44"></w2:column>
+									<w2:column displayMode="label" id="column36"
+										inputType="text" value="I" width="44"></w2:column>
+									<w2:column displayMode="label" id="column35"
+										inputType="text" value="J" width="44"></w2:column>
+									<w2:column displayMode="label" id="column34"
+										inputType="text" value="K" width="44"></w2:column>
+								</w2:row>
+							</w2:footer>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

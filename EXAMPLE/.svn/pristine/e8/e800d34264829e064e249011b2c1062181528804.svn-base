@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+        	<w2:dataCollection baseNode="map">
+        		<w2:dataList baseNode="list" repeatNode="map" id="dlt_cssFileList" saveRemovedData="true">
+        			<w2:columnInfo>
+        				<w2:column id="label" name="name1" dataType="text"></w2:column>
+        				<w2:column id="path" name="name2" dataType="text"></w2:column>
+        			</w2:columnInfo>
+        			<w2:data use="true">
+        				<w2:row>
+        					<path><![CDATA[style]]></path>
+        					<label><![CDATA[내부 internalStyle]]></label>
+        				</w2:row>
+        				<w2:row>
+        					<path><![CDATA[/css/example.css]]></path>
+        					<label><![CDATA[[예제별 예시] /css/example.css]]></label>
+        				</w2:row>
+        				<w2:row>
+        					<path><![CDATA[/cm/css/base.css]]></path>
+        					<label><![CDATA[[공통]/cm/css/base.css]]></label>
+        				</w2:row>
+        				<w2:row>
+        					<path><![CDATA[/cm/css/contents.css]]></path>
+        					<label><![CDATA[[공통]/cm/css/contents.css]]></label>
+        				</w2:row>
+        				<w2:row>
+        					<path><![CDATA[/frame/css/ws5_example.css]]></path>
+        					<label><![CDATA[[공통]/frame/css/ws5_example.css]]></label>
+        				</w2:row>
+        			</w2:data>
+        		</w2:dataList>
+        	</w2:dataCollection>
+        	<w2:workflowCollection />
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script type="text/javascript" src="/frame/js/mainScript.js" scopeExternal="true"></script>
+        <script lazy="false" type="text/javascript"><![CDATA[scwin.gVar = {
+    "EXA_MAIN_TYPE" : "P",  //화면 타입
+    "jsnParam" : null,
+    "jsnLeftMenuLink" : {},
+    "layoutComponentID" : "tac_main"
+};
+
+scwin.onpageload = async function() {
+    $p.js($c.frame.getSrc("/frame/highlight/highlight.min.js"), () => { });
+
+    await scwin.menu.init();
+    
+    //querystring param 분석
+    scwin.parseParam();
+
+    //좌측 메뉴 구성
+    await wfm_leftContainer.setSrc($c.frame.getSrc("frame/page/leftContainer.xml"));
+
+    inquires("externalJS/editor4.17.1/ckeditor.js").then(function(argDone){
+        CKEDITOR.disableAutoInline=false;
+        // CKEDITOR.config.autoUpdateElement = false;
+        // CKEDITOR.scayt_autoStartupSince = false;
+        
+        scwin.setInitPage();
+    }, function(arsError){
+        console.log("[ERROR]externalJS/editor4.17.1/ckeditor.js", argError);
+        scwin.setInitPage();
+    });
+    
+};
+
+scwin.setInitPage = function () {
+    scwin.dispDashboard();
+    scwin.dispPageByParam();
+};
+
+/**
+ * querystring의 param 분석
+ */
+scwin.parseParam = function () {
+    var strAllParam;
+    var arrParam;
+    var jsnParam;
+
+    strAllParam = (location.search).replace("?","");
+    arrParam = strAllParam.split("&");
+
+    jsnParam = {};
+
+    arrParam.forEach((argItem,argIndex)=>{
+        let arrItem = (argItem || "").trim().split("=");;
+        jsnParam[arrItem[0]] = arrItem[1];
+    });
+
+    //전역 변수에 할당.
+    scwin.gVar.jsnParam = JSON.parse(JSON.stringify(jsnParam));
+};
+
+scwin.dispPageByParam = function() {
+    var strPage;
+    var jsnMenu;
+    strPage = scwin.gVar.jsnParam.p;
+    if (!strPage) { return; }
+
+    jsnMenu = scwin.menu.getMenuByPage(strPage);
+
+    if (jsnMenu && jsnMenu.ID) {
+        scwin.dispPage(jsnMenu, true);        
+    }
+};
+
+scwin.dispPage = function(argMenuID, argSelectedTab) {
+    var jsnMenuData;
+    var strMenuID;
+    var strMenuTitle;
+    var strTabID;
+    var isFirstOpen;
+    var isValid = false;
+    var numTabIndex;
+    var strPageContainer;
+
+    switch (typeof argMenuID) {
+    case "string":
+        jsnMenuData = scwin.menu.getMenuByID(argMenuID);
+        isValid = true;
+        break;
+    case "object":
+        if ($.isPlainObject(argMenuID) && argMenuID.ID) {
+            jsnMenuData = argMenuID;
+            isValid = true;
+        }
+        break;
+    default:
+        break;
+    }
+
+
+    strMenuID = jsnMenuData["ID"];
+    strMenuTitle = jsnMenuData["TITLE"];
+
+    strTabID = "tab_"+strMenuID;
+
+    numTabIndex = tac_main.getTabIndex(strTabID);
+
+    isFirstOpen = (numTabIndex < 0 || numTabIndex == null) ? true : false;
+    
+    if (isFirstOpen === true) {
+        strPageContainer = $c.frame.getSrc("/frame/page/pageContainer.xml");
+
+        tac_main.addTab(
+            strTabID, 
+            {
+                "label" : strMenuTitle,
+                "closable" : "true",
+                "openAction" : "select"
+            }, {
+                "src": strPageContainer, 
+                "scope" : true,
+                "wframe" : true,
+                "dataObject" : {
+                    "type" : "json",
+                    "name" : "tabParam",
+                    "data" : {
+                        "menuData" : jsnMenuData
+                    }
+                }
+            }
+        );
+    }
+
+    if (!isFirstOpen || (isFirstOpen && argSelectedTab !== false)) {
+        $p.setTimeout((argTabID) => {
+            var cmpTac = tac_main;
+            cmpTac.setSelectedTabIndex(cmpTac.getTabIndex(strTabID));
+        }, { 
+            delay : 10,
+            args : [strTabID]
+        });
+    }
+};
+
+/**
+ * tab 전체 닫기 click 시
+ */
+scwin.btn_tab_allclose_onclick = async function() {
+    var lenLen = tac_main.getTabCount();
+    for( let i = lenLen ; i > 0 ; i-- ){
+        await tac_main.deleteTab(i);	
+    }
+};
+
+//dashboard 추가
+scwin.dispDashboard = function() {
+    tac_main.addTab(
+        "C_dashboard", 
+        {
+            "label" : "HOME",
+            "closable" : "false",
+            "openAction" : "select",
+            "class" : "tab_home"
+        }, {
+            //"src": $c.frame.getSrc("/frame/page/home_dashboard.xml"),
+            "src": $c.frame.getSrc("/frame/page/intro_dashboard.xml"),
+            "scope" : true,
+            "wframe" : true
+        }
+    );
+};
+
+//project history 추가
+scwin.dispProjectHistory = async function() {
+    var strTabID;
+
+    strTabID = "C_history";
+    await tac_main.addTab(
+        strTabID, 
+        {
+            "label" : "프로젝트 릴리즈 노트",
+            "openAction" : "select"
+        }, {
+            "src": $c.frame.getSrc("/frame/page/history.xml"),
+            "scope" : true,
+            "wframe" : true
+        }
+    );
+    
+    tac_main.setSelectedTabIndex(tac_main.getTabIndex(strTabID));
+};
+
+scwin.btn_sitemap_onclick = function(e) {
+    var objRect;
+    var numMaxHeight, numMaxWidth;
+    var jsnOptions;
+
+    objRect = document.body.getBoundingClientRect();
+
+    numMaxHeight = objRect.height;
+    numMaxWidth = objRect.width;
+
+    jsnOptions = {
+        id : "pop_sitemap",
+        type : "browserPopup",
+        resizable : "true",
+        top : 120,
+        left : "auto",
+        width : (numMaxWidth > 1300 ? 1300 : numMaxWidth) + "px",
+        height : (numMaxHeight > 650 ? 650 : numMaxHeight) + "px",
+        dataObject : {
+            "type" : "json",
+            "name" : "popupParam",
+            "data" : scwin.menu.getAllMenuDataString()
+        }
+    };
+
+    jsnOptions = $c.frame.getPopupPosition(jsnOptions);
+
+    $p.openPopup(
+        $c.frame.getSrc("/frame/page/sitemap.xml"), 
+        jsnOptions
+    );
+};
+
+scwin.btn_online_doc_onclick = function(e) {
+    window.open("https://docs1.inswave.com/ws5_sp5_example", "_blank");
+};
+
+//header 메뉴 확장/축소
+scwin.btn_toggle_menu_onclick = function() {
+    grp_main_wrap.toggleClass("show_menu");
+};
+
+/**
+ * 상단의 logo 클릭 시
+ */
+scwin.btn_logo_onclick = function() {
+    location.reload();
+};
+
+/**
+ * 탭 변경 시
+ */
+scwin.tac_main_onchange = function(tabID,idx,userTabID) {
+    var strMenuID;
+    var strSelectedMenuID;
+    var strkey = "ex_selectedMenuID";
+    strMenuID = userTabID.replace("tab_", "");
+
+    //기 선택된 요소 class 제거
+    strSelectedMenuID = this.getUserData(strkey);
+
+    if (strSelectedMenuID) {
+        scwin.setEmpClass_leftMenu(strSelectedMenuID, false);
+    }
+    
+    //선택된 요소 class 추가 >>> 확장 처리까지.
+    scwin.setEmpClass_leftMenu(strMenuID, true);
+    this.setUserData(strkey, strMenuID);
+};
+
+/**
+ * 좌측 메뉴 강조 class 적용
+ */
+scwin.setEmpClass_leftMenu = function(argCurMenuID, argIsRemove) {
+    var strMenuComp;
+    var arrMenuComp;
+    var numLenArrMenuComp;
+    
+    strMenuComp = scwin.gVar.jsnLeftMenuLink[argCurMenuID];
+
+    if (!strMenuComp) { $c.frame.log("scwin.setEmpClass_leftMenu", "메뉴 정보가 없습니다 : " + argCurMenuID, "debug"); return; }
+
+    arrMenuComp = strMenuComp.split("|");
+
+    numLenArrMenuComp = arrMenuComp.length;
+
+    arrMenuComp.forEach((item, index) => {
+        //menu
+        let cmpMenu = $p.getComponentById(item);
+        
+        if (!cmpMenu) { $c.frame.log("scwin.setEmpClass_leftMenu", "컴포넌트를 찾을 수 없습니다. : " + item, "debug"); return; }
+
+        if (argIsRemove === false) {
+            cmpMenu.removeClass("on");
+        } else {
+            cmpMenu.addClass("on");
+
+            if (numLenArrMenuComp-1 == index) {
+                cmpMenu.getParent().removeClass("isCollapsed");
+            } else if (index == 1) {
+                cmpMenu.removeClass("isCollapsed");
+            }
+        }
+    });
+
+    $p.getComponentById(arrMenuComp[0]).focus();
+    
+};
+// 폰트사이즈
+scwin.header_hide_onlabelclick = function(index,checked,value) {
+    if(checked){
+        $("html").css("font-size","12px");
+    }else{
+        $("html").css("font-size","10px");
+    }
+};
+
+/**
+ * PC 모드 이동
+ */
+scwin.btn_pc_onclick = function(e) {
+    location.href = EXA_URL_MOBILE; 
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="wrap show_menu pc" id="grp_main_wrap" style="">
+    		<xf:group class="bg_mainbox" id="" style=""></xf:group>
+    		<xf:group style="" id="" class="header">
+    			<w2:anchor class="btn_toggle_menu" id="btn_toggle_menu" name="" outerDiv="false" style=""
+    				ev:onclick="scwin.btn_toggle_menu_onclick" title="메뉴 확장/축소">
+    				<xf:label><![CDATA[tootleMenu]]></xf:label>
+    			</w2:anchor>
+    			<xf:group class="" id="" style="" tagname="h1">
+    				<w2:anchor class="logo" id="btn_logo" outerDiv="false" ev:onclick="scwin.btn_logo_onclick" title="브라우저 새로고침">
+    					<xf:label><![CDATA[inswave systems]]></xf:label>
+    				</w2:anchor>
+
+    			</xf:group>
+    			<w2:textbox id="" label="ver." style="" tagname="span"></w2:textbox>
+    			<w2:textbox id="" label="SP5" style="" tagname="strong"></w2:textbox>
+    			<xf:group style="" id="" class="grp_r_link">
+    				<xf:group class="input_switch" id="">
+    					<xf:select appearance="full" cols="" ev:onlabelclick="scwin.header_hide_onlabelclick" id="header_hide" ref=""
+    						renderType="checkboxgroup" rows="" selectedindex="-1" style="" ev:onviewchange="scwin.header_hide_onviewchange">
+    						<xf:choices>
+    							<xf:item>
+    								<xf:label><![CDATA[]]></xf:label>
+    								<xf:value><![CDATA[]]></xf:value>
+    							</xf:item>
+    						</xf:choices>
+    					</xf:select>
+    				</xf:group>
+    				<xf:group id="" class="btn_exam_tran_grp">
+    					<w2:span id="" label="|" class="v_bar"></w2:span>
+    					<xf:trigger ev:onclick="scwin.btn_sitemap_onclick" style="" id="btn_sitemap" type="button" class="btn_exam_tran">
+    						<xf:label><![CDATA[사이트맵]]></xf:label>
+    					</xf:trigger>
+    					<w2:span id="" label="|" class="v_bar"></w2:span>
+    					<xf:trigger class="btn_exam_tran" ev:onclick="scwin.btn_pc_onclick" id="btn_pc" style="" type="button">
+    						<xf:label><![CDATA[Mobile 버전]]></xf:label>
+    					</xf:trigger>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    		<xf:group id="grp_container" class="container">
+    			<xf:group style="" id="" class="contents">
+    				<w2:tabControl confirmTrueAction="exist" confirmFalseAction="new" useTabKeyOnly="true" tabScroll="true"
+    					closeAllBtn="true" useMoveNextTabFocus="false" closable="true" useConfirmMessage="false" alwaysDraw="false" style="" id="tac_main"
+    					class="tabc_layout" ev:onchange="scwin.tac_main_onchange" changeActiveTab="true">
+    				</w2:tabControl>
+
+    				<w2:anchor outerDiv="false" style="" id="btn_tab_allclose" class="tab_allclose"
+    					ev:onclick="scwin.btn_tab_allclose_onclick">
+    					<xf:label><![CDATA[탭전체닫기]]></xf:label>
+    				</w2:anchor>
+    			</xf:group>
+    		</xf:group>
+    		<w2:wframe class="side" id="wfm_leftContainer" style=""></w2:wframe>
+    	</xf:group>
+    	<xf:group style="display: none;" id="grp_hidden">
+    		<a id="hidden_download_anchor"></a>
+    	</xf:group>
+    	<input id="hidden_clipboard_input" style="position:absolute;left:-1000px;top:-1000px;border:0px solid #fff;"></input>
+    	</body>
+</html>

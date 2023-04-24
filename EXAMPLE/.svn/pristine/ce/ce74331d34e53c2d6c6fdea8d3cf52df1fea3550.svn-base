@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220803]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id="" label='검색어를 "ap"로 입력하여 테스트하면 설정별 동작 비교가 가능합니다.' style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id=""
+						label='AutoComplete - 기본(입력값과 항목의 시작값이 같은 경우)&lt;br/&gt;search="start"' style="">
+					</w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:autoComplete editType="select" style="width: 150px;min-height:24px;" submenuSize="auto">
+							<w2:choices>
+								<w2:item>
+									<w2:label><![CDATA[]]>
+									</w2:label>
+									<w2:value><![CDATA[]]>
+									</w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[apple]]></w2:label>
+									<w2:value><![CDATA[01]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[grapes]]></w2:label>
+									<w2:value><![CDATA[02]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[strawberry]]></w2:label>
+									<w2:value><![CDATA[03]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[blueberry]]></w2:label>
+									<w2:value><![CDATA[04]]></w2:value>
+								</w2:item>
+							</w2:choices>
+						</w2:autoComplete>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id=""
+						label='AutoComplete - 입력값이 항목에 속해 있는 경우&lt;br/&gt;search="contain"' style="">
+					</w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:autoComplete editType="select" style="width: 150px;min-height:24px;" submenuSize="auto" search="contain">
+							<w2:choices>
+								<w2:item>
+									<w2:label><![CDATA[]]>
+									</w2:label>
+									<w2:value><![CDATA[]]>
+									</w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[apple]]></w2:label>
+									<w2:value><![CDATA[01]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[grapes]]></w2:label>
+									<w2:value><![CDATA[02]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[strawberry]]></w2:label>
+									<w2:value><![CDATA[03]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[blueberry]]></w2:label>
+									<w2:value><![CDATA[04]]></w2:value>
+								</w2:item>
+							</w2:choices>
+						</w2:autoComplete>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='AutoComplete - 입력값이 항목과 동일한 경우&lt;br/&gt;search="none"'
+						style="">
+					</w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:autoComplete editType="select" style="width: 150px;min-height:24px;" submenuSize="auto" search="none">
+							<w2:choices>
+								<w2:item>
+									<w2:label><![CDATA[]]>
+									</w2:label>
+									<w2:value><![CDATA[]]>
+									</w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[apple]]></w2:label>
+									<w2:value><![CDATA[01]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[grapes]]></w2:label>
+									<w2:value><![CDATA[02]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[strawberry]]></w2:label>
+									<w2:value><![CDATA[03]]></w2:value>
+								</w2:item>
+								<w2:item>
+									<w2:label><![CDATA[blueberry]]></w2:label>
+									<w2:value><![CDATA[04]]></w2:value>
+								</w2:item>
+							</w2:choices>
+						</w2:autoComplete>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

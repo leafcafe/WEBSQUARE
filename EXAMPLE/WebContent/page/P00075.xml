@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220817]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_holiday"
+					saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="holiday" name="휴일" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<holiday><![CDATA[*0101]]></holiday>
+						</w2:row>
+						<w2:row>
+							<holiday><![CDATA[*0301]]></holiday>
+						</w2:row>
+						<w2:row>
+							<holiday><![CDATA[*0505]]></holiday>
+						</w2:row>
+						<w2:row>
+							<holiday><![CDATA[*0606]]></holiday>
+						</w2:row>
+						<w2:row>
+							<holiday><![CDATA[*0815]]></holiday>
+						</w2:row>
+						<w2:row>
+							<holiday><![CDATA[*1003]]></holiday>
+						</w2:row>
+						<w2:row>
+							<holiday><![CDATA[*1009]]></holiday>
+						</w2:row>
+						<w2:row>
+							<holiday><![CDATA[*1225]]></holiday>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    //매년 1월 1일, 3월 1일, 5월 5일, 6월 6일, 8월 15일, 10월 3일, 10월 9일, 12월 25일을 휴일로 지정
+    cal_exam1.setHoliday("*0101,*0301,*0505,*0606,*0815,*1003,*1009,*1225");
+
+    //DataList dlt_holiday의 컬럼 holiday를 휴일로 지정 (매년 1월 1일, 3월 1일, 5월 5일, 6월 6일, 8월 15일, 10월 3일, 10월 9일, 12월 25일)
+    cal_exam2.setHolidayRef("data:dlt_holiday.holiday");
+
+    //휴일 확인을 위해 10월로 이동.
+    cal_exam1.gotoMonth("10");
+    cal_exam2.gotoMonth("10");
+
+};
+
+/**
+ * Calendar - 지정된 휴일 제거하기 (함수 setHoliday를 이용하여 설정)
+ * 버튼 [휴일 설정 제거하기]의 onclick 핸들러
+ */
+scwin.btn_exam1_onclick = function (e) {
+    ㄲvisibleWeekNum_Calendar.xml
+    //컴포넌트 cal_exam1의 지정된 휴일을 제거합니다.
+    cal_exam1.removeHoliday();
+};
+
+/**
+ * Calendar - 지정된 휴일 제거하기 (함수 setHolidayRef를 이용하여 설정)
+ * 버튼 [휴일 설정 제거하기]의 onclick 핸들러
+ */
+scwin.btn_exam2_onclick = function (e) {
+    //컴포넌트 cal_exam2의 지정된 휴일을 제거합니다.
+    cal_exam2.removeHoliday();
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label="설정된 휴일을 확인하기 위해 초기 월이 10월로 지정되었습니다. 10월 3일, 10월 9일이 휴일로 지정되어있습니다."
+					style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id=""
+						label='Calendar - 지정된 휴일 제거하기&lt;br/&gt;(함수 setHoliday를 이용하여 설정)'
+						style="">
+					</w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:group id="" class="mb10">
+							<xf:trigger useDefaultLabel="true"
+								ev:onclick="scwin.btn_exam1_onclick"
+								localeRef="" style="" id="btn_exam1" type=""
+								class="btn_exam_exec btn_txt_of">
+								<xf:label><![CDATA[휴일 설정 제거하기]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<w2:calendar id="cal_exam1"
+							style="min-width: 200px;min-height: 200px;"></w2:calendar>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id=""
+						label="Calendar - 지정된 휴일 제거하기&lt;br/&gt;(함수 setHolidayRef를 이용하여 설정)"
+						style="">
+					</w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<xf:group id="" class="mb10">
+							<xf:trigger useDefaultLabel="true"
+								ev:onclick="scwin.btn_exam2_onclick"
+								localeRef="" style="" id="btn_exam2" type=""
+								class="btn_exam_exec btn_txt_of">
+								<xf:label><![CDATA[휴일 설정 제거하기]]></xf:label>
+							</xf:trigger>
+						</xf:group>
+						<w2:calendar id="cal_exam2"
+							style="min-width: 200px;min-height: 200px;"></w2:calendar>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

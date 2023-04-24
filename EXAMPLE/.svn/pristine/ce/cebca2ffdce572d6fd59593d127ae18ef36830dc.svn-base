@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_vertical_guides="" meta_horizontal_guides="-298">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230316]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" repeatNode="map" id="dlt_dataList1" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="City" name="name1" dataType="text"></w2:column>
+						<w2:column id="Code" name="name2" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<City><![CDATA[Seoul]]></City>
+							<Code><![CDATA[SE]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Paris]]></City>
+							<Code><![CDATA[PA]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[London]]></City>
+							<Code><![CDATA[LN]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Beijing]]></City>
+							<Code><![CDATA[BJ]]></Code>
+						</w2:row>
+						<w2:row>
+							<City><![CDATA[Tokyo]]></City>
+							<Code><![CDATA[TK]]></Code>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='Radio컴포넌트의 표시 항목의 열과 행을 변경하는 예제입니다.&lt;br/&gt;&lt;br/&gt;이 기능은 아래의 속성으로 사용할 수 있습니다.&lt;br/&gt;- cols : 선택 항목을 표시할 열의 수&lt;br/&gt;- rows : 선택 항목을 표시할 행의 수'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+
+
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="열 바꾸기" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label='Radio컴포넌트 속성 cols에 표시할 열의 수 만큼 값을 설정합니다.' style=""
+							displayFormat="">
+						</w2:textbox>
+						<w2:textbox class="txt_info_important" escape="false" id="" label='※ 아래의 경우는 cols = "3" 을 설정해두었습니다.'
+							style="margin-bottom: 10px;">
+						</w2:textbox>
+						<xf:group id="" style="margin: 10px 0px 10px 0px;">
+						</xf:group>
+						<xf:select1 id="rad_exam1" selectedIndex="-1" appearance="full" cols="3" style="width: 200px;height:125px;">
+							<xf:choices>
+								<xf:itemset nodeset="data:dlt_dataList1">
+									<xf:label ref="City"></xf:label>
+									<xf:value ref="Code"></xf:value>
+								</xf:itemset>
+							</xf:choices>
+						</xf:select1>
+					</xf:group>
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="행 바꾸기" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label='Radio컴포넌트 속성 rows에 표시할 행의 수 만큼 값을 설정합니다.' style=""
+							displayFormat="">
+						</w2:textbox>
+						<w2:textbox class="txt_info_important" escape="false" id="" label='※ 아래의 경우는 rows = "3" 을 설정해두었습니다.'
+							style="margin-bottom: 10px;">
+						</w2:textbox>
+						<xf:group id="" style="margin: 10px 0px 10px 0px;">
+						</xf:group>
+						<xf:select1 id="rad_exam2" selectedIndex="-1" appearance="full" rows="3" style="width: 200px;height:125px;">
+							<xf:choices>
+								<xf:itemset nodeset="data:dlt_dataList1">
+									<xf:label ref="City"></xf:label>
+									<xf:value ref="Code"></xf:value>
+								</xf:itemset>
+							</xf:choices>
+						</xf:select1>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

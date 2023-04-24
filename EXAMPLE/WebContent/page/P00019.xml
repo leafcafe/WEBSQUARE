@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220428]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label="모바일에 특화된 컴포넌트 예시입니다. 일반 브라우저에서도 사용이 가능합니다. WebSquare 컴포넌트는 모바일 개발에 사용가능한 몇몇의 권장 컴포넌트가 있으므로 유의해야 합니다.&lt;br/&gt;DatePicker, flipToggle, PageControl, scrollView"
+					style="">
+				</w2:textbox>
+				<w2:textbox class="ws_example_txt_desc_info" escape="false"
+					id="" label="이 예제는 시연용 예제로 예제 가이드 문서가 포함되어 있지 않습니다."
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="DatePicker" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:datePicker class="defComp" id=""
+							style="width:230px;position: relative;height: 3.6em;"></w2:datePicker>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="FlipToggle" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:fliptoggle class="defComp" id=""
+							style="width:230px;position: relative;height: 3.6em;display: block;">
+							<w2:on label="On" value="On"></w2:on>
+							<w2:off label="Off" value="Off"></w2:off>
+						</w2:fliptoggle>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="PageControl" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:pageControl class="defComp" id=""
+							style="width:230px;position: relative;height: 3.6em;"></w2:pageControl>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="ScrollView" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:scrollView class="" id="" showHorizontalScroll=""
+							showVerticalScroll="true"
+							style="max-width: 500px;height: 180px;position: relative;">
+							<xf:group class="" id=""
+								style="background-color:#f1f1f1;padding:10px;">
+								<w2:textbox class="" id="" label="애국가"
+									style="font-size:2.5em;margin-bottom: 0.5em;"></w2:textbox>
+								<w2:textbox escape="false" id=""
+									label="동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세&lt;br/&gt;무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세&lt;br/&gt;&lt;br/&gt;남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세&lt;br/&gt;무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세&lt;br/&gt;&lt;br/&gt;가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세&lt;br/&gt;무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세&lt;br/&gt;&lt;br/&gt;이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세&lt;br/&gt;무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세"
+									style="line-height:1.5em;font-size: 1.1em;font-weight: bold;">
+								</w2:textbox>
+							</xf:group>
+						</w2:scrollView>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221028]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    //화면 초기화
+    scwin.initPage();
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.initPage = function () {
+    var strDate;
+
+    strDate = $p.getCurrentServerDate("yyyy");  //올해 반환 받기
+
+    //컴포넌트에 초기값 할당
+    spi_exam1.setValue(strDate);            //dataType="date" dateIncrementType="year"
+    spi_exam2.setValue(strDate + "11");       //dataType="date" dateIncrementType="month"
+    spi_exam3.setValue(strDate + "1130");     //dataType="date" dateIncrementType="day"
+    spi_exam4.setValue(strDate + "113012");   //dataType="date" dateIncrementType="hour"
+    spi_exam5.setValue(strDate + "11301259"); //dataType="date" dateIncrementType="minute"
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='컴포넌트의 속성 dataType이 "date"로 지정되었을 때,&lt;br/&gt;속성 dateIncrementType의 설정 값에 따른 기능 비교 예제입니다.' style="" class="mb10">
+				</w2:textbox>
+				<w2:textbox escape="false" id=""
+					label='속성 dateIncrementType는 날짜의 증감 단위를 지정할 수 있으며, dataType이 "date" 또는 "time"으로 지정된 경우 동작합니다.&lt;br/&gt;지정할 수 있는 유형은 "year", "month", "day", "hour", "minute" 입니다.'
+					style="" class="mb10">
+				</w2:textbox>
+				<w2:textbox escape="false" id="" label='증감 기능은 컴포넌트에 포함된 버튼을 클릭하거나 입력 영역(Input)에서 키보드의 방향키 "UP", "DOWN"을 눌러 사용할 수 있습니다.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='dateIncrementType="year"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="연 단위로 증감됩니다." style="">
+						</w2:textbox>
+						<w2:spinner skin="type1" buttonSize="30" inputReadOnly="false" id="spi_exam1"
+							style="position: relative;width:130px;min-height:24px;" dataType="date" dateIncrementType="year">
+						</w2:spinner>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='dateIncrementType="month"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="월 단위로 증감됩니다." style=""></w2:textbox>
+						<w2:spinner buttonSize="30" id="spi_exam2" skin="type1" style="position: relative;width:130px;min-height:24px;"
+							dataType="date" dateIncrementType="month">
+						</w2:spinner>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='(기본) dateIncrementType="day"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="일 단위로 증감됩니다." style=""></w2:textbox>
+						<w2:spinner buttonSize="30" id="spi_exam3" skin="type1" style="position: relative;width:130px;min-height:24px;"
+							dataType="date" dateIncrementType="day">
+						</w2:spinner>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='dateIncrementType="hour"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="시 단위로 증감됩니다." style=""></w2:textbox>
+						<w2:spinner buttonSize="30" dataType="date" dateIncrementType="hour" id="spi_exam4" skin="type1"
+							style="position: relative;width:130px;min-height:24px;">
+						</w2:spinner>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='dateIncrementType="minute"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="분 단위로 증감됩니다." style=""></w2:textbox>
+						<w2:spinner buttonSize="30" dataType="date" dateIncrementType="minute" id="spi_exam5" skin="type1"
+							style="position: relative;width:130px;min-height:24px;">
+						</w2:spinner>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

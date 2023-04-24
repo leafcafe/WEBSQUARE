@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230208]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    //InputCalendar에 지정할 시스템 날짜를 yyyyMMdd 형태로 저장합니다.
+    let sysDate = $p.getCurrentServerDate("yyyyMMdd");
+
+    //InputCalendar 'ica_exam_1'에 시스템 날짜를 지정합니다.
+    ica_exam_1.setValue(sysDate);
+
+    //InputCalendar 'ica_exam_2'에 시스템 날짜를 지정합니다.
+    ica_exam_2.setValue(sysDate);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='달력 아이콘을 클릭하여 달력을 표시할 경우, 달력 상에 Today 버튼이 함께 표시됩니다. &lt;br/&gt;Today 버튼을 클릭하면 현재 날짜를 선택할 수 있습니다.&lt;br/&gt;이 기능은 아래의 속성으로 사용할 수 있습니다.&lt;br/&gt;- showToday : Today 버튼의 표시 또는 비표시'
+					style="margin-bottom: 10px;"></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='(기본 설정) showToday = "true"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label="달력 아이콘 클릭 후 달력의 하단에 today 버튼이 있는 것을 확인합니다."
+							style="">
+						</w2:textbox>
+						<w2:inputCalendar calendarValueType="yearMonthDate"
+							focusOnDateSelect="false" id="ica_exam_1"
+							rightAlign="false"
+							style="width:100px;min-height: 24px;"
+							renderDiv="true" class="mr_def">
+						</w2:inputCalendar>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='showToday = "false"' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label="달력 아이콘 클릭 후 달력의 하단에 today 버튼이 없는 것을 확인합니다."
+							style="">
+						</w2:textbox>
+						<!-- inputCalendar 의 소스 본문 예시 -->
+						<w2:inputCalendar calendarValueType="yearMonthDate"
+							focusOnDateSelect="false" id="ica_exam_2"
+							rightAlign="false"
+							style="width:100px;min-height: 24px;"
+							renderDiv="true" class="mr_def" dayMoveFixed="true"
+							showToday="false">
+						</w2:inputCalendar>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220522]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    //5회 자식 컴포넌트 추가.
+    scwin.generator_addItem(5);
+};
+
+/**
+ * [addItem] 버튼 click 시 발생.
+ * 자식 컴포넌트를 추가한다.
+*/
+scwin.btn_addItem_onclick = function (e) {
+    //자식 컴포넌트 추가
+    scwin.generator_addItem(1);
+};
+
+/**
+ * Generator 컴포넌트에 자식 추가.
+ * argNumLoop 만큼 자식 컴포넌트를 추가한다.
+ * 
+ * @date 2022. 04. 27
+ * @param {number} 반복수
+ * @returns  
+*/
+scwin.generator_addItem = function (argNumLoop) {
+    var numLastIndex;
+    var i;
+    var cmpTmp;
+
+    argNumLoop = argNumLoop || 1;
+
+    numLastIndex = gen_box.getLength();
+
+    for (i = 0; i < argNumLoop; i++) {
+        gen_box.insertChild();
+
+        cmpTmp = gen_box.getChild(numLastIndex, "tbx_gen_label");
+        cmpTmp.addClass("ws5_example_bg" + (numLastIndex % 2));
+
+        cmpTmp = gen_box.getChild(numLastIndex, "ibx_gen_input");
+        cmpTmp.setValue("index : " + numLastIndex);
+        cmpTmp.setUserData("eduKey", "edu" + numLastIndex);
+
+        numLastIndex++;
+    }
+};
+
+/**
+ * [getValue] 버튼 click 시 발생.
+ * inputbox의 value를 alert한다.
+ * 
+*/
+scwin.btn_gen_trigger_onclick = function (e) {
+    var numIndex;
+    var cmpInput;
+
+    numIndex = this.getGeneratedIndex();
+
+    cmpInput = gen_box.getChild(numIndex, "ibx_gen_input");
+
+    alert(cmpInput.getValue());
+};
+
+/**
+ * [removeAll] 버튼 click 시 발생.
+ * 반복된 자식 컴포넌트 전체를 삭제.
+ */
+scwin.btn_removeAll_onclick = function (e) {
+    //반복된 자식 컴포넌트 전체를 삭제한다.
+    gen_box.removeAll();
+};
+
+/**
+ * [remove] 버튼 click 시 발생
+*/
+scwin.btn_gen_remove_onclick = function (e) {
+    var cmpGenerator;
+    var numIndex;
+
+    //Generator 컴포넌트를 반환한다. Generator의 ID를 알고 있는 경우 직접 접근이 가능.
+    cmpGenerator = this.getGenerator();
+
+    //현재 index를 반환한다.
+    numIndex = this.getGeneratedIndex();
+
+    //index에 해당하는 반복부(자식 컴포넌트 집합)를 삭제한다.
+    cmpGenerator.removeChild(numIndex);
+};
+
+/**
+ * [getIndex] 버튼 click 시 발생.
+ * 현재 index를 반환한다.
+ */
+scwin.btn_gen_getIndex_onclick = function (e) {
+    var numIndex;
+
+    //현재 index를 반환한다.
+    numIndex = this.getGeneratedIndex();
+
+    alert(numIndex);
+};
+
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group style="margin-bottom: 10px;" id="">
+				<xf:trigger type="button"
+					style="width:120px;height: 30px;margin-right: 5px;"
+					id="btn_addItem"
+					ev:onclick="scwin.btn_addItem_onclick">
+					<xf:label><![CDATA[addItem]]></xf:label>
+				</xf:trigger>
+				<xf:trigger id="btn_removeAll" style="width:120px;height: 30px;"
+					type="button" ev:onclick="scwin.btn_removeAll_onclick">
+					<xf:label><![CDATA[removeAll]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+			<w2:generator style="" id="gen_box">
+				<xf:group
+					style="width: 510px; border: 1px solid #eee; margin-bottom: 5px;"
+					id="grp_gen_group">
+					<w2:textbox id="tbx_gen_label" label="Lable"
+						style="padding: 10px 20px; margin-right: 5px; display: inline-block; font-size: 13px;"
+						tagname="label">
+					</w2:textbox>
+					<xf:input adjustMaxLength="false" id="ibx_gen_input"
+						style="margin-right: 5px;"></xf:input>
+					<xf:trigger type="button"
+						style="width: 80px; height: 28px; margin-right:5px;"
+						id="btn_gen_trigger"
+						ev:onclick="scwin.btn_gen_trigger_onclick">
+						<xf:label><![CDATA[getValue]]></xf:label>
+					</xf:trigger>
+					<xf:trigger id="btn_gen_remove"
+						style="width: 80px; height: 28px; margin-right:5px;"
+						type="button"
+						ev:onclick="scwin.btn_gen_remove_onclick">
+						<xf:label><![CDATA[remove]]></xf:label>
+					</xf:trigger>
+					<xf:trigger id="btn_gen_getIndex"
+						style="width: 80px; height: 28px;" type="button"
+						ev:onclick="scwin.btn_gen_getIndex_onclick">
+						<xf:label><![CDATA[getIndex]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</w2:generator>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+        <w2:type>COMPONENT</w2:type>
+        <w2:buildDate/>
+        <w2:MSA/>
+        <xf:model>
+            <w2:dataCollection baseNode="map">
+            	<w2:dataMap baseNode="map" id="dma_dataMap1" style="">
+            		<w2:keyInfo>
+            			<w2:key dataType="text" id="input2" name="input2"></w2:key>
+            			<w2:key dataType="text" id="input3" name="input3"></w2:key>
+            			<w2:key dataType="text" id="input4" name="input4"></w2:key>
+            			<w2:key dataType="text" id="searchbox1" name="searchbox1"></w2:key>
+            			<w2:key dataType="text" id="secret1" name="secret1"></w2:key>
+            			<w2:key dataType="text" id="inputCalendar2" name="inputCalendar2"></w2:key>
+            			<w2:key dataType="text" id="spinner1" name="spinner1"></w2:key>
+            			<w2:key dataType="text" id="spinner2" name="spinner2" encYN="true"></w2:key>
+            			<w2:key dataType="text" id="spinner3" name="spinner3"></w2:key>
+            		</w2:keyInfo>
+            		<w2:data use="true">
+            			<input2><![CDATA[1299.678]]></input2>
+            			<input3><![CDATA[20200101]]></input3>
+            			<input4><![CDATA[1234]]></input4>
+            			<searchbox1><![CDATA[WebSquare]]></searchbox1>
+            			<secret1><![CDATA[1111]]></secret1>
+            			<inputCalendar2><![CDATA[20070101]]></inputCalendar2>
+            			<spinner1><![CDATA[20070101]]></spinner1>
+            			<spinner2><![CDATA[4]]></spinner2>
+            			<spinner3><![CDATA[1040]]></spinner3>
+            		</w2:data>
+            	</w2:dataMap>
+            	<w2:dataList baseNode="list" id="dlt_dataList1" repeatNode="map" style="" valueAttribute="">
+            		<w2:columnInfo>
+            			<w2:column dataType="text" id="name" name="이름"></w2:column>
+            			<w2:column dataType="text" id="married" name="결혼여부"></w2:column>
+            			<w2:column dataType="text" id="birthday" name="생년월일"></w2:column>
+            			<w2:column dataType="text" id="gender" name="성별"></w2:column>
+            			<w2:column dataType="text" id="gugun" name="gugun"></w2:column>
+            			<w2:column dataType="text" id="work" name="직업"></w2:column>
+            			<w2:column dataType="text" id="height" name="키"></w2:column>
+            			<w2:column dataType="text" id="weight" name="몸무게"></w2:column>
+            			<w2:column dataType="text" id="info" name="정보"></w2:column>
+            			<w2:column dataType="text" id="genderImg" name="genderImg"></w2:column>
+            			<w2:column dataType="text" id="bm" name="bm"></w2:column>
+            			<w2:column dataType="text" id="rdo" name="rdo"></w2:column>
+            			<w2:column dataType="text" id="chk" name="checkbox"></w2:column>
+            		</w2:columnInfo>
+            	</w2:dataList>
+            	<w2:dataList baseNode="list" repeatNode="map" id="dlt_page_history" saveRemovedData="true">
+            		<w2:columnInfo>
+            			<w2:column id="updated_date" name="업데이트 날짜" dataType="text"></w2:column>
+            			<w2:column id="version" name="버전" dataType="text"></w2:column>
+            			<w2:column id="description" name="설명" dataType="text"></w2:column>
+            			<w2:column id="author" name="작성인" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data use="true">
+            			<w2:row>
+            				<updated_date><![CDATA[20220428]]></updated_date>
+            				<version><![CDATA[01]]></version>
+            				<description><![CDATA[최초작성]]></description>
+            				<author><![CDATA[InswaveSystems]]></author>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            </w2:dataCollection>
+            <w2:workflowCollection/>
+        </xf:model>
+        <w2:layoutInfo/>
+        <w2:publicInfo method=""/>
+        <script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    var strCurDate = $p.getCurrentServerDate("yyyyMMdd");  //오늘 날짜
+
+    //Spinner 컴포넌트에 오늘 날짜 문자열 할당.
+    spi_date1.setValue(strCurDate);
+
+    //Spinner 컴포넌트에 시분 문자열 할당.
+    spi_time1.setValue("1000");
+
+    //Editor 컴포넌트의 HTML 문자열을 value
+    edt_editor1.setHTML("CKEditor입니다.<br/>이곳에 글을 입력하세요.");
+
+};
+
+/**
+ * Editor 컴포넌트 영역의 [[Editor ID].getHTML()] 버튼 클릭 시 발생.
+ */
+scwin.btn_editor_getHtml_onclick = function(e) {
+
+    //Editor 컴포넌트에 입력된 문자열을 HTML로 반환받아 
+    alert(edt_editor1.getHTML());
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group style="" id="" class="ws_example_grp_desc">
+    			<w2:textbox id=""
+    				label="폼을 구성하는 컴포넌트로, 텍스트 입력이 가능한 컴포넌트 예시입니다.&lt;br/&gt;InputBox, SearchBox, Secret, InputCalendar, TextArea, Editor, Spinner가 해당됩니다."
+    				style="" escape="false">
+    			</w2:textbox>
+    			<w2:textbox escape="false" id=""
+    				label="이 예제는 시연용 예제로 예제 가이드 문서가 포함되어 있지 않습니다."
+    				style="" class="ws_example_txt_desc_info">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="" >
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label='InputBox' style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<xf:group id="" style="margin-bottom: 5px;">
+    						<w2:textbox id="" label="기본 :" style="display: inline-block; width: 60px;" tagname="lable" for="ibx_exam1"></w2:textbox>
+    						<xf:input class="" dataType="text" id="ibx_exam1" placeholder="이름을 입력하세요." ref="" style=""></xf:input>
+
+    					</xf:group>
+    					<xf:group id="" style="margin-bottom: 5px;">
+    						<w2:textbox for="ibx_exam2" id="" label="숫자 형식 :" style="display: inline-block; width: 60px;" tagname="lable"></w2:textbox>
+    						<xf:input class="" dataType="number" displayFormat="#,###.##" id="ibx_exam2" placeholder="#,###.##" ref="" style=""></xf:input>
+
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label='SearchBox' style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:searchbox class="" id="" ref="" style="width: 150px;"></w2:searchbox>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="Secret" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<xf:secret class="" id="" ref="" style=""></xf:secret>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="InputCalendar" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:inputCalendar calendarValueType="yearMonthDate" focusOnDateSelect="false" footerDiv="false" id=""
+    						renderDiv="true" rightAlign="false" style="width:150px;" setCurrentDate="true">
+    					</w2:inputCalendar>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="Spinner" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<xf:group id="" style="margin-bottom: 5px;">
+    						<w2:spinner buttonSize="25" class="" dataType="number" id="" min="0" readOnly="" skin=""
+    							style="width:134px;position:relative;">
+    						</w2:spinner>
+    					</xf:group>
+    					<xf:group id="" style="margin-bottom: 5px;">
+    						<w2:spinner buttonSize="50" class="" dataType="number" id="" increment="10" inputReadOnly="true" max="100"
+    							min="0" readOnly="" skin="type2" style="width:150px;position:relative;">
+    						</w2:spinner>
+    					</xf:group>
+    					<xf:group id="" style="margin-bottom: 5px;">
+    						<w2:spinner buttonSize="50" class="" dataType="date" dateIncrementType="day" displayFormat="yyyy-MM-dd"
+    							id="spi_date1" increment="1" inputReadOnly="true" readOnly="" skin="type2" style="width:150px;position:relative;">
+    						</w2:spinner>
+    					</xf:group>
+    					<xf:group id="" style="">
+    						<w2:spinner buttonSize="50" class="" dataType="time" dateIncrementType="minute" dateMask="HH:mm" id="spi_time1"
+    							increment="1" inputReadOnly="true" readOnly="" skin="type2" style="width:150px;position:relative;">
+    						</w2:spinner>
+    					</xf:group>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="Textarea" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<xf:textarea id="" placeholder="선물 메시지를 입력해주세요.&amp;#13;&amp;#10;(상품의 요청 사항은 반영되지 않습니다.)" ref=""
+    						style="width:100%;height: 150px;">
+    					</xf:textarea>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="Editor(CKEditor)" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<xf:group id="" style="margin-bottom: 5px;">
+    						<xf:trigger class="btn_cm event" ev:onclick="scwin.btn_editor_getHtml_onclick" id="btn_editor_getHtml" style=""
+    							type="button">
+    							<xf:label><![CDATA[[Editor ID].getHTML()]]></xf:label>
+    						</xf:trigger>
+    					</xf:group>
+    					<w2:editor id="edt_editor1" menubar="default" style="min-height: 300px;"></w2:editor>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

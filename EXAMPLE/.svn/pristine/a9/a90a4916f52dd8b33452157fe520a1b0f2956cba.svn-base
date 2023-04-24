@@ -1,0 +1,8 @@
+const EXA_PROJECT_VERSION = "20230203_01";
+const EXA_CONTEXT_PATH = "";
+const EXA_DOMAIN_ONLINE = "example.websquare.kr";
+const EXA_DOMAIN_CURRENT = document.domain;
+const EXA_VER_WS5_EXAMPLE_DOC_CSS = "20221115_03";
+const EXA_RECOMMENDED_ENGINE_VERSION = "최소 엔진 버전 : 5.0_5.4666B.20220705.144534_1.8";
+const EXA_URL_MOBILE = "/websquare/websquare.html?w2xPath=/mainContainer_mobile.xml";
+const EXA_URL_PC = "/websquare/websquare.html?w2xPath=/mainContainer.xml";

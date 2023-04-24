@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="/cm/template/design_system/design_system.css" type="text/css"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>DEFAULT</w2:type>
+    	<w2:buildDate />
+    	<xf:model>
+    		<xf:instance>
+    			<data xmlns="" />
+    		</xf:instance>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="dataList1" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="id" name="id"></w2:column>
+    					<w2:column dataType="text" id="category" name="category"></w2:column>
+    					<w2:column dataType="text" id="title" name="타이틀"></w2:column>
+    					<w2:column dataType="text" id="iconSrc" name="아이콘자원"></w2:column>
+    					<w2:column dataType="text" id="previewSrc" name="미리보기자원"></w2:column>
+    					<w2:column dataType="text" id="xmlpath" name="xml자원"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data>
+    					<w2:row></w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection></w2:workflowCollection>
+    	</xf:model>
+    	<script type="text/javascript" src="/cm/template/design_system/studioAPI.js"></script>
+    	<script type="text/javascript" lazy="false"><![CDATA[
+    	 
+    scwin.onpageload = function() {
+
+    // requestJson data 생성
+    var requestJson = {
+      "type": "REQUEST",
+      "payload": {
+        "type": "READ_FILE_LIST",
+        // 전체 리스트를 조회하는 경우는 wds로 날려야함.
+        "req": {
+          "id": "wds"
+        }
+      }
+    }
+    studioAPI.exec(scwin.jsonDataCallBack, {}, requestJson);      
+		// LEFT메뉴 리사이징
+		$(window).resize(function(){
+			var win_w = $(this).width();
+			
+		    if(win_w < 400){
+				$(".designSystem_layout").removeClass("hide_menu");
+				$(".designSystem_layout").addClass("hide_menu");
+			}   
+		});
+		
+		// Snippet 미리보기
+		$(".btn_snippet").on("click", function(){
+			$(".designSystem_zoom_box").addClass("on");
+			$(".designSystem_dim").addClass("on");
+		});
+		$(".btn_zoom_close").on("click", function(){
+			$(".designSystem_zoom_box").removeClass("on");
+			$(".designSystem_dim").removeClass("on");
+		});
+		
+		// Snippet 즐겨찾기
+		$(".btn_snp_favorit").on("click", function(){
+			$(this).toggleClass("on");
+		});
+	};
+	
+	scwin.onpageunload = function() {
+		
+	};
+	
+    // LEFT메뉴 버튼 토클
+	scwin.btnDsSlide_onclick = function() {
+		 $(".designSystem_layout").toggleClass("hide_menu");
+	};
+
+ scwin.jsonDataCallBack = function(jsonData) {
+    var jsonResource = jsonData && jsonData.res ? jsonData.res.resource : [];
+    var jsonCategory = jsonData && jsonData.res ? jsonData.res.category : [];
+      
+      //debugger;
+      dataList1.setJSON(jsonResource);
+      //category 
+      for(var i = 0; i < jsonCategory.length; i++){
+        console.log("start["+i+"]"+jsonCategory[i].id);
+        //mf_categoryGen_1_categoryTitleGrp
+        
+        var genCatogoryIdx = categoryGen.insertChild();
+        
+        var strCategory = jsonCategory[i].id; 
+        var strCategoryMenuIcon = jsonCategory[i].iconSrc;
+        var objCategoryTitle = categoryGen.getChild(genCatogoryIdx, "categoryTitle");
+        //debugger;
+        objCategoryTitle.setValue(strCategory);//category anchor title setting
+        var tagCategoryId = objCategoryTitle.getID();//좌측메뉴 클릭시 찾아갈 객체 id 얻어오기
+        
+        var objResourceListGen = categoryGen.getChild(genCatogoryIdx, "resourceListGen");
+        
+        //category menu setting
+        var genCatogoryMenuIdx = categoryMenuGen.insertChild();
+        var objCategoryMenu = categoryMenuGen.getChild(genCatogoryMenuIdx, "categoryMenu");
+        objCategoryMenu.setValue(strCategory);
+        objCategoryMenu.setHref("#"+tagCategoryId);
+        
+        var objCategoryMenuIcon = categoryMenuGen.getChild(genCatogoryMenuIdx, "categoryMenuIcon");
+        //debugger;
+        objCategoryMenuIcon.setSrc(strCategoryMenuIcon);
+      
+        //resource
+        var filterCon = {type:'row', colIndex:'category', key:"00_화면시작", condition:'and'};
+        filterCon.key = strCategory;
+        dataList1.clearFilter();
+        dataList1.setColumnFilter(filterCon);
+        
+        var jsonResForCategory = dataList1.getAllFilteredJSON();
+        
+        for(var j = 0; j < jsonResForCategory.length; j++){
+          console.log("["+j+"]"+jsonResForCategory[j].id);
+          //debugger;
+          var strRessourceTitle = jsonResForCategory[j].title;
+          var strRessourceIcon = jsonResForCategory[j].iconSrc;
+          //hidden
+          var strResourceId = jsonResForCategory[j].id;
+          var strResourceCategory = jsonResForCategory[j].category;
+          var strResourcePreviewSrc = jsonResForCategory[j].previewSrc;
+          var strResourceXmlpath = jsonResForCategory[j].xmlpath;
+
+          var genResourceIdx = objResourceListGen.insertChild();
+          
+          //debugger;         
+          var objResourceTitle = objResourceListGen.getChild(genResourceIdx,"resourceTitle");
+          objResourceTitle.setValue(strRessourceTitle);//resource anchor title setting
+          
+        //  var objResourceIcon = objResourceListGen.getChild(genResourceIdx,"resourceIcon");
+        //objResourceIcon.setSrc(strRessourceIcon);
+       
+        var objResourceIconSrc = objResourceListGen.getChild(genResourceIdx,"resourceIconSrc");
+        objResourceIconSrc.setValue(strRessourceIcon);
+        
+        var objResourceId = objResourceListGen.getChild(genResourceIdx,"resourceId");
+        objResourceId.setValue(strResourceId);
+
+        var objResourceCategory = objResourceListGen.getChild(genResourceIdx,"resourceCategory");
+        objResourceCategory.setValue(strResourceCategory);
+
+        var objResourcePreviewSrc = objResourceListGen.getChild(genResourceIdx,"resourcePreviewSrc");
+        objResourcePreviewSrc.setValue(strResourcePreviewSrc);        
+
+        var objResourceXmlpath = objResourceListGen.getChild(genResourceIdx,"resourceXmlpath");
+        objResourceXmlpath.setValue(strResourceXmlpath);            
+        }       
+        
+      }
+      
+    //left menu 하단 고정 메뉴
+    var genCatogoryFixMenuIdx = categoryMenuGen.insertChild();
+    //var objCategoryMenu = 
+    (categoryMenuGen.getChild(genCatogoryFixMenuIdx, "categoryMenu")).setValue("즐겨찾기");
+    (categoryMenuGen.getChild(genCatogoryFixMenuIdx, "categoryMenuIcon")).setSrc("/cm/images/base/ico_fav.png");
+    
+    genCatogoryFixMenuIdx = categoryMenuGen.insertChild();
+    (categoryMenuGen.getChild(genCatogoryFixMenuIdx, "categoryMenu")).setValue("최근검색");
+    (categoryMenuGen.getChild(genCatogoryFixMenuIdx, "categoryMenuIcon")).setSrc("/cm/images/base/ico_recent.png");
+    //objCategoryMenu.setValue("즐겨찾기");
+    
+    //var genCatogoryFixMenuIdx = categoryMenuGen.insertChild();
+    //var objCategoryMenu = categoryMenuGen.getChild(genCatogoryFixMenuIdx, "categoryMenu");
+    //objCategoryMenu.setValue("즐겨찾기");
+    };
+scwin.item_grp_onclick = function(e) {
+
+    var genIdx = this.getGeneratedIndex();
+ 
+      var resourceIdObj = this.getGeneratedComponent("resourceId");
+      var resourceCategoryObj = this.getGeneratedComponent("resourceCategory");
+      var resourceTitelObj = this.getGeneratedComponent("resourceTitle");
+      var resourceIconSrcObj = this.getGeneratedComponent("resourceIconSrc");
+      var resourcePreviewSrcObj = this.getGeneratedComponent("resourcePreviewSrc");
+    var resourceXmlpathObj = this.getGeneratedComponent("resourceXmlpath");
+    
+      console.log(genIdx+"번째 , click한  값 : "+resourceIdObj.getValue()+"\n"+resourceCategoryObj.getValue()+"\n"+
+      resourceTitelObj.getValue()+"\n"+
+      resourceIconSrcObj.getValue()+"\n"+
+      resourcePreviewSrcObj.getValue()+"\n"+
+      resourceXmlpathObj.getValue()
+      );
+      debugger;
+      
+      // request json 의 스펙을 생성한다.
+    var reqJson = {
+      "type": "REQUEST",
+      "payload": {
+        "type": "INSERT_SNIPPETS",
+        "req": {
+          "id": "",
+          "category": "",
+          "title": "",
+          "iconSrc": "",
+          "previewSrc": "",
+          "xmlpath": ""
+        },
+        "res": {}
+      }
+    }
+        
+    reqJson.payload.req.id = resourceIdObj.getValue();
+    reqJson.payload.req.category = resourceCategoryObj.getValue();
+    reqJson.payload.req.title = resourceTitelObj.getValue();
+    reqJson.payload.req.iconSrc = resourceIconSrcObj.getValue();
+    reqJson.payload.req.previewSrc = resourcePreviewSrcObj.getValue();  
+    reqJson.payload.req.xmlpath = resourceXmlpathObj.getValue();
+    
+    studioAPI.exec({}, {}, reqJson);
+    console.log("=====reqJson======\n"+reqJson.req.xmlpath);    
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload" ev:onpageunload="scwin.onpageunload" style="">
+    	<xf:group id="layout" class="designSystem_layout type2" style="">
+    		<xf:group style="" id="" class="designSystem_search">
+    			<w2:anchor outerDiv="false" style="" id="btnDsSlide" class="btn_designSystem_slide" ev:onclick="scwin.btnDsSlide_onclick">
+    				<xf:label><![CDATA[메뉴]]></xf:label>
+    			</w2:anchor>
+    			<xf:input adjustMaxLength="false" id="" style="" placeholder="Search ..."></xf:input>
+    			<xf:group style="" id="" tagname="" class="switchbox">
+    				<xf:select selectedindex="-1" id="switch1" appearance="full" style="" cols="" rows="" ref="" nextTabID="" itemTagname=""
+    					class="input_switch" renderType="native" tooltipFormatter="" useLocale="" tooltipItemLabel="" disabled="" falseValue="">
+    					<xf:choices>
+    						<xf:item>
+    							<xf:label><![CDATA[]]></xf:label>
+    							<xf:value><![CDATA[]]></xf:value>
+    						</xf:item>
+    					</xf:choices>
+    				</xf:select>
+    				<xf:group id="" tabIndex="" tooltipFormatter="" tagname="label" class="label_switch" text="" userData3="" style=''>
+    					<w2:attributes>
+    						<w2:for>mf_switch1</w2:for>
+    					</w2:attributes>
+    					<w2:span style="" label="" id="" ref="" class="marble"></w2:span>
+    					<w2:span style="" id="" label="On" class="on"></w2:span>
+    					<w2:span style="" id="" label="Off" class="off"></w2:span>
+    				</xf:group>
+    			</xf:group>
+
+    		</xf:group>
+    		<xf:group style="" id="" class="designSystem_side">
+    			<xf:group class="designSystem_menu" id="" style="">
+    				<w2:generator id="categoryMenuGen" style="" tagname="ul">
+    					<xf:group id="" style="" tagname="li">
+    						<xf:group id="" tagname="a">
+    							<w2:attributes>
+    								<w2:href>#mf_layout</w2:href>
+    							</w2:attributes>
+    							<xf:image id="categoryMenuIcon" src="/cm/template/snippets/00_화면시작/00_화면시작.png"
+    								style="width:16px;height:16px;">
+    							</xf:image>
+    						</xf:group>
+    						<w2:anchor class="designSystem_m_tit" href="#mf_layout" id="categoryMenu" outerDiv="false" style="">
+    							<xf:label><![CDATA[화면시작]]></xf:label>
+    						</w2:anchor>
+    					</xf:group>
+    				</w2:generator>
+    			</xf:group>
+    		</xf:group>
+    		<w2:generator class="designSystem_cont" id="categoryGen" style="">
+    			<xf:group class="designSystem_dfbox" id="categoryTitleGrp" style="">
+    				<w2:textbox class="designSystem_df_tit" id="categoryTitle" label="화면시작" style=""></w2:textbox>
+    			</xf:group>
+    			<w2:generator class="designSystem_list" id="resourceListGen" style="" tagname="ul">
+    				<xf:group class="item" id="" tagname="li" style="">
+    					<xf:group class="img_box" id="item_grp" ev:onclick="scwin.item_grp_onclick">
+    						<w2:wframe class="load_view" id="wframe_view" scopeExternal="" src="" style=""></w2:wframe>
+    						<xf:input adjustMaxLength="false" id="resourceId" style="width: 144px;height: 21px;" type="hidden"></xf:input>
+    						<xf:input adjustMaxLength="false" id="resourceCategory" style="width: 144px;height: 21px;" type="hidden"></xf:input>
+    						<xf:input adjustMaxLength="false" id="resourcePreviewSrc" style="width: 144px;height: 21px;" type="hidden"></xf:input>
+    						<xf:input adjustMaxLength="false" id="resourceXmlpath" style="width: 144px;height: 21px;" type="hidden"></xf:input>
+    						<xf:input adjustMaxLength="false" id="resourceIconSrc" style="width: 144px;height: 21px;" type="hidden"></xf:input>
+    						<xf:group class="sc_area" id="" style="">
+    							<w2:anchor class="btn_snippet" id="" outerDiv="false" style="">
+    								<xf:label><![CDATA[미리보기]]></xf:label>
+    							</w2:anchor>
+    							<w2:anchor class="btn_snp_favorit" id="" outerDiv="false" style="">
+    								<xf:label><![CDATA[즐겨찾기]]></xf:label>
+    							</w2:anchor>
+    						</xf:group>
+
+
+
+
+
+    					</xf:group>
+    					<w2:anchor id="resourceTitle" outerDiv="false" style="">
+    						<xf:label><![CDATA[01_페이지시작_icon]]></xf:label>
+    					</w2:anchor>
+    				</xf:group>
+    			</w2:generator>
+    		</w2:generator>
+    		<xf:group style="" id="" class="designSystem_zoom_box">
+    			<w2:wframe class="" id="" scopeExternal="" src="" style=""></w2:wframe>
+    			<w2:anchor outerDiv="false" style="" id="" class="btn_zoom_close" ref="">
+    				<xf:label><![CDATA[Insert Text]]></xf:label>
+    			</w2:anchor>
+
+    		</xf:group>
+    		<xf:group style="" id="" class="designSystem_dim"></xf:group>
+    	</xf:group></body>
+</html>

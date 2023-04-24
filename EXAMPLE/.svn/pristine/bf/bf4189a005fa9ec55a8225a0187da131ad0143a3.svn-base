@@ -1,0 +1,146 @@
+{
+	"dlt_person": [{
+			"NAME": "김연아",
+			"BLOOD_TYPE": "O",
+			"GENDER": "F",
+			"MILITARY" : "unfulfilled",
+			"MILITARYINFO" : "",
+			"EDUCATION": "고려대학교"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "아이유",
+			"BLOOD_TYPE": "A",
+			"GENDER": "F",
+			"MILITARY" : "unfulfilled",
+			"MILITARYINFO" : "",
+			"EDUCATION": "동덕여자고등학교"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "장윤주",
+			"BLOOD_TYPE": "AB",
+			"GENDER": "F",
+			"MILITARY" : "unfulfilled",
+			"MILITARYINFO" : "",
+			"EDUCATION": "서울예술대학 영화과"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "정형돈",
+			"BLOOD_TYPE": "O",
+			"GENDER": "M",
+			"MILITARY" : "fulfilled",
+			"MILITARYINFO" : "",
+			"EDUCATION": "인덕대학 방송연예학"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "유승호",
+			"BLOOD_TYPE": "A",
+			"GENDER": "M",
+			"MILITARY" : "fulfilled",
+			"MILITARYINFO" : "",
+			"EDUCATION": "백신고등학교"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "김민희",
+			"BLOOD_TYPE": "A",
+			"GENDER": "F",
+			"MILITARY" : "unfulfilled",
+			"MILITARYINFO" : "",
+			"EDUCATION": "단국대학교 연극영화학"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "손연재",
+			"BLOOD_TYPE": "AB",
+			"GENDER": "F",
+			"MILITARY" : "unfulfilled",
+			"MILITARYINFO" : "",
+			"EDUCATION": "연세대학교"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "권지용",
+			"BLOOD_TYPE": "A",
+			"GENDER": "M",
+			"MILITARY" : "",
+			"MILITARYINFO" : "",
+			"EDUCATION": "동두천정보산업고등학교"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "현아",
+			"BLOOD_TYPE": "O",
+			"GENDER": "F",
+			"MILITARY" : "",
+			"MILITARYINFO" : "",
+			"EDUCATION": "건국대학교 영화전공"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "김준현",
+			"BLOOD_TYPE": "A",
+			"GENDER": "M",
+			"MILITARY" : "",
+			"MILITARYINFO" : "",
+			"EDUCATION": "한국외국어대학교 철학 학사"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "송중기",
+			"BLOOD_TYPE": "A",
+			"GENDER": "M",
+			"MILITARY" : "fulfilled",
+			"MILITARYINFO" : "",
+			"EDUCATION": "성균관대학교 경영학"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "김수현",
+			"BLOOD_TYPE": "AB",
+			"GENDER": "M",
+			"MILITARY" : "",
+			"MILITARYINFO" : "",
+			"EDUCATION": "중앙대학교 연극영화학"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "전지현",
+			"BLOOD_TYPE": "B",
+			"GENDER": "F",
+			"MILITARY" : "",
+			"MILITARYINFO" : "",
+			"EDUCATION": "동국대학교 영상대학원"
+		},
+		{
+			"GROUP" : "A조",
+			"NAME": "한선화",
+			"BLOOD_TYPE": "B",
+			"GENDER": "F",
+			"MILITARY" : "",
+			"MILITARYINFO" : "",
+			"EDUCATION": "백제예술대학 뮤지컬과"
+		},
+		{
+			"GROUP" : "B조",
+			"NAME": "김지민",
+			"BLOOD_TYPE": "O",
+			"GENDER": "F",
+			"MILITARY" : "",
+			"MILITARYINFO" : "",
+			"EDUCATION": "수원여자대학 미용예술학과"
+		},
+		{	
+			"GROUP" : "B조",
+			"NAME": "박지성",
+			"BLOOD_TYPE": "O",
+			"GENDER": "M",
+			"MILITARY" : "exempted",
+			"MILITARYINFO" : "2002년 월드컵 4강 진출",
+			"EDUCATION": "명지대학교 대학원"
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+	"doc" : [{
+		"title" : "[웹스퀘어5 SP5 개발 가이드] GridView",
+		"description" : "",
+		"link" : "https://docs1.inswave.com/sp5_user_guide#0a551d265f2956b2",
+		"type" : "dev_doc_sp5"
+	}, {
+		"title" : "[웹스퀘어5 SP5 개발 가이드] GridView 데이터 바인딩",
+		"description" : "",
+		"link" : "https://docs1.inswave.com/sp5_user_guide#bfb98362c44c5e0b",
+		"type" : "dev_doc_sp5"
+	}],
+	"video" : [{
+		"title" : "GridView - Load, Add, Remove, Delete, Initilize & View | 웹스퀘어5 - 사용 팁",
+		"description" : "",
+		"link" : "https://youtu.be/2JVHeNzkFZ8",
+		"type" : "youtube"
+	}]
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221014]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[scwin.onpageload = function () {
+    scwin.setInitPage();
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.setInitPage = function () {
+    var strYear;
+
+    //서버에서 올해 반환 받기.
+    strYear = $p.getCurrentServerDate("yyyy");
+
+    //inputCalendar에 올해 8월 1일 할당하기
+    ica_exam_1.setValue(strYear + "0801");
+    ica_exam_2.setValue(strYear + "0801");
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='InputCalendar의 캘린더의 연도와 월을 선택하는 UI를 지정하는 예제입니다.&lt;br/&gt;(기본 설정) select : 연도와 월 선택하는 UI를 drop down 형태로 구성&lt;br/&gt;dynamic : 연도와 월을 선택하는 UI를 list 형태로 구성 '
+					style="margin-bottom: 10px;">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="(기본 설정) DropDown 형태의 UI" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:inputCalendar calendarValueType="yearMonthDate"
+							focusOnDateSelect="false" id="ica_exam_1"
+							rightAlign="false"
+							style="width:110px;min-height: 24px;"
+							validateOnInput="true" validateOnInputMobile="true"
+							renderDiv="true">
+						</w2:inputCalendar>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="List 형태의 UI" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:inputCalendar calendarValueType="yearMonthDate"
+							id="ica_exam_2"
+							style="width:110px;min-height: 24px;"
+							validateOnInput="true" validateOnInputMobile="true"
+							pickerType="dynamic" dynamicHeaderOrder="year"
+							renderDiv="true">
+						</w2:inputCalendar>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

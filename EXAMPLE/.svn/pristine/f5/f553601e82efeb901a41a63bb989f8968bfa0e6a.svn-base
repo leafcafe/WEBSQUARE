@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230216]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    let title; // 툴바의 네임레이어에 표시되는 타이틀
+    let srcPath; // 서브화면의 경로
+    let windowId; // window ID로 null 이나 ""입력시 title이 id로 생성
+    let windowName; // window의 헤더에 표시될 타이틀로 null 이나 ""입력시 title값이 출력
+
+    title = "windowTitle_1";
+    srcPath = "/page/P00224S01.xml";
+    windowId = "windowId_1";
+    windowName = "window_1";
+
+    // windowContainer 'wgc_exam_1', 'wgc_exam_2'의 윈도우 생성하기
+    wgc_exam_1.createWindow(title, "", srcPath, windowName, windowId, "newWindow");
+    wgc_exam_2.createWindow(title, "", srcPath, windowName, windowId, "newWindow");
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='선택된 윈도우의 네임레이어 클릭 시 최소화하지 않고 윈도우의 크기를 유지할지 여부에 관한 예제입니다.&lt;br/&gt;이 기능은 아래의 속성으로 사용할 수 있습니다.&lt;br/&gt;- stopMinimizeOnNameLayer : 네임레이어 클릭에 상관 없이 윈도우를 항상 열린 상태로 유지'
+					style="margin-bottom: 10px;">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="(기본 설정) stopMinimizeOnNameLayer - false" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="네임레이어 클릭 시 해당 윈도우의 크기를 최소화합니다." style="">
+						</w2:textbox>
+						<w2:windowContainer sequentialArrangeColNum="2" verticalArrangeNum="2" controlIconPosition="left"
+							windowMaximizeAll="false" id="wgc_exam_1" useStatusMsg="false" hideTitleOnMaximize="false" spaInitCount="0"
+							nameLayerRearrange="false" useNameContainer="false" useControlIconTitle="false" tooltipDisplay="true"
+							style="position: relative;height: 300px;" sequentialArrangeRowNum="2" fixArrangeFullScreen="false" useFixButton="false"
+							windowAutoResize="false" windowMaxNum="5" useCloseButton="false" stopMinimizeOnNameLayer="false" toolbarPosition="bottom"
+							stopToggleOnLast="false" horizontalArrangeNum="2" useCustomMsg="false" tooltipGroupClass="false" windowTooltipDisplay="true">
+							<w2:windowToolbar>
+								<w2:controlIconLayer>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+								</w2:controlIconLayer>
+								<w2:nameLayer></w2:nameLayer>
+								<w2:selectedNameLayer></w2:selectedNameLayer>
+							</w2:windowToolbar>
+						</w2:windowContainer>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="stopMinimizeOnNameLayer - true 적용" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="네임레이어 클릭 시 해당 윈도우의 크기를 최소화하지 않습니다." style="">
+						</w2:textbox>
+						<w2:windowContainer controlIconPosition="left" fixArrangeFullScreen="false" hideTitleOnMaximize="false"
+							horizontalArrangeNum="2" id="wgc_exam_2" nameLayerRearrange="false" sequentialArrangeColNum="2" sequentialArrangeRowNum="2"
+							spaInitCount="0" stopMinimizeOnNameLayer="true" stopToggleOnLast="false" style="position: relative;height: 300px;"
+							toolbarPosition="bottom" tooltipDisplay="true" tooltipGroupClass="false" useCloseButton="false" useControlIconTitle="false"
+							useCustomMsg="false" useFixButton="false" useNameContainer="false" useStatusMsg="false" verticalArrangeNum="2"
+							windowAutoResize="false" windowMaxNum="5" windowMaximizeAll="false" windowTooltipDisplay="true">
+							<w2:windowToolbar>
+								<w2:controlIconLayer>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+								</w2:controlIconLayer>
+								<w2:nameLayer></w2:nameLayer>
+								<w2:selectedNameLayer></w2:selectedNameLayer>
+							</w2:windowToolbar>
+						</w2:windowContainer>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

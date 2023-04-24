@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221104]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    scwin.initPage();
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.initPage = function () {
+
+    //TabControl [tac_exam1], [tac_exam2], [tac_exam3], [tac_exam4]에 탭 P00159S01.xml, P00159S02.xml, P00159S03.xml 추가하기
+    for (let i = 1; i <= 3; i++) {
+        let strPage = "P00159S0" + i;
+
+        tac_exam1.addTab(strPage, { "label": strPage, "openAction": "select" }, { "src": "/page/" + strPage + ".xml", "wframe": true });
+        tac_exam2.addTab(strPage, { "label": strPage, "openAction": "select" }, { "src": "/page/" + strPage + ".xml", "wframe": true });
+        tac_exam3.addTab(strPage, { "label": strPage, "openAction": "select" }, { "src": "/page/" + strPage + ".xml", "wframe": true });
+        tac_exam4.addTab(strPage, { "label": strPage, "openAction": "select" }, { "src": "/page/" + strPage + ".xml", "wframe": true });
+    }
+
+    //탭 추가 예시
+    //tac_exam1.addTab( "P00159S01", { "label" : "P00159S01", "openAction" : "select" }, { "src" : "/page/P00159S01.xml", "wframe" : true });
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='TabControl의 탭을 표시할 위치를 지정하는 속성 tabPosition 예제입니다.&lt;br/&gt;속성 tabPosition에 지정할 수 있는 값은 "top", "left", "right", "bottom" 입니다.&lt;br/&gt;속성 tabScroll이 "true"로 지정된 경우 "top", "bottom"만 지원되며, "left", "right"로 지정된 경우 "top"으로 동작합니다.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="" class=""></xf:group>
+			<xf:group class="example_div_tb_style_wrap mw600" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="(기본 동작) 탭 위치 : top" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:tabControl alwaysDraw="false" class=""
+							confirmFalseAction="new" confirmTrueAction="exist"
+							id="tac_exam1"
+							style="position: relative;height: 160px;"
+							tabScroll="" useConfirmMessage="false"
+							useMoveNextTabFocus="false" useTabKeyOnly="true">
+						</w2:tabControl>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="탭 위치 : right" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:tabControl alwaysDraw="false" class=""
+							confirmFalseAction="new" confirmTrueAction="exist"
+							id="tac_exam2"
+							style="position: relative;height: 160px;"
+							tabScroll="" useConfirmMessage="false"
+							useMoveNextTabFocus="false" useTabKeyOnly="true"
+							tabPosition="right">
+						</w2:tabControl>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="탭 위치 : bottom" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:tabControl alwaysDraw="false" class=""
+							confirmFalseAction="new" confirmTrueAction="exist"
+							id="tac_exam3"
+							style="position: relative;height: 160px;"
+							tabScroll="" useConfirmMessage="false"
+							useMoveNextTabFocus="false" useTabKeyOnly="true"
+							tabPosition="bottom">
+						</w2:tabControl>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="탭 위치 : left" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:tabControl alwaysDraw="false" class=""
+							confirmFalseAction="new" confirmTrueAction="exist"
+							id="tac_exam4"
+							style="position: relative;height: 160px;"
+							tabScroll="" useConfirmMessage="false"
+							useMoveNextTabFocus="false" useTabKeyOnly="true"
+							tabPosition="left">
+						</w2:tabControl>
+					</xf:group>
+				</xf:group>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

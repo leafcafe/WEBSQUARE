@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20220706]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+				<w2:dataList id="dlt_Member" baseNode="list" saveRemovedData="true" repeatNode="map"
+					ev:ondataload="scwin.dlt_Member_ondataload" ev:oninsertrow="" ev:onremoverow="">
+					<w2:columnInfo>
+						<w2:column id="EMP_CD" name="코드" dataType="text"></w2:column>
+						<w2:column id="EMP_NM" name="성명" dataType="text"></w2:column>
+						<w2:column id="GENDER_CD" name="성별" dataType="text" defaultValue=""></w2:column>
+						<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+						<w2:column id="POSITION_CD" name="직위" dataType="text"></w2:column>
+						<w2:column id="DUTY_CD" name="직책" dataType="text"></w2:column>
+						<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+						<w2:column id="ASSIGNED_TASK" name="담당업무" dataType="text"></w2:column>
+						<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+						<w2:column id="ZIP_CD" name="우편번호" dataType="text"></w2:column>
+						<w2:column id="ADDRESS1" name="주소1" dataType="text"></w2:column>
+						<w2:column id="ADDRESS2" name="주소2" dataType="text"></w2:column>
+						<w2:column id="IMAGE_PATH" name="이미지경로" dataType="text" defaultValue="/ws5/img/blank.png"></w2:column>
+						<w2:column id="CREATED_DATE" name="생성일자" dataType="text"></w2:column>
+						<w2:column id="UPDATED_DATE" name="수정일자" dataType="text"></w2:column>
+					</w2:columnInfo>
+				</w2:dataList>
+				<w2:dataMap baseNode="map" id="dma_Search">
+					<w2:keyInfo>
+						<w2:key id="TOTAL_YN" name="총건수 조회여부" dataType="text"></w2:key>
+						<w2:key id="startNum" name="시작 순번" dataType="text"></w2:key>
+						<w2:key id="endNum" name="끝 순번" dataType="text"></w2:key>
+						<w2:key id="count" name="화면 행수" dataType="text"></w2:key>
+						<w2:key id="searchParam" name="검색 파라메터" dataType="text"></w2:key>
+						<w2:key id="searchType" name="검색 타입" dataType="text"></w2:key>
+
+					</w2:keyInfo>
+				</w2:dataMap>
+				<w2:dataList id="dlt_CmCode01">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[01]]></CODE_CD>
+            				<CODE_NM><![CDATA[임원]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀원]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[01]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[협력]]></CODE_NM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode02">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[이사]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[팀장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[08]]></CODE_CD>
+            				<CODE_NM><![CDATA[부장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[차장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[05]]></CODE_CD>
+            				<CODE_NM><![CDATA[과장]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[06]]></CODE_CD>
+            				<CODE_NM><![CDATA[대리]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[02]]></GRP_CD>
+            				<CODE_CD><![CDATA[07]]></CODE_CD>
+            				<CODE_NM><![CDATA[사원]]></CODE_NM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode19">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[01]]></CODE_CD>
+            				<CODE_NM><![CDATA[PM]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[02]]></CODE_CD>
+            				<CODE_NM><![CDATA[PL]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[03]]></CODE_CD>
+            				<CODE_NM><![CDATA[분석/설계]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[04]]></CODE_CD>
+            				<CODE_NM><![CDATA[개발]]></CODE_NM>
+
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[05]]></CODE_CD>
+            				<CODE_NM><![CDATA[퍼블리셔]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[19]]></GRP_CD>
+            				<CODE_CD><![CDATA[06]]></CODE_CD>
+            				<CODE_NM><![CDATA[컨설팅]]></CODE_NM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+            	<w2:dataList id="dlt_CmCode101">
+            		<w2:columnInfo>
+            			<w2:column id="GRP_CD" name="GRP_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_CD" name="CODE_CD" dataType="text"></w2:column>
+            			<w2:column id="CODE_NM" name="CODE_NM" dataType="text"></w2:column>
+            		</w2:columnInfo>
+            		<w2:data xmlns="" use="true">
+            			<w2:row>
+            				<GRP_CD><![CDATA[101]]></GRP_CD>
+            				<CODE_CD><![CDATA[M]]></CODE_CD>
+            				<CODE_NM><![CDATA[남]]></CODE_NM>
+            			</w2:row>
+            			<w2:row>
+            				<GRP_CD><![CDATA[101]]></GRP_CD>
+            				<CODE_CD><![CDATA[F]]></CODE_CD>
+            				<CODE_NM><![CDATA[여]]></CODE_NM>
+            			</w2:row>
+            		</w2:data>
+            	</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+			<xf:submission id="sbm_select" ref='data:json,dma_Search' target='' action="/data/sampleData/dlt_Member_append_100_0.json" method="post"
+				mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg=""
+				ev:submit="" ev:submitdone="scwin.sbm_select_submitdone" ev:submiterror="" abortTrigger="">
+			</xf:submission>
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[scwin.gVar = {
+    append : false,
+    totalCnt : 0,
+    pageNum :0
+};
+
+scwin.onpageload = function() {
+	//조회 버튼 click 이벤트 발생
+	btn_Search.trigger("onclick");
+};
+
+//[조회]버튼 클릭 시
+scwin.btn_Search_onclick = function() {
+	scwin.gVar.append = false;
+    scwin.gVar.totalCnt = 0;
+    scwin.gVar.pageNum = 0;
+    spn_curCount.setValue(0);
+    spn_totCount.setValue(0);
+
+	scwin.searchMain(0, "Y");
+};
+
+/**
+* 조회 (현재 샘플은 100개씩 조회할 경우 기준) 
+* param1 - 조회 시작 순번
+* param2 - 총 건수 조회 여부 
+*/
+scwin.searchMain = function(idx, strYn){
+	dma_Search.set("TOTAL_YN" , strYn);
+	dma_Search.set("startNum", idx);
+	dma_Search.set("endNum", 100);
+	dma_Search.set("count" , 100);
+
+    //이 예제는 DB 연계가 되어 있지 않기 때문에 100건씩 나뉘어진 json 파일을 호출하도록 되어있습니다.
+    scwin.setActionURL();
+
+	scwin.gVar.pageNum ++;
+
+    $p.executeSubmission("sbm_select");
+};
+
+
+/**
+ * json 파일 URL 설정
+ */
+scwin.setActionURL = function(idx) {
+    var _cmpSubmission;
+    _cmpSubmission = $p.getSubmission("sbm_select");
+    _cmpSubmission.action = '/data/sampleData/dlt_Member_append_100_' + scwin.gVar.pageNum + '.json';
+};
+
+/**
+ * sbm_select의 submitdone 핸들러
+ */
+scwin.sbm_select_submitdone = function(e) {
+	if(e.responseJSON.msgCode == "S"){
+		var firstYn = dma_Search.get( "TOTAL_YN" );
+			
+		// 최초 조회일 경우에만 전체 건수를 구하여 전역변수에 담는다.
+		if (firstYn == "Y") {
+            let totCount = e.responseJSON.TOTAL_CNT;
+			scwin.gVar.totalCnt = totCount;
+            spn_totCount.setValue(totCount);
+		}
+		dlt_Member.setJSON( e.responseJSON.dlt_Member, scwin.gVar.append );
+	}
+	
+};
+
+/**
+ * grd_Member의 onscrollend 핸들러
+ * 데이터를 추가합니다.
+ */
+scwin.grd_Member_onscrollend = function() {
+	var startRow = dlt_Member.getRowCount();
+
+	// 전체 건수보다 조회된 건수가 작을 경우에만 추가 조회를 한다.
+	if (scwin.gVar.totalCnt > startRow) {
+		scwin.gVar.append = true;
+		scwin.searchMain(startRow, "N");
+	}
+};
+
+/**
+ * dlt_Member의 ondataload 이벤트 핸들러
+ */
+scwin.dlt_Member_ondataload = function() {
+    //게시물 수 출력
+    spn_curCount.setValue(dlt_Member.getRowCount());
+};
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label="그리드뷰의 scrollEnd 기능 사용 예시입니다.&lt;br/&gt;그리드뷰의 세로 스크롤이 (마지막 행 건수 - 10건)의 높이에 위치하면 100건씩 데이터가 추가됩니다.&lt;br/&gt;최대 600건의 데이터가 로드됩니다."
+					style="">
+				</w2:textbox>
+				<w2:textbox class="ws_example_txt_desc_info" escape="false" id="" label="이 예제는 시연용 예제로 예제 가이드 문서가 포함되어 있지 않습니다."
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="ofh mb_def" id="" style="">
+				<xf:trigger class="btn_cm" id="btn_Search" style="width:70px;" type="button" ev:onclick="scwin.btn_Search_onclick">
+					<xf:label><![CDATA[조회]]></xf:label>
+				</xf:trigger>
+			</xf:group>
+			<xf:group class="dfbox" id="" style="">
+				<w2:textbox class="com_example_heading fl" id="" label="사용자 목록" style="" tagname="h3"></w2:textbox>
+				<xf:group class="fr ws5_example_txt_bold" id="" style="">
+					<w2:span class="mr_def" dataType="text" displayFormat="" id="" label="총" style=""></w2:span>
+					<w2:span id="spn_curCount" ref="" dataType="number" style="" class="" label="0" displayFormat="#,##0"></w2:span>
+					<w2:span class="" dataType="text" displayFormat="" id="" label=" / " style=""></w2:span>
+					<w2:span id="spn_totCount" ref="" dataType="number" style="" class="" label="0" displayFormat="#,##0"></w2:span>
+					<w2:span class="" dataType="text" displayFormat="" id="" label="건" style=""></w2:span>
+				</xf:group>
+			</xf:group>
+
+			<xf:group id="" class="gvwbox">
+				<w2:gridView tooltipShowAlways="" rowNumVisible="true" rowStatusWidth="40" rowNumHeaderValue="번호" loadCount="10"
+					autoFitFilterList="true" focusMode="row" rowNumWidth="30" fixedColumn="1" autoFit="allColumn" id="grd_Member" class="wq_gvw mb_def"
+					ignoreToggleOnDisabled="false" ev:onscrollend="scwin.grd_Member_onscrollend" summaryAuto="false" useShiftKey="true" readOnly="true"
+					rowStatusHeaderValue="상태" rowStatusVisible="false" tooltipDisplay="true" initFixedHeightByRowNum="10" fixedColumnWithHidden="true"
+					visibleRowNumFix="true" dataList="dlt_Member" ignoreCellClick="false" style="height: 280px;" visibleRowNum="10" useFilterList="true"
+					useCtrlKey="false" autoFitMinWidth="800" defaultCellHeight="26">
+					<w2:header style="" id="header1">
+						<w2:row style="" id="row1">
+							<w2:column width="70" style="" inputType="text" id="column27" sortable="true" value="성명" class=""
+								blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="40" style="" inputType="text" id="column25" sortable="true" value="성별" class=""
+								blockSelect="false" displayMode="label" useFilter="">
+							</w2:column>
+							<w2:column width="91" style="" inputType="text" id="column23" sortable="true" value="입사일" class=""
+								blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="70" style="" inputType="text" id="column21" sortable="true" value="직책" class=""
+								blockSelect="false" displayMode="label" useFilter="">
+							</w2:column>
+							<w2:column width="70" style="" inputType="text" id="column19" sortable="true" value="직위" class=""
+								blockSelect="false" displayMode="label" useFilter="">
+							</w2:column>
+							<w2:column width="70" style="" inputType="text" id="column17" sortable="true" value="역할" class=""
+								blockSelect="false" displayMode="label" useFilter="">
+							</w2:column>
+							<w2:column width="82" style="" inputType="text" id="column15" sortable="true" value="담당업무" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="195" style="" inputType="text" id="column13" value="이메일" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+							<w2:column width="104" style="" inputType="text" id="column28" value="수정일" blockSelect="false"
+								displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:header>
+					<w2:gBody style="" id="gBody1">
+						<w2:row style="" id="row2">
+							<w2:column width="70" style="" inputType="text" id="EMP_NM" blockSelect="false" displayMode="label" value="">
+							</w2:column>
+							<w2:column ref="" chooseOption="" width="40" style="" inputType="select" id="GENDER_CD" allOption=""
+								blockSelect="false" displayMode="label">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_CmCode101">
+										<w2:label ref="CODE_NM"></w2:label>
+										<w2:value ref="CODE_CD"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:column>
+							<w2:column width="91" style="" inputType="calendar" id="JOIN_DATE" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column ref="" chooseOption="" width="70" style="" inputType="select" id="DUTY_CD" allOption=""
+								blockSelect="false" displayMode="label">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_CmCode02">
+										<w2:label ref="CODE_NM"></w2:label>
+										<w2:value ref="CODE_CD"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:column>
+							<w2:column ref="" chooseOption="" width="70" style="" inputType="select" id="POSITION_CD" allOption=""
+								blockSelect="false" displayMode="label">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_CmCode01">
+										<w2:label ref="CODE_NM"></w2:label>
+										<w2:value ref="CODE_CD"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:column>
+							<w2:column ref="" chooseOption="" width="70" style="" inputType="select" id="ROLE_CD" allOption=""
+								blockSelect="false" displayMode="label">
+								<w2:choices>
+									<w2:itemset nodeset="data:dlt_CmCode19">
+										<w2:label ref="CODE_NM"></w2:label>
+										<w2:value ref="CODE_CD"></w2:value>
+									</w2:itemset>
+								</w2:choices>
+							</w2:column>
+							<w2:column width="82" style="" inputType="text" id="ASSIGNED_TASK" blockSelect="false" displayMode="label">
+							</w2:column>
+							<w2:column width="195" style="" inputType="text" id="EMAIL" blockSelect="false" displayMode="label"></w2:column>
+							<w2:column width="104" style="" inputType="text" id="UPDATED_DATE" blockSelect="false" displayMode="label">
+							</w2:column>
+						</w2:row>
+					</w2:gBody>
+				</w2:gridView>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

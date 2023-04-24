@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221223]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList id="dlt_member" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="EMP_CD" name="사번" dataType="number"></w2:column>
+						<w2:column id="EMP_NM" name="성명" dataType="text"></w2:column>
+						<w2:column id="GENDER_CD" name="성별" dataType="text"></w2:column>
+						<w2:column id="JOIN_DATE" name="입사일" dataType="text"></w2:column>
+						<w2:column id="POSITION_CD" name="직위" dataType="text"></w2:column>
+						<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+						<w2:column id="group" name="소속" dataType="text"></w2:column>
+						<w2:column id="EMAIL" name="이메일" dataType="text"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<EMP_CD><![CDATA[10001334]]></EMP_CD>
+							<EMP_NM><![CDATA[전성은]]></EMP_NM>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<JOIN_DATE><![CDATA[20021201]]></JOIN_DATE>
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[퍼블리싱]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+							<EMAIL><![CDATA[piho888@inswave02.com]]></EMAIL>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001337]]></EMP_CD>
+							<EMP_NM><![CDATA[마정연]]></EMP_NM>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<JOIN_DATE><![CDATA[20120430]]></JOIN_DATE>
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[개발]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+							<EMAIL><![CDATA[zibe925@inswave02.com]]></EMAIL>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001336]]></EMP_CD>
+							<EMP_NM><![CDATA[후혜선]]></EMP_NM>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<JOIN_DATE><![CDATA[20060423]]></JOIN_DATE>
+							<POSITION_CD><![CDATA[차장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[기획]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+							<EMAIL><![CDATA[mewa036@inswave02.com]]></EMAIL>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001335]]></EMP_CD>
+							<EMP_NM><![CDATA[동세희]]></EMP_NM>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<JOIN_DATE><![CDATA[20050401]]></JOIN_DATE>
+							<POSITION_CD><![CDATA[부장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[디자인]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+							<EMAIL><![CDATA[cane427@inswave02.com]]></EMAIL>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='GridView의 속성 autoFitMinWidth의 설정 값 비교 예제입니다.&lt;br/&gt;속성 autoFitMinWidth은 GridView의 너비가 속성 autoFitMinWidth의 설정 값 이하가 되면 autoFit 기능을 해제하여 가로 스크롤을 생성해주는 기능입니다.&lt;br/&gt;속성 autoFit의 설정 값이 lastColumn, allColumn으로 지정되어야 동작합니다.&lt;br/&gt;이 기능은 GridView의 너비가 가변형으로 구성된 경우 유용합니다.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="속성 autoFitMinWidth 설정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+							label="속성 autoFit, autoFitMinWidth가 설정되어 있습니다.&lt;br/&gt;GridView의 가로 스크롤이 생성된 상태입니다." style=""></w2:textbox>
+						<w2:gridView class="wq_gvw" dataList="data:dlt_member" id="" style="height: 100px;" defaultCellHeight="24"
+							autoFitMinWidth="660" autoFit="allColumn" visibleRowNum="all">
+							<w2:caption style="" id="caption2" value="this is a grid caption."></w2:caption>
+							<w2:header style="" id="header2">
+								<w2:row style="" id="row3">
+									<w2:column width="70" inputType="text" id="column16" value="사번" displayMode="label"></w2:column>
+									<w2:column width="70" inputType="text" id="column15" value="성명" displayMode="label"></w2:column>
+									<w2:column width="60" inputType="text" id="column14" value="성별" displayMode="label"></w2:column>
+									<w2:column width="76" inputType="text" id="column13" value="입사일" displayMode="label"></w2:column>
+									<w2:column width="70" inputType="text" id="column12" value="직위" displayMode="label"></w2:column>
+									<w2:column width="70" inputType="text" id="column11" value="역할" displayMode="label"></w2:column>
+									<w2:column width="70" inputType="text" id="column10" value="소속" displayMode="label"></w2:column>
+									<w2:column width="175" inputType="text" id="column9" value="이메일" displayMode="label"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody style="" id="gBody2">
+								<w2:row style="" id="row4">
+									<w2:column width="70" inputType="text" id="EMP_CD" displayMode="label"></w2:column>
+									<w2:column width="70" inputType="text" id="EMP_NM" displayMode="label"></w2:column>
+									<w2:column width="60" inputType="text" id="GENDER_CD" displayMode="label" value=""></w2:column>
+									<w2:column width="76" inputType="text" id="JOIN_DATE" displayMode="label" value="" dataType="date"
+										displayFormat="yyyy-MM-dd"></w2:column>
+									<w2:column width="70" inputType="text" id="POSITION_CD" displayMode="label"></w2:column>
+									<w2:column width="70" inputType="text" id="ROLE_CD" displayMode="label"></w2:column>
+									<w2:column width="70" inputType="text" id="group" displayMode="label"></w2:column>
+									<w2:column width="175" inputType="text" id="EMAIL" displayMode="label" textAlign="left"></w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="속성 autoFitMinWidth 미설정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+							label="속성 autoFit만 설정되어 있습니다.&lt;br/&gt;GridView의 가로 스크롤이 없는 상태입니다." style=""></w2:textbox>
+						<w2:gridView autoFit="allColumn" class="wq_gvw" dataList="data:dlt_member" defaultCellHeight="24" id=""
+							style="height: 100px;" visibleRowNum="all">
+							<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+							<w2:header id="header2" style="">
+								<w2:row id="row3" style="">
+									<w2:column displayMode="label" id="column16" inputType="text" value="사번" width="70"></w2:column>
+									<w2:column displayMode="label" id="column15" inputType="text" value="성명" width="70"></w2:column>
+									<w2:column displayMode="label" id="column14" inputType="text" value="성별" width="60"></w2:column>
+									<w2:column displayMode="label" id="column13" inputType="text" value="입사일" width="76"></w2:column>
+									<w2:column displayMode="label" id="column12" inputType="text" value="직위" width="70"></w2:column>
+									<w2:column displayMode="label" id="column11" inputType="text" value="역할" width="70"></w2:column>
+									<w2:column displayMode="label" id="column10" inputType="text" value="소속" width="70"></w2:column>
+									<w2:column displayMode="label" id="column9" inputType="text" value="이메일" width="175"></w2:column>
+								</w2:row>
+							</w2:header>
+							<w2:gBody id="gBody2" style="">
+								<w2:row id="row4" style="">
+									<w2:column displayMode="label" id="EMP_CD" inputType="text" width="70"></w2:column>
+									<w2:column displayMode="label" id="EMP_NM" inputType="text" width="70"></w2:column>
+									<w2:column displayMode="label" id="GENDER_CD" inputType="text" value="" width="60"></w2:column>
+									<w2:column dataType="date" displayFormat="yyyy-MM-dd" displayMode="label" id="JOIN_DATE" inputType="text" value=""
+										width="76">
+									</w2:column>
+									<w2:column displayMode="label" id="POSITION_CD" inputType="text" width="70"></w2:column>
+									<w2:column displayMode="label" id="ROLE_CD" inputType="text" width="70"></w2:column>
+									<w2:column displayMode="label" id="group" inputType="text" width="70"></w2:column>
+									<w2:column displayMode="label" id="EMAIL" inputType="text" textAlign="left" width="175"></w2:column>
+								</w2:row>
+							</w2:gBody>
+						</w2:gridView>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

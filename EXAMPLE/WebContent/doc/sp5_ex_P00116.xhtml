@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko"><head><title>[GridView] 셀의 inputType을 동적으로 변경하기</title><link rel="stylesheet" href="css/book.css" type="text/css" /><meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" /><meta name="EPB-UUID" content="26ad9595a3708c5f" /></head><body><div id="content"><h1 id="r_f56d70867bdd90a9" class="chapter_title">[GridView] 셀의 inputType을 동적으로 변경하기</h1><h1 id="r_e604c6e98e41410d" class="element heading1"><span class="heading1_n">1</span>개요</h1><pre id="r_3cd0d8acef24ae01" class="element pre">GridView의 컬럼의 inputType을 조건에 따라 설정하는 예제입니다.</pre><p id="r_f8c69b3c740c199a" class="element r_example_link_p"><a class="link" href="http://example.websquare.kr/exampleLink.html?p=P00116">P00116</a></p><h1 id="r_c0e1e04393d17ae4" class="element heading1"><span class="heading1_n">2</span>구현된 기능</h1><ul id="r_6228f5a76f08ef7c" class="element unordered_list"><li><p>조건에 따라 셀의 inputType 설정하기</p></li></ul><h1 id="r_a9d36f98cf838934" class="element heading1"><span class="heading1_n">3</span>예제 테스트 방법</h1><h2 id="r_aa919197c5392a64" class="element heading2"><span class="heading2_n">3.1</span>조건에 따라 셀의 inputType 설정하기</h2><dl id="r_1d457a57802fbaa2" class="element definition_list"><dt>컬럼 [inputType="custom"]의 inputType을 확인합니다.</dt><dd><p><em>[브라우저(Chrome) 실행 예시]</em></p><p><img alt="" src="images/image439.png" width="328" height="235" /></p><p>컬럼 [유형]의 값에 따라 inputType이 아래와 같이 지정되었습니다.</p><p>- checkbox : inputType="checkbox"</p><p>- input : inputType="input"</p><p>- calendar : inputType="calendar"</p><p>- checkbox : inputType="checkbox"</p><p>- select : inputType="select"</p><p>- input : inputType="input"</p></dd></dl><h1 id="r_781265845baf93fe" class="element heading1"><span class="heading1_n">4</span>구현 예시</h1><h2 id="r_2f6f6eb4056b36ff" class="element heading2"><span class="heading2_n">4.1</span>조건에 따라 셀의 inputType 설정하기</h2><dl id="r_305ec3d82bbecbd4" class="element definition_list"><dt>STEP1. GridView에 출력할 DataList 생성하기</dt><dd><p>동적으로 inputType을 지정하기 위해 참조할 컬럼을 포함하여 생성합니다.</p></dd></dl><table id="r_18988b45aba7d5d3" class="element table"><caption><span class="table_caption_n">표 0-1.</span>DataList 예시</caption><colgroup><col width="100pxpx" /><col /></colgroup><thead><tr><th><p>컬럼 ID</p></th><th><p>용도</p></th></tr></thead><tbody><tr><td><p>type_name</p></td><td><p>GridView에 출력용 데이터. 헤더 컬럼명 : 유형.</p></td></tr><tr><td><p>type</p></td><td><p>동적으로 inputType을 생성하기 위한 참조 데이터.</p></td></tr><tr><td><p>type_value</p></td><td><p>동적으로 inputType이 생성되는 컬럼의 value로 할당됩니다.</p><p>GridView의 헤더 컬럼 [inputType="custom"]에 출력됩니다.</p></td></tr></tbody></table><div id="r_7ca0ab157b04e775" class="element image"><p class="caption"><span class="image_caption_n">그림 0-1.</span>데이터 예시</p><p class="content"><img alt="" src="images/image440.png" width="380" height="261" /></p></div><div id="r_ecc1127803b608cc" class="element caution">GridView와 연결 방법은 생략되었습니다.</div><dl id="r_6ce48a9c94683974" class="element definition_list"><dt>STEP2. GridView의 컬럼의 속성을 정의합니다.</dt><dd><p>동적으로 inputType을 지정할 컬럼의 속성을 아래와 같이 정의합니다.</p><p>예제 파일에서는 바디 컬럼의 ID "type_value"에 정의하였습니다.</p></dd></dl><ul id="r_a92a4bfb3aaf58b2" class="element unordered_list"><li><p><span class="r_blue001_span">[필수] inputType="custom"</span> //동적으로 inputType을 설정.</p></li><li><p><span class="r_blue001_span">[필수] typeGetter="scwin.grd_exam1_type_value_typeGetter"</span> //inputType의 정보를 반환할 함수명</p></li></ul><div id="r_25dc76f205d9c476" class="element image"><p class="caption"><span class="image_caption_n">그림 0-2.</span>웹스퀘어5 SP5 스튜디오의 Design 탭 예시 - 컬럼 선택</p><p class="content"><img alt="" src="images/image441.png" width="266" height="112" /></p></div><div id="r_c0c32cb3f82ef7b7" class="element image"><p class="caption"><span class="image_caption_n">그림 0-3.</span>웹스퀘어5 SP5 스튜디오의 Property View(속성창) 예시</p><p class="content"><img alt="" src="images/image442.png" width="373" height="219" /></p></div><p id="r_9182c8cb495c0247" class="element r_p_bold_pl_p">[소스 코드 예시]</p><div id="r_8cd1a3ecf4fc78ad" class="element code support_code_numbering"><pre><span class="digits_10 code_line"></span><span class="comment">&lt;!-- gridView 의 소스 본문 예시 --&gt;</span>
+<span class="digits_10 code_line"></span>&lt;w2:gridView <span class="attribute_name">dataList</span>=<span class="attribute_value">"data:dlt_exam1"</span>&gt;
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- 중략 --&gt;</span>
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;w2:gBody <span class="attribute_name">id</span>=<span class="attribute_value">"gBody1"</span> <span class="attribute_name">style</span>=<span class="attribute_value">""</span>&gt;
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;w2:row <span class="attribute_name">id</span>=<span class="attribute_value">"row2"</span> <span class="attribute_name">style</span>=<span class="attribute_value">""</span>&gt;
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- 중략 --&gt;</span>
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;w2:column <span class="attribute_name">inputType</span>=<span class="attribute_value">"custom"</span> <span class="attribute_name">typeGetter</span>=<span class="attribute_value">"scwin.grd_exam1_type_value_typeGetter"</span> <span class="attribute_name">id</span>=<span class="attribute_value">"type_value"</span>&gt;
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/w2:column&gt;
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- 중략 --&gt;</span>
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/w2:row&gt;
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/w2:gBody&gt;
+<span class="digits_10 code_line"></span>&lt;/w2:gridView&gt;</pre></div><dl id="r_f15fc073e3631b7b" class="element definition_list"><dt>STEP3. inputType을 반환할 함수를 정의합니다.</dt><dd><p>컬럼의 속성 "typeGetter"에 정의한 함수 "scwin.grd_exam1_type_value_typeGetter"를 정의합니다.</p></dd></dl><p id="r_33cfa9541af19cb1" class="element r_p_bold_pl_p">[소스 코드 예시]</p><div id="r_01f854bc9844ea8f" class="element code support_code_numbering"><pre><span class="digits_10 code_line"></span><span class="comment">/**
+<span class="digits_10 code_line"></span> * grd_exam1의 컬럼 [inputType="custom"]의 inputType 반환
+<span class="digits_10 code_line"></span> * 속성 [typeGetter]에 함수명이 정의되어있습니다.
+<span class="digits_10 code_line"></span> */</span>
+<span class="digits_10 code_line"></span>scwin.grd_exam1_type_value_typeGetter = <span class="keyword">function</span>(argInfo) {
+<span class="digits_10 code_line"></span>    <span class="keyword">var</span> rowIndex = argInfo.rowIndex;
+<span class="digits_10 code_line"></span>    <span class="keyword">var</span> colIndex = argInfo.colIndex;
+<span class="digits_10 code_line"></span>    <span class="keyword">var</span> jsnRow;
+<span class="digits_10 code_line"></span>    <span class="keyword">var</span> returnInfo; <span class="comment">//inputType 정보가 담긴 JSON객체</span>
+<span class="digits_10 code_line"></span>    <span class="keyword">var</span> inputType;
+<span class="digits_10 code_line"></span>    <span class="keyword">var</span> strID;
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span>    jsnRow = dlt_exam1.getRowJSON(rowIndex); <span class="comment">//현 행의 JSON 데이터 반환받기</span>
+<span class="digits_10 code_line"></span>    inputType = jsnRow.type || <span class="string">"notype"</span>;
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span>    <span class="comment">//중복되지 않는 ID 생성</span>
+<span class="digits_10 code_line"></span>    strID = <span class="string">"dynamic_"</span> + inputType + <span class="string">"_"</span> + rowIndex + <span class="string">"_"</span> + colIndex;
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span>    <span class="keyword">switch</span> (inputType) {
+<span class="digits_10 code_line"></span>    <span class="keyword">case</span> <span class="string">"checkbox"</span> :
+<span class="digits_10 code_line"></span>        returnInfo = {
+<span class="digits_10 code_line"></span>               id : strID,
+<span class="digits_10 code_line"></span>               inputType : <span class="string">"checkbox"</span>,
+<span class="digits_10 code_line"></span>               options : {valueType: <span class="string">"other"</span>, trueValue: <span class="string">"Y"</span>, falseValue: <span class="string">"N"</span>, checkboxLabel: <span class="string">"선택"</span> }
+<span class="digits_10 code_line"></span>        };
+<span class="digits_10 code_line"></span>        break;
+<span class="digits_10 code_line"></span>    <span class="keyword">case</span> <span class="string">"calendar"</span> :
+<span class="digits_10 code_line"></span>        returnInfo = {
+<span class="digits_10 code_line"></span>               id : strID,
+<span class="digits_10 code_line"></span>               inputType : <span class="string">"calendar"</span>,
+<span class="digits_10 code_line"></span>               options : {viewType: <span class="string">"icon"</span>, dataType: <span class="string">"date"</span>, displayFormat: <span class="string">"yyyy-MM-dd"</span>}
+<span class="digits_10 code_line"></span>        };
+<span class="digits_10 code_line"></span>        break;
+<span class="digits_10 code_line"></span>    <span class="keyword">case</span> <span class="string">"select"</span> :
+<span class="digits_10 code_line"></span>        <span class="comment">//itemSet 속성은 select에 출력할 콤보 리스트에 연결할 DataList의 정보입니다.</span>
+<span class="digits_10 code_line"></span>        returnInfo = {
+<span class="digits_10 code_line"></span>            id : strID,
+<span class="digits_10 code_line"></span>            inputType : <span class="string">"select"</span>,
+<span class="digits_10 code_line"></span>            options : {viewType: <span class="string">"icon"</span>},
+<span class="digits_10 code_line"></span>            itemSet : {
+<span class="digits_10 code_line"></span>                nodeset: <span class="string">"data:dlt_code"</span>, 
+<span class="digits_10 code_line"></span>                label: <span class="string">"label"</span>,
+<span class="digits_10 code_line"></span>                value: <span class="string">"code"</span>
+<span class="digits_10 code_line"></span>            }
+<span class="digits_10 code_line"></span>        };
+<span class="digits_10 code_line"></span>        break;
+<span class="digits_10 code_line"></span>    <span class="keyword">case</span> <span class="string">"input"</span> :
+<span class="digits_10 code_line"></span>    default:
+<span class="digits_10 code_line"></span>        returnInfo = {
+<span class="digits_10 code_line"></span>               id : strID,
+<span class="digits_10 code_line"></span>               inputType : <span class="string">"text"</span>,
+<span class="digits_10 code_line"></span>               options : {}
+<span class="digits_10 code_line"></span>        };
+<span class="digits_10 code_line"></span>        break;
+<span class="digits_10 code_line"></span>    }
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span>    <span class="keyword">return</span> returnInfo;
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span>};</pre></div><h1 id="r_62a64ea6d07a639e" class="element heading1"><span class="heading1_n">5</span>주요 API</h1><ul id="r_0c0d64f2b7c42466" class="element unordered_list"><li><p><span class="r_ex_api_property_span">[body column] inputType</span></p></li><li><p><span class="r_ex_api_property_span">[body column] typeGetter</span></p></li></ul><h1 id="r_8d5ab2aec9e1245f" class="element heading1"><span class="heading1_n">6</span>참고 문서</h1><ul id="r_796a8cb9ec4cd3e3" class="element unordered_list"><li><p><strong>[웹스퀘어5 SP5 개발 가이드] GridView</strong> </p><p>링크 : <a class="link" href="https://docs1.inswave.com/sp5_user_guide#0a551d265f2956b2">https://docs1.inswave.com/sp5_user_guide#0a551d265f2956b2</a></p></li><li><p><strong>[웹스퀘어5 SP5 개발 가이드] GridView의 inpuType 종류</strong> </p><p>링크 : <a class="link" href="https://docs1.inswave.com/sp5_user_guide#90ca6e3960073856">https://docs1.inswave.com/sp5_user_guide#90ca6e3960073856</a></p></li><li><p><strong>[웹스퀘어5 SP5 개발 가이드] GridView의 inputType 동적 변경 (typeGetter)</strong> </p><p>링크 : <a class="link" href="https://docs1.inswave.com/sp5_user_guide#15375b251f072f73">https://docs1.inswave.com/sp5_user_guide#15375b251f072f73</a></p></li></ul><h1 id="r_1f62311fd2e84c8a" class="element heading1"><span class="heading1_n">7</span>참고 동영상</h1><ul id="r_e183bbc23a0758ac" class="element unordered_list"><li><p><em>GridView의 inputType 동적 변경 (typeGetter)</em> </p><p>링크 : <a class="link" href="https://youtu.be/NZiUIy2BUEE">https://youtu.be/NZiUIy2BUEE</a></p><p><img alt="" src="images/image443.png" width="597" height="422" /></p></li></ul></div></body></html>

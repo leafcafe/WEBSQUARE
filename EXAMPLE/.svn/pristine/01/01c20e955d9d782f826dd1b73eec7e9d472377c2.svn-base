@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20221014]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    scwin.setInitPage();    
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.setInitPage = function () {
+    var strDate;
+
+    //서버에서 오늘 날짜 반환 받기.
+    strDate = $p.getCurrentServerDate("yyyyMMdd");
+
+    //inputCalendar에 오늘 날짜 할당.
+    ica_exam_1.setValue(strDate);
+    ica_exam_2.setValue(strDate);
+};
+]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox escape="false" id=""
+    				label='캘린더의 요일 영역을 브라우저에 표현하는 방법의 설정 예제입니다. &lt;br/&gt;설정을 통해 이미지 또는 문자열로 표현할 수 있습니다.'
+    				style="margin-bottom: 10px;">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="[기본 설정] 캘린더의 요일을 이미지로 출력" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:inputCalendar calendarValueType="yearMonthDate" focusOnDateSelect="false" id="ica_exam_1" rightAlign="false"
+    						style="width:100px;min-height: 24px;" renderDiv="true">
+    					</w2:inputCalendar>
+    				</xf:group>
+    			</xf:group>
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="캘린더의 요일을 문자열로 출력" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:inputCalendar calendarValueType="yearMonthDate" focusOnDateSelect="false" id="ica_exam_2" rightAlign="false"
+    						style="width:100px;min-height: 24px;" displayDayType="text" renderDiv="true">
+    					</w2:inputCalendar>
+    				</xf:group>
+    			</xf:group>
+
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

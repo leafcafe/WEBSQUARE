@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_screenName="교육설명">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<xf:model>
+			<xf:instance>
+				<data xmlns="" />
+			</xf:instance>
+			<w2:dataCollection baseNode="map">
+			</w2:dataCollection>
+			<w2:workflowCollection></w2:workflowCollection>
+		</xf:model>
+		<script type="text/javascript" lazy="false"><![CDATA[
+scwin.onpageload = function() { 
+};
+		
+
+scwin.anc_icon1_onclick = function(e) {  
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육커리큘럼.pdf#page=2",
+		"title": "WebSquare5개발자교육커리큘럼",
+		"label": "교육 상세 시간표" 
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+
+scwin.anc_icon2_onclick = function(e) {
+
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=1",
+		"title": "WebSquare5개발자교육이론_SP5" ,
+		"label": "웹스퀘어5 기본이론" 
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+
+scwin.anc_icon3_onclick = function(e) {
+
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5심화교육이론.pdf#page=1",
+		"title": "WebSquare5심화교육이론" ,
+		"label": "웹스퀘어5 심화이론" 
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+
+scwin.openPopup = function(rowJSON, useIFrameMode, openType) {
+    //dataObject{ dataType: ["xml","string","json","array"], data: "전달 데이터" , name :"변수명"}
+    var _width = "850px";
+    var _height = "850px";
+    
+    if(useIFrameMode == false){
+        _width = "850px";
+        _height = "850px";
+    }
+    
+    var dataObj = {
+        type : "json",
+        data : rowJSON,
+        name : "rowObj"
+    };
+
+    var options = {
+        id : "popup1",
+        //popupUrl : "popup.html",
+        type : openType,
+
+        width : _width,
+        height : _height,
+
+        top : 130,
+        left : 250,
+
+        popupName : rowJSON.title,
+        modal : true,
+        useIFrame : useIFrameMode,
+
+        resizable : true,
+        status : true,
+        menubar : false,
+        scrollbars : false,
+        title : false,
+
+        dataObject : dataObj
+    };
+
+    //모바일에서의 크기,위치 조절을 위해 공통 함수 사용하였습니다. 기본 옵션은 최초 선언된 options를 참고하시기 바랍니다.
+    options.left = "auto";
+    options = $c.frame.getPopupPosition(options); 
+
+    $p.openPopup("/edu/training0_pdf.xml", options);
+};
+scwin.txt_desc1_onclick = function(e) {
+	
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=5",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "WebSquare5 소개"  
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+
+scwin.txt_desc2_onclick = function(e) {
+
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=38",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "WebSquare5 Studio 설명"  
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+
+scwin.txt_desc3_onclick = function(e) {
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=42",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "컴포넌트 기본 사용방법"  
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+
+};
+
+scwin.txt_desc4_onclick = function(e) {
+
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=46",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "CSS 적용 방법"   
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+
+};
+
+scwin.txt_desc5_onclick = function(e) {
+ 
+	var _url = "";
+	var _path= "/edu/training1_dataMap.xml"; 
+    _url =  $c.frame.getBasePageURL(true)+"#w2xPath="+_path; 
+	window.open(_url, "_blank");
+};
+
+scwin.txt_desc6_onclick = function(e) {
+
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=54",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "목록성 컴포넌트 사용 방법"   
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+
+scwin.txt_desc7_onclick = function(e) {
+
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=100",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "DataCollection 과 Submission 처리 방법"   
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+
+scwin.txt_desc8_onclick = function(e) {
+
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=107",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "디버깅 방법"   
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+
+scwin.txt_desc9_onclick = function(e) { 
+	
+	var _url = "";
+	var _path= "/edu/training1_gridView.xml"; 
+    _url =  $c.frame.getBasePageURL(true)+"#w2xPath="+_path; 
+	window.open(_url, "_blank");
+	 
+};
+
+scwin.txt_desc11_onclick = function(e) {
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=94",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "DataCollection 과 gridView 연동2"   
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+
+};
+
+scwin.txt_desc10_onclick = function(e) {
+
+	 var rowJSON = {
+		"pdfNm": "/edu/docs/WebSquare5개발자교육이론_SP5.pdf#page=93",
+		"title": "WebSquare5개발자교육이론" ,
+		"label": "DataCollection 과 gridView 연동2"   
+	};
+
+	 scwin.openPopup(rowJSON, false, "wframePopup");
+};
+]]></script>
+		<style type="text/css"><![CDATA[
+    		
+			.w2checkbox_label:before {
+				position: absolute;
+			    left: 0;
+			    top: 5px;
+			    content: none;
+			    display: inline-block;
+			    width: 20px;
+			    height: 20px;
+			    border: 1px solid #cfd5d8;
+			    box-sizing: border-box;
+			    background: #fff;
+			}
+			
+			.w2radio_label:before{
+				position: absolute;
+			    left: 1px;
+			    top: 5px;
+			    content: none;
+			    display: inline-block;
+			    width: 20px;
+			    height: 20px;
+			    border: 1px solid #cfd5d8;
+			    box-sizing: border-box;
+			    border-radius: 50%;
+			    background: #fff;
+			}
+    	 ]]></style>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group style="padding: 10px;" id="" class="">
+		</xf:group>
+		<xf:group class="intro" id="" style="">
+			<xf:group class="int_top" id="" style="">
+				<xf:group class="bg_wrap" id="">
+					<w2:textbox class="txt_big" escape="false" id=""
+						label="WebSquare5 개발자 교육" style=""></w2:textbox>
+					<w2:textbox class="txt_small server" escape="false" id=""
+						label="HTML, CSS, JavaScript 등 기본적인 웹 지식을 가지고 있으며 &lt;br/&gt;다만 WebSquare5 제품을 처음 접하는 개발자 대상의 커리큘럼"
+						style=""></w2:textbox>
+					<xf:group class="ban_box" id="" style="">
+						<xf:group class="anc_banner ico3" id="anc_icon1"
+							style="" tagname="a"
+							ev:onclick="scwin.anc_icon1_onclick">
+							<w2:textbox escape="false" id=""
+								label="개발자 교육 &lt;br/&gt; &amp;nbsp; 커리큘럼"
+								style="" tagname="p"></w2:textbox>
+							<w2:textbox escape="false" id="" label="바로열기"
+								style="" tagname="span"
+								userData1="">
+							</w2:textbox>
+						</xf:group>
+						<xf:group class="anc_banner ico2" id="anc_icon2"
+							style="" tagname="a"
+							ev:onclick="scwin.anc_icon2_onclick">
+							<w2:textbox escape="false" id=""
+								label="개발자 교육&lt;br/&gt; &amp;nbsp;이론문서"
+								style="" tagname="p"></w2:textbox>
+							<w2:textbox escape="false" id="" label="바로열기"
+								style="" tagname="span"
+								userData1="">
+							</w2:textbox>
+						</xf:group>
+						<xf:group class="anc_banner ico2" id="anc_icon3"
+							style="" tagname="a"
+							ev:onclick="scwin.anc_icon3_onclick">
+							<w2:textbox escape="false" id=""
+								label="개발자 교육&lt;br/&gt;심화문서" style=""
+								tagname="p"></w2:textbox>
+							<w2:textbox escape="false" id="" label="바로열기"
+								style="" tagname="span"
+								userData1="">
+							</w2:textbox>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group class="int_mid" id="" style="">
+				<xf:group class="ins_box" id="" style="">
+					<w2:textbox class="txt_ins_big tac" id="" label="커리큘럼"
+						style=""></w2:textbox>
+				</xf:group>
+				<xf:group class="prj_list" id="" style="" tagname="ol">
+					<xf:group id="" style="" tagname="li">
+						<w2:textbox class="txt_prj_big" id="txt_desc1"
+							label="교육자료 소개, WebSquare5 소개" style=""
+							ev:onclick="scwin.txt_desc1_onclick"></w2:textbox>
+						<w2:textbox class="txt_prj_big" id="txt_desc2"
+							label="WebSquare5 Studio 설명" style=""
+							ev:onclick="scwin.txt_desc2_onclick"></w2:textbox>
+					</xf:group>
+					<xf:group id="" style="" tagname="li">
+						<w2:textbox class="txt_prj_big" id="txt_desc3"
+							label="컴포넌트 기본 사용방법 ( 속성, 이벤트, API )" style=""
+							ev:onclick="scwin.txt_desc3_onclick"></w2:textbox>
+						<w2:textbox class="txt_prj_big" id="txt_desc4"
+							label="CSS 적용 방법" style=""
+							ev:onclick="scwin.txt_desc4_onclick"></w2:textbox>
+					</xf:group>
+					<xf:group id="" style="" tagname="li">
+						<w2:textbox class="txt_prj_big" id="txt_desc5"
+							label="[실습] 목록성 컴포넌트 사용 방법 " style=""
+							ev:onclick="scwin.txt_desc5_onclick"></w2:textbox>
+						<w2:textbox class="txt_prj_big" id="txt_desc6"
+							label="(하드코딩, script 처리, DataCollection 처리)"
+							style="" ev:onclick="scwin.txt_desc6_onclick"></w2:textbox>
+					</xf:group>
+					<xf:group id="" style="" tagname="li">
+						<w2:textbox class="txt_prj_big" id="txt_desc7"
+							label="[실습] DataCollection 과 Submission 처리 방법"
+							style="" ev:onclick="scwin.txt_desc7_onclick"></w2:textbox>
+						<w2:textbox class="txt_prj_big" id="txt_desc8"
+							label="디버깅 방법" style=""
+							ev:onclick="scwin.txt_desc8_onclick"></w2:textbox>
+					</xf:group>
+					<xf:group id="" style="" tagname="li">
+						<w2:textbox class="txt_prj_big" id="txt_desc9"
+							label="[시연] DataCollection 과 gridView 연동1" style=""
+							ev:onclick="scwin.txt_desc9_onclick"></w2:textbox>
+						<w2:textbox class="txt_prj_big" id="txt_desc10"
+							label="(gridView편집,속성,이벤트,API)" style=""
+							ev:onclick="scwin.txt_desc10_onclick"></w2:textbox>
+					</xf:group>
+					<xf:group id="" style="" tagname="li">
+						<w2:textbox class="txt_prj_big" id="txt_desc11"
+							label="[시연] DataCollection 과 gridView 연동2 (Master &amp; Detail 처리)"
+							style="" ev:onclick="scwin.txt_desc11_onclick"></w2:textbox>
+						<w2:textbox class="txt_prj_big" id="txt_desc12"
+							label="Q&amp;A" style=""></w2:textbox>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+/* 예제 파일에서 사용하는 CSS 모음 */
+
+/* P00029.xml class 제어 예제 */
+.P00029_exam1 {border-color: #e40a0a; color: #e40a0a;}
+.P00029_exam2 {border-color: #0070c0; color: #0070c0;}
+
+/* P00145.xml WindowContainer의 선택된 윈도우 style */
+.P00145.w2windowContainer .w2window_selected { border-color: MediumBlue;}
+.P00145.w2windowContainer .w2window_selected .w2window_selected_header .w2window_header_title{ color: MediumBlue; }
+
+/* P00186.xml 예제 */
+.w2grid .P00186_exam1 {background-color: #F0E68C;}
+
+/* P00189.xml 예제 */
+.P00189_exam2 .w2grid_default_disabled {background-color: #808080 !important; color: #A9A9A9 !important;}

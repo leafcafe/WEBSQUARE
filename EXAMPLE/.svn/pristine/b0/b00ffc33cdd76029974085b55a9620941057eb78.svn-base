@@ -1,0 +1,155 @@
+{
+"dlt_book" : 
+[
+	{
+		"label": "작별인사",
+		"code": "11",
+		"categoryCode": "1",
+		"categoryLabel": "소설"
+	},
+	{
+		"label": "불편한 편의점",
+		"code": "12",
+		"categoryCode": "1",
+		"categoryLabel": "소설"
+	},
+	{
+		"label": "저만치 혼자서",
+		"code": "13",
+		"categoryCode": "1",
+		"categoryLabel": "소설"
+	},
+	{
+		"label": "책들의 부엌",
+		"code": "14",
+		"categoryCode": "1",
+		"categoryLabel": "소설"
+	},
+	{
+		"label": "잘했고 잘하고 있고 잘 될 것이다",
+		"code": "21",
+		"categoryCode": "2",
+		"categoryLabel": "시/에세이"
+	},
+	{
+		"label": "기분을 관리하면 인생이 관리된다",
+		"code": "22",
+		"categoryCode": "2",
+		"categoryLabel": "시/에세이"
+	},
+	{
+		"label": "나로서 충분히 괜찮은 사람",
+		"code": "23",
+		"categoryCode": "2",
+		"categoryLabel": "시/에세이"
+	},
+	{
+		"label": "당신은 결국 무엇이든 해내는 사람",
+		"code": "24",
+		"categoryCode": "2",
+		"categoryLabel": "시/에세이"
+	},
+	{
+		"label": "너무 잘하려고 애쓰지 마라",
+		"code": "25",
+		"categoryCode": "2",
+		"categoryLabel": "시/에세이"
+	},
+	{
+		"label": "모든 사람에게 좋은 사람일 필요는 없어",
+		"code": "26",
+		"categoryCode": "2",
+		"categoryLabel": "시/에세이"
+	},
+	{
+		"label": "내가 틀릴 수도 있습니다",
+		"code": "31",
+		"categoryCode": "3",
+		"categoryLabel": "인문"
+	},
+	{
+		"label": "마음의 법칙",
+		"code": "32",
+		"categoryCode": "3",
+		"categoryLabel": "인문"
+	},
+	{
+		"label": "무엇이 옳은가",
+		"code": "33",
+		"categoryCode": "3",
+		"categoryLabel": "인문"
+	},
+	{
+		"label": "공정하다는 착각",
+		"code": "34",
+		"categoryCode": "3",
+		"categoryLabel": "인문"
+	},
+	{
+		"label": "나는 둔감하게 살기로 했다",
+		"code": "35",
+		"categoryCode": "3",
+		"categoryLabel": "인문"
+	},
+	{
+		"label": "우리는 여전히 삶을 사랑하는가",
+		"code": "36",
+		"categoryCode": "3",
+		"categoryLabel": "인문"
+	},
+	{
+		"label": "미움받을 용기",
+		"code": "37",
+		"categoryCode": "3",
+		"categoryLabel": "인문"
+	},
+	{
+		"label": "원씽(The One Thing)",
+		"code": "41",
+		"categoryCode": "4",
+		"categoryLabel": "자기계발"
+	},
+	{
+		"label": "마지막 몰입: 나를 넘어서는 힘",
+		"code": "42",
+		"categoryCode": "4",
+		"categoryLabel": "자기계발"
+	},
+	{
+		"label": "멘탈을 바꿔야 인생이 바뀐다",
+		"code": "43",
+		"categoryCode": "4",
+		"categoryLabel": "자기계발"
+	},
+	{
+		"label": "선을 넘지 않는 사람이 성공한다",
+		"code": "44",
+		"categoryCode": "4",
+		"categoryLabel": "자기계발"
+	},
+	{
+		"label": "총 균 쇠",
+		"code": "51",
+		"categoryCode": "5",
+		"categoryLabel": "역사/문화"
+	},
+	{
+		"label": "거의 모든 전쟁의 역사",
+		"code": "52",
+		"categoryCode": "5",
+		"categoryLabel": "역사/문화"
+	},
+	{
+		"label": "문명의 붕괴(Collapse)",
+		"code": "53",
+		"categoryCode": "5",
+		"categoryLabel": "역사/문화"
+	},
+	{
+		"label": "나의 문화유산답사기",
+		"code": "54",
+		"categoryCode": "5",
+		"categoryLabel": "역사/문화"
+	}
+]
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map" >
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20220729]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    
+};
+
+/**
+ * wFramePopup 실행 - $p.openPopup
+ * 버튼 [frameModal : "frame"] 클릭 시
+ */
+scwin.btn_ex1_1_onclick = function(e) {
+    var jsnOptions = { 
+        id : "popup_exam1", 
+        type : "wframePopup",
+        width: "200px", 
+        height: "150px", 
+        top: "0px", 
+        left: "0px",
+        popupName : "frameModal - frame", 
+        modal : "true",
+        frameModal : "frame" //[default: ""] modal을 표시해줄 frame(wframe, tabControl, windowContainer)을 지정. "top", "parent", "frame", frame id
+    }; 
+
+    $p.openPopup("/page/P00056P01.xml",  jsnOptions );
+};
+
+/**
+ * wFramePopup 실행 - $p.openPopup
+ * 버튼 [frameModal : "parent"] 클릭 시
+ */
+scwin.btn_ex1_2_onclick = function(e) {
+    var jsnOptions = { 
+        id : "popup_exam2", 
+        type : "wframePopup",
+        width: "200px", 
+        height: "150px", 
+        top: "0px", 
+        left: "0px",
+        popupName : "frameModal - parent", 
+        modal : "true",
+        frameModal : "parent" //[default: ""] modal을 표시해줄 frame(wframe, tabControl, windowContainer)을 지정. "top", "parent", "frame", frame id
+    }; 
+
+    $p.openPopup("/page/P00056P01.xml",  jsnOptions );
+};
+
+/**
+ * wFramePopup 실행 - $p.openPopup
+ * 버튼 [frameModal : "top"] 클릭 시
+ */
+scwin.btn_ex1_3_onclick = function(e) {
+    var jsnOptions = { 
+        id : "popup_exam3", 
+        type : "wframePopup",
+        width: "200px", 
+        height: "150px", 
+        top: "0px", 
+        left: "0px",
+        popupName : "frameModal - top", 
+        modal : "true",
+        frameModal : "top" //[default: ""] modal을 표시해줄 frame(wframe, tabControl, windowContainer)을 지정. "top", "parent", "frame", frame id
+    }; 
+
+    $p.openPopup("/page/P00056P01.xml",  jsnOptions );
+};
+
+/**
+ * wFramePopup 실행 - $p.openPopup
+ * 버튼 [frameModal : [Frame ID]] 클릭 시
+ */
+scwin.btn_ex1_4_onclick = function(e) {
+    var strFrameID;
+    var jsnOptions;
+
+    //컨텐츠 영역(P00056.xml)의 ID - 자식의 화면에서 부모의 Frame ID를 획득하기 위해서는 아래와 같이 상대적인 방법으로 접근해야 합니다.
+    strFrameID = $p.getFrame().getParentFrame().getParentFrame().getParentFrame().id
+
+    jsnOptions = { 
+        id : "popup_exam4", 
+        type : "wframePopup",
+        width: "200px", 
+        height: "150px", 
+        top: "0px", 
+        left: "0px",
+        popupName : "frameModal - frameID", 
+        modal : "true",
+        frameModal : strFrameID //[default: ""] modal을 표시해줄 frame(wframe, tabControl, windowContainer)을 지정. "top", "parent", "frame", frame id
+    };
+
+    $p.openPopup("/page/P00056P01.xml",  jsnOptions );
+};]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="" id="" style="padding: 3px; border: 3px solid Gold; min-height: 250px;">
+			<w2:textbox id="" label="이곳은 WFrame 영역입니다. - P00056S03.xml" style="line-height: 2.6em;"></w2:textbox>
+			<xf:group id="" class="p10">
+				<xf:group style="" id="" class="dfbox">
+					<w2:textbox tagname="h3" style="" id="" label="wFramePopup 실행 - $p.openPopup" class=""></w2:textbox>
+				</xf:group>
+				<xf:group style="" id="" class="dfbox">
+					<xf:trigger disabled="" style="" id="btn_ex1_1" type="button" class="btn_exam_exec" escape="false"
+						ev:onclick="scwin.btn_ex1_1_onclick">
+						<xf:label><![CDATA[frameModal : "frame"]]></xf:label>
+					</xf:trigger>
+					<xf:trigger disabled="" style="" id="btn_ex1_2" type="button" class="btn_exam_exec" escape="false"
+						ev:onclick="scwin.btn_ex1_2_onclick">
+						<xf:label><![CDATA[frameModal : "parent"]]></xf:label>
+					</xf:trigger>
+					<xf:trigger disabled="" style="" id="btn_ex1_3" type="button" class="btn_exam_exec" escape="false"
+						ev:onclick="scwin.btn_ex1_3_onclick">
+						<xf:label><![CDATA[frameModal : "top"]]></xf:label>
+					</xf:trigger>
+					<xf:trigger disabled="" style="" id="btn_ex1_4" type="button" class="btn_exam_exec" escape="false"
+						ev:onclick="scwin.btn_ex1_4_onclick">
+						<xf:label><![CDATA[frameModal : [Frame ID]]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

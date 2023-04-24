@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko"><head><title>동적으로 컴포넌트 생성하기</title><link rel="stylesheet" href="css/book.css" type="text/css" /><meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" /><meta name="EPB-UUID" content="26ad9595a3708c5f" /></head><body><div id="content"><h1 id="r_de125cd34b77d9c7" class="chapter_title">동적으로 컴포넌트 생성하기</h1><h1 id="r_b4e870080c59d407" class="element heading1"><span class="heading1_n">1</span>개요</h1><p id="r_c2341eed0d6c74b3" class="element normal">동적으로 UI 컴포넌트를 생성 및 추가하는 API 예제입니다.</p><p id="r_f113978b1d6185cd" class="element r_example_link_p"><a class="link" href="http://example.websquare.kr/exampleLink.html?p=P00045">P00045</a></p><h1 id="r_4696c87c5c9bb17b" class="element heading1"><span class="heading1_n">2</span>구현된 기능</h1><ul id="r_ae1272b0d768b507" class="element unordered_list"><li><p>Trigger 생성 후 추가하기</p></li><li><p>InputBox 생성 후 추가하기</p></li></ul><h1 id="r_3dff7ff2c2257896" class="element heading1"><span class="heading1_n">3</span>예제 테스트 방법</h1><dl id="r_83890b218827203c" class="element definition_list"><dt>버튼 생성 및 추가하기</dt><dd><p>1. 버튼 <span class="r_exec_btn_style_span">실행1</span>을 클릭합니다.</p><p>2. 화면에 Trigger 컴포넌트가 추가됩니다.</p><p>[실행 예시 이미지]</p><p><img alt="" src="images/image018.png" width="407" height="75" /></p></dd></dl><dl id="r_bfa9ff31705384c3" class="element definition_list"><dt>input 생성 및 추가하기</dt><dd><p>1. 버튼 <span class="r_exec_btn_style_span">실행2</span>를 클릭합니다.</p><p>2. 화면에 Input 컴포넌트가 추가됩니다.</p><p>[실행 예시 이미지]</p><p><img alt="" src="images/image019.png" width="338" height="72" /></p></dd></dl><h1 id="r_b2c04044774417f2" class="element heading1"><span class="heading1_n">4</span>주요 API</h1><dl id="r_ee07a6662f84f9b5" class="element definition_list"><dt><span class="r_ex_api_method_span">$p.dynamicCreate( id , tagName , options , parent , itemSet )</span></dt><dd><p>웹스퀘어 객체를 동적으로 생성합니다.</p></dd></dl><h1 id="r_f39e2bf0102a0682" class="element heading1"><span class="heading1_n">5</span>구현 예시</h1><h2 id="r_5aecca3f28cc0424" class="element heading2"><span class="heading2_n">5.1</span>알아두기</h2><pre id="r_e13a11fd5e6c1fd9" class="element pre">동적으로 생성할 컴포넌트가 추가될 부모 컴포넌트가 있어야 합니다. $p.dynamicCreate API는 부모 컴포넌트 객체를 받기 때문에 body에 추가할 수 없습니다.
+예제에서는 <span class="r_blue001_span">grp_target</span> id를 가진 Group 컴포넌트를 부모 컴포넌트로 지정하였습니다.</pre><div id="r_179d4e3fb7b76ac4" class="element caution">동적으로 생성할 컴포넌트의 ID는 중복이 되어서는 안됩니다.<br/>추가할 컴포넌트명(pluginName)은 <a class="reference text" href="sp5_ex_ap_component_plugin_name.xhtml">컴포넌트의 Plugin Name</a> 에 자세히 나와있습니다.</div><h2 id="r_223d31ec2c3e98ec" class="element heading2"><span class="heading2_n">5.2</span>Trigger 컴포넌트 생성 및 추가하기</h2><div id="r_b9b49c4c2c55c19e" class="element code support_code_numbering"><pre><span class="digits_10 code_line"></span><span class="keyword">var</span> _comp;
+<span class="digits_10 code_line"></span><span class="keyword">var</span> strID;
+<span class="digits_10 code_line"></span><span class="keyword">var</span> objDate;
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span><span class="comment">//중복되지 않는 ID 생성을 위한 스크립트</span>
+<span class="digits_10 code_line"></span>objDate = <span class="keyword">new</span> Date();
+<span class="digits_10 code_line"></span>strID = <span class="string">"btn_ex_"</span> + objDate.getDate() + <span class="string">"_"</span>+ objDate.getTime();
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span><span class="comment">//버튼(trigger) 생성 </span>
+<span class="digits_10 code_line"></span>_comp = $p.dynamicCreate(
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;strID,
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"trigger"</span>, <span class="comment">//생성할 컴포넌트의 pluginName</span>
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;{
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style : <span class="string">""</span>
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,className : <span class="string">"btn_cm mr_def"</span>
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;}, 
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;grp_target  <span class="comment">//생성(추가)할 위치의 컴포넌트 객체</span>
+<span class="digits_10 code_line"></span>);
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span><span class="comment">//생성된 trigger의 value 할당.</span>
+<span class="digits_10 code_line"></span>_comp.setValue(<span class="string">"버튼"</span>);</pre></div><h2 id="r_0500890a1bff5d77" class="element heading2"><span class="heading2_n">5.3</span>InputBox 컴포넌트 생성 및 추가하기</h2><div id="r_1d4788c3b9c5c21c" class="element code support_code_numbering"><pre><span class="digits_10 code_line"></span><span class="keyword">var</span> _comp;
+<span class="digits_10 code_line"></span><span class="keyword">var</span> strID;
+<span class="digits_10 code_line"></span><span class="keyword">var</span> objDate;
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span><span class="comment">//중복되지 않는 ID 생성을 위한 스크립트</span>
+<span class="digits_10 code_line"></span>objDate = <span class="keyword">new</span> Date();
+<span class="digits_10 code_line"></span>strID = <span class="string">"ipt_ex_"</span> + objDate.getDate() + <span class="string">"_"</span>+ objDate.getTime();
+<span class="digits_10 code_line"></span>
+<span class="digits_10 code_line"></span><span class="comment">//input 생성 </span>
+<span class="digits_10 code_line"></span>_comp = $p.dynamicCreate(
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;strID,
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"input"</span>,  <span class="comment">//생성할 컴포넌트의 pluginName</span>
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;{
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style : <span class="string">"min-width:80px; min-height:20px;"</span>,
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;className : <span class="string">"mr_def"</span>,
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder : <span class="string">"입력하세요."</span>,
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;}, 
+<span class="digits_10 code_line"></span>&nbsp;&nbsp;&nbsp;&nbsp;grp_target  <span class="comment">//생성(추가)할 위치의 컴포넌트 객체 (ID 문자열이 아님을 주의합니다)</span>
+<span class="digits_10 code_line"></span>);</pre></div></div></body></html>

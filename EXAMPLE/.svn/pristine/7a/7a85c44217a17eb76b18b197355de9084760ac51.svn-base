@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head meta_vertical_guides="" meta_horizontal_guides="-298">
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230222]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='Input 컴포넌트에 시간, 날짜의 입력 포맷 지정에 관한 예제입니다.&lt;br/&gt;이 기능은 아래의 속성으로 사용할 수 있습니다.&lt;br/&gt;- dataType : Input의 dataType을 명시&lt;br/&gt;- displayFormat : Input값에 format을 적용'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label='날짜 입력 포맷 지정' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+							label='숫자 8자리 입력 후 Input에서 포커스 해제 시점에 yyyy-MM-dd 형식의 결과를 확인할 수 있습니다.&lt;br/&gt;※Input에 포커스를 주면 처음에 입력한 값으로 돌아옵니다.&lt;br/&gt;ex) 20230101 -&gt; (O) , 9999999 -&gt; (X)'
+							style="" displayFormat="">
+						</w2:textbox>
+						<xf:input class="" id="ibx_exam1" style="min-width:120px;" maxByteLength="8" dataType="date" displayFormat="yyyy-MM-dd">
+						</xf:input>
+					</xf:group>
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="시간 입력 포맷 지정" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+							label='숫자 6자리 입력 후 Input에서 포커스 해제 시점에 HH:mm:ss 형식의 결과를 확인할 수 있습니다.&lt;br/&gt;※Input에 포커스를 주면 처음에 입력한 값으로 돌아옵니다.&lt;br/&gt;ex) 235959 -&gt; (O) , 999999 -&gt; (X)'
+							style="" displayFormat="">
+						</w2:textbox>
+						<xf:input class="" id="ibx_exam2" maxByteLength="6" style="min-width:120px;" dataType="time" displayFormat="HH:ss:mm">
+						</xf:input>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

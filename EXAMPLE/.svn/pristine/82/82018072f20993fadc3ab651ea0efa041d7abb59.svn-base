@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221014]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    scwin.initPage();
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.initPage = function () {
+    var strDefaultWidth;
+
+    //예제 테스트를 위해 default width 변경
+    if (window.innerWidth < 450) {
+        strDefaultWidth = "230px";
+    } else {
+        strDefaultWidth = "300px";
+    }
+
+    //윈도우 추가
+    wdc_exam1.createWindow("P00138S01", null, "/page/P00138S01.xml", null, "w_P00138S01", "selectWindow", null, null, null, { "defaultWidth": strDefaultWidth }, "wframe");
+    wdc_exam1.createWindow("P00138S02", null, "/page/P00138S02.xml", null, "w_P00138S02", "selectWindow", null, null, null, { "defaultWidth": strDefaultWidth }, "wframe");
+    wdc_exam1.createWindow("P00138S03", null, "/page/P00138S03.xml", null, "w_P00138S03", "selectWindow", null, null, null, { "defaultWidth": strDefaultWidth }, "wframe");
+
+    //시작 - 예제 테스트를 위한 설정
+    wdc_exam1.setArrangeWindows("sequential", ["w_P00138S01", "w_P00138S02", "w_P00138S03"]); //윈도우 분할
+    //종료 - 예제 테스트를 위한 설정
+};
+
+/**
+ * 버튼 [화면 초기화] 클릭 시
+ */
+scwin.btn_init_onclick = function (e) {
+    //페이지 새로 고침
+    $p.reinitialize();
+};
+
+
+/**
+ * 버튼 [선택된 윈도우를 제외, 모든 윈도우 닫기] 클릭 시
+ */
+scwin.btn_ex1_onclick = function (e) {
+    //WindowContainer [wdc_exam1]의 선택된 윈도우를 제외한 모든 윈도우 닫기
+    wdc_exam1.closeOthers();
+};
+
+/**
+ * 버튼 [윈도우 P00138S02 제외 모두 닫기] 클릭 시
+ */
+scwin.btn_ex2_onclick = function (e) {
+    //WindowContainer [wdc_exam1]의 윈도우 [w_P00138S02]를 제외한 모든 윈도우 닫기
+    wdc_exam1.closeOthers("w_P00138S02");
+};
+
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id="" label='선택된 윈도우 또는 지정한 윈도우를 제외하고 윈도우를 모두 닫는 예제입니다.' style=""></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mw600" id="" style="">
+				<xf:group class="mb10" id="" style="">
+					<xf:trigger class="btn_exam_exec" id="btn_init" style="" type="button" ev:onclick="scwin.btn_init_onclick">
+						<xf:label><![CDATA[화면 초기화]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<xf:group class="dfbox" id="" style="">
+					<xf:trigger class="btn_exam_exec btn_txt_of" ev:onclick="scwin.btn_ex1_onclick" id="btn_ex1" style="" type="button">
+						<xf:label><![CDATA[선택된 윈도우를 제외, 모든 윈도우 닫기]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn_exam_exec btn_txt_of" id="btn_ex2" style="" type="button" ev:onclick="scwin.btn_ex2_onclick">
+						<xf:label><![CDATA[윈도우 P00138S02 제외, 모든 윈도우 닫기]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<w2:windowContainer controlIconPosition="left" fixArrangeFullScreen="false" hideTitleOnMaximize="false"
+					horizontalArrangeNum="2" id="wdc_exam1" nameLayerRearrange="false" sequentialArrangeColNum="2" sequentialArrangeRowNum="2"
+					spaInitCount="0" stopMinimizeOnNameLayer="false" stopToggleOnLast="false" style="position: relative;height: 340px;"
+					toolbarPosition="bottom" tooltipDisplay="true" tooltipGroupClass="false" useCloseButton="false" useControlIconTitle="false"
+					useCustomMsg="false" useFixButton="true" useNameContainer="false" useStatusMsg="false" verticalArrangeNum="2" windowAutoResize="false"
+					windowMaxNum="5" windowMaximizeAll="false" windowTooltipDisplay="true">
+					<w2:windowToolbar>
+						<w2:controlIconLayer>
+							<w2:controlIcon></w2:controlIcon>
+							<w2:controlIcon></w2:controlIcon>
+							<w2:controlIcon></w2:controlIcon>
+							<w2:controlIcon></w2:controlIcon>
+							<w2:controlIcon></w2:controlIcon>
+						</w2:controlIconLayer>
+						<w2:nameLayer></w2:nameLayer>
+						<w2:selectedNameLayer></w2:selectedNameLayer>
+					</w2:windowToolbar>
+				</w2:windowContainer>
+
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

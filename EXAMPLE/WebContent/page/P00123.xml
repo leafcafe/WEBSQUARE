@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220930]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    scwin.initPage();
+};
+
+/**
+ * 화면 초기화
+ */
+scwin.initPage = function () {
+    var strSrc = "/page/P00123S01.xml";
+
+    //windowContainer "wdc_exam1"에 윈도우 생성하기
+    wdc_exam1.createWindow({
+        "title": "P00123S01",
+        "windowTitle": "P00123S01",
+        "src": strSrc,
+        "windowId": "w_P00123S01"
+    });
+
+    //windowContainer "wdc_exam2"에 윈도우 생성하기
+    wdc_exam2.createWindow({
+        "title": "P00123S01",
+        "windowTitle": "P00123S01",
+        "src": strSrc,
+        "windowId": "w_P00123S01"
+    });
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='WindowContainer의 속성 frameModal을 활성화하였을 때 팝업의 동작을 비교하는 예제입니다.&lt;br/&gt;frameModal을 활성화하면 팝업이 Window 내부에서만 이동이 가능하게 되며,&lt;br/&gt;팝업에서 팝업을 호출한 경우 상위 팝업을 닫으면 하위 팝업이 함께 닫힙니다.&lt;br/&gt;이 기능은 WindowContainer의 속성 frameMode가 "wframe"으로 설정된 경우만 동작합니다.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" style="" class=""></xf:group>
+			<xf:group class="example_div_tb_style_wrap mw600" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label='기본 설정 - frameModal 비활성화' style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:windowContainer controlIconPosition="left"
+							fixArrangeFullScreen="false"
+							hideTitleOnMaximize="false"
+							horizontalArrangeNum="2" id="wdc_exam1"
+							nameLayerRearrange="false"
+							sequentialArrangeColNum="2"
+							sequentialArrangeRowNum="2"
+							spaInitCount="0" stopMinimizeOnNameLayer="false"
+							stopToggleOnLast="false"
+							style="position: relative;height: 340px;"
+							toolbarPosition="bottom" tooltipDisplay="true"
+							tooltipGroupClass="false" useCloseButton="false"
+							useControlIconTitle="false"
+							useCustomMsg="false" useFixButton="false"
+							useNameContainer="false" useStatusMsg="false"
+							verticalArrangeNum="2"
+							windowAutoResize="false" windowMaxNum="5"
+							windowMaximizeAll="false"
+							windowTooltipDisplay="true" frameMode="wframe">
+							<w2:windowToolbar>
+								<w2:controlIconLayer>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+								</w2:controlIconLayer>
+								<w2:nameLayer></w2:nameLayer>
+								<w2:selectedNameLayer></w2:selectedNameLayer>
+							</w2:windowToolbar>
+						</w2:windowContainer>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id="" label="frameModal 활성화" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:windowContainer controlIconPosition="left"
+							fixArrangeFullScreen="false"
+							hideTitleOnMaximize="false"
+							horizontalArrangeNum="2" id="wdc_exam2"
+							nameLayerRearrange="false"
+							sequentialArrangeColNum="2"
+							sequentialArrangeRowNum="2"
+							spaInitCount="0" stopMinimizeOnNameLayer="false"
+							stopToggleOnLast="false"
+							style="position: relative;height: 340px;"
+							toolbarPosition="bottom" tooltipDisplay="true"
+							tooltipGroupClass="false" useCloseButton="false"
+							useControlIconTitle="false"
+							useCustomMsg="false" useFixButton="false"
+							useNameContainer="false" verticalArrangeNum="2"
+							windowAutoResize="false" windowMaxNum="5"
+							windowMaximizeAll="false"
+							windowTooltipDisplay="true" useStatusMsg="false"
+							frameModal="true" frameMode="wframe">
+							<w2:windowToolbar>
+								<w2:controlIconLayer>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+									<w2:controlIcon></w2:controlIcon>
+								</w2:controlIconLayer>
+								<w2:nameLayer></w2:nameLayer>
+								<w2:selectedNameLayer></w2:selectedNameLayer>
+							</w2:windowToolbar>
+						</w2:windowContainer>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

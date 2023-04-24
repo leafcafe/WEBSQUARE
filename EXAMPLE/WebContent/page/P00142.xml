@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_data" repeatNode="map"
+					saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="code" name="코드"></w2:column>
+						<w2:column dataType="text" id="name" name="도시명"></w2:column>
+						<w2:column dataType="text" id="type" name="구분"></w2:column>
+						<w2:column dataType="text" id="kind" name="성별"></w2:column>
+						<w2:column dataType="text" id="value" name="인원수"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<code><![CDATA[10]]></code>
+							<name><![CDATA[엑셀 다운로드 너비 테스트]]></name>
+							<type><![CDATA[내국인]]></type>
+							<kind><![CDATA[남자]]></kind>
+							<value><![CDATA[4694317]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[10]]></code>
+							<name><![CDATA[엑셀 다운로드 너비 테스트]]></name>
+							<type><![CDATA[내국인]]></type>
+							<kind><![CDATA[여자]]></kind>
+							<value><![CDATA[4872879]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[10]]></code>
+							<name><![CDATA[엑셀 다운로드 너비 테스트]]></name>
+							<type><![CDATA[외국인]]></type>
+							<kind><![CDATA[남자]]></kind>
+							<value><![CDATA[165218]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[10]]></code>
+							<name><![CDATA[엑셀 다운로드 너비 테스트]]></name>
+							<type><![CDATA[외국인]]></type>
+							<kind><![CDATA[여자]]></kind>
+							<value><![CDATA[171898]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[25]]></code>
+							<name><![CDATA[지역2]]></name>
+							<type><![CDATA[내국인]]></type>
+							<kind><![CDATA[남자]]></kind>
+							<value><![CDATA[763310]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[25]]></code>
+							<name><![CDATA[지역2]]></name>
+							<type><![CDATA[내국인]]></type>
+							<kind><![CDATA[여자]]></kind>
+							<value><![CDATA[756004]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[25]]></code>
+							<name><![CDATA[지역2]]></name>
+							<type><![CDATA[외국인]]></type>
+							<kind><![CDATA[남자]]></kind>
+							<value><![CDATA[8933]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[25]]></code>
+							<name><![CDATA[지역2]]></name>
+							<type><![CDATA[외국인]]></type>
+							<kind><![CDATA[여자]]></kind>
+							<value><![CDATA[10147]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[11]]></code>
+							<name><![CDATA[지역1]]></name>
+							<type><![CDATA[내국인]]></type>
+							<kind><![CDATA[남자]]></kind>
+							<value><![CDATA[1234694317]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[11]]></code>
+							<name><![CDATA[지역1]]></name>
+							<type><![CDATA[내국인]]></type>
+							<kind><![CDATA[여자]]></kind>
+							<value><![CDATA[1234872879]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[11]]></code>
+							<name><![CDATA[지역1]]></name>
+							<type><![CDATA[외국인]]></type>
+							<kind><![CDATA[남자]]></kind>
+							<value><![CDATA[123165218]]></value>
+						</w2:row>
+						<w2:row>
+							<code><![CDATA[11]]></code>
+							<name><![CDATA[지역1]]></name>
+							<type><![CDATA[외국인]]></type>
+							<kind><![CDATA[여자]]></kind>
+							<value><![CDATA[123171898]]></value>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20221021]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+
+
+/**
+ * 버튼 [엑셀 다운로드 - "autoSizeColumn" : "false"] 클릭 시
+ */
+scwin.btn_ex1_onclick = function (e) {
+    var jsnOptions;
+    jsnOptions = {
+        "fileName": "P00142_pivot_autoSizeColumn_false.xlsx",
+        "autoSizeColumn": "false"  //기본값
+    };
+    piv_ex01.pivotExcelDownload(jsnOptions);
+};
+
+/**
+ * 버튼 [엑셀 다운로드 - "autoSizeColumn" : "body"] 클릭 시
+ */
+scwin.btn_ex2_onclick = function (e) {
+    var jsnOptions;
+    jsnOptions = {
+        "fileName": "P00142_pivot_autoSizeColumn_body.xlsx",
+        "autoSizeColumn": "body"
+    };
+    piv_ex01.pivotExcelDownload(jsnOptions);
+};
+
+/**
+ * 버튼 [엑셀 다운로드 - "autoSizeColumn" : "header"] 클릭 시
+ */
+scwin.btn_ex3_onclick = function (e) {
+    var jsnOptions;
+    jsnOptions = {
+        "fileName": "P00142_pivot_autoSizeColumn_header.xlsx",
+        "autoSizeColumn": "header"
+    };
+    piv_ex01.pivotExcelDownload(jsnOptions);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='Pivot의 엑셀 다운로드 시 컬럼 너비 자동 조절 옵션 비교 예제입니다.&lt;br/&gt;pivotExcelDownload 호출 시 옵션 autoSizeColumn에 값을 지정하여 사용할 수 있습니다.&lt;br/&gt;지정값별 동작은 아래와 같습니다.&lt;br/&gt;- autoSizeColumn : "false" - (기본 설정) 너비 자동 맞춤을 수행하지 않음.&lt;br/&gt;- autoSizeColumn : "body" – 피벗의 Body를 기준으로 너비를 조정.&lt;br/&gt;- autoSizeColumn : "header" – 피벗의 Header를 기준으로 너비를 조정.'
+					style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mw600" id="" style="">
+				<xf:group class="dfbox" id="" style="">
+					<xf:trigger class="btn_exam_exec btn_txt_of"
+						ev:onclick="scwin.btn_ex1_onclick" id="btn_ex1" style=""
+						type="button">
+						<xf:label><![CDATA[엑셀 다운로드 - 옵션 미적용]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn_exam_exec btn_txt_of"
+						ev:onclick="scwin.btn_ex2_onclick" id="btn_ex2" style=""
+						type="button">
+						<xf:label><![CDATA[엑셀 다운로드 - Body 데이터의 길이를 기준으로 컬럼 너비 지정]]></xf:label>
+					</xf:trigger>
+					<xf:trigger class="btn_exam_exec btn_txt_of"
+						ev:onclick="scwin.btn_ex3_onclick" id="btn_ex3" style=""
+						type="button">
+						<xf:label><![CDATA[엑셀 다운로드 - Header 헤더의 길이를 기준으로 컬럼 너비 지정]]></xf:label>
+					</xf:trigger>
+				</xf:group>
+				<xf:group id="" style="overflow: auto;">
+					<w2:pivot sortFunction="" grandTotalName="구분" vals="value"
+						dataList="data:dlt_data" excludeHiddenList="code"
+						style="position: relative;height: 400px;" id="piv_ex01"
+						hiddenHeaderList="" rows="type,kind" cols="name"
+						valuesAxis="row">
+						<w2:fieldInfo>
+							<w2:field name="코드" id="code"></w2:field>
+							<w2:field name="도시명" id="name"></w2:field>
+							<w2:field name="구분" id="type"></w2:field>
+							<w2:field name="성별" id="kind"></w2:field>
+							<w2:field name="인원수" id="value"></w2:field>
+						</w2:fieldInfo>
+					</w2:pivot>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

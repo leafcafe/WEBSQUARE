@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230117]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList id="dlt_member" saveRemovedData="true">
+					<w2:columnInfo>
+						<w2:column id="EMP_CD" name="사번" dataType="number"></w2:column>
+						<w2:column id="EMP_NM" name="성명" dataType="text"></w2:column>
+						<w2:column id="SALARY" name="연봉" dataType="text"></w2:column>
+						<w2:column id="GENDER_CD" name="성별" dataType="text"></w2:column>
+						<w2:column id="POSITION_CD" name="직위" dataType="text"></w2:column>
+						<w2:column id="ROLE_CD" name="역할" dataType="text"></w2:column>
+						<w2:column id="group" name="소속" dataType="text"></w2:column>
+
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<EMP_CD><![CDATA[10001334]]></EMP_CD>
+							<EMP_NM><![CDATA[전성은]]></EMP_NM>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[퍼블리싱]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+
+							<SALARY><![CDATA[2900]]></SALARY>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001335]]></EMP_CD>
+							<EMP_NM><![CDATA[동세희]]></EMP_NM>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+
+							<POSITION_CD><![CDATA[부장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[디자인]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+
+							<SALARY><![CDATA[7400]]></SALARY>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001336]]></EMP_CD>
+							<EMP_NM><![CDATA[후혜선]]></EMP_NM>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+
+							<POSITION_CD><![CDATA[차장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[기획]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+
+							<SALARY><![CDATA[6400]]></SALARY>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001337]]></EMP_CD>
+							<EMP_NM><![CDATA[마정연]]></EMP_NM>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[개발]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+
+							<SALARY><![CDATA[3100]]></SALARY>
+						</w2:row>
+
+						<w2:row>
+							<EMP_CD><![CDATA[10001338]]></EMP_CD>
+							<EMP_NM><![CDATA[추효기]]></EMP_NM>
+							<SALARY><![CDATA[4100]]></SALARY>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<POSITION_CD><![CDATA[대리]]></POSITION_CD>
+							<ROLE_CD><![CDATA[퍼블리싱]]></ROLE_CD>
+							<group><![CDATA[지사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001339]]></EMP_CD>
+							<EMP_NM><![CDATA[최호재]]></EMP_NM>
+							<SALARY><![CDATA[5100]]></SALARY>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<POSITION_CD><![CDATA[과장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[디자인]]></ROLE_CD>
+							<group><![CDATA[지사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001340]]></EMP_CD>
+							<EMP_NM><![CDATA[전현자]]></EMP_NM>
+							<SALARY><![CDATA[3300]]></SALARY>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[기획]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001341]]></EMP_CD>
+							<EMP_NM><![CDATA[한경석]]></EMP_NM>
+							<SALARY><![CDATA[7200]]></SALARY>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<POSITION_CD><![CDATA[부장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[개발]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001342]]></EMP_CD>
+							<EMP_NM><![CDATA[문성혁]]></EMP_NM>
+							<SALARY><![CDATA[6200]]></SALARY>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<POSITION_CD><![CDATA[차장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[퍼블리싱]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001343]]></EMP_CD>
+							<EMP_NM><![CDATA[황춘수]]></EMP_NM>
+							<SALARY><![CDATA[2800]]></SALARY>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[디자인]]></ROLE_CD>
+							<group><![CDATA[지사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001344]]></EMP_CD>
+							<EMP_NM><![CDATA[유수근]]></EMP_NM>
+							<SALARY><![CDATA[3700]]></SALARY>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<POSITION_CD><![CDATA[대리]]></POSITION_CD>
+							<ROLE_CD><![CDATA[기획]]></ROLE_CD>
+							<group><![CDATA[지사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001345]]></EMP_CD>
+							<EMP_NM><![CDATA[강소원]]></EMP_NM>
+							<SALARY><![CDATA[5200]]></SALARY>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<POSITION_CD><![CDATA[과장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[개발]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001346]]></EMP_CD>
+							<EMP_NM><![CDATA[황현기]]></EMP_NM>
+							<SALARY><![CDATA[2800]]></SALARY>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[퍼블리싱]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001347]]></EMP_CD>
+							<EMP_NM><![CDATA[백천화]]></EMP_NM>
+							<SALARY><![CDATA[7200]]></SALARY>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<POSITION_CD><![CDATA[부장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[디자인]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001348]]></EMP_CD>
+							<EMP_NM><![CDATA[성예빈]]></EMP_NM>
+							<SALARY><![CDATA[6700]]></SALARY>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<POSITION_CD><![CDATA[차장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[기획]]></ROLE_CD>
+							<group><![CDATA[지사]]></group>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001349]]></EMP_CD>
+							<EMP_NM><![CDATA[탁세미]]></EMP_NM>
+							<SALARY><![CDATA[2800]]></SALARY>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[개발]]></ROLE_CD>
+							<group><![CDATA[지사]]></group>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+    
+};
+
+
+scwin.ongroupby = function (options) {
+    options.closeGroup = true;
+    options.groupbyHeader = [{
+        colSpan: "2",
+        inputType: "expression",
+        expression: "toggle() + depthStr() + ' [ ' + count() + ' 건 ] ' ",
+        align: "left"
+    },
+        { colSpan: "1", inputType: "text", value:"평균"},
+        { colSpan: "1", inputType: "expression", expression:"AVG('SALARY')", align: "right", displayFormat: "#,##0", displayFormatType: "number" }
+    ];
+    options.groupbyFooter = [
+        { colSpan: "2"},
+        { colSpan: "1", inputType: "text", value:"총합"},
+        { colSpan: "1", inputType: "expression", expression: "SUM('SALARY')", align: "right", displayFormat: "#,##0", displayFormatType: "number" }
+    ];
+    grd.groupby(options); //그룹핑 시작
+}]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="ws_example_grp_desc" id="" style="">
+    			<w2:textbox escape="false" id=""
+    				label='GridView의 group by 기능 예제입니다.&lt;br/&gt;group by 기능은 특정 컬럼들을 기준으로 컬럼 내의 같은 데이터를 그룹핑하여 표시하는 기능입니다.' style="">
+    			</w2:textbox>
+    		</xf:group>
+    		<xf:group class="example_div_tb_style_wrap" id="">
+    			<xf:group class="example_div_tr_style" id="" style="">
+    				<w2:textbox class="example_div_th_style" escape="false" id="" label="Grouping" style=""></w2:textbox>
+    				<xf:group class="example_div_td_style" id="" style="">
+    					<w2:textbox class="ws5_example_txt_normal" escape="false" id="" label="조작 방법&lt;br/&gt;- 분류할 컬럼을 그리드뷰 상단에 group by zone에 drag &amp; drop한다." style=""></w2:textbox>
+    					<w2:gridView class="wq_gvw" dataList="data:dlt_member" id="grd" style="height: 300px;" defaultCellHeight="24"
+    						ev:ongroupby="scwin.ongroupby" autoFitMinWidth="660" autoFit="allColumn" visibleRowNum="all" groupbyZone="true"
+    						groupbyFilterBox="false">
+    						<w2:caption style="" id="caption1" value="this is a grid caption."></w2:caption>
+    						<w2:header style="" id="header1">
+    							<w2:row style="" id="row1">
+    								<w2:column width="70" inputType="text" style="" id="column7" value="사번" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column6" value="성명" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column4" value="성별" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column5" value="연봉" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column3" value="직위" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column2" value="역할" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="column1" value="소속" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:header>
+    						<w2:gBody style="" id="gBody1">
+    							<w2:row style="" id="row2">
+    								<w2:column width="70" inputType="text" style="" id="EMP_CD" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="EMP_NM" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="GENDER_CD" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="SALARY" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="POSITION_CD" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="ROLE_CD" value="" displayMode="label"></w2:column>
+    								<w2:column width="70" inputType="text" style="" id="group" value="" displayMode="label"></w2:column>
+    							</w2:row>
+    						</w2:gBody>
+    					</w2:gridView>
+    				</xf:group>
+    			</xf:group>
+    		</xf:group>
+    	</xf:group>
+    </body>
+</html>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230127]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+				<w2:dataList id="dlt_gridView" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="number" id="EMP_CD" name="사번"></w2:column>
+						<w2:column dataType="text" id="EMP_NM" name="성명"></w2:column>
+						<w2:column dataType="text" id="GENDER_CD" name="성별"></w2:column>
+						<w2:column dataType="text" id="JOIN_DATE" name="입사일"></w2:column>
+						<w2:column dataType="text" id="POSITION_CD" name="직위"></w2:column>
+						<w2:column dataType="text" id="ROLE_CD" name="역할"></w2:column>
+						<w2:column dataType="text" id="group" name="소속"></w2:column>
+						<w2:column dataType="text" id="EMAIL" name="이메일"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<EMP_CD><![CDATA[10001334]]></EMP_CD>
+							<EMP_NM><![CDATA[전성은]]></EMP_NM>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<JOIN_DATE><![CDATA[20021201]]></JOIN_DATE>
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[퍼블리싱]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+							<EMAIL><![CDATA[piho888@inswave02.com]]></EMAIL>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001337]]></EMP_CD>
+							<EMP_NM><![CDATA[마정연]]></EMP_NM>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<JOIN_DATE><![CDATA[20120430]]></JOIN_DATE>
+							<POSITION_CD><![CDATA[사원]]></POSITION_CD>
+							<ROLE_CD><![CDATA[개발]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+							<EMAIL><![CDATA[zibe925@inswave02.com]]></EMAIL>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001336]]></EMP_CD>
+							<EMP_NM><![CDATA[후혜선]]></EMP_NM>
+							<GENDER_CD><![CDATA[남]]></GENDER_CD>
+							<JOIN_DATE><![CDATA[20060423]]></JOIN_DATE>
+							<POSITION_CD><![CDATA[차장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[기획]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+							<EMAIL><![CDATA[mewa036@inswave02.com]]></EMAIL>
+						</w2:row>
+						<w2:row>
+							<EMP_CD><![CDATA[10001335]]></EMP_CD>
+							<EMP_NM><![CDATA[동세희]]></EMP_NM>
+							<GENDER_CD><![CDATA[여]]></GENDER_CD>
+							<JOIN_DATE><![CDATA[20050401]]></JOIN_DATE>
+							<POSITION_CD><![CDATA[부장]]></POSITION_CD>
+							<ROLE_CD><![CDATA[디자인]]></ROLE_CD>
+							<group><![CDATA[본사]]></group>
+							<EMAIL><![CDATA[cane427@inswave02.com]]></EMAIL>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    // localStorage에 저장된 gridView의 초기 style 정보 가져오기
+    var grd_style = $p.local.getItem("init_grid");
+
+    // localStorage에 저장된 정보가 없는 경우 저장
+    if (grd_style == null) {
+        grd_style = grd_main.getCurrentGridStyle();
+        $p.local.setItem("init_grid", grd_style);
+    }
+};
+
+/**
+ * 영역 [GridView 개인화 샘플]의
+ * 입력 [btn_save]의 onclick 이벤트 함수
+ */
+scwin.btn_save_onclick = function (e) {
+    // 현재 gridView 스타일 정보 가져오기
+    var grd_style = grd_main.getCurrentGridStyle();
+
+    // localStorage에 gridView의 style 저장
+    $p.local.setItem("grd_style", grd_style);
+};
+
+/**
+ * 영역 [GridView 개인화 샘플]의
+ * 입력 [btn_load]의 onclick 이벤트 함수
+ */
+scwin.btn_load_onclick = function (e) {
+    // localStorage에 저장한 gridView 스타일 정보 가져오기
+    var grd_style = $p.local.getItem("grd_style");
+
+    // 현재 gridView의 style 정보 적용
+    grd_main.setGridStyle(grd_style);
+};
+
+/**
+ * 영역 [GridView 개인화 샘플]의
+ * 입력 [btn_clear]의 onclick 이벤트 함수
+ */
+scwin.btn_clear_onclick = function (e) {
+    // 초기 gridView의 style 정보를 저장한 정보 가져오기
+    var grd_style = $p.local.getItem("init_grid");
+
+    // 가져온 초기 gridView의 style 적용
+    grd_main.setGridStyle(grd_style);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label="GridView를 개인화 하는 예제입니다.&lt;br/&gt;GridView의 Style 정보를 읽고, localStorage를 활용해 저장하여 구현합니다.&lt;br/&gt;컬럼의 순서, 행렬 틀 고정, 컬럼 숨김, 컬럼 크기의 저장, 불러오기가 가능합니다."
+					style="margin-bottom: 10px;">
+				</w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap mb_def" id="" style="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false" id="" label="GridView 개인화 샘플" style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal" escape="false" id=""
+							label="GridView 개인화는 컬럼의 넓이, 컬럼 숨기기, 컬럼 이동에 관한 정보를 저장, 불러오기가 가능합니다.&lt;br/&gt;localStorage는 브라우저의 메모리를 사용하기 때문에 브라우저에 종속됩니다."
+							style=""></w2:textbox>
+						<xf:group class="ofh" id="" style="max-width: 700px;">
+							<xf:group class="fr mb_def_box nobottom" id="" style="">
+								<xf:trigger class="btn_exam_exec btn_txt_of" id="btn_save" style="margin-right:6px;" type="button"
+									tooltip="GridView 개인화 정보 저장" ev:onclick="scwin.btn_save_onclick">
+									<xf:label><![CDATA[저장]]></xf:label>
+								</xf:trigger>
+								<xf:trigger class="btn_exam_exec btn_txt_of" id="btn_load" style="" tooltip="GridView 개인화 정보 불러오기" type="button"
+									ev:onclick="scwin.btn_load_onclick">
+									<xf:label><![CDATA[불러오기]]></xf:label>
+								</xf:trigger>
+								<xf:trigger class="btn_exam_exec btn_txt_of" id="btn_clear" style="" tooltip="GridView 개인화 정보 삭제 및 초기화" type="button"
+									ev:onclick="scwin.btn_clear_onclick">
+									<xf:label><![CDATA[초기화]]></xf:label>
+								</xf:trigger>
+							</xf:group>
+						</xf:group>
+						<xf:group class="gvwbox" id="" style="">
+							<w2:gridView autoFit="none" autoFitMinWidth="660" class="wq_gvw" dataList="data:dlt_gridView" defaultCellHeight="24"
+								id="grd_main" style="height: 100px;" visibleRowNum="5" contextMenu="true" columnMove="true" useFilterList="false">
+								<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+								<w2:header id="header2" style="">
+									<w2:row id="row3" style="">
+										<w2:column displayMode="label" id="column16" inputType="text" value="사번" width="70"></w2:column>
+										<w2:column displayMode="label" id="column15" inputType="text" value="성명" width="70"></w2:column>
+										<w2:column displayMode="label" id="column14" inputType="text" value="성별" width="60" useFilter="false">
+										</w2:column>
+										<w2:column displayMode="label" id="column13" inputType="text" value="입사일" width="76"></w2:column>
+										<w2:column displayMode="label" id="column12" inputType="text" value="직위" width="70"></w2:column>
+										<w2:column displayMode="label" id="column11" inputType="text" value="역할" width="70"></w2:column>
+										<w2:column displayMode="label" id="column10" inputType="text" value="소속" width="70"></w2:column>
+										<w2:column displayMode="label" id="column9" inputType="text" value="이메일" width="175"></w2:column>
+									</w2:row>
+								</w2:header>
+								<w2:gBody id="gBody2" style="">
+									<w2:row id="row4" style="">
+										<w2:column displayMode="label" id="EMP_CD" inputType="text" width="70"></w2:column>
+										<w2:column displayMode="label" id="EMP_NM" inputType="text" width="70"></w2:column>
+										<w2:column displayMode="label" id="GENDER_CD" inputType="text" value="" width="60"></w2:column>
+										<w2:column dataType="date" displayFormat="yyyy-MM-dd" displayMode="label" id="JOIN_DATE" inputType="text" value=""
+											width="76">
+										</w2:column>
+										<w2:column displayMode="label" id="POSITION_CD" inputType="text" width="70"></w2:column>
+										<w2:column displayMode="label" id="ROLE_CD" inputType="text" width="70"></w2:column>
+										<w2:column displayMode="label" id="group" inputType="text" width="70"></w2:column>
+										<w2:column displayMode="label" id="EMAIL" inputType="text" textAlign="left" width="175"></w2:column>
+									</w2:row>
+								</w2:gBody>
+							</w2:gridView>
+						</xf:group>
+
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

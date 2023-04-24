@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ev="http://www.w3.org/2001/xml-events"
+    xmlns:w2="http://www.inswave.com/websquare" xmlns:xf="http://www.w3.org/2002/xforms">
+    <head>
+    	<w2:type>COMPONENT</w2:type>
+    	<w2:buildDate />
+    	<w2:MSA />
+    	<xf:model>
+    		<w2:dataCollection baseNode="map">
+    			<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+    				<w2:columnInfo>
+    					<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+    					<w2:column dataType="text" id="version" name="버전"></w2:column>
+    					<w2:column dataType="text" id="description" name="설명"></w2:column>
+    					<w2:column dataType="text" id="author" name="작성인"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data use="true">
+    					<w2:row>
+    						<updated_date><![CDATA[20220706]]></updated_date>
+    						<version><![CDATA[01]]></version>
+    						<description><![CDATA[최초작성]]></description>
+    						<author><![CDATA[InswaveSystems]]></author>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    			<w2:dataList id="dlt_ExcelData">
+    				<w2:columnInfo>
+    					<w2:column id="type" name="type" dataType="text"></w2:column>
+    					<w2:column id="Money" name="Money" dataType="text"></w2:column>
+    					<w2:column id="manufacturer" name="manufacturer" dataType="text"></w2:column>
+    					<w2:column id="Trading" name="Trading" dataType="text"></w2:column>
+    					<w2:column id="Market" name="Market" dataType="text"></w2:column>
+    					<w2:column id="Inputdate" name="Inputdate" dataType="text"></w2:column>
+    					<w2:column id="picture" name="picture" dataType="text"></w2:column>
+    				</w2:columnInfo>
+    				<w2:data xmlns="" use="true">
+    					<w2:row>
+    						<type><![CDATA[체리마루]]></type>
+    						<Money><![CDATA[3000]]></Money>
+    						<manufacturer><![CDATA[해태]]></manufacturer>
+    						<Trading><![CDATA[15]]></Trading>
+    						<Market><![CDATA[Mart]]></Market>
+    						<Inputdate><![CDATA[20180314]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/cherry.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[쿠&쿠]]></type>
+    						<Money><![CDATA[5000]]></Money>
+    						<manufacturer><![CDATA[빙그레]]></manufacturer>
+    						<Trading><![CDATA[10]]></Trading>
+    						<Market><![CDATA[Mart]]></Market>
+    						<Inputdate><![CDATA[20180314]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/cooandcoo.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[엑셀런트]]></type>
+    						<Money><![CDATA[5900]]></Money>
+    						<manufacturer><![CDATA[빙그레]]></manufacturer>
+    						<Trading><![CDATA[7]]></Trading>
+    						<Market><![CDATA[Mart]]></Market>
+    						<Inputdate><![CDATA[20180315]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/excelent.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[구구스타]]></type>
+    						<Money><![CDATA[3500]]></Money>
+    						<manufacturer><![CDATA[롯데]]></manufacturer>
+    						<Trading><![CDATA[5]]></Trading>
+    						<Market><![CDATA[Mart]]></Market>
+    						<Inputdate><![CDATA[20180315]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/googoo.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[누가바]]></type>
+    						<Money><![CDATA[3000]]></Money>
+    						<manufacturer><![CDATA[해태]]></manufacturer>
+    						<Trading><![CDATA[3]]></Trading>
+    						<Market><![CDATA[Department]]></Market>
+    						<Inputdate><![CDATA[20180316]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/nuga.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[돼지바]]></type>
+    						<Money><![CDATA[3000]]></Money>
+    						<manufacturer><![CDATA[롯데]]></manufacturer>
+    						<Trading><![CDATA[12]]></Trading>
+    						<Market><![CDATA[Department]]></Market>
+    						<Inputdate><![CDATA[20180316]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/pig.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[셀렉션]]></type>
+    						<Money><![CDATA[4000]]></Money>
+    						<manufacturer><![CDATA[롯데]]></manufacturer>
+    						<Trading><![CDATA[5]]></Trading>
+    						<Market><![CDATA[Department]]></Market>
+    						<Inputdate><![CDATA[20180317]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/selection.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[붕어싸만코]]></type>
+    						<Money><![CDATA[5000]]></Money>
+    						<manufacturer><![CDATA[빙그레]]></manufacturer>
+    						<Trading><![CDATA[15]]></Trading>
+    						<Market><![CDATA[supermarket]]></Market>
+    						<Inputdate><![CDATA[20180317]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/ssmanko.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[투게더]]></type>
+    						<Money><![CDATA[5000]]></Money>
+    						<manufacturer><![CDATA[빙그레]]></manufacturer>
+    						<Trading><![CDATA[3]]></Trading>
+    						<Market><![CDATA[supermarket]]></Market>
+    						<Inputdate><![CDATA[20180318]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/together.png]]></picture>
+    					</w2:row>
+    					<w2:row>
+    						<type><![CDATA[호두마루]]></type>
+    						<Money><![CDATA[3000]]></Money>
+    						<manufacturer><![CDATA[해태]]></manufacturer>
+    						<Trading><![CDATA[23]]></Trading>
+    						<Market><![CDATA[supermarket]]></Market>
+    						<Inputdate><![CDATA[20180318]]></Inputdate>
+    						<picture><![CDATA[/img/example/icecream/walnut.png]]></picture>
+    					</w2:row>
+    				</w2:data>
+    			</w2:dataList>
+    		</w2:dataCollection>
+    		<w2:workflowCollection />
+    		<xf:submission id="sbm" ref="" target="data:json,dlt_ExcelData" action="/ws5/sample/data/excelImg.json" method="post"
+    			mediatype="application/json" encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous"
+    			processMsg="" ev:submit="" ev:submitdone="scwin.sbm_submitdone" ev:submiterror="" abortTrigger="">
+    		</xf:submission>
+    	</xf:model>
+    	<w2:layoutInfo />
+    	<w2:publicInfo method="" />
+    	<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function() {
+	
+};
+
+/**
+ * [이미지 포함 엑셀 다운로드] 버튼 클릭 시
+ */
+scwin.btn_excel_onclick = function(e) {
+    /*
+    websquare_home -> config -> websquare.xml
+
+    <websquare>
+        <excel>
+            <download>
+                <baseDir value="서비스 기준경로(ROOT)" />
+            
+                <!--  예)
+                    <baseDir value="C:\WRM\WORKSPACE\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps" />
+                    <baseDir value="C:\WRM\WORKSPACE\ws5\WebContent"/>   --> 이와같은 실제 wtp서버가 아닌 로컬경로는 넣으면 안된다. 이유는
+                -->
+            </download>
+        </excel>
+        
+        .....
+    </websquare>
+    
+    
+    ※주의사항 : 
+    1) 대용량에서는 적합하지 않으므로 사용하지 않는다.
+    2) 이미지 경로가 was 서버에 존재해야 다운로드 할 수 있다.      
+       이클립스의 wtp서버가 아닌 로컬파일의 경로(C:\WRM\WORKSPACE\ws5\WebContent)가 아닌 wtp서버의 경로를 넣어야 한다.
+       로컬파일의 경로를 넣을 경우, 웹스퀘어 화면에서 이미지 업로드후 다운로드받을 때 새로고침을 하지 않으면 실제로 업로드가 됐다고 인식하지 않아서 이미지를 내려받을 수 없다.
+       그러므로 로컬에서 테스트할 때는 wtp서버의 경로를 넣는 것이 바람직하다.
+    
+    */
+    
+    var options = {};
+    options.fileName = "ExcelImgDownload.xlsx";
+    options.headerRowHeight = 40;     // [필수] header 높이 
+    options.rowHeight = "50";         // [필수] body 높이 
+    options.useImage = "true";        // [필수] inputType="image"인 경우 이미지 다운로드 사용
+    
+    grd_Excel.advancedExcelDownload( options );
+};]]></script>
+    </head>
+    <body ev:onpageload="scwin.onpageload">
+    	<xf:group class="sub_contents" id="" style="">
+    		<xf:group class="mb_def tar" id="" style="">
+    			<xf:trigger class="btn_cm" ev:onclick="scwin.btn_excel_onclick" id="btn_excel" style="" type="button">
+    				<xf:label><![CDATA[이미지 포함 엑셀 다운로드]]></xf:label>
+    			</xf:trigger>
+    		</xf:group>
+    		<w2:gridView autoFit="allColumn" class="wq_gvw mb_def" copyOption="display" dataDragSelect="true" dataList="data:dlt_ExcelData"
+    			defaultCellHeight="30" dragStartFunction="" ev:oncellclick="" ev:oneditend="" ev:onfilereadend="scwin.grd_Excel_onfilereadend"
+    			fixedColumnWithHidden="true" focusFlow="" focusMode="" id="grd_Excel" ignoreCellClick="false" ignoreToggleOnDisabled="false"
+    			rowNumHeaderValue="No" rowNumStatusResize="" rowNumVisible="false" rowNumWidth="30" rowStatusHeaderValue="" scrollByColumn="false"
+    			scrollByColumnAdaptive="false" style="height:100px;" summaryAuto="false" tooltipFormatter="" useShiftKey="true" visibleRowNum="15">
+    			<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
+    			<w2:header id="header2" style="">
+    				<w2:row id="row3" style="">
+    					<w2:column blockSelect="false" displayMode="label" id="column37" inputType="text" style="" value="사진" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column35" inputType="text" style="" value="종류" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column33" inputType="text" style="" value="가격" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column31" inputType="text" style="" value="제조사" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column29" inputType="text" style="" value="거래량" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column27" inputType="text" style="" value="시장" width="70"></w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="column25" inputType="text" style="" value="기준일" width="70"></w2:column>
+    				</w2:row>
+    			</w2:header>
+    			<w2:gBody id="gBody2" style="">
+    				<w2:row id="row4" style="">
+    					<w2:column blockSelect="false" displayMode="label" id="picture" imageHeight="30" imageWidth="30" inputType="image"
+    						style="" value="" width="70">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="type" inputType="text" style="" textAlign="left" value=""
+    						width="70">
+    					</w2:column>
+    					<w2:column blockSelect="false" dataType="number" displayFormat="#,###" displayMode="label" id="Money"
+    						inputType="text" style="" textAlign="right" value="" width="70">
+    					</w2:column>
+    					<w2:column blockSelect="false" dataType="text" displayFormat="" displayMode="label" id="manufacturer"
+    						inputType="text" style="" textAlign="center" value="" width="70">
+    					</w2:column>
+    					<w2:column blockSelect="false" displayMode="label" id="Trading" inputType="text" style="" textAlign="right" value=""
+    						width="70">
+    					</w2:column>
+    					<w2:column blockSelect="false" dataType="text" displayFormat="" displayMode="label" id="Market" inputType="text"
+    						style="" textAlign="center" value="" width="70">
+    					</w2:column>
+    					<w2:column blockSelect="false" dataType="date" displayFormat="yyyy-MM-dd" displayMode="label" id="Inputdate"
+    						inputType="text" style="" value="" width="70">
+    					</w2:column>
+    				</w2:row>
+    			</w2:gBody>
+    		</w2:gridView>
+    	</xf:group>
+    </body>
+</html>

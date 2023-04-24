@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history"
+					repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date"
+							name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20230206]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+    ica_exam_2.setValue("2020-11-30 12:12:12");
+};
+
+// trigger1 버튼의 onClick 함수
+scwin.trigger1_onclick = function (e) {
+    let options = {
+        ioFormat: "MMddyyyy", // Date input format 날짜 입력 순서
+        displayFormat: "MM-dd-yyyy", // Date display in input box 입력란에 표시되는 날짜 순서
+        calendarDisplayFormat: "yyyy(Y) - MM(M) - dd(D)" // Date display on Calendar 달력에 표시되는 날짜 순서
+    };
+
+    // InputCalendar의 날짜 표시형식을 지정한다.
+    ica_exam_2.setIoFormat(options);
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label='InputCalendar의 날짜 입력 형식, 입력란의 날짜 출력 형식, 달력의 날짜 출력 형식에 관한 예제입니다.'
+					style="margin-bottom: 10px;"></w2:textbox>
+			</xf:group>
+			<xf:group class="example_div_tb_style_wrap" id="">
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id=""
+						label='(속성 기본) ioFormat = "", displayFormat = "", calendarDisplayFormat = ""'
+						style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='기본 포맷으로 입, 출력 형태는 yyyyMMdd 이다.' style="">
+						</w2:textbox>
+						<w2:inputCalendar calendarValueType="yearMonthDate"
+							focusOnDateSelect="false" id="ica_exam_1"
+							rightAlign="false"
+							style="width:100px;min-height: 24px;"
+							renderDiv="true" class="mr_def">
+						</w2:inputCalendar>
+					</xf:group>
+				</xf:group>
+				<xf:group class="example_div_tr_style" id="" style="">
+					<w2:textbox class="example_div_th_style" escape="false"
+						id=""
+						label='(속성 변경) ioFormat = "MMddyyyy", displayFormat = "MM-dd-yyyy", calendarDisplayFormat = "yyyy(Y) - MM(M) - dd(D)"'
+						style=""></w2:textbox>
+					<xf:group class="example_div_td_style" id="" style="">
+						<w2:textbox class="ws5_example_txt_normal"
+							escape="false" id=""
+							label='setIoFormat버튼을 클릭 시 입, 출력 형태가 MMddyyyy로 바뀐다.'
+							style="">
+						</w2:textbox>
+						<!-- inputCalendar 의 소스 본문 예시 -->
+						<w2:inputCalendar calendarValueType="yearMonthDate"
+							focusOnDateSelect="false" id="ica_exam_2"
+							rightAlign="false"
+							style="width:100px;min-height: 24px;"
+							renderDiv="true" class="mr_def" dayMoveFixed="true">
+						</w2:inputCalendar>
+						<xf:trigger class="btn_exam_exec"
+							ev:onclick="scwin.trigger1_onclick" id="trigger1"
+							localeRef=""
+							style="min-width: 30px;height: 26px;" type=""
+							useDefaultLabel="true">
+							<xf:label><![CDATA[setIoFormat]]></xf:label>
+						</xf:trigger>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>

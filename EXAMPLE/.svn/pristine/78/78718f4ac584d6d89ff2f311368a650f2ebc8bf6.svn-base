@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:w2="http://www.inswave.com/websquare"
+	xmlns:xf="http://www.w3.org/2002/xforms">
+	<head>
+		<w2:type>COMPONENT</w2:type>
+		<w2:buildDate />
+		<w2:MSA />
+		<xf:model>
+			<w2:dataCollection baseNode="map">
+				<w2:dataList baseNode="list" id="dlt_page_history" repeatNode="map" saveRemovedData="true" style="">
+					<w2:columnInfo>
+						<w2:column dataType="text" id="updated_date" name="업데이트 날짜"></w2:column>
+						<w2:column dataType="text" id="version" name="버전"></w2:column>
+						<w2:column dataType="text" id="description" name="설명"></w2:column>
+						<w2:column dataType="text" id="author" name="작성인"></w2:column>
+					</w2:columnInfo>
+					<w2:data use="true">
+						<w2:row>
+							<updated_date><![CDATA[20220428]]></updated_date>
+							<version><![CDATA[01]]></version>
+							<description><![CDATA[최초작성]]></description>
+							<author><![CDATA[InswaveSystems]]></author>
+						</w2:row>
+					</w2:data>
+				</w2:dataList>
+			</w2:dataCollection>
+			<w2:workflowCollection />
+		</xf:model>
+		<w2:layoutInfo />
+		<w2:publicInfo method="" />
+		<script lazy="false" type="text/javascript"><![CDATA[
+scwin.onpageload = function () {
+
+};
+]]></script>
+	</head>
+	<body ev:onpageload="scwin.onpageload">
+		<xf:group class="sub_contents" id="" style="">
+			<xf:group class="ws_example_grp_desc" id="" style="">
+				<w2:textbox escape="false" id=""
+					label="웹스퀘어는 기본적으로 HTML Tag를 화면 본문에 직접 삽입하여 사용하는 방법도 가능하지만 Data 연동 등의 편의를 위하여 웹스퀘어 기본 컴포넌트에서 지원하지 않는 기타 HTML Tag (ul, li 등)에 대해 Tag, Group, Textbox 컴포넌트의 tagname 속성 및 html attribute 속성을 이용하여 지원하고 있습니다.&lt;br/&gt;이 화면은 HTML Tag 사용 예시입니다."
+					style="">
+				</w2:textbox>
+				<w2:textbox class="ws_example_txt_desc_info" escape="false" id="" label="이 예제는 시연용 예제로 예제 가이드 문서가 포함되어 있지 않습니다." style="">
+				</w2:textbox>
+			</xf:group>
+			<xf:group id="" class="tbbox" adaptive="layout" adaptiveThreshold="800">
+				<xf:group tagname="table" style="width:100%;" id="" class="w2tb tb type3">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="caption"></xf:group>
+					<xf:group tagname="colgroup">
+						<xf:group tagname="col" style="width:100.00%;"></xf:group>
+					</xf:group>
+					<xf:group tagname="thead">
+						<xf:group tagname="tr" style="">
+							<xf:group tagname="th" style="" class="w2tb_th">
+								Group&amp;nbsp;-&amp;nbsp;tagname&amp;nbsp;속성&amp;nbsp;:&amp;nbsp;ul
+								<br></br>
+								ex)&amp;nbsp;&amp;lt;xf:group&amp;nbsp;id=&quot;&quot;&amp;nbsp;&lt;span&amp;nbsp;style=&quot;font-weight:bold;&quot;&gt;tagname=&quot;ul&quot;&lt;/span&gt;&amp;nbsp;&amp;gt;
+								<br></br>
+								Textbox&amp;nbsp;-&amp;nbsp;tagname&amp;nbsp;속성&amp;nbsp;:&amp;nbsp;li
+								<br></br>
+								ex)&amp;nbsp;&amp;lt;w2:textbox&amp;nbsp;id=&quot;&quot;&amp;nbsp;&lt;span&amp;nbsp;style=&quot;font-weight:bold;&quot;&gt;tagname=&quot;li&quot;&lt;/span&gt;&amp;nbsp;&amp;gt;
+								<w2:attributes>
+									<w2:scope>col</w2:scope>
+								</w2:attributes>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group tagname="tbody">
+						<xf:group tagname="tr">
+							<xf:group tagname="td" style="" class="w2tb_td">
+								<xf:group tagname="ul" style="" id="" class="">
+									<w2:textbox tagname="li" style="" id="" label="List 항목 01"></w2:textbox>
+									<w2:textbox tagname="li" style="" id="" label="List 항목 02"></w2:textbox>
+									<w2:textbox tagname="li" style="" id="" label="List 항목 03"></w2:textbox>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group id="" class="tbbox" adaptive="layout" adaptiveThreshold="800">
+				<xf:group tagname="table" style="width:100%;" id="" class="w2tb tb type3">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="caption"></xf:group>
+					<xf:group tagname="colgroup">
+						<xf:group tagname="col" style="width:100.00%;"></xf:group>
+					</xf:group>
+					<xf:group tagname="thead">
+						<xf:group tagname="tr" style="">
+							<xf:group tagname="th" style="" class="w2tb_th">
+								Group&amp;nbsp;-&amp;nbsp;tagname&amp;nbsp;속성&amp;nbsp;:&amp;nbsp;dl
+								<br></br>
+								Textbox&amp;nbsp;-&amp;nbsp;tagname&amp;nbsp;속성&amp;nbsp;:&amp;nbsp;dt&amp;nbsp;,&amp;nbsp;dd
+								<w2:attributes>
+									<w2:scope>col</w2:scope>
+								</w2:attributes>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group tagname="tbody">
+						<xf:group tagname="tr">
+							<xf:group tagname="td" style="" class="w2tb_td">
+								<xf:group tagname="dl" style="" id="" class="">
+									<w2:textbox tagname="dt" style="" id="" label="웹스퀘어란">
+									</w2:textbox>
+									<w2:textbox tagname="dd" style="" id=""
+										label="WebSquare는 차세대 웹표준인 HTML5를 지원하는 SW로, 국내 최초의 WYSIWYG 개발도구가 포함된 웹 표준 RIA 제품이다.">
+									</w2:textbox>
+									<w2:textbox tagname="dt" style="" id="" label="웹스퀘어 특징">
+									</w2:textbox>
+									<w2:textbox tagname="dd" style="" id=""
+										label="웹표준을 준수하는 범용 브라우저에서 별도의 실행환경 설치 없이 하나의 웹 어플리케이션이 동일하게 동작하도록 하는 크로스 브라우징을 지원하며, OS나 이기종 플랫폼과 상관없이 웹표준 브라우저가 탑재된 어떠한 플랫폼에서도 동일하게 동작하는 크로스 플랫폼을 지원한다.">
+									</w2:textbox>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+			<xf:group id="" class="tbbox" adaptive="layout" adaptiveThreshold="800">
+				<xf:group tagname="table" style="width:100%;" id="" class="w2tb tb type3">
+					<w2:attributes>
+						<w2:summary></w2:summary>
+					</w2:attributes>
+					<xf:group tagname="caption"></xf:group>
+					<xf:group tagname="colgroup">
+						<xf:group tagname="col" style="width:100.00%;"></xf:group>
+					</xf:group>
+					<xf:group tagname="thead">
+						<xf:group tagname="tr" style="">
+							<xf:group tagname="th" style="text-align: left;" class="w2tb_th">
+								HTML&amp;nbsp;코드&amp;nbsp;하드코딩
+								<w2:attributes>
+									<w2:scope>col</w2:scope>
+								</w2:attributes>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+					<xf:group tagname="tbody">
+						<xf:group tagname="tr">
+							<xf:group tagname="td" style="" class="w2tb_td">
+								<xf:group tagname="" style="" id="" class="">
+									<h1>HTML</h1>
+									<h2>개발</h2>
+									<p>
+										1980년, 유럽 입자 물리 연구소(CERN)의 계약자였었던 물리학자 팀 버너스리가 HTML의 원형인 인콰이어를 제안하였다. 인콰이어는 CERN의 연구원들이 문서를 이용하고 공유하기 위한
+										체계였다. 1989년에 팀 버너스리는 인터넷 기반 하이퍼텍스트 체계를 제안하는 메모를 작성했다.[2] 버너스 리는 1990년 말에 HTML을 명시하고, 브라우저와 서버 소프트웨어를
+										작성했다. 그 해에 버너스리와 CERN 데이터 시스템 엔지니어 로버트 카일리아우와 함께 CERN측에 자금 지원을 요청하였지만, 이 프로젝트는 CERN으로부터 정식으로 채택 받지 못했다.
+										버너스리의 개인적인 기록 [3] 에 1990년부터 &quot;하이퍼텍스트가 사용되는 여러 분야의 일부&quot;를 열거했고 백과사전을 그 목록의 첫 번째로 두었다.
+									</p>
+									<h2>최초 규격</h2>
+									<p>
+										HTML 최초의 일반 공개 설명은 1991년 말에 버너스리가 처음으로 인터넷에서 문서를 &quot;HTML 태그&quot;(HTML tag)로 부르면서 시작되었다.[4][5]
+										<br></br>
+										그것은 머릿글자로 이루어진 20개의 요소를 기술하였고, 상대적으로 HTML의 단순한 디자인이었다. 하이퍼링크를 제외한 HTML 태그들은 CERN 자체의 SGML 기반 문서화 포맷인
+										SGML GUID에 강하게 영향을 받았다. 이 요소의 13개는 HTML 4 버전에서도 여전히 존재한다.[6]
+										<br></br>
+										HTML은 동적인 웹 페이지의 웹 브라우저를 통한 문자와 이미지 양식이다. 문자 요소의 대부분은 1988년 ISO 기술 보고서 9537 SGML을 이용한 기법에서 찾을 수 있다. 하지만
+										SGML 개념의 일반적인 마크업은 단지 개별 효과 보다는 요소 기반이고 또한 구조와 처리의 분리(?)(HTML은 CSS와 함께 이 방향으로 점진적으로 이동해 왔다.)
+										<br></br>
+										버너스리는 SGML 응용 프로그램이 되는 HTML을 고안해야 했고 그것은 공식적으로 IETF(국제 인터넷 표준화 기구)에 의하여 1993년 중반, HTML 규격에 대한 최초의 제안을
+										간행물로 정의했다. (버너스리와 덴 콘놀리에 의한 문법을 규정하는 SGML 문서 형식 정의(SGML DTD)가 포함된 &quot;하이퍼텍스트 마크업 언어(HTML)&quot; 인터넷
+										초안[7]) 이 초안은 6개월 후 만료된다. 하지만 NCSA 모자이크 브라우저의 인라인 이미지를 내장하는 사용자 정의 태그의 사례는 주목할 만 했고, 성공적인 프로토타입에 대한 표준을
+										기반한 IETF의 철학을. [8] 마찬가지로 데이브 라그렛의 경쟁 인터넷 초안인 &quot;HTML+ (하이퍼텍스트 마크업 포맷)&quot;은 1993년 말에 테이블과 기입양식 같은
+										요소들을 이미 구현하여 표준화 제안을 했다.[9]
+									</p>
+								</xf:group>
+							</xf:group>
+						</xf:group>
+					</xf:group>
+				</xf:group>
+			</xf:group>
+		</xf:group>
+	</body>
+</html>
