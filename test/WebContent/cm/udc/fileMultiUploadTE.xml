@@ -283,6 +283,12 @@ scwin.customFormatterFileNm = function(data, formattedData, rowIndex, colIndex) 
     }
 };
 
+scwin.fileDownload = function(fileSeq) {
+    if(com.util.isEmpty(fileSeq)) return;
+    var url = gcm.CONTEXT_PATH + gcm.FILE_DOWNLOAD_URL +  fileSeq;
+    $p.download(url,null,"GET");
+}
+
 /**
  * 현재 업로드된 파일 정보를 반환한다.
  */
@@ -421,12 +427,11 @@ scwin.dlt_file_ondataload = function() {
     }
 };
 
-scwin.mpd_multiFileUpload_ondone = function(data) {
+scwin.mpd_multiFileUpload_ondone = async function(data) {
 
     var newFileCount = data.length;
 
     dlt_file.setBroadcast(false);
-    var deniedFileNms = [];
     for (var fileIdx = 0; fileIdx < newFileCount; fileIdx++) {
         
         var deniedCode = data[fileIdx].deniedCode;
@@ -439,7 +444,7 @@ scwin.mpd_multiFileUpload_ondone = function(data) {
             if(fileInfo.rowStatus !== "C") continue;
 
             if(!com.util.isEmpty(deniedCode)) {
-                deniedFileNms.push(uploadFileNm);
+                await com.win.alert("\"" +uploadFileNm + "\"은 업로드 할수없는 파일입니다.",null,{modal:true});
                 dlt_file.deleteRow(rowIdx);
             } else {
                dlt_file.setCellData(rowIdx[idx], "STORED_FILE_NM", data[fileIdx].file);
@@ -448,10 +453,6 @@ scwin.mpd_multiFileUpload_ondone = function(data) {
         
     }
     dlt_file.setBroadcast(true, true);
-
-    if(deniedFileNms.length > 0) {
-        com.win.alert("\"" + deniedFileNms.toString() + "\"은 업로드 할수없는 파일입니다.",null,{modal:true});
-    }
 
     com.sbm.execute(sbm_saveUploadList);
 };
@@ -488,6 +489,15 @@ scwin.btn_fileDelete_onclick = function(e) {
  * @param {number} dataSeq 저장된 DATA_SEQ 
  * @example 
  */ 
+
+scwin.grd_file_oncelldblclick = function(row,col,colId) {
+
+    if(colId == "FILE_UPLOAD_DATE") {
+        var fileSeq = dlt_file.getCellData(row, "FILE_SEQ");
+        scwin.fileDownload(fileSeq);
+    }
+
+};
 ]]></script>
     </head>
     <body ev:onpageload="scwin.onpageload">
@@ -513,7 +523,7 @@ scwin.btn_fileDelete_onclick = function(e) {
     			<w2:gridView autoFit="allColumn" autoFitMinWidth="200" checkReadOnlyOnPasteEnable="" class="wq_gvw multi_file"
     				dataList="data:dlt_file" defaultCellHeight="26" focusMode="row" id="grd_file" rowStatusHeaderValue="상태" rowStatusVisible="false"
     				rowStatusWidth="50" scrollByColumn="false" scrollByColumnAdaptive="false" sortable="true" style="height:150px;" visibleRowNum="10"
-    				wheelRows="0">
+    				wheelRows="0" ev:oncelldblclick="scwin.grd_file_oncelldblclick">
     				<w2:caption id="caption2" style="" value="this is a grid caption."></w2:caption>
     				<w2:header id="header2" style="">
     					<w2:row id="row3" style="">
@@ -551,6 +561,7 @@ scwin.btn_fileDelete_onclick = function(e) {
     				</w2:gBody>
     			</w2:gridView>
     		</xf:group>
+    		<w2:iframe src="" style=";display:none;" id="iframe_fileDownload"></w2:iframe>
     	</xf:group>
     </body>
 </html>

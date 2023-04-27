@@ -1,4 +1,4 @@
-/*amd /cm/udc/fileMultiUploadTE.xml 19278 72e4a1a79106213a50073ea609f566fd497d9c89d132bab01b69900854a2f32b */
+/*amd /cm/udc/fileMultiUploadTE.xml 19688 924b4fde9ad83d319ded094799fc84c6ead98e2e68e0f133de31bee552b511ee */
 define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',A:{palette:'support'},E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',id:'dlt_file',repeatNode:'map',saveRemovedData:'true','ev:ondataload':'scwin.dlt_file_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'',dataType:'text',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'FILE_SEQ',name:'파일번호',dataType:'number'}},{T:1,N:'w2:column',A:{id:'DATA_SEQ',name:'데이터번호',dataType:'number',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'FILE_GRP_SEQ',name:'파일그룹코드',dataType:'number'}},{T:1,N:'w2:column',A:{id:'FILE_STORED_PATH',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'STORED_FILE_NM',name:'저장파일명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ORIGIN_FILE_NM',name:'원본파일명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'FILE_SIZE',name:'파일크기',dataType:'number',length:''}},{T:1,N:'w2:column',A:{id:'FILE_UPLOAD_DATE',name:'파일업로드일자',dataType:'date'}},{T:1,N:'w2:column',A:{id:'IS_DELETE',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'status',name:'파일전송결과',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_searchCond'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'DATA_SEQ',name:'DATA_SEQ',dataType:'number'}},{T:1,N:'w2:key',A:{id:'IS_DELETE',name:'IS_DELETE',dataType:'text',defaultValue:'N'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_searchUploadList',ref:'data:json,{"id":"dma_searchCond","key":"dma_search"}',target:'data:json,{"id":"dlt_file","key":"dlt_file"}',action:'/file/selectFile',method:'post',mediatype:'application/json',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_searchUploadList_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_saveUploadList',ref:'data:json,{"action":"all","id":"dlt_file","key":"dlt_file"}',target:'data:json,{"id":"dlt_file","key":"dlt_file"}',action:'/file/saveFile',method:'post',mediatype:'application/json',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:'scwin.searchUploadList'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){
 /**
  * @component
@@ -238,6 +238,12 @@ scwin.customFormatterFileNm = function(data, formattedData, rowIndex, colIndex) 
     }
 };
 
+scwin.fileDownload = function(fileSeq) {
+    if(com.util.isEmpty(fileSeq)) return;
+    var url = gcm.CONTEXT_PATH + gcm.FILE_DOWNLOAD_URL +  fileSeq;
+    $p.download(url,null,"GET");
+}
+
 /**
  * 현재 업로드된 파일 정보를 반환한다.
  */
@@ -376,12 +382,11 @@ scwin.dlt_file_ondataload = function() {
     }
 };
 
-scwin.mpd_multiFileUpload_ondone = function(data) {
+scwin.mpd_multiFileUpload_ondone = async function(data) {
 
     var newFileCount = data.length;
 
     dlt_file.setBroadcast(false);
-    var deniedFileNms = [];
     for (var fileIdx = 0; fileIdx < newFileCount; fileIdx++) {
         
         var deniedCode = data[fileIdx].deniedCode;
@@ -394,7 +399,7 @@ scwin.mpd_multiFileUpload_ondone = function(data) {
             if(fileInfo.rowStatus !== "C") continue;
 
             if(!com.util.isEmpty(deniedCode)) {
-                deniedFileNms.push(uploadFileNm);
+                await com.win.alert("\"" +uploadFileNm + "\"은 업로드 할수없는 파일입니다.",null,{modal:true});
                 dlt_file.deleteRow(rowIdx);
             } else {
                dlt_file.setCellData(rowIdx[idx], "STORED_FILE_NM", data[fileIdx].file);
@@ -403,10 +408,6 @@ scwin.mpd_multiFileUpload_ondone = function(data) {
         
     }
     dlt_file.setBroadcast(true, true);
-
-    if(deniedFileNms.length > 0) {
-        com.win.alert("\"" + deniedFileNms.toString() + "\"은 업로드 할수없는 파일입니다.",null,{modal:true});
-    }
 
     com.sbm.execute(sbm_saveUploadList);
 };
@@ -444,4 +445,13 @@ scwin.btn_fileDelete_onclick = function(e) {
  * @example 
  */ 
 
-}}}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{style:'',id:''},E:[{T:1,N:'xf:group',A:{class:'dfbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'fl',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'btn_cm row_add',for:'mpd_multiFileUpload',id:'btn_fileSelecting',label:'추가',style:''}},{T:1,N:'w2:multiupload',A:{class:'',displaySizeUnit:'MB','ev:ondone':'scwin.mpd_multiFileUpload_ondone','ev:onprogress':'scwin.mpd_multiFileUpload_onprogress',id:'mpd_multiFileUpload',maxsize:'1000000000',mode:'html5_transparent',selectCallback:'scwin.selectCallback',style:'',uploadButton:'',wmode:'false'},E:[{T:1,N:'param',A:{name:'업로드',value:''}}]},{T:1,N:'w2:textbox',A:{class:'btn_cm row_del','ev:onclick':'scwin.btn_fileDelete_onclick',id:'btn_fileDelete',label:'삭제',style:''}}]},{T:1,N:'xf:group',A:{class:'fr mt10',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'ett',id:'',label:'파일 수 :',style:''}},{T:1,N:'w2:textbox',A:{class:'',id:'tbx_fileCount',label:'0개/ 10개',style:''}},{T:1,N:'w2:textbox',A:{class:'ett',id:'',label:'총 용량 :',style:''}},{T:1,N:'w2:textbox',A:{class:'',id:'tbx_fileSize',label:'0MB / 200MB',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',autoFitMinWidth:'200',checkReadOnlyOnPasteEnable:'',class:'wq_gvw multi_file',dataList:'data:dlt_file',defaultCellHeight:'26',focusMode:'row',id:'grd_file',rowStatusHeaderValue:'상태',rowStatusVisible:'false',rowStatusWidth:'50',scrollByColumn:'false',scrollByColumnAdaptive:'false',sortable:'true',style:'height:150px;',visibleRowNum:'10',wheelRows:'0'},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column10',inputType:'checkbox',style:'',value:'',width:'40'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column7',inputType:'text',removeBorderStyle:'false',value:'원본파일명',width:'300'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column6',inputType:'text',removeBorderStyle:'false',value:'파일크기',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column12',inputType:'text',style:'',value:'파일전송결과',width:'100'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column5',inputType:'text',removeBorderStyle:'false',value:'파일업로드일자',width:'150'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{defaultValue:'N',displayMode:'label',falseValue:'N',id:'chk',inputType:'checkbox',style:'',trueValue:'Y',value:'',valueType:'other',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',customFormatter:'scwin.customFormatterFileNm',displayMode:'label',id:'ORIGIN_FILE_NM',inputType:'text',readOnly:'true',removeBorderStyle:'false',textAlign:'left',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayFormatter:'scwin.displayFileSize',displayMode:'label',id:'FILE_SIZE',inputType:'text',readOnly:'true',removeBorderStyle:'false',textAlign:'right',width:'70'}},{T:1,N:'w2:column',A:{displayFormatter:'scwin.setDisplayStatus',displayMode:'label',hidden:'true',id:'status',inputType:'text',readOnly:'true',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'FILE_UPLOAD_DATE',inputType:'text',readOnly:'true',removeBorderStyle:'false',width:'70'}}]}]}]}]}]}]}]}]})
+scwin.grd_file_oncelldblclick = function(row,col,colId) {
+
+    if(colId == "FILE_UPLOAD_DATE") {
+        var fileSeq = dlt_file.getCellData(row, "FILE_SEQ");
+        scwin.fileDownload(fileSeq);
+    }
+
+};
+
+}}}]}]},{T:1,N:'body',A:{'ev:onpageload':'scwin.onpageload'},E:[{T:1,N:'xf:group',A:{style:'',id:''},E:[{T:1,N:'xf:group',A:{class:'dfbox',id:'',style:''},E:[{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'fl',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'btn_cm row_add',for:'mpd_multiFileUpload',id:'btn_fileSelecting',label:'추가',style:''}},{T:1,N:'w2:multiupload',A:{class:'',displaySizeUnit:'MB','ev:ondone':'scwin.mpd_multiFileUpload_ondone','ev:onprogress':'scwin.mpd_multiFileUpload_onprogress',id:'mpd_multiFileUpload',maxsize:'1000000000',mode:'html5_transparent',selectCallback:'scwin.selectCallback',style:'',uploadButton:'',wmode:'false'},E:[{T:1,N:'param',A:{name:'업로드',value:''}}]},{T:1,N:'w2:textbox',A:{class:'btn_cm row_del','ev:onclick':'scwin.btn_fileDelete_onclick',id:'btn_fileDelete',label:'삭제',style:''}}]},{T:1,N:'xf:group',A:{class:'fr mt10',id:'',style:''},E:[{T:1,N:'w2:textbox',A:{class:'ett',id:'',label:'파일 수 :',style:''}},{T:1,N:'w2:textbox',A:{class:'',id:'tbx_fileCount',label:'0개/ 10개',style:''}},{T:1,N:'w2:textbox',A:{class:'ett',id:'',label:'총 용량 :',style:''}},{T:1,N:'w2:textbox',A:{class:'',id:'tbx_fileSize',label:'0MB / 200MB',style:''}}]}]},{T:1,N:'xf:group',A:{adaptiveThreshold:'',class:'gvwbox',id:'',style:''},E:[{T:1,N:'w2:gridView',A:{autoFit:'allColumn',autoFitMinWidth:'200',checkReadOnlyOnPasteEnable:'',class:'wq_gvw multi_file',dataList:'data:dlt_file',defaultCellHeight:'26',focusMode:'row',id:'grd_file',rowStatusHeaderValue:'상태',rowStatusVisible:'false',rowStatusWidth:'50',scrollByColumn:'false',scrollByColumnAdaptive:'false',sortable:'true',style:'height:150px;',visibleRowNum:'10',wheelRows:'0','ev:oncelldblclick':'scwin.grd_file_oncelldblclick'},E:[{T:1,N:'w2:caption',A:{id:'caption2',style:'',value:'this is a grid caption.'}},{T:1,N:'w2:header',A:{id:'header2',style:''},E:[{T:1,N:'w2:row',A:{id:'row3',style:''},E:[{T:1,N:'w2:column',A:{displayMode:'label',id:'column10',inputType:'checkbox',style:'',value:'',width:'40'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column7',inputType:'text',removeBorderStyle:'false',value:'원본파일명',width:'300'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column6',inputType:'text',removeBorderStyle:'false',value:'파일크기',width:'100'}},{T:1,N:'w2:column',A:{displayMode:'label',id:'column12',inputType:'text',style:'',value:'파일전송결과',width:'100'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'column5',inputType:'text',removeBorderStyle:'false',value:'파일업로드일자',width:'150'}}]}]},{T:1,N:'w2:gBody',A:{id:'gBody2',style:''},E:[{T:1,N:'w2:row',A:{id:'row4',style:''},E:[{T:1,N:'w2:column',A:{defaultValue:'N',displayMode:'label',falseValue:'N',id:'chk',inputType:'checkbox',style:'',trueValue:'Y',value:'',valueType:'other',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',customFormatter:'scwin.customFormatterFileNm',displayMode:'label',id:'ORIGIN_FILE_NM',inputType:'text',readOnly:'true',removeBorderStyle:'false',textAlign:'left',width:'70'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayFormatter:'scwin.displayFileSize',displayMode:'label',id:'FILE_SIZE',inputType:'text',readOnly:'true',removeBorderStyle:'false',textAlign:'right',width:'70'}},{T:1,N:'w2:column',A:{displayFormatter:'scwin.setDisplayStatus',displayMode:'label',hidden:'true',id:'status',inputType:'text',readOnly:'true',style:'',value:'',width:'100'}},{T:1,N:'w2:column',A:{blockSelect:'false',displayMode:'label',id:'FILE_UPLOAD_DATE',inputType:'text',readOnly:'true',removeBorderStyle:'false',width:'70'}}]}]}]}]},{T:1,N:'w2:iframe',A:{src:'',style:';display:none;',id:'iframe_fileDownload'}}]}]}]}]})

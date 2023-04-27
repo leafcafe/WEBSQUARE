@@ -151,7 +151,8 @@ public class FileController {
 		} catch (Exception ex) {
 			response.setContentType("text/html");
 			response.setCharacterEncoding("UTF-8");
-			response.getWriter().write("<html><head></head><body><div>파일이 존재하지 않습니다.</div></body></html>");
+			//response.getWriter().write("<html><head></head><body><div>파일이 존재하지 않습니다.</div></body></html>");
+			response.getWriter().write("<html><head></head><body><script>alert('파일이 존재하지 않습니다.');</script></body></html>");
 		}
 	}
 }
