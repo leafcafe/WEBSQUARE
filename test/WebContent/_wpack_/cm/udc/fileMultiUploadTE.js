@@ -1,5 +1,5 @@
-/*amd /cm/udc/fileMultiUploadTE.xml 19688 924b4fde9ad83d319ded094799fc84c6ead98e2e68e0f133de31bee552b511ee */
-define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',A:{palette:'support'},E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',id:'dlt_file',repeatNode:'map',saveRemovedData:'true','ev:ondataload':'scwin.dlt_file_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'',dataType:'text',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'FILE_SEQ',name:'파일번호',dataType:'number'}},{T:1,N:'w2:column',A:{id:'DATA_SEQ',name:'데이터번호',dataType:'number',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'FILE_GRP_SEQ',name:'파일그룹코드',dataType:'number'}},{T:1,N:'w2:column',A:{id:'FILE_STORED_PATH',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'STORED_FILE_NM',name:'저장파일명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ORIGIN_FILE_NM',name:'원본파일명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'FILE_SIZE',name:'파일크기',dataType:'number',length:''}},{T:1,N:'w2:column',A:{id:'FILE_UPLOAD_DATE',name:'파일업로드일자',dataType:'date'}},{T:1,N:'w2:column',A:{id:'IS_DELETE',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'status',name:'파일전송결과',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_searchCond'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'DATA_SEQ',name:'DATA_SEQ',dataType:'number'}},{T:1,N:'w2:key',A:{id:'IS_DELETE',name:'IS_DELETE',dataType:'text',defaultValue:'N'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_searchUploadList',ref:'data:json,{"id":"dma_searchCond","key":"dma_search"}',target:'data:json,{"id":"dlt_file","key":"dlt_file"}',action:'/file/selectFile',method:'post',mediatype:'application/json',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'scwin.sbm_searchUploadList_submitdone','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_saveUploadList',ref:'data:json,{"action":"all","id":"dlt_file","key":"dlt_file"}',target:'data:json,{"id":"dlt_file","key":"dlt_file"}',action:'/file/saveFile',method:'post',mediatype:'application/json',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:'scwin.searchUploadList'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){
+/*amd /cm/udc/fileMultiUploadTE.xml 19724 ab2ff28143c7ffee5033b429c5612e4a81cade4d37edbb450f2dd4c0a63500ab */
+define({declaration:{A:{version:'1.0',encoding:'UTF-8'}},E:[{T:1,N:'html',A:{xmlns:'http://www.w3.org/1999/xhtml','xmlns:ev':'http://www.w3.org/2001/xml-events','xmlns:w2':'http://www.inswave.com/websquare','xmlns:xf':'http://www.w3.org/2002/xforms'},E:[{T:1,N:'head',E:[{T:1,N:'w2:type',A:{palette:'support'},E:[{T:3,text:'COMPONENT'}]},{T:1,N:'w2:buildDate'},{T:1,N:'w2:MSA'},{T:1,N:'xf:model',E:[{T:1,N:'w2:dataCollection',A:{baseNode:'map'},E:[{T:1,N:'w2:dataList',A:{baseNode:'list',id:'dlt_file',repeatNode:'map',saveRemovedData:'true','ev:ondataload':'scwin.dlt_file_ondataload'},E:[{T:1,N:'w2:columnInfo',E:[{T:1,N:'w2:column',A:{id:'chk',name:'',dataType:'text',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'FILE_SEQ',name:'파일번호',dataType:'number'}},{T:1,N:'w2:column',A:{id:'DATA_SEQ',name:'데이터번호',dataType:'number',ignoreStatus:'true'}},{T:1,N:'w2:column',A:{id:'FILE_GRP_SEQ',name:'파일그룹코드',dataType:'number'}},{T:1,N:'w2:column',A:{id:'FILE_STORED_PATH',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'STORED_FILE_NM',name:'저장파일명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'ORIGIN_FILE_NM',name:'원본파일명',dataType:'text'}},{T:1,N:'w2:column',A:{id:'FILE_SIZE',name:'파일크기',dataType:'number',length:''}},{T:1,N:'w2:column',A:{id:'FILE_UPLOAD_DATE',name:'파일업로드일자',dataType:'date'}},{T:1,N:'w2:column',A:{id:'IS_DELETE',name:'',dataType:'text'}},{T:1,N:'w2:column',A:{id:'status',name:'파일전송결과',dataType:'text'}}]}]},{T:1,N:'w2:dataMap',A:{baseNode:'map',id:'dma_searchCond'},E:[{T:1,N:'w2:keyInfo',E:[{T:1,N:'w2:key',A:{id:'DATA_SEQ',name:'DATA_SEQ',dataType:'number'}},{T:1,N:'w2:key',A:{id:'IS_DELETE',name:'IS_DELETE',dataType:'text',defaultValue:'N'}}]}]}]},{T:1,N:'w2:workflowCollection'},{T:1,N:'xf:submission',A:{id:'sbm_searchUploadList',ref:'data:json,{"id":"dma_searchCond","key":"dma_search"}',target:'data:json,{"id":"dlt_file","key":"dlt_file"}',action:'/file/selectFile',method:'post',mediatype:'application/json',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}},{T:1,N:'xf:submission',A:{id:'sbm_saveUploadList',ref:'data:json,{"action":"all","id":"dlt_file","key":"dlt_file"}',target:'data:json,{"id":"dlt_file","key":"dlt_file"}',action:'/file/saveFile',method:'post',mediatype:'application/json',encoding:'UTF-8',instance:'',replace:'',errorHandler:'',customHandler:'',mode:'asynchronous',processMsg:'','ev:submit':'','ev:submitdone':'','ev:submiterror':'',abortTrigger:''}}]},{T:1,N:'w2:layoutInfo'},{T:1,N:'w2:publicInfo',A:{method:'scwin.searchUploadList'}},{T:1,N:'script',A:{lazy:'false',type:'text/javascript'},E:[{T:4,cdata:function(scopeObj){with(scopeObj){
 /**
  * @component
  * @company 
@@ -268,7 +268,7 @@ scwin.getCurrentFileInfo = function() {
 /**
  * 업로드할 파일 선택이 완료되면 호출되는 콜백 함수
  */
-scwin.selectCallback = function(data) {
+scwin.selectCallback = async function(data) {
 
     var isValid = true;
     var fileInfo = scwin.getCurrentFileInfo();
@@ -281,7 +281,7 @@ scwin.selectCallback = function(data) {
     for (var idx in data) {
         if (scwin.option.maxFileSize < data[idx].size) {
             var alertMsg = com.data.getMessage("MSG_CM_00007", data[idx].name, com.num.formatByte(scwin.option.maxFileSize));
-            com.win.alert(alertMsg);
+            await com.win.alert(alertMsg);
             mpd_multiFileUpload.removeFile(data[idx].name);
             delete data[idx];
         } else {
@@ -292,13 +292,13 @@ scwin.selectCallback = function(data) {
 
     if (scwin.option.maxFileCount < (fileInfo.fileCount + newFileInfo.fileCount)) {
         var alertMsg = com.data.getMessage("MSG_CM_00008", scwin.option.maxFileCount);
-        com.win.alert(alertMsg);
+        await com.win.alert(alertMsg);
         isValid = false;
     }
 
     if ((scwin.option.totalFileSize < (fileInfo.fileSize + newFileInfo.fileSize)) && (isValid === true)) {
         var alertMsg = com.data.getMessage("MSG_CM_00009", com.num.formatByte(scwin.option.totalFileSize));
-        com.win.alert(alertMsg);
+        await com.win.alert(alertMsg);
         isValid = false;
     }
 
@@ -366,7 +366,9 @@ scwin.searchUploadList = function(dataSeq) {
     scwin.DATA_SEQ      = dataSeq;
     dma_searchCond.set("DATA_SEQ", dataSeq);
     console.log(dma_searchCond.getJSON())
-    com.sbm.execute(sbm_searchUploadList);
+    com.sbm.execute(sbm_searchUploadList).then((rtn) => {
+        console.log(rtn);
+    });
 };
 
 scwin.dlt_file_ondataload = function() {

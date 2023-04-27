@@ -35,7 +35,7 @@
         	<xf:submission id="sbm_searchUploadList" ref='data:json,{"id":"dma_searchCond","key":"dma_search"}'
         		target='data:json,{"id":"dlt_file","key":"dlt_file"}' action="/file/selectFile" method="post" mediatype="application/json"
         		encoding="UTF-8" instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit=""
-        		ev:submitdone="scwin.sbm_searchUploadList_submitdone" ev:submiterror="" abortTrigger="">
+        		ev:submitdone="" ev:submiterror="" abortTrigger="">
         	</xf:submission>
         	<xf:submission id="sbm_saveUploadList" ref='data:json,{"action":"all","id":"dlt_file","key":"dlt_file"}' target='data:json,{"id":"dlt_file","key":"dlt_file"}' action="/file/saveFile" method="post" mediatype="application/json" encoding="UTF-8"
         		instance="" replace="" errorHandler="" customHandler="" mode="asynchronous" processMsg="" ev:submit="" ev:submitdone=""
@@ -313,7 +313,7 @@ scwin.getCurrentFileInfo = function() {
 /**
  * 업로드할 파일 선택이 완료되면 호출되는 콜백 함수
  */
-scwin.selectCallback = function(data) {
+scwin.selectCallback = async function(data) {
 
     var isValid = true;
     var fileInfo = scwin.getCurrentFileInfo();
@@ -326,7 +326,7 @@ scwin.selectCallback = function(data) {
     for (var idx in data) {
         if (scwin.option.maxFileSize < data[idx].size) {
             var alertMsg = com.data.getMessage("MSG_CM_00007", data[idx].name, com.num.formatByte(scwin.option.maxFileSize));
-            com.win.alert(alertMsg);
+            await com.win.alert(alertMsg);
             mpd_multiFileUpload.removeFile(data[idx].name);
             delete data[idx];
         } else {
@@ -337,13 +337,13 @@ scwin.selectCallback = function(data) {
 
     if (scwin.option.maxFileCount < (fileInfo.fileCount + newFileInfo.fileCount)) {
         var alertMsg = com.data.getMessage("MSG_CM_00008", scwin.option.maxFileCount);
-        com.win.alert(alertMsg);
+        await com.win.alert(alertMsg);
         isValid = false;
     }
 
     if ((scwin.option.totalFileSize < (fileInfo.fileSize + newFileInfo.fileSize)) && (isValid === true)) {
         var alertMsg = com.data.getMessage("MSG_CM_00009", com.num.formatByte(scwin.option.totalFileSize));
-        com.win.alert(alertMsg);
+        await com.win.alert(alertMsg);
         isValid = false;
     }
 
@@ -411,7 +411,9 @@ scwin.searchUploadList = function(dataSeq) {
     scwin.DATA_SEQ      = dataSeq;
     dma_searchCond.set("DATA_SEQ", dataSeq);
     console.log(dma_searchCond.getJSON())
-    com.sbm.execute(sbm_searchUploadList);
+    com.sbm.execute(sbm_searchUploadList).then((rtn) => {
+        console.log(rtn);
+    });
 };
 
 scwin.dlt_file_ondataload = function() {
